@@ -23,17 +23,15 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed;
     }
 
     th, td {
-      padding: 6px 8px;
+      padding: 4px 6px;      /* tighter padding for less height */
       vertical-align: middle;
-    }
-
-    th:first-child {
-      text-align: center;
-      width: 30px; /* fix width for logos */
-      padding: 6px 4px;
+      white-space: nowrap;   /* prevent wrapping for neatness */
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     th:nth-child(2) {
@@ -60,21 +58,12 @@
     tr:hover {
       background-color: rgba(255, 255, 255, 0.05);
     }
-
-    .team-logo {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-    }
   </style>
 </head>
 <body>
   <table id="leagueTable">
     <thead>
       <tr>
-        <th></th> <!-- empty header for logos -->
         <th>Team</th>
         <th>Played</th>
         <th>Points</th>
@@ -108,14 +97,12 @@
         tbody.innerHTML = '';
 
         standings.slice(0, 6).forEach(team => {
-          const logo = team.team.logo || '';
           const name = team.team.name || '';
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
 
           tbody.innerHTML += `
             <tr>
-              <td><img src="${logo}" alt="${name} Logo" class="team-logo" /></td>
               <td>${name}</td>
               <td>${played}</td>
               <td>${points}</td>
