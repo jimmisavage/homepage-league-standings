@@ -44,8 +44,7 @@
         const tbody = document.querySelector("#leagueTable tbody");
         tbody.innerHTML = '';
 
-        standings.slice(0,6).forEach(team => {
-          console.log(`${team.team.name} played: ${team.all.played}`);
+        standings.slice(0, 6).forEach(team => {
           tbody.innerHTML += `
             <tr>
               <td><img src="${team.team.logo}" alt="${team.team.name} logo" />${team.team.name}</td>
