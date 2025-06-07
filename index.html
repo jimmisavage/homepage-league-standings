@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>League One Top 6</title>
   <style>
     body { background: #1e1e2f; color: #fff; font-family: sans-serif; padding: 10px; margin: 0; }
     h2 { margin-top: 0; font-size: 20px; }
     table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 5px; text-align: left; }
+    th, td { padding: 5px; text-align: left; vertical-align: middle; }
     th { background-color: #2c2c3c; }
     tr:nth-child(even) { background-color: #2a2a2a; }
+    img { width: 24px; height: 24px; margin-right: 8px; vertical-align: middle; }
   </style>
 </head>
 <body>
   <h2>League One – Top 6</h2>
   <table id="leagueTable">
     <thead>
-      <tr><th>Pos</th><th>Team</th><th>Pts</th></tr>
+      <tr><th>Team</th><th>Points</th></tr>
     </thead>
     <tbody></tbody>
   </table>
 
-<script>
-  async function getTable() {
-    try {
-      const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
-      const data = await res.json();
-      const table = data.table?.slice(0, 6) || [];
-      const tbody = document.querySelector("#leagueTable tbody");
+  <script>
+    async function getTable() {
+      try {
+        const res = await fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=41', {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': 'f93f3b08b6mshac9a5e852e5d3f7p18f9eajsn46caa4ef5308',
+            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+          }
+        });
 
-      tbody.innerHTML = ""; // clear any existing rows before adding new ones
+        if (!res.ok) throw new Error(`API error: ${res.status} ${res.statusText}`);
 
-      table.forEach(team => {
-        tbody.innerHTML += `
-          <tr>
-            <td>${team.intRank}</td>
-            <td>${team.strTeam}</td>
-            <td>${team.intPoints}</td>
-          </tr>
-        `;
-      });
-    } catch (err) {
-      document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
-      console.error(err);
+        const data = await res.json();
+        const standings = data.response[0].league.standings[0];
+        const tbody = document.querySelector("#leagueTable tbody");
+        tbody.innerHTML = '';
+
+        standings.slice(0, 6).forEach(team => {
+          tbody.innerHTML += `
+            <tr>
+              <td><img src="${team.team.logo}" alt="${team.team.name} logo" />${team.team.name}</td>
+              <td>${team.points}</td>
+            </tr>
+          `;
+        });
+      } catch (err) {
+        document.querySelector("body").innerHTML += `<p>⚠️ Failed to load table: ${err.message}</p>`;
+        console.error(err);
+      }
     }
-  }
-  getTable();
-</script>
+
+    getTable();
+  </script>
+</body>
+</html>
