@@ -1,90 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>League One Top Teams</title>
+  <meta charset="UTF-8">
+  <title>League One Top 6</title>
   <style>
-    body {
-      background: #1e1e2f;
-      color: #fff;
-      font-family: sans-serif;
-      padding: 10px;
-      margin: 0;
-    }
-    h2 {
-      margin-top: 0;
-      font-size: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 5px;
-      text-align: left;
-      border-bottom: 1px solid #444;
-    }
-    th {
-      background-color: #2c2c3c;
-    }
-    tr:nth-child(even) {
-      background-color: #2a2a2a;
-    }
-    tr:hover {
-      background-color: #333344;
-    }
+    body { background: #1e1e2f; color: #fff; font-family: sans-serif; padding: 10px; margin: 0; }
+    h2 { margin-top: 0; font-size: 20px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 5px; text-align: left; }
+    th { background-color: #2c2c3c; }
+    tr:nth-child(even) { background-color: #2a2a2a; }
   </style>
 </head>
 <body>
-  <h2>League One – Top Teams</h2>
+  <h2>League One – Top 6</h2>
   <table id="leagueTable">
     <thead>
-      <tr><th>Team</th><th>Played</th><th>Points</th></tr>
+      <tr><th>Pos</th><th>Team</th><th>Pts</th></tr>
     </thead>
-    <tbody>
-      <tr><td colspan="3">Loading...</td></tr>
-    </tbody>
+    <tbody></tbody>
   </table>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      async function getTable() {
-        try {
-          const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
-          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-          const data = await res.json();
-          const table = Array.isArray(data.table) ? data.table : [];
-          const tbody = document.querySelector("#leagueTable tbody");
+    async function getTable() {
+      try {
+        const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
+        const data = await res.json();
+        const table = data.table?.slice(0, 6) || [];
+        const tbody = document.querySelector("#leagueTable tbody");
 
-          if (!tbody) {
-            console.error("Table body not found!");
-            return;
-          }
-
-          if (table.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="3">No data available.</td></tr>';
-            return;
-          }
-
-          tbody.innerHTML = "";
-
-          table.forEach(team => {
-            tbody.innerHTML += `<tr>
-              <td>${team.strTeam}</td>
-              <td>${team.intPlayed}</td>
-              <td>${team.intPoints}</td>
-            </tr>`;
-          });
-        } catch (err) {
-          const tbody = document.querySelector("#leagueTable tbody");
-          if (tbody) tbody.innerHTML = '<tr><td colspan="3">⚠️ Failed to load table.</td></tr>';
-          console.error('Fetch error:', err);
-        }
+        table.forEach(team => {
+          tbody.innerHTML += <tr>
+            <td>${team.intRank}</td>
+            <td>${team.strTeam}</td>
+            <td>${team.intPoints}</td>
+          </tr>;
+        });
+      } catch (err) {
+        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
+        console.error(err);
       }
-
-      getTable();
-      setInterval(getTable, 15 * 60 * 1000);
-    });
+    }
+    getTable();
   </script>
 </body>
 </html>
