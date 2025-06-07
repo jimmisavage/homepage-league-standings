@@ -31,15 +31,17 @@
     }
 
     th:first-child {
+      text-align: center;
+      width: 30px; /* fix width for logos */
+      padding: 6px 4px;
+    }
+
+    th:nth-child(2) {
       text-align: left;
     }
 
-    th:nth-child(n+2) {
-      text-align: center;
-    }
-
-    td:nth-child(2),
-    td:nth-child(3) {
+    th:nth-child(3), th:nth-child(4),
+    td:nth-child(3), td:nth-child(4) {
       text-align: center;
     }
 
@@ -59,23 +61,24 @@
       background-color: rgba(255, 255, 255, 0.05);
     }
 
-    .team-cell {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
     .team-logo {
       width: 18px;
       height: 18px;
       object-fit: contain;
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
   <table id="leagueTable">
     <thead>
-      <tr><th>Team</th><th>Played</th><th>Points</th></tr>
+      <tr>
+        <th></th> <!-- empty header for logos -->
+        <th>Team</th>
+        <th>Played</th>
+        <th>Points</th>
+      </tr>
     </thead>
     <tbody></tbody>
   </table>
@@ -112,12 +115,8 @@
 
           tbody.innerHTML += `
             <tr>
-              <td>
-                <div class="team-cell">
-                  <img src="${logo}" alt="${name} Logo" class="team-logo" />
-                  ${name}
-                </div>
-              </td>
+              <td><img src="${logo}" alt="${name} Logo" class="team-logo" /></td>
+              <td>${name}</td>
               <td>${played}</td>
               <td>${points}</td>
             </tr>
