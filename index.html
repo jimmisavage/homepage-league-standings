@@ -43,12 +43,18 @@
   <h2>League One – Top 6</h2>
   <table id="leagueTable">
     <thead>
-      <tr><th>Pos</th><th>Team</th><th>Pld</th><th>Pts</th></tr>
+      <tr><th>Team</th><th>Pld</th><th>Pts</th></tr>
     </thead>
     <tbody></tbody>
   </table>
 
   <script>
+    async function getTeamBadge(teamId) {
+      const res = await fetch(`https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id=${teamId}`);
+      const data = await res.json();
+      return data.teams?.[0]?.strTeamBadge || '';
+    }
+
     async function getTable() {
       try {
         const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
@@ -58,8 +64,8 @@
 
         tbody.innerHTML = "";
 
-        table.forEach(team => {
-          const logo = team.strTeamBadge || '';
+        for (const team of table) {
+          const logo = await getTeamBadge(team.idTeam);
           const badgeImg = logo
             ? `<img class="team-badge" src="${logo}" alt="${team.strTeam} logo">`
             : '';
@@ -70,9 +76,9 @@
             <td>${team.intPlayed}</td>
             <td>${team.intPoints}</td>
           </tr>`;
-        });
+        }
       } catch (err) {
-        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
+        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table or team logos.</p>";
         console.error(err);
       }
     }
