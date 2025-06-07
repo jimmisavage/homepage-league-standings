@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>League One Top 6</title>
   <style>
     body {
@@ -32,15 +32,10 @@
     tr:hover {
       background-color: #333344;
     }
-    img.team-badge {
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
   </style>
 </head>
 <body>
-  <h2>League One – Top 6</h2>
+  <h2>League One – Top Teams</h2>
   <table id="leagueTable">
     <thead>
       <tr><th>Team</th><th>Pld</th><th>Pts</th></tr>
@@ -49,42 +44,30 @@
   </table>
 
   <script>
-    async function getTeamBadge(teamId) {
-      const res = await fetch(`https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id=${teamId}`);
-      const data = await res.json();
-      return data.teams?.[0]?.strTeamBadge || '';
-    }
-
     async function getTable() {
       try {
         const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
         const data = await res.json();
-        const table = (data.table || []).filter(team => team.strTeam).slice(0, 6);
+        const table = (data.table || []).slice(0, 6);  // take top 6 or fewer if API gives less
         const tbody = document.querySelector("#leagueTable tbody");
 
         tbody.innerHTML = "";
 
-        for (const team of table) {
-          const logo = await getTeamBadge(team.idTeam);
-          const badgeImg = logo
-            ? `<img class="team-badge" src="${logo}" alt="${team.strTeam} logo">`
-            : '';
-
+        table.forEach(team => {
           tbody.innerHTML += `<tr>
-            <td>${team.intRank}</td>
-            <td>${badgeImg}${team.strTeam}</td>
+            <td>${team.strTeam}</td>
             <td>${team.intPlayed}</td>
             <td>${team.intPoints}</td>
           </tr>`;
-        }
+        });
       } catch (err) {
-        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table or team logos.</p>";
+        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
         console.error(err);
       }
     }
 
     getTable();
-    setInterval(getTable, 15 * 60 * 1000); // Refresh every 15 minutes
+    setInterval(getTable, 15 * 60 * 1000); // refresh every 15 minutes
   </script>
 </body>
 </html>
