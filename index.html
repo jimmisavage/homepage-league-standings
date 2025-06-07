@@ -53,16 +53,20 @@
       try {
         const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
         const data = await res.json();
-        const table = (data.table || []).filter(team => team.strTeam).slice(0, 6);
+        const table = (data.table || []).filter(team => team.strTeam).slice(0, 7);
         const tbody = document.querySelector("#leagueTable tbody");
 
-        // Clear table first
         tbody.innerHTML = "";
 
         table.forEach(team => {
+          const logo = team.strTeamBadge || '';
+          const badgeImg = logo
+            ? `<img class="team-badge" src="${logo}" alt="${team.strTeam} logo">`
+            : '';
+
           tbody.innerHTML += `<tr>
             <td>${team.intRank}</td>
-            <td><img class="team-badge" src="${team.strTeamBadge}" alt="${team.strTeam} logo"> ${team.strTeam}</td>
+            <td>${badgeImg}${team.strTeam}</td>
             <td>${team.intPlayed}</td>
             <td>${team.intPoints}</td>
           </tr>`;
@@ -74,7 +78,7 @@
     }
 
     getTable();
-    setInterval(getTable, 15 * 60 * 1000); // Auto-refresh every 15 minutes
+    setInterval(getTable, 15 * 60 * 1000); // Refresh every 15 minutes
   </script>
 </body>
 </html>
