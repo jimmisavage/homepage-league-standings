@@ -11,13 +11,24 @@
     th { background-color: #2c2c3c; }
     tr:nth-child(even) { background-color: #2a2a2a; }
     img { width: 24px; height: 24px; margin-right: 8px; vertical-align: middle; }
+    .icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+      vertical-align: middle;
+      filter: invert(100%) brightness(1.2);
+    }
   </style>
 </head>
 <body>
   <h2>League One – Top 6</h2>
   <table id="leagueTable">
     <thead>
-      <tr><th>Team</th><th>Points</th></tr>
+      <tr>
+        <th>Team</th>
+        <th><img src="https://cdn-icons-png.flaticon.com/512/189/189665.png" alt="Matches Played" class="icon" title="Played" /></th>
+        <th><img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Points" class="icon" title="Points" /></th>
+      </tr>
     </thead>
     <tbody></tbody>
   </table>
@@ -40,10 +51,11 @@
         const tbody = document.querySelector("#leagueTable tbody");
         tbody.innerHTML = '';
 
-        standings.slice(0, 6).forEach(team => {
+        standings.slice(0,6).forEach(team => {
           tbody.innerHTML += `
             <tr>
               <td><img src="${team.team.logo}" alt="${team.team.name} logo" />${team.team.name}</td>
+              <td>${team.all.played}</td>
               <td>${team.points}</td>
             </tr>
           `;
