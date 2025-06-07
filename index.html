@@ -21,27 +21,29 @@
     <tbody></tbody>
   </table>
 
-  <script>
-    async function getTable() {
-      try {
-        const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
-        const data = await res.json();
-        const table = data.table?.slice(0, 6) || [];
-        const tbody = document.querySelector("#leagueTable tbody");
+<script>
+  async function getTable() {
+    try {
+      const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
+      const data = await res.json();
+      const table = data.table?.slice(0, 6) || [];
+      const tbody = document.querySelector("#leagueTable tbody");
 
-        table.forEach(team => {
-          tbody.innerHTML += <tr>
+      tbody.innerHTML = ""; // clear any existing rows before adding new ones
+
+      table.forEach(team => {
+        tbody.innerHTML += `
+          <tr>
             <td>${team.intRank}</td>
             <td>${team.strTeam}</td>
             <td>${team.intPoints}</td>
-          </tr>;
-        });
-      } catch (err) {
-        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
-        console.error(err);
-      }
+          </tr>
+        `;
+      });
+    } catch (err) {
+      document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
+      console.error(err);
     }
-    getTable();
-  </script>
-</body>
-</html>
+  }
+  getTable();
+</script>
