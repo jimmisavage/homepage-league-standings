@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>League One Top 6</title>
+  <title>League One Top Teams</title>
   <style>
     body {
       background: #1e1e2f;
@@ -22,6 +22,7 @@
     th, td {
       padding: 5px;
       text-align: left;
+      border-bottom: 1px solid #444;
     }
     th {
       background-color: #2c2c3c;
@@ -38,18 +39,26 @@
   <h2>League One – Top Teams</h2>
   <table id="leagueTable">
     <thead>
-      <tr><th>Team</th><th>Pld</th><th>Pts</th></tr>
+      <tr><th>Team</th><th>Played</th><th>Points</th></tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr><td colspan="3">Loading...</td></tr>
+    </tbody>
   </table>
 
   <script>
     async function getTable() {
       try {
         const res = await fetch('https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=4397&s=2024-2025');
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
-        const table = (data.table || []).slice(0, 6);  // take top 6 or fewer if API gives less
+        const table = (data.table || []).slice(0, 6);
         const tbody = document.querySelector("#leagueTable tbody");
+
+        if (table.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="3">No data available.</td></tr>';
+          return;
+        }
 
         tbody.innerHTML = "";
 
@@ -61,13 +70,14 @@
           </tr>`;
         });
       } catch (err) {
-        document.querySelector("body").innerHTML += "<p>⚠️ Failed to load table.</p>";
-        console.error(err);
+        const tbody = document.querySelector("#leagueTable tbody");
+        tbody.innerHTML = '<tr><td colspan="3">⚠️ Failed to load table.</td></tr>';
+        console.error('Fetch error:', err);
       }
     }
 
     getTable();
-    setInterval(getTable, 15 * 60 * 1000); // refresh every 15 minutes
+    setInterval(getTable, 15 * 60 * 1000);
   </script>
 </body>
 </html>
