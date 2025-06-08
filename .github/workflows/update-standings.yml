@@ -8,6 +8,9 @@ on:
     - cron: '*/15 12-23 * * 6,0'
     - cron: '0 0 * * *'
 
+permissions:
+  contents: write 
+
 jobs:
   update:
     runs-on: ubuntu-latest
