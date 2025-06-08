@@ -68,14 +68,19 @@ jobs:
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
             | jq . > data/standings.json
 
-      - name: Commit and Push if Changed
+      - name: Download league icon
+        run: |
+          curl -s -o league-icon.png "https://media.api-sports.io/football/leagues/${LEAGUE_ID}.png"
+
+      - name: Add and commit league icon
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/standings.json tmp/cardiff-response.json
+          mv league-icon.png league-icon.png
+          git add league-icon.png
           if git diff --cached --quiet; then
-            echo "🟢 No changes to commit."
+            echo "No changes in league icon."
           else
-            git commit -m "Update standings"
+            git commit -m "Update league icon for league ${LEAGUE_ID}"
             git push
           fi
