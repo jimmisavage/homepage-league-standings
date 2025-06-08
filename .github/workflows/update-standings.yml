@@ -3,12 +3,9 @@ name: Update League One Standings
 on:
   workflow_dispatch:
   schedule:
-    # Refresh every 15 minutes from 7:45 PM to 11:59 PM UTC Monday-Friday
     - cron: '45 19 * * 1-5'
     - cron: '*/15 20-23 * * 1-5'
-    # Refresh every 15 minutes from 12:00 PM to 11:59 PM UTC Saturday-Sunday
     - cron: '*/15 12-23 * * 6,0'
-    # Plus a single refresh at midnight UTC every day (just in case)
     - cron: '0 0 * * *'
 
 jobs:
@@ -20,18 +17,29 @@ jobs:
 
       - name: Fetch League One Standings
         run: |
-          curl -s --request GET \
+          mkdir -p data
+
+          response=$(curl -s --write-out "%{http_code}" --output tmp.json \
+            --request GET \
             --url 'https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=41' \
             --header 'X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}' \
-            --header 'X-RapidAPI-Host: api-football-v1.p.rapidapi.com' \
-            | jq . > data/standings.json
+            --header 'X-RapidAPI-Host: api-football-v1.p.rapidapi.com')
 
-      - name: Commit and Push
+          if [ "$response" -ne 200 ]; then
+            echo "API call failed with HTTP code $response"
+            cat tmp.json
+            exit 1
+          fi
+
+          jq . tmp.json > data/standings.json
+
+      - name: Commit and Push if Changed
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add data/standings.json
-          if git diff --quiet; then
+
+          if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "Update standings"
