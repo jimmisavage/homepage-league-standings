@@ -61,10 +61,18 @@
     tr:hover {
       background-color: rgba(255, 255, 255, 0.05);
     }
+
+    .message {
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
-  <table id="leagueTable">
+  <div id="message" class="message" style="display: none;"></div>
+  <table id="leagueTable" style="display: none;">
     <thead>
       <tr>
         <th>Team</th>
@@ -79,19 +87,28 @@
     async function getTable() {
       try {
         const res = await fetch('./data/standings.json');
-        if (!res.ok) throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+        if (!res.ok) throw new Error(`API error: ${res.status} ${res.statusText}`);
 
         const data = await res.json();
         const league = data.response?.[0]?.league;
 
         if (!league || !league.standings) {
-          throw new Error("⚠️ 'league' or 'standings' not found in JSON file");
+          throw new Error("⚠️ 'league' or 'standings' not found in response");
         }
 
         const standings = league.standings[0];
-        const tbody = document.querySelector("#leagueTable tbody");
-        tbody.innerHTML = '';
 
+        const tbody = document.querySelector("#leagueTable tbody");
+        const table = document.getElementById("leagueTable");
+        const message = document.getElementById("message");
+
+        if (!standings || standings.length === 0) {
+          message.style.display = "block";
+          message.textContent = "🏖️ Summer break. See you next season!";
+          return;
+        }
+
+        tbody.innerHTML = '';
         standings.forEach(team => {
           const name = team.team.name || '';
           const played = team.all.played ?? '-';
@@ -105,6 +122,8 @@
             </tr>
           `;
         });
+
+        table.style.display = "table";
       } catch (err) {
         document.body.innerHTML += `<p>⚠️ Failed to load table: ${err.message}</p>`;
         console.error(err);
