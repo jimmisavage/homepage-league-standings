@@ -61,6 +61,23 @@
     tr:hover {
       background-color: rgba(255, 255, 255, 0.05);
     }
+    /* Hide scrollbar but keep scroll functionality - works for most browsers */
+
+    /* For Firefox */
+    body {
+      scrollbar-width: none; /* hides scrollbar */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+
+    /* For WebKit browsers (Chrome, Safari, Edge) */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Make sure body is scrollable */
+    body {
+      overflow-y: scroll; /* or auto */
+    }
   </style>
 </head>
 <body>
