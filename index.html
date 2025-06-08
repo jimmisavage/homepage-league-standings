@@ -79,20 +79,13 @@
     async function getTable() {
       try {
         const res = await fetch('./data/standings.json');
-          method: 'GET',
-          headers: {
-            'X-RapidAPI-Key': 'f93f3b08b6mshac9a5e852e5d3f7p18f9eajsn46caa4ef5308',
-            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-          }
-        });
-
-        if (!res.ok) throw new Error(`API error: ${res.status} ${res.statusText}`);
+        if (!res.ok) throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
 
         const data = await res.json();
         const league = data.response?.[0]?.league;
 
         if (!league || !league.standings) {
-          throw new Error("⚠️ 'league' or 'standings' not found in response");
+          throw new Error("⚠️ 'league' or 'standings' not found in JSON file");
         }
 
         const standings = league.standings[0];
