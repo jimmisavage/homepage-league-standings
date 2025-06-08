@@ -82,6 +82,7 @@ jobs:
           else
             git commit -m "Update league icon for league ${LEAGUE_ID}"
             git push
+          fi
     
       - name: Commit and Push if Changed
         run: |
