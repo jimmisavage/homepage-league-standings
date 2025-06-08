@@ -1,15 +1,15 @@
-name: Update League One Standings
+name: Update Cardiff City League Standings
 
 on:
   workflow_dispatch:
   schedule:
+    # Refresh every 15 minutes from 7:45 PM to 11:59 PM UTC Monday-Friday
     - cron: '45 19 * * 1-5'
     - cron: '*/15 20-23 * * 1-5'
+    # Refresh every 15 minutes from 12:00 PM to 11:59 PM UTC Saturday-Sunday
     - cron: '*/15 12-23 * * 6,0'
+    # Single refresh at midnight UTC every day
     - cron: '0 0 * * *'
-
-permissions:
-  contents: write 
 
 jobs:
   update:
@@ -18,27 +18,53 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Get current season year
+      - name: Determine current season dynamically
         id: season
         run: |
-          MONTH=$(date -u +"%m")
-          YEAR=$(date -u +"%Y")
-          if [ "$MONTH" -lt 6 ]; then
-            echo "SEASON=$((YEAR - 1))" >> $GITHUB_ENV
-          else
-            echo "SEASON=$YEAR" >> $GITHUB_ENV
-          fi
+          # Calculate season year based on date in UK timezone (UTC+1 or UTC+0)
+          current_date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          current_year=$(date -u +"%Y")
+          current_month=$(date -u +"%m")
 
-      - name: Fetch League One Standings
+          # Football seasons typically run July to May, so if before July, season is previous year
+          if [ "$current_month" -lt 7 ]; then
+            season_year=$((current_year - 1))
+          else
+            season_year=$current_year
+          fi
+          echo "SEASON=$season_year" >> $GITHUB_ENV
+          echo "Determined season year: $season_year"
+
+      - name: Get Cardiff City's league ID dynamically
+        id: league
         run: |
-          echo "Fetching standings for season $SEASON"
+          echo "Fetching Cardiff City league for season $SEASON"
+          response=$(curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/teams?id=43" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+          league_id=$(echo "$response" | jq --arg SEASON "$SEASON" -r '
+            .response[0].leagues | to_entries[] | select(.value.seasons | index(($SEASON | tonumber))) | .key
+          ')
+
+          if [ -z "$league_id" ]; then
+            echo "League ID not found for season $SEASON, defaulting to League One (41)"
+            league_id=41
+          fi
+          echo "LEAGUE_ID=$league_id" >> $GITHUB_ENV
+          echo "Found league ID: $league_id"
+
+      - name: Fetch League Standings
+        run: |
+          echo "Fetching standings for league $LEAGUE_ID season $SEASON"
           curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=$SEASON&league=41" \
+            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=$SEASON&league=$LEAGUE_ID" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
-            | jq . > data/standings.json
+            > data/standings.json
 
-      - name: Commit and Push if Updated
+      - name: Commit and Push if changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
@@ -46,6 +72,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update standings"
+            git commit -m "Update standings for season $SEASON league $LEAGUE_ID"
             git push
           fi
