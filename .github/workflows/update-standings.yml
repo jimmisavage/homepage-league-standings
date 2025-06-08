@@ -11,6 +11,9 @@ on:
     # Single refresh at midnight UTC every day (just in case)
     - cron: '0 0 * * *'
 
+permissions:
+  contents: write
+  
 jobs:
   update:
     runs-on: ubuntu-latest
