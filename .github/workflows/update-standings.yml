@@ -18,30 +18,31 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Fetch League One Standings
+      - name: Get current season year
+        id: season
         run: |
-          mkdir -p data
-
-          response=$(curl -s --write-out "%{http_code}" --output tmp.json \
-            --request GET \
-            --url 'https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=41' \
-            --header 'X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}' \
-            --header 'X-RapidAPI-Host: api-football-v1.p.rapidapi.com')
-
-          if [ "$response" -ne 200 ]; then
-            echo "API call failed with HTTP code $response"
-            cat tmp.json
-            exit 1
+          MONTH=$(date -u +"%m")
+          YEAR=$(date -u +"%Y")
+          if [ "$MONTH" -lt 6 ]; then
+            echo "SEASON=$((YEAR - 1))" >> $GITHUB_ENV
+          else
+            echo "SEASON=$YEAR" >> $GITHUB_ENV
           fi
 
-          jq . tmp.json > data/standings.json
+      - name: Fetch League One Standings
+        run: |
+          echo "Fetching standings for season $SEASON"
+          curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=$SEASON&league=41" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
+            | jq . > data/standings.json
 
-      - name: Commit and Push if Changed
+      - name: Commit and Push if Updated
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add data/standings.json
-
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
