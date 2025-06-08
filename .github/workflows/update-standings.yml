@@ -17,21 +17,51 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    env:
-      SEASON: ${{ github.event.inputs.season || '2024' }}  # fallback, optional input to override season
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch Standings for Cardiff City (team 43)
+      - name: Determine current season and Cardiff's league
+        id: season_league
         run: |
+          YEAR=$(date +%Y)
+          TEAM_ID=43
+
+          echo "🔍 Fetching league info for team ID $TEAM_ID in season $YEAR..."
+
+          # Get league ID Cardiff is in
+          LEAGUE_JSON=$(curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${YEAR}&team=${TEAM_ID}" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+          echo "$LEAGUE_JSON" > tmp_league.json
+
+          # Extract league ID
+          LEAGUE_ID=$(echo "$LEAGUE_JSON" | jq -r '.response[0].league.id')
+
+          if [ "$LEAGUE_ID" == "null" ]; then
+            echo "⚠️ Could not find league for Cardiff in season $YEAR."
+            echo "Skipping fetch."
+            echo "SKIP=true" >> $GITHUB_ENV
+          else
+            echo "SEASON=$YEAR" >> $GITHUB_ENV
+            echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
+          fi
+
+      - name: Fetch full league standings
+        if: env.SKIP != 'true'
+        run: |
+          echo "📊 Fetching standings for league ID $LEAGUE_ID, season $SEASON..."
+
           curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=$SEASON&team=43" \
+            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
-            > data/standings.json
+            | jq . > data/standings.json
 
-      - name: Commit and Push if changed
+      - name: Commit and push if changes exist
+        if: env.SKIP != 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
@@ -39,6 +69,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update Cardiff City standings for season $SEASON"
+            git commit -m "Update standings (Cardiff - League ID $LEAGUE_ID)"
             git push
-          fi
