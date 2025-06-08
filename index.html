@@ -78,7 +78,7 @@
   <script>
     async function getTable() {
       try {
-        const res = await fetch('https://api-football-v1.p.rapidapi.com/v3/standings?season=2024&league=41', {
+        const res = await fetch('./data/standings.json');
           method: 'GET',
           headers: {
             'X-RapidAPI-Key': 'f93f3b08b6mshac9a5e852e5d3f7p18f9eajsn46caa4ef5308',
