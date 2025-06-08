@@ -18,38 +18,40 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Get current season and Cardiff's league
+      - name: Get Cardiff's league for current season
         id: get_league
         run: |
           SEASON=$(date +%Y)
           TEAM_ID=43
 
-          echo "Fetching Cardiff's league for season $SEASON..."
+          echo "📡 Fetching standings for Cardiff City (team ID $TEAM_ID) in season $SEASON"
 
           response=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&team=${TEAM_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-          echo "$response" > tmp_cardiff.json
+          echo "$response" | jq . > tmp/cardiff-response.json
 
-          LEAGUE_ID=$(jq -r '.response[0].league.id' <<< "$response")
+          LEAGUE_ID=$(echo "$response" | jq -r '.response[0].league.id')
+          LEAGUE_NAME=$(echo "$response" | jq -r '.response[0].league.name')
 
-          if [[ "$LEAGUE_ID" == "null" || -z "$LEAGUE_ID" ]]; then
-            echo "⚠️ Could not determine league ID. Skipping."
-            echo "SKIP=true" >> $GITHUB_ENV
-          else
-            echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
-            echo "SEASON=$SEASON" >> $GITHUB_ENV
+          if [ "$LEAGUE_ID" = "null" ] || [ -z "$LEAGUE_ID" ]; then
+            echo "❌ Failed to get league ID from API response."
+            echo "$response"
+            exit 1
           fi
 
-      - name: Fetch standings for Cardiff's league
-        if: env.SKIP != 'true'
+          echo "✅ Cardiff are in '$LEAGUE_NAME' (League ID: $LEAGUE_ID)"
+          echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
+          echo "SEASON=$SEASON" >> $GITHUB_ENV
+
+      - name: Fetch league standings
         run: |
-          echo "Fetching standings for league ID $LEAGUE_ID in season $SEASON..."
+          echo "📊 Fetching full standings for league ID $LEAGUE_ID in $SEASON..."
 
           curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
@@ -57,14 +59,13 @@ jobs:
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
             | jq . > data/standings.json
 
-      - name: Commit and push if changes exist
-        if: env.SKIP != 'true'
+      - name: Commit and push if data changed
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add data/standings.json
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "🟡 No changes to commit"
           else
-            git commit -m "Update standings (Cardiff league: $LEAGUE_ID)"
+            git commit -m "🔁 Update standings (Cardiff league $LEAGUE_ID)"
             git push
