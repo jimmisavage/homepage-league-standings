@@ -2,20 +2,21 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
   <title>League One Table</title>
   <style>
     :root {
       --text-color: #e5e5e5;
       --alt-bg: transparent;
       --header-bg: transparent;
-      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --font-family: 'Manrope', 'Manrope-Fallback', Arial, sans-serif;
     }
 
     body {
       background: transparent;
       color: var(--text-color);
       font-family: var(--font-family);
-      font-size: 13px;
+      font-size: 0.75rem;
       margin: 0;
       padding: 4px;
     }
@@ -98,7 +99,7 @@
         const tbody = document.querySelector("#leagueTable tbody");
         tbody.innerHTML = '';
 
-        standings.slice(0, 6).forEach(team => {
+        standings.forEach(team => {
           const name = team.team.name || '';
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
