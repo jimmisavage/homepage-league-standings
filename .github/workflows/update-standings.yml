@@ -17,9 +17,13 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+
+      - name: Create tmp directory
+        run: mkdir -p tmp
 
       - name: Get Cardiff's league for current season
         id: get_league
@@ -27,7 +31,7 @@ jobs:
           SEASON=$(date +%Y)
           TEAM_ID=43
 
-          echo "📡 Fetching standings for Cardiff City (team ID $TEAM_ID) in season $SEASON"
+          echo "Fetching standings for Cardiff (team $TEAM_ID, season $SEASON)..."
 
           response=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&team=${TEAM_ID}" \
@@ -40,18 +44,18 @@ jobs:
           LEAGUE_NAME=$(echo "$response" | jq -r '.response[0].league.name')
 
           if [ "$LEAGUE_ID" = "null" ] || [ -z "$LEAGUE_ID" ]; then
-            echo "❌ Failed to get league ID from API response."
-            echo "$response"
+            echo "❌ Could not determine league ID. Exiting."
+            cat tmp/cardiff-response.json
             exit 1
           fi
 
-          echo "✅ Cardiff are in '$LEAGUE_NAME' (League ID: $LEAGUE_ID)"
+          echo "✅ Cardiff are in $LEAGUE_NAME (League ID $LEAGUE_ID) for $SEASON"
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch league standings
+      - name: Fetch full standings for Cardiff's current league
         run: |
-          echo "📊 Fetching full standings for league ID $LEAGUE_ID in $SEASON..."
+          echo "Fetching full standings for league $LEAGUE_ID in $SEASON..."
 
           curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
@@ -59,7 +63,7 @@ jobs:
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
             | jq . > data/standings.json
 
-      - name: Commit and push if data changed
+      - name: Commit and push if standings updated
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
@@ -67,5 +71,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "🟡 No changes to commit"
           else
-            git commit -m "🔁 Update standings (Cardiff league $LEAGUE_ID)"
+            git commit -m "🔁 Update standings from league $LEAGUE_ID"
             git push
