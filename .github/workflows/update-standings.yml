@@ -3,12 +3,9 @@ name: Update Cardiff Standings
 on:
   workflow_dispatch:
   schedule:
-    # Refresh every 15 minutes from 7:45 PM to 11:59 PM UTC Monday-Friday
     - cron: '45 19 * * 1-5'
     - cron: '*/15 20-23 * * 1-5'
-    # Refresh every 15 minutes from 12:00 PM to 11:59 PM UTC Saturday-Sunday
     - cron: '*/15 12-23 * * 6,0'
-    # Single refresh at midnight UTC every day (just in case)
     - cron: '0 0 * * *'
 
 permissions:
@@ -28,7 +25,6 @@ jobs:
           MONTH=$(date +%m)
           YEAR=$(date +%Y)
 
-          # If it's before August, use last season's data
           if [ "$MONTH" -lt 8 ]; then
             SEASON=$((YEAR - 1))
           else
@@ -36,7 +32,6 @@ jobs:
           fi
 
           echo "📅 Using season: $SEASON"
-
           mkdir -p tmp
 
           response=$(curl -s --request GET \
@@ -59,14 +54,22 @@ jobs:
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch League Standings
+      - name: Fetch and Flag Cardiff in League Standings
         run: |
-          echo "📥 Fetching standings for League ID $LEAGUE_ID, Season $SEASON"
+          echo "📥 Fetching and flagging standings..."
           curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
-            | jq . > data/standings.json
+            | jq '
+              .response[0].league.standings[0] |= map(
+                if .team.id == 43 then
+                  . + {highlight: true}
+                else
+                  .
+                end
+              )
+            ' > data/standings.json
 
       - name: Download league icon
         run: |
@@ -83,15 +86,15 @@ jobs:
             git commit -m "Update league icon for league ${LEAGUE_ID}"
             git push
           fi
-    
+
       - name: Commit and Push if Changed
         run: |
-            git config user.name "github-actions"
-            git config user.email "github-actions@users.noreply.github.com"
-            git add data/standings.json tmp/cardiff-response.json
-            if git diff --cached --quiet; then
-              echo "🟢 No changes to commit."
-            else
-              git commit -m "Update standings"
-              git push
-            fi
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add data/standings.json tmp/cardiff-response.json
+          if git diff --cached --quiet; then
+            echo "🟢 No changes to commit."
+          else
+            git commit -m "Update standings"
+            git push
+          fi
