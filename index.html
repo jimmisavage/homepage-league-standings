@@ -4,78 +4,78 @@
   <meta charset="UTF-8" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
   <title>Cardiff City Standings</title>
-<style>
-  :root {
-    --text-color: #e5e5e5;
-    --alt-bg: transparent;
-    --header-bg: transparent;
-    --font-family: 'Manrope', 'Manrope-Fallback', Arial, sans-serif;
-  }
-  
-  .cardiff {
-    color: #3A9BDC; /* or whatever shade of blue you fancy */
-    font-weight: 700;
-    background-color: rgba(58, 155, 220, 0.1); /* light blue tint */
-  }
+  <style>
+    :root {
+      --text-color: #e5e5e5;
+      --alt-bg: transparent;
+      --header-bg: transparent;
+      --font-family: 'Manrope', 'Manrope-Fallback', Arial, sans-serif;
+    }
 
-  body {
-    background: transparent;
-    color: var(--text-color);
-    font-family: var(--font-family);
-    font-size: 0.75rem;
-    margin: 0;
-    padding: 4px;
-    overflow-y: scroll; /* allow scroll */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE */
-  }
+    body {
+      background: transparent;
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: 0.75rem;
+      margin: 0;
+      padding: 4px;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE */
+    }
 
-  /* WebKit scrollbar hide */
-  body::-webkit-scrollbar {
-    display: none;
-  }
+    body::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    margin-top: 2px;
-  }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin-top: 2px;
+    }
 
-  th, td {
-    padding: 2px 4px;
-    vertical-align: middle;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.2;
-  }
+    th, td {
+      padding: 2px 4px;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+    }
 
-  th:nth-child(1), td:nth-child(1) {
-    text-align: left;
-  }
+    th:nth-child(1), td:nth-child(1) {
+      text-align: left;
+    }
 
-  th:nth-child(2), th:nth-child(3),
-  td:nth-child(2), td:nth-child(3) {
-    text-align: center;
-  }
+    th:nth-child(2), th:nth-child(3),
+    td:nth-child(2), td:nth-child(3) {
+      text-align: center;
+    }
 
-  th {
-    background-color: var(--header-bg);
-    color: var(--text-color);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 10px;
-  }
+    th {
+      background-color: var(--header-bg);
+      color: var(--text-color);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
 
-  tr:nth-child(even) {
-    background-color: var(--alt-bg);
-  }
+    tr:nth-child(even) {
+      background-color: var(--alt-bg);
+    }
 
-  tr:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-</style>
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Cardiff Highlight */
+    .cardiff-highlight {
+      background-color: #002B5C !important; /* Cardiff Blue */
+      color: #ffffff;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <table id="leagueTable">
@@ -99,7 +99,6 @@
         const league = data.response?.[0]?.league;
 
         if (!league || !league.standings) {
-          // Off-season or no standings? Show message instead of table.
           document.body.innerHTML = '<p style="color:#ccc; font-family: var(--font-family); padding: 1rem; text-align:center;">We\'ll see you in the new season!</p>';
           return;
         }
@@ -112,14 +111,19 @@
           const name = team.team.name || '';
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
+          const highlight = team.highlight ?? false;
 
-          tbody.innerHTML += `
-            <tr>
-              <td>${name}</td>
-              <td>${played}</td>
-              <td>${points}</td>
-            </tr>
+          const row = document.createElement('tr');
+          if (highlight) {
+            row.classList.add('cardiff-highlight');
+          }
+
+          row.innerHTML = `
+            <td>${name}</td>
+            <td>${played}</td>
+            <td>${points}</td>
           `;
+          tbody.appendChild(row);
         });
       } catch (err) {
         document.body.innerHTML = `<p style="color:#ff6666; padding: 1rem; text-align:center;">⚠️ Failed to load table: ${err.message}</p>`;
