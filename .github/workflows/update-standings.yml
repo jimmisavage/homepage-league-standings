@@ -1,6 +1,7 @@
 name: Update League One Standings
 
 on:
+  workflow_dispatch:
   schedule:
     # Refresh every 15 minutes from 7:45 PM to 11:59 PM UTC Monday-Friday
     - cron: '45 19 * * 1-5'
