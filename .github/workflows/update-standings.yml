@@ -2,8 +2,13 @@ name: Update League One Standings
 
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every hour
-  workflow_dispatch:     # Optional manual trigger
+    # Refresh every 15 minutes from 7:45 PM to 11:59 PM UTC Monday-Friday
+    - cron: '45 19 * * 1-5'
+    - cron: '*/15 20-23 * * 1-5'
+    # Refresh every 15 minutes from 12:00 PM to 11:59 PM UTC Saturday-Sunday
+    - cron: '*/15 12-23 * * 6,0'
+    # Plus a single refresh at midnight UTC every day (just in case)
+    - cron: '0 0 * * *'
 
 jobs:
   update:
@@ -25,5 +30,9 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add data/standings.json
-          git commit -m "Update standings"
-          git push
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update standings"
+            git push
+          fi
