@@ -3,10 +3,10 @@ name: Update Cardiff Standings
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 19 * * 1-5'
-    - cron: '*/15 20-23 * * 1-5'
-    - cron: '*/15 12-23 * * 6,0'
-    - cron: '0 0 * * *'
+ #   - cron: '45 19 * * 1-5'
+ #   - cron: '*/15 20-23 * * 1-5'
+ #   - cron: '*/15 12-23 * * 6,0'
+ #   - cron: '0 0 * * *'
 
 permissions:
   contents: write
