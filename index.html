@@ -82,41 +82,44 @@
       font-weight: bold;
     }
 
-    #team-popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #1e293b;
-      color: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      z-index: 9999;
-      display: none;
-      width: 90%;
-      max-width: 320px;
-    }
-
-    #team-popup img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-bottom: 0.75rem;
-      object-fit: cover;
-      background: white;
-    }
-
+    /* Popup styling */
     #popup-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 9998;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
       display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #popup {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    #popup img {
+      max-width: 80px;
+      margin-bottom: 10px;
+    }
+
+    #popup h3 {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    #popup p {
+      margin: 0.25rem 0;
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -134,12 +137,14 @@
     </table>
   </div>
 
-  <!-- Popup Overlay & Box -->
-  <div id="popup-overlay"></div>
-  <div id="team-popup">
-    <img id="popup-badge" src="" alt="Team badge" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Noun_Project_team_icon_1452173_cc.svg/240px-Noun_Project_team_icon_1452173_cc.svg.png'" />
-    <div id="popup-name" style="font-weight: bold; margin-bottom: 0.5rem;"></div>
-    <div id="popup-position" style="font-size: 0.75rem; color: #cbd5e1;"></div>
+  <!-- Fullscreen Popup -->
+  <div id="popup-overlay">
+    <div id="popup">
+      <img id="popup-badge" src="" alt="Team badge" />
+      <h3 id="popup-name">Team Name</h3>
+      <p id="popup-position">Position: </p>
+      <p><small>Click anywhere to close</small></p>
+    </div>
   </div>
 
   <script>
@@ -164,23 +169,55 @@
           const name = team.team.name || '';
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
+          const teamId = team.team.id;
+          const position = team.rank;
           const highlight = team.highlight ?? false;
 
           const row = document.createElement('tr');
-          if (highlight) row.classList.add('cardiff-highlight');
-
-          row.setAttribute('data-name', name);
-          row.setAttribute('data-position', team.rank);
-          row.setAttribute('data-badge', team.team.logo);
           row.classList.add('team-row');
+          row.setAttribute('data-id', teamId);
+          row.setAttribute('data-name', name);
+          row.setAttribute('data-position', position);
+
+          if (highlight) {
+            row.classList.add('cardiff-highlight');
+          }
 
           row.innerHTML = `
             <td>${name}</td>
             <td>${played}</td>
             <td>${points}</td>
           `;
+
           tbody.appendChild(row);
         });
+
+        // Add click popup
+        const rows = document.querySelectorAll('.team-row');
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('popup-overlay');
+        const badge = document.getElementById('popup-badge');
+        const name = document.getElementById('popup-name');
+        const position = document.getElementById('popup-position');
+
+        rows.forEach(row => {
+          row.addEventListener('click', () => {
+            const teamId = row.getAttribute('data-id');
+            const teamName = row.getAttribute('data-name');
+            const teamPosition = row.getAttribute('data-position');
+
+            badge.src = `./assets/logos/${teamId}.png`;
+            name.textContent = teamName;
+            position.textContent = `Position: ${teamPosition}`;
+
+            overlay.style.display = 'flex';
+          });
+        });
+
+        overlay.addEventListener('click', () => {
+          overlay.style.display = 'none';
+        });
+
       } catch (err) {
         document.body.innerHTML = `<p style="color:#ff6666; padding: 1rem; text-align:center;">⚠️ Failed to load table: ${err.message}</p>`;
         console.error(err);
@@ -188,36 +225,6 @@
     }
 
     getTable();
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const popup = document.getElementById('team-popup');
-      const overlay = document.getElementById('popup-overlay');
-      const badge = document.getElementById('popup-badge');
-      const name = document.getElementById('popup-name');
-      const position = document.getElementById('popup-position');
-
-      document.addEventListener('click', e => {
-        const row = e.target.closest('.team-row');
-
-        if (!row) {
-          popup.style.display = 'none';
-          overlay.style.display = 'none';
-          return;
-        }
-
-        badge.src = row.dataset.badge;
-        name.textContent = row.dataset.name;
-        position.textContent = `Position: ${row.dataset.position}`;
-
-        popup.style.display = 'block';
-        overlay.style.display = 'block';
-      });
-
-      overlay.addEventListener('click', () => {
-        popup.style.display = 'none';
-        overlay.style.display = 'none';
-      });
-    });
   </script>
 </body>
 </html>
