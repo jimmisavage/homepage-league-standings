@@ -20,13 +20,13 @@
       padding: 0;
       overflow: hidden;
       height: 100vh;
+      color: var(--text-color);
     }
 
     .scroll-container {
       height: 100%;
       padding: 4px;
       overflow-y: auto;
-      color: var(--text-color);
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
@@ -52,6 +52,13 @@
       line-height: 1.2;
     }
 
+    th {
+      background-color: var(--header-bg);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+
     th:nth-child(1), td:nth-child(1) {
       text-align: left;
     }
@@ -59,14 +66,6 @@
     th:nth-child(2), th:nth-child(3),
     td:nth-child(2), td:nth-child(3) {
       text-align: center;
-    }
-
-    th {
-      background-color: var(--header-bg);
-      color: var(--text-color);
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 10px;
     }
 
     tr:nth-child(even) {
@@ -82,44 +81,44 @@
       font-weight: bold;
     }
 
-    /* Popup styling */
-    #popup-overlay {
+    /* Popup */
+    .popup {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      background-color: rgba(20, 20, 20, 0.95);
+      border: 1px solid #555;
+      border-radius: 6px;
+      padding: 6px 10px;
+      z-index: 100;
+      font-size: 0.7rem;
       display: none;
-      justify-content: center;
+      flex-direction: row;
       align-items: center;
+      gap: 10px;
     }
 
-    #popup {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      padding: 1rem;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    .popup img {
+      height: 32px;
+      width: 32px;
+      border-radius: 4px;
     }
 
-    #popup img {
-      max-width: 80px;
-      margin-bottom: 10px;
+    .popup-content {
+      display: flex;
+      flex-direction: column;
     }
 
-    #popup h3 {
-      margin: 0.5rem 0;
-      font-size: 1rem;
-    }
-
-    #popup p {
-      margin: 0.25rem 0;
-      font-size: 0.85rem;
+    .popup-close {
+      position: absolute;
+      top: 3px;
+      right: 6px;
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 0.8rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -137,13 +136,12 @@
     </table>
   </div>
 
-  <!-- Fullscreen Popup -->
-  <div id="popup-overlay">
-    <div id="popup">
-      <img id="popup-badge" src="" alt="Team badge" />
-      <h3 id="popup-name">Team Name</h3>
-      <p id="popup-position">Position: </p>
-      <p><small>Click anywhere to close</small></p>
+  <div class="popup" id="teamPopup">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <img id="popupLogo" src="" alt="Team Logo">
+    <div class="popup-content">
+      <div id="popupName" style="font-weight: bold;"></div>
+      <div id="popupPosition"></div>
     </div>
   </div>
 
@@ -166,22 +164,14 @@
         tbody.innerHTML = '';
 
         standings.forEach(team => {
-          const name = team.team.name || '';
+          const { id, name, logo } = team.team;
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
-          const teamId = team.team.id;
           const position = team.rank;
           const highlight = team.highlight ?? false;
 
           const row = document.createElement('tr');
-          row.classList.add('team-row');
-          row.setAttribute('data-id', teamId);
-          row.setAttribute('data-name', name);
-          row.setAttribute('data-position', position);
-
-          if (highlight) {
-            row.classList.add('cardiff-highlight');
-          }
+          if (highlight) row.classList.add('cardiff-highlight');
 
           row.innerHTML = `
             <td>${name}</td>
@@ -189,39 +179,32 @@
             <td>${points}</td>
           `;
 
+          row.addEventListener('click', () => {
+            showPopup({
+              name,
+              position,
+              logo: `./assets/logos/${id}.png`
+            });
+          });
+
           tbody.appendChild(row);
         });
-
-        // Add click popup
-        const rows = document.querySelectorAll('.team-row');
-        const popup = document.getElementById('popup');
-        const overlay = document.getElementById('popup-overlay');
-        const badge = document.getElementById('popup-badge');
-        const name = document.getElementById('popup-name');
-        const position = document.getElementById('popup-position');
-
-        rows.forEach(row => {
-          row.addEventListener('click', () => {
-            const teamId = row.getAttribute('data-id');
-            const teamName = row.getAttribute('data-name');
-            const teamPosition = row.getAttribute('data-position');
-
-            badge.src = `./assets/logos/${teamId}.png`;
-            name.textContent = teamName;
-            position.textContent = `Position: ${teamPosition}`;
-
-            overlay.style.display = 'flex';
-          });
-        });
-
-        overlay.addEventListener('click', () => {
-          overlay.style.display = 'none';
-        });
-
       } catch (err) {
         document.body.innerHTML = `<p style="color:#ff6666; padding: 1rem; text-align:center;">⚠️ Failed to load table: ${err.message}</p>`;
         console.error(err);
       }
+    }
+
+    function showPopup({ name, position, logo }) {
+      const popup = document.getElementById('teamPopup');
+      document.getElementById('popupName').textContent = name;
+      document.getElementById('popupPosition').textContent = `League Position: ${position}`;
+      document.getElementById('popupLogo').src = logo;
+      popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('teamPopup').style.display = 'none';
     }
 
     getTable();
