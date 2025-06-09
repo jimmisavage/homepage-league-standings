@@ -71,6 +71,20 @@ jobs:
               )
             ' > data/standings.json
 
+      - name: Clean old logos
+        run: |
+          echo "🧹 Cleaning old logos"
+          rm -rf assets/logos
+
+      - name: Download team icons
+        run: |
+          mkdir -p assets/logos
+          jq -r '.response[0].league.standings[0][] | "\(.team.id) \(.team.logo)"' data/standings.json |
+          while read -r id url; do
+            echo "🖼️  Downloading logo for team $id"
+            curl -s -o "assets/logos/${id}.png" "$url"
+          done
+
       - name: Download league icon
         run: |
           curl -s -o league-icon.png "https://media.api-sports.io/football/leagues/${LEAGUE_ID}.png"
@@ -91,10 +105,10 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/standings.json tmp/cardiff-response.json
+          git add data/standings.json tmp/cardiff-response.json assets/logos/
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update standings"
+            git commit -m "Update standings and team icons"
             git push
           fi
