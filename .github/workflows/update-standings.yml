@@ -54,22 +54,32 @@ jobs:
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch and Flag Cardiff in League Standings
+      - name: Fetch and Flag Cardiff in League Standings with Last Season Data
         run: |
-          echo "📥 Fetching and flagging standings..."
-          curl -s --request GET \
+          echo "📥 Fetching current standings..."
+          CURRENT=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
-            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
-            | jq '
-              .response[0].league.standings[0] |= map(
-                if .team.id == 43 then
-                  . + {highlight: true}
-                else
-                  .
-                end
-              )
-            ' > data/standings.json
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+          echo "📦 Fetching last season standings..."
+          LAST_SEASON=$((SEASON - 1))
+          LAST=$(curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&league=${LEAGUE_ID}" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+          echo "$CURRENT" | jq --argjson last "$LAST" '
+            .response[0].league.standings[0] |= map(
+              . + {
+                highlight: (if .team.id == 43 then true else false end),
+                lastSeasonLeague: ($last.response[0].league.name // "Unknown"),
+                lastSeasonPosition: (
+                  ($last.response[0].league.standings[0] | map(select(.team.id == .team.id)) | .[0].rank) // "?"
+                )
+              }
+            )
+          ' > data/standings.json
 
       - name: Clean old logos
         run: |
