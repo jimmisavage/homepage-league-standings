@@ -81,7 +81,6 @@
       font-weight: bold;
     }
 
-    /* Centered Popup */
     .popup {
       position: fixed;
       top: 50%;
@@ -91,9 +90,9 @@
       border: 1px solid #555;
       border-radius: 8px;
       padding: 12px;
-      width: 50%;
-      min-height: 100px;
-      max-height: 120px;
+      width: 70%;
+      min-height: 110px;
+      max-height: 140px;
       z-index: 100;
       font-size: 0.75rem;
       display: none;
@@ -147,6 +146,7 @@
     <div class="popup-content">
       <div id="popupName" style="font-weight: bold;"></div>
       <div id="popupPosition"></div>
+      <div id="popupLastSeason"></div>
     </div>
   </div>
 
@@ -169,11 +169,13 @@
         tbody.innerHTML = '';
 
         standings.forEach(team => {
-          const { id, name, logo } = team.team;
+          const { id, name } = team.team;
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
           const position = team.rank;
           const highlight = team.highlight ?? false;
+          const lastLeague = team.lastSeasonLeague ?? 'Unknown League';
+          const lastPos = team.lastSeasonPosition ?? '?';
 
           const row = document.createElement('tr');
           if (highlight) row.classList.add('cardiff-highlight');
@@ -188,7 +190,9 @@
             showPopup({
               name,
               position,
-              logo: `./assets/logos/${id}.png`
+              logo: `./assets/logos/${id}.png`,
+              lastLeague,
+              lastPos
             });
           });
 
@@ -200,12 +204,12 @@
       }
     }
 
-    function showPopup({ name, position, logo }) {
-      const popup = document.getElementById('teamPopup');
+    function showPopup({ name, position, logo, lastLeague, lastPos }) {
       document.getElementById('popupName').textContent = name;
-      document.getElementById('popupPosition').textContent = `League Position: ${position}`;
+      document.getElementById('popupPosition').textContent = `Current Position: ${position}`;
+      document.getElementById('popupLastSeason').textContent = `Last Season: ${lastLeague} – Position ${lastPos}`;
       document.getElementById('popupLogo').src = logo;
-      popup.style.display = 'flex';
+      document.getElementById('teamPopup').style.display = 'flex';
     }
 
     function closePopup() {
