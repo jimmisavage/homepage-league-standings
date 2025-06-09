@@ -2,7 +2,7 @@ name: Update Cardiff Standings
 
 on:
   workflow_dispatch:
-  schedule:
+  #schedule:
     #- cron: '45 19 * * 1-5'
     #- cron: '*/15 20-23 * * 1-5'
     #- cron: '*/15 12-23 * * 6,0'
@@ -54,22 +54,41 @@ jobs:
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch and Flag Cardiff in League Standings
+          # Calculate last season
+          LAST_SEASON=$((SEASON - 1))
+          echo "LAST_SEASON=$LAST_SEASON" >> $GITHUB_ENV
+
+      - name: Fetch current season standings
         run: |
-          echo "📥 Fetching and flagging standings..."
+          echo "📥 Fetching current season standings for league $LEAGUE_ID, season $SEASON"
           curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
-            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
-            | jq '
-              .response[0].league.standings[0] |= map(
-                if .team.id == 43 then
-                  . + {highlight: true}
-                else
-                  .
-                end
-              )
-            ' > data/standings.json
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" > tmp/current-standings.json
+
+      - name: Fetch last season standings
+        run: |
+          echo "📥 Fetching last season standings for league $LEAGUE_ID, season $LAST_SEASON"
+          curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&league=${LEAGUE_ID}" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" > tmp/last-season-standings.json
+
+      - name: Merge current standings with last season info
+        run: |
+          echo "🔄 Merging current standings with last season data..."
+          jq --slurpfile lastSeason tmp/last-season-standings.json '
+            .response[0].league.standings[0] |= map(
+              . as $team |
+              ($lastSeason[0].response[0].league.standings[0][] | select(.team.id == $team.team.id)) as $lastTeam |
+
+              . + {
+                highlight: (.team.id == 43),
+                lastSeasonLeague: ($lastSeason[0].response[0].league.name // "Unknown"),
+                lastSeasonPosition: ($lastTeam.rank // "?")
+              }
+            )
+          ' tmp/current-standings.json > data/standings.json
 
       - name: Clean old logos
         run: |
