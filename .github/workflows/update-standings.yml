@@ -54,32 +54,69 @@ jobs:
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch and Flag Cardiff in League Standings with Last Season Data
+      - name: Fetch and Flag Cardiff in League Standings with Dynamic Last Season Info
         run: |
-          echo "📥 Fetching current standings..."
+          echo "📥 Fetching current season standings..."
           CURRENT=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-          echo "📦 Fetching last season standings..."
+          echo "$CURRENT" | jq . > tmp/current-standings.json
+
+          echo "📅 Determining last season (${SEASON} - 1)..."
           LAST_SEASON=$((SEASON - 1))
-          LAST=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&league=${LEAGUE_ID}" \
+
+          echo "📋 Getting all leagues from last season..."
+          ALL_LEAGUES=$(curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/leagues?season=${LAST_SEASON}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-          echo "$CURRENT" | jq --argjson last "$LAST" '
+          echo "$ALL_LEAGUES" | jq . > tmp/leagues-${LAST_SEASON}.json
+
+          echo "📌 Extracting relevant league IDs..."
+          echo "$ALL_LEAGUES" | jq -r '.response[] | select(.league.type == "League") | .league.id' > tmp/league-ids.txt
+
+          echo "🧠 Building last season map of team -> {league, position} ..."
+          mkdir -p tmp/last-season
+          echo '{}' > tmp/last-season-map.json
+
+          while read -r LEAGUE_ID_LAST; do
+            echo "🌀 Checking league $LEAGUE_ID_LAST..."
+            STANDING=$(curl -s --request GET \
+              --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&league=${LEAGUE_ID_LAST}" \
+              --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+              --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+            echo "$STANDING" > tmp/last-season/league-${LEAGUE_ID_LAST}.json
+
+            jq -c --arg leagueId "$LEAGUE_ID_LAST" '
+              .response[0].league as $league |
+              $league.standings[0][] |
+              { "\(.team.id)": {
+                  lastSeasonLeague: $league.name,
+                  lastSeasonPosition: .rank
+                }
+              }
+           ' <<< "$STANDING" >> tmp/last-season-map-lines.json
+          done < tmp/league-ids.txt
+
+          echo "📦 Combining last season data..."
+          jq -s 'reduce .[] as $item ({}; . * $item)' tmp/last-season-map-lines.json > tmp/last-season-map.json
+
+          echo "🛠️  Merging last season data into current standings..."
+          jq --slurpfile map tmp/last-season-map.json '
             .response[0].league.standings[0] |= map(
-              . + {
+               . + {
                 highlight: (if .team.id == 43 then true else false end),
-                lastSeasonLeague: ($last.response[0].league.name // "Unknown"),
-                lastSeasonPosition: (
-                  ($last.response[0].league.standings[0] | map(select(.team.id == .team.id)) | .[0].rank) // "?"
-                )
+                lastSeasonLeague: ($map[0][(.team.id|tostring)]?.lastSeasonLeague // "Unknown"),
+                lastSeasonPosition: ($map[0][(.team.id|tostring)]?.lastSeasonPosition // "?")
               }
             )
-          ' > data/standings.json
+          ' tmp/current-standings.json > data/standings.json
+
+          echo "✅ Merged standings.json saved."
 
       - name: Clean old logos
         run: |
