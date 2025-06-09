@@ -93,13 +93,17 @@ jobs:
 
             jq -c --arg leagueId "$LEAGUE_ID_LAST" '
               .response[0].league as $league |
-              $league.standings[0][] |
+              (if (.standings and .standings[0]) then
+                 .standings[0][]
+               else
+                 empty
+               end) |
               { "\(.team.id)": {
                   lastSeasonLeague: $league.name,
                   lastSeasonPosition: .rank
                 }
               }
-           ' <<< "$STANDING" >> tmp/last-season-map-lines.json
+            ' <<< "$STANDING" >> tmp/last-season-map-lines.json
           done < tmp/league-ids.txt
 
           echo "📦 Combining last season data..."
