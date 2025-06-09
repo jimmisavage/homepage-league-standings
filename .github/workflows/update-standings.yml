@@ -3,20 +3,17 @@ name: Update Cardiff Standings
 on:
   workflow_dispatch:
   schedule:
-    #- cron: '45 19 * * 1-5'
-    #- cron: '*/15 20-23 * * 1-5'
-    #- cron: '*/15 12-23 * * 6,0'
+    - cron: '45 19 * * 1-5'
+    - cron: '*/15 20-23 * * 1-5'
+    - cron: '*/15 12-23 * * 6,0'
     - cron: '0 0 * * *'
 
 permissions:
   contents: write
-  id-token: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    env:
-      RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
 
     steps:
       - name: Checkout Repo
@@ -39,7 +36,7 @@ jobs:
 
           response=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&team=${TEAM_ID}" \
-            --header "X-RapidAPI-Key: $RAPIDAPI_KEY" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
           echo "$response" | jq . > tmp/cardiff-response.json
@@ -57,53 +54,22 @@ jobs:
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch and Flag Cardiff in League Standings with Last Season Info
+      - name: Fetch and Flag Cardiff in League Standings
         run: |
-          echo "📥 Fetching current season standings..."
-          CURRENT=$(curl -s --request GET \
+          echo "📥 Fetching and flagging standings..."
+          curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&league=${LEAGUE_ID}" \
-            --header "X-RapidAPI-Key: $RAPIDAPI_KEY" \
-            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
-
-          echo "$CURRENT" | jq . > tmp/current-standings.json
-
-          echo "📅 Determining last season (${SEASON} - 1)..."
-          LAST_SEASON=$((SEASON - 1))
-
-          echo "🧠 Building last season info for all teams..."
-          jq -r '.response[0].league.standings[0][] | .team.id' tmp/current-standings.json > tmp/team-ids.txt
-
-          echo '{ }' > tmp/last-season-map.json
-
-          while read -r TEAM_ID; do
-            echo "🔎 Checking team $TEAM_ID"
-            TEAM_DATA=$(curl -s --request GET \
-              --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&team=${TEAM_ID}" \
-              --header "X-RapidAPI-Key: $RAPIDAPI_KEY" \
-              --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
-
-            LAST_LEAGUE=$(echo "$TEAM_DATA" | jq -r '.response[0].league.name // "Unknown"')
-            LAST_POSITION=$(echo "$TEAM_DATA" | jq -r '.response[0].league.standings[0][0].rank // "?"')
-
-            jq --arg id "$TEAM_ID" \
-               --arg league "$LAST_LEAGUE" \
-               --arg pos "$LAST_POSITION" \
-               '. + {($id): {lastSeasonLeague: $league, lastSeasonPosition: $pos}}' \
-               tmp/last-season-map.json > tmp/tmp-map.json && mv tmp/tmp-map.json tmp/last-season-map.json
-          done < tmp/team-ids.txt
-
-          echo "🛠️ Merging last season data into current standings..."
-          jq --slurpfile map tmp/last-season-map.json '
-            .response[0].league.standings[0] |= map(
-              . + {
-                highlight: (if .team.id == 43 then true else false end),
-                lastSeasonLeague: ($map[0][(.team.id|tostring)]?.lastSeasonLeague // "Unknown"),
-                lastSeasonPosition: ($map[0][(.team.id|tostring)]?.lastSeasonPosition // "?")
-              }
-            )
-          ' tmp/current-standings.json > data/standings.json
-
-          echo "✅ Merged standings.json saved."
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com" \
+            | jq '
+              .response[0].league.standings[0] |= map(
+                if .team.id == 43 then
+                  . + {highlight: true}
+                else
+                  .
+                end
+              )
+            ' > data/standings.json
 
       - name: Clean old logos
         run: |
