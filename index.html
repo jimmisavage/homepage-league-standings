@@ -136,6 +136,14 @@
       color: #aaa;
     }
 
+    .popup-nextfixture {
+      font-size: 0.45rem;
+      text-align: left;
+      margin-top: -12px;
+      width: 100%;
+      color: #aaa;
+    }
+
     .form-span {
       display: inline-block;
       width: 1ch;
@@ -153,14 +161,6 @@
 
     .form-l {
       color: #ef4444;
-    }
-
-    .popup-nextfixture {
-      font-size: 0.45rem;
-      text-align: left;
-      margin-top: -12px;
-      width: 100%;
-      color: #aaa;
     }
   </style>
 </head>
@@ -190,8 +190,8 @@
         <tr id="popupStatsRow"></tr>
       </table>
       <div id="popupForm" style="margin-top: 4px;"></div>
-      <div class="popup-lastseason" id="popupLastSeason"></div>
       <div class="popup-nextfixture" id="popupNextFixture"></div>
+      <div class="popup-lastseason" id="popupLastSeason"></div>
     </div>
   </div>
 
@@ -221,6 +221,7 @@
           const highlight = team.highlight ?? false;
           const lastLeague = team.lastSeasonLeague ?? 'Unknown League';
           const lastPos = team.lastSeasonPosition ?? '?';
+          const nextFixture = team.nextFixture ?? '';
           const won = team.all.win ?? '-';
           const draw = team.all.draw ?? '-';
           const lose = team.all.lose ?? '-';
@@ -253,7 +254,8 @@
               points,
               form,
               lastLeague,
-              lastPos
+              lastPos,
+              nextFixture
             });
           });
 
@@ -289,6 +291,9 @@
       document.getElementById('popupForm').innerHTML = `Form: ${formHTML}`;
       document.getElementById('popupLastSeason').textContent = `Last Season: ${team.lastPos} in ${team.lastLeague}`;
       document.getElementById('popupNextFixture').textContent = team.nextFixture
+        ? `Next Up: ${team.nextFixture}`
+        : '';
+
       document.getElementById('teamPopup').style.display = 'flex';
     }
 
