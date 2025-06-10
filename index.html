@@ -189,7 +189,7 @@
         </tr>
         <tr id="popupStatsRow"></tr>
       </table>
-      <div id="popupForm" style="margin-top: 4px;"></div>
+      <div id="popupForm" style="margin-top: 4px; margin-bottom: 4px;"></div>
       <div class="popup-nextfixture" id="popupNextFixture"></div>
       <div class="popup-lastseason" id="popupLastSeason"></div>
     </div>
@@ -289,7 +289,7 @@
       }).join('');
 
       document.getElementById('popupForm').innerHTML = `Form: ${formHTML}`;
-      document.getElementById('popupLastSeason').textContent = `Last Season: ${team.lastPos} in ${team.lastLeague}`;
+      document.getElementById('popupLastSeason').textContent = `Last Season: ${team.lastPos} | ${team.lastLeague}`;
       document.getElementById('popupNextFixture').textContent = team.nextFixture
         ? `Next Up: ${team.nextFixture}`
         : '';
