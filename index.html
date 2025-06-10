@@ -206,8 +206,8 @@
 
     function showPopup({ name, position, logo, lastLeague, lastPos }) {
       document.getElementById('popupName').textContent = name;
-      document.getElementById('popupPosition').textContent = `Current Position: ${position}`;
-      document.getElementById('popupLastSeason').textContent = `Last Season: ${lastLeague} – Position ${lastPos}`;
+      document.getElementById('popupPosition').textContent = `Pos: ${position}`;
+      document.getElementById('popupLastSeason').textContent = `Last Season: ${lastPos} in ${lastLeague}`;
       document.getElementById('popupLogo').src = logo;
       document.getElementById('teamPopup').style.display = 'flex';
     }
