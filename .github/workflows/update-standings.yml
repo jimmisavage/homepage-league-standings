@@ -109,7 +109,7 @@ jobs:
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-          echo "$FIXTURES" | jq . > data/next-fixtures.json
+          echo "$FIXTURES" | jq . > data/standings.json
 
       - name: Clean old logos
         run: |
@@ -133,7 +133,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/standings.json data/next-fixtures.json tmp/cardiff-response.json assets/logos/ league-icon.png
+          git add data/standings.json tmp/cardiff-response.json assets/logos/ league-icon.png
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
