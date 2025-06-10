@@ -91,27 +91,29 @@
       border-radius: 8px;
       padding: 12px;
       width: 90%;
-      min-height: 110px;
-      max-height: 140px;
+      max-width: 350px;
       z-index: 100;
       font-size: 0.75rem;
       display: none;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
+      text-align: center;
     }
 
     .popup img {
       height: 48px;
       width: 48px;
       border-radius: 4px;
-      flex-shrink: 0;
+      margin-bottom: 8px;
     }
 
-    .popup-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .popup-content table {
+      width: 100%;
+      font-size: 0.7rem;
+    }
+
+    .popup-content table td {
+      text-align: center;
     }
 
     .popup-close {
@@ -123,6 +125,14 @@
       color: #aaa;
       font-size: 0.85rem;
       cursor: pointer;
+    }
+
+    .popup-lastseason {
+      font-size: 0.65rem;
+      text-align: right;
+      margin-top: 8px;
+      width: 100%;
+      color: #aaa;
     }
   </style>
 </head>
@@ -143,10 +153,16 @@
   <div class="popup" id="teamPopup">
     <button class="popup-close" onclick="closePopup()">✕</button>
     <img id="popupLogo" src="" alt="Team Logo">
+    <div id="popupName" style="font-weight: bold;"></div>
     <div class="popup-content">
-      <div id="popupName" style="font-weight: bold;"></div>
-      <div id="popupPosition"></div>
-      <div id="popupLastSeason"></div>
+      <table>
+        <tr>
+          <td>#</td><td>P</td><td>W</td><td>L</td><td>D</td><td>F</td><td>A</td><td>GD</td><td>Pts</td>
+        </tr>
+        <tr id="popupStatsRow"></tr>
+      </table>
+      <div id="popupForm" style="margin-top: 4px;"></div>
+      <div class="popup-lastseason" id="popupLastSeason"></div>
     </div>
   </div>
 
@@ -176,6 +192,13 @@
           const highlight = team.highlight ?? false;
           const lastLeague = team.lastSeasonLeague ?? 'Unknown League';
           const lastPos = team.lastSeasonPosition ?? '?';
+          const won = team.all.win ?? '-';
+          const draw = team.all.draw ?? '-';
+          const lose = team.all.lose ?? '-';
+          const goalsFor = team.all.goals.for ?? '-';
+          const goalsAgainst = team.all.goals.against ?? '-';
+          const goalDiff = goalsFor - goalsAgainst;
+          const form = team.form ?? 'N/A';
 
           const row = document.createElement('tr');
           if (highlight) row.classList.add('cardiff-highlight');
@@ -189,8 +212,17 @@
           row.addEventListener('click', () => {
             showPopup({
               name,
-              position,
               logo: `./assets/logos/${id}.png`,
+              position,
+              played,
+              won,
+              lose,
+              draw,
+              goalsFor,
+              goalsAgainst,
+              goalDiff,
+              points,
+              form,
               lastLeague,
               lastPos
             });
@@ -204,11 +236,25 @@
       }
     }
 
-    function showPopup({ name, position, logo, lastLeague, lastPos }) {
-      document.getElementById('popupName').textContent = name;
-      document.getElementById('popupPosition').textContent = `Pos: ${position}`;
-      document.getElementById('popupLastSeason').textContent = `Last Season: ${lastPos} in ${lastLeague}`;
-      document.getElementById('popupLogo').src = logo;
+    function showPopup(team) {
+      document.getElementById('popupName').textContent = team.name;
+      document.getElementById('popupLogo').src = team.logo;
+
+      document.getElementById('popupStatsRow').innerHTML = `
+        <td>${team.position}</td>
+        <td>${team.played}</td>
+        <td>${team.won}</td>
+        <td>${team.lose}</td>
+        <td>${team.draw}</td>
+        <td>${team.goalsFor}</td>
+        <td>${team.goalsAgainst}</td>
+        <td>${team.goalDiff}</td>
+        <td>${team.points}</td>
+      `;
+
+      document.getElementById('popupForm').textContent = `Form: ${team.form}`;
+      document.getElementById('popupLastSeason').textContent = `Last Season: ${team.lastPos} in ${team.lastLeague}`;
+
       document.getElementById('teamPopup').style.display = 'flex';
     }
 
