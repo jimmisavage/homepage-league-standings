@@ -135,23 +135,24 @@
       width: 100%;
       color: #aaa;
     }
+
     .form-span {
-    display: inline-block;
-    width: 1ch;
-    font-weight: bold;
-    text-align: center;
+      display: inline-block;
+      width: 1ch;
+      font-weight: bold;
+      text-align: center;
     }
 
     .form-w {
-      color: #22c55e; /* green for win */
+      color: #22c55e;
     }
 
     .form-d {
-      color: #e2e8f0; /* white for draw */
+      color: #e2e8f0;
     }
 
     .form-l {
-      color: #ef4444; /* red for loss */
+      color: #ef4444;
     }
   </style>
 </head>
@@ -272,14 +273,14 @@
       `;
 
       const formHTML = [...team.form].map(result => {
-      const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
-      return `<span class="form-span ${cls}">${result}</span>`;
+        const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
+        return `<span class="form-span ${cls}">${result}</span>`;
       }).join('');
 
       document.getElementById('popupForm').innerHTML = `Form: ${formHTML}`;
-      document.getElementById('popupLastSeason').textContent = `Last Season: ${lastPos} in ${lastLeague}`;
-      document.getElementById('popupLogo').src = logo;
+      document.getElementById('popupLastSeason').textContent = `Last Season: ${team.lastPos} in ${team.lastLeague}`;
       document.getElementById('teamPopup').style.display = 'flex';
+    }
 
     function closePopup() {
       document.getElementById('teamPopup').style.display = 'none';
