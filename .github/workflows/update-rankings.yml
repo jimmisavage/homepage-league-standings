@@ -80,3 +80,4 @@ jobs:
           else
             git commit -m "Update league info and previous season standings for 3 leagues"
             git push
+          fi
