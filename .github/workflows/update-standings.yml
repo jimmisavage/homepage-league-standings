@@ -56,18 +56,20 @@ jobs:
             FILE="data/previous-season/league-${id}.json"
             if [[ -f "$FILE" ]]; then
               echo "✅ Found: $FILE"
-              FILES="$FILES $FILE"
+        # Extract standings and re-map to { team_id: { lastLeague, lastRank } }
+              jq -r --arg leagueId "$id" '
+                .league.standings[0][] |
+                { 
+                  "\(.team.id)": {
+                    lastLeague: .league.name // "Unknown",
+                    lastRank: .rank
+                  }
+                }
+              ' "$FILE"
             else
               echo "⚠️ Missing: $FILE"
-            fi
-          done
-
-          if [[ -z "$FILES" ]]; then
-            echo "❌ No previous season data found. Exiting."
-            exit 1
-          fi
-
-          jq -s 'reduce .[] as $item ({}; . * $item)' $FILES > tmp/last-season-map.json
+           fi
+          done | jq -s 'reduce .[] as $item ({}; . * $item)' > tmp/last-season-map.json
 
       - name: Fetch Upcoming Fixtures
         run: |
