@@ -310,7 +310,7 @@
         return `<span class="form-span ${cls}">${result}</span>`;
       }).join('');
 
-      document.getElementById('popupForm').innerHTML = `FORM:  ${formHTML}`;
+      document.getElementById('popupForm').innerHTML = `${formHTML}`;
       document.getElementById('popupLastSeason').textContent = `${ordinal(team.lastPos)} in ${team.lastLeague}`;
       document.getElementById('popupNextFixture').textContent = team.nextUp
         ? `Next Up: ${team.nextUp}`
