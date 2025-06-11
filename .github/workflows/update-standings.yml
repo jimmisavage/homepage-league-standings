@@ -56,7 +56,7 @@ jobs:
             FILE="data/previous-season/league-${id}.json"
             if [[ -f "$FILE" ]]; then
               echo "✅ Found: $FILE"
-              jq -r '
+              jq '
                 . as $root
                 | select(.league.standings[0] != null)
                 | .league.standings[0][]?
