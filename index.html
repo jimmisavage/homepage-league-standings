@@ -120,6 +120,7 @@
     .popup-content table {
       width: 100%;
       font-size: 0.55rem;
+      margin-bottom: 6px;
     }
 
     .popup-content table td {
@@ -141,10 +142,12 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      margin-top: 6px;
     }
 
     #popupForm {
       text-align: center;
+      margin: 6px 0;
     }
     
     .popup-nextfixture,
@@ -279,8 +282,14 @@
       }
     }
 
+     function ordinal(n) {
+      const s = ["th", "st", "nd", "rd"];
+      const v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
+    }
+    
     function showPopup(team) {
-      document.getElementById('popupName').textContent = team.name;
+      document.getElementById('popupName').textContent = team.name.toUpperCase();
       document.getElementById('popupLogo').src = team.logo;
 
       document.getElementById('popupStatsRow').innerHTML = `
@@ -301,7 +310,7 @@
       }).join('');
 
       document.getElementById('popupForm').innerHTML = `Form:  ${formHTML}`;
-      document.getElementById('popupLastSeason').textContent = `Last Season: ${team.lastPos} | ${team.lastLeague}`;
+      document.getElementById('popupLastSeason').textContent = `${ordinal(team.lastPos)} in ${team.lastLeague}`;
       document.getElementById('popupNextFixture').textContent = team.nextUp
         ? `Next Up: ${team.nextUp}`
         : '';
