@@ -53,7 +53,7 @@ jobs:
 
           FILES=""
           for id in $LEAGUE_ID $ABOVE $BELOW; do
-            FILE="data/previous-season/league-${id}-map.json"
+            FILE="data/previous-season/league-${id}.json"
             if [[ -f "$FILE" ]]; then
               echo "✅ Found: $FILE"
               FILES="$FILES $FILE"
