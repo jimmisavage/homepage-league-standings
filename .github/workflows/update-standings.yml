@@ -49,28 +49,38 @@ jobs:
       - name: Build Previous Season Map
         run: |
           echo "📑 Building previous season map from cache..."
-          mkdir -p tmp
+            mkdir -p tmp
 
-          FILES=""
-          for id in $LEAGUE_ID $ABOVE $BELOW; do
-            FILE="data/previous-season/league-${id}.json"
-            if [[ -f "$FILE" ]]; then
-              echo "✅ Found: $FILE"
-              jq '
-                . as $root
-                | select(.league.standings[0] != null)
-                | .league.standings[0][]?
-                | {
-                    "\(.team.id)": {
-                      lastLeague: $root.league.name,
-                      lastRank: .rank
+            TMP_MERGE="tmp/merge_parts.jsonl"
+            > "$TMP_MERGE"  # start fresh
+
+            for id in $LEAGUE_ID $ABOVE $BELOW; do
+              FILE="data/previous-season/league-${id}.json"
+              if [[ -f "$FILE" ]]; then
+                echo "✅ Found: $FILE"
+                jq '
+                  . as $root
+                  | select(.league.standings[0] != null)
+                  | .league.standings[0][]?
+                  | {
+                      "\(.team.id)": {
+                        lastLeague: $root.league.name,
+                        lastRank: .rank
+                      }
                     }
-                  }
-              ' "$FILE"
+                 ' "$FILE" >> "$TMP_MERGE"
+              else
+                echo "⚠️ Missing: $FILE"
+              fi
+            done
+
+            if [[ -s "$TMP_MERGE" ]]; then
+              jq -s 'reduce .[] as $item ({}; . * $item)' "$TMP_MERGE" > tmp/last-season-map.json
+              echo "✅ Last season map written to tmp/last-season-map.json"
             else
-              echo "⚠️ Missing: $FILE"
+              echo "❌ No valid previous season data found. Exiting."
+              exit 1
             fi
-          done | jq -s 'reduce .[] as $item ({}; . * $item)' > tmp/last-season-map.json
 
       - name: Fetch Upcoming Fixtures
         run: |
