@@ -56,7 +56,7 @@ jobs:
             FILE="data/previous-season/league-${id}.json"
             if [[ -f "$FILE" ]]; then
               echo "✅ Found: $FILE"
-        # Extract standings and re-map to { team_id: { lastLeague, lastRank } }
+              # Extract standings and re-map to { team_id: { lastLeague, lastRank } }
               jq -r --arg leagueId "$id" '
                 .league.standings[0][] |
                 { 
