@@ -57,14 +57,15 @@ jobs:
             if [[ -f "$FILE" ]]; then
               echo "✅ Found: $FILE"
               jq -r '
-                 . as $root |
-                .league.standings[0][] |
-                {
-                  "\(.team.id)": {
-                    lastLeague: $root.league.name,
-                    lastRank: .rank
+                . as $root
+                | select(.league.standings[0] != null)
+                | .league.standings[0][]?
+                | {
+                    "\(.team.id)": {
+                      lastLeague: $root.league.name,
+                      lastRank: .rank
+                    }
                   }
-                }
               ' "$FILE"
             else
               echo "⚠️ Missing: $FILE"
