@@ -2,11 +2,6 @@ name: Update Standings
 
 on:
   workflow_dispatch:
-  # schedule:
-    # - cron: '45 19 * * 1-5'
-    # - cron: '*/15 20-23 * * 1-5'
-    # - cron: '*/15 12-23 * * 6,0'
-    # - cron: '0 0 * * *'
 
 permissions:
   contents: write
@@ -29,12 +24,17 @@ jobs:
           SEASON=$(jq -r '.season' data/league-info.json)
           LAST_SEASON=$((SEASON - 1))
 
+          ABOVE=$((LEAGUE_ID - 1))
+          BELOW=$((LEAGUE_ID + 1))
+
           echo "✅ League ID: $LEAGUE_ID"
           echo "✅ Season: $SEASON"
 
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
           echo "LAST_SEASON=$LAST_SEASON" >> $GITHUB_ENV
+          echo "ABOVE=$ABOVE" >> $GITHUB_ENV
+          echo "BELOW=$BELOW" >> $GITHUB_ENV
 
       - name: Fetch Current Standings
         run: |
@@ -52,7 +52,9 @@ jobs:
           mkdir -p tmp
 
           jq -s '.[0] * .[1] * .[2]' \
-            data/previous-season/league-*.json > tmp/last-season-map.json
+            data/previous-season/league-${LEAGUE_ID}-map.json \
+            data/previous-season/league-${ABOVE}-map.json \
+            data/previous-season/league-${BELOW}-map.json > tmp/last-season-map.json
 
       - name: Fetch Upcoming Fixtures
         run: |
@@ -82,6 +84,11 @@ jobs:
           jq -Rs '
             split("\n") | map(select(length > 0)) | map(split(" ") | {(.[0]): {nextUp: (.[1:] | join(" "))}}) | add
           ' > tmp/next-fixtures-map.json
+
+      - name: Debug Team 63 Last Season Data
+        run: |
+          echo "🕵️ Debugging last season data for Leeds (team 63)"
+          jq '."63"' tmp/last-season-map.json || echo "❌ Team 63 not found!"
 
       - name: Build Final standings.json
         run: |
@@ -125,4 +132,3 @@ jobs:
           else
             git commit -m "Update standings with cached league info and previous season stats"
             git push
-          fi
