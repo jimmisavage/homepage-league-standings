@@ -59,16 +59,16 @@ jobs:
               if [[ -f "$FILE" ]]; then
                 echo "✅ Found: $FILE"
                 jq '
-                  . as $root
-                  | select(.league.standings[0] != null)
-                  | .league.standings[0][]?
-                  | {
+                    .response[0].league as $league |
+                    $league.standings[]? |
+                    .[]? |
+                    {
                       "\(.team.id)": {
-                        lastLeague: $root.league.name,
+                        lastLeague: $league.name,
                         lastRank: .rank
                       }
                     }
-                 ' "$FILE" >> "$TMP_MERGE"
+                  ' "$FILE" >> "$TMP_MERGE"
               else
                 echo "⚠️ Missing: $FILE"
               fi
