@@ -2,12 +2,12 @@ name: Update Cardiff Standings
 
 on:
   workflow_dispatch:
-  #schedule:
-    #- cron: '45 19 * * 1-5'
-    #- cron: '*/15 20-23 * * 1-5'
-    #- cron: '*/15 12-23 * * 6,0'
-    #- cron: '0 0 * * *'
-
+  # schedule:
+    # - cron: '45 19 * * 1-5'
+    # - cron: '*/15 20-23 * * 1-5'
+    # - cron: '*/15 12-23 * * 6,0'
+    # - cron: '0 0 * * *'
+    
 permissions:
   contents: write
 
@@ -42,7 +42,6 @@ jobs:
           echo "$response" | jq . > tmp/cardiff-response.json
 
           LEAGUE_ID=$(echo "$response" | jq -r '.response[0].league.id')
-          LEAGUE_NAME=$(echo "$response" | jq -r '.response[0].league.name')
 
           if [ "$LEAGUE_ID" = "null" ] || [ -z "$LEAGUE_ID" ]; then
             echo "❌ Could not determine league ID. Exiting."
@@ -50,11 +49,11 @@ jobs:
             exit 1
           fi
 
-          echo "✅ Cardiff are in $LEAGUE_NAME (League ID $LEAGUE_ID) for $SEASON"
+          echo "✅ Detected League ID: $LEAGUE_ID"
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
 
-      - name: Fetch Standings and Last Season Info
+      - name: Fetch Standings + Previous Season Placement (Efficient)
         run: |
           echo "📥 Fetching current season standings..."
           CURRENT=$(curl -s --request GET \
@@ -64,34 +63,71 @@ jobs:
 
           echo "$CURRENT" | jq . > tmp/current-standings.json
 
+          echo "🔁 Getting last season standings from leagues above and below..."
           LAST_SEASON=$((SEASON - 1))
+          ABOVE=$((LEAGUE_ID - 1))
+          BELOW=$((LEAGUE_ID + 1))
+
           echo "{}" > tmp/last-season-map.json
 
-          echo "🔄 Getting last season info for all teams..."
-          for TEAM_ID in $(jq -r '.response[0].league.standings[0][] | .team.id' tmp/current-standings.json); do
-            echo "Fetching last season info for team $TEAM_ID..."
-            TEAM_RESPONSE=$(curl -s --request GET \
-              --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&team=${TEAM_ID}" \
+          for LID in $LEAGUE_ID $ABOVE $BELOW; do
+            echo "Fetching last season standings for league $LID"
+            RESPONSE=$(curl -s --request GET \
+              --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&league=${LID}" \
               --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
               --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-            LAST_LEAGUE=$(echo "$TEAM_RESPONSE" | jq -r '.response[0].league.name // "Unknown"')
-            LAST_RANK=$(echo "$TEAM_RESPONSE" | jq -r '.response[0].league.standings[0][0].rank // "?"')
+            LEAGUE_NAME=$(echo "$RESPONSE" | jq -r '.response[0].league.name')
 
-            jq --arg id "$TEAM_ID" \
-               --arg league "$LAST_LEAGUE" \
-               --arg rank "$LAST_RANK" \
-               '. + {($id): {lastLeague: $league, lastRank: $rank}}' \
-               tmp/last-season-map.json > tmp/tmp-last.json && mv tmp/tmp-last.json tmp/last-season-map.json
+            echo "$RESPONSE" | jq -c --arg lname "$LEAGUE_NAME" '
+              .response[0].league.standings[0][] |
+              { (.team.id|tostring): { lastRank: .rank, lastLeague: $lname } }
+            ' | jq -s 'add' > tmp/league-${LID}-map.json
           done
 
-          echo "🛠️ Merging data..."
-          jq --slurpfile last tmp/last-season-map.json '
+          echo "Merging previous season rank info..."
+          jq -s '.[0] * .[1] * .[2]' tmp/league-*.json > tmp/last-season-map.json
+
+      - name: Fetch Upcoming Fixtures
+        run: |
+          echo "📅 Fetching upcoming fixtures..."
+          START_DATE=$(date -d "+0 days" +%Y-%m-%d)
+          END_DATE=$(date -d "+6 days" +%Y-%m-%d)
+
+          FIXTURES=$(curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+          echo "$FIXTURES" | jq . > tmp/fixtures.json
+
+          # Build a map of next opponent per team
+          jq -r '
+            .response[] |
+            select(.teams.home.id and .teams.away.id) |
+            [
+              (.teams.home.id|tostring),
+              "\(.teams.away.name) (H)"
+            ],
+            [
+              (.teams.away.id|tostring),
+              "\(.teams.home.name) (A)"
+            ]
+          ' tmp/fixtures.json |
+          jq -Rs '
+            split("\n") | map(select(length > 0)) | map(split(" ") | {(.[0]): {nextUp: (.[1:] | join(" "))}}) | add
+          ' > tmp/next-fixtures-map.json
+
+      - name: Build Final standings.json
+        run: |
+          jq --slurpfile last tmp/last-season-map.json \
+             --slurpfile fixtures tmp/next-fixtures-map.json '
             .response[0].league.standings[0] |= map(
               . + {
                 highlight: (if .team.id == 43 then true else false end),
                 lastSeasonLeague: ($last[0][(.team.id|tostring)].lastLeague // "Unknown"),
-                lastSeasonPosition: ($last[0][(.team.id|tostring)].lastRank // "?")
+                lastSeasonPosition: ($last[0][(.team.id|tostring)].lastRank // "?"),
+                nextUp: ($fixtures[0][(.team.id|tostring)].nextUp // "TBD")
               }
             )
           ' tmp/current-standings.json > data/standings.json
@@ -122,6 +158,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update standings with extended info"
+            git commit -m "Update standings with last season league, rank, and next fixture"
             git push
           fi
