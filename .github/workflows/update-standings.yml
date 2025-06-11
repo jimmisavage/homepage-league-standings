@@ -136,3 +136,4 @@ jobs:
           else
             git commit -m "Update standings with last season league, rank, and next fixture"
             git push
+          fi
