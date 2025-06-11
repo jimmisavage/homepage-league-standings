@@ -3,7 +3,7 @@
 This is a lightweight HTML+JavaScript widget that displays the current Cardfiff City Standings with interactive popups for each team — designed specifically to integrate beautifully with [Homepage](https://gethomepage.dev/) dashboards or any self-hosted portal via iFrame.
 This is a personal project that fits to my needs as a Cardiff City fan. It's a 'set and forget' which would follow Cardiff though relegations and promotions and will update logos and input without any tinkering.
 
-This relies on an active API - i use the free account from rapidapi.com / api-football (free 100 API calls per day). With the limited API calls i schedule my updates at every 30 minutes from 13:00. Each run uses 6 API calls. 
+This relies on an active API - i use the free account from rapidapi.com / api-football (free 100 API calls per day). With the limited API calls i schedule my updates. Each run uses 2 API calls (with an extra 3 calls each day to cache data). 
 Built for speed, simplicity, and a dash of style. This project pulls standings data from a local `standings.json` file and displays:
 
 - A clean scrollable league table
