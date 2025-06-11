@@ -67,7 +67,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "3"
+              "lastSeasonPosition": 3,
+              "nextUp": "TBD"
             },
             {
               "rank": 2,
@@ -115,7 +116,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Premier League",
-              "lastSeasonPosition": "19"
+              "lastSeasonPosition": 19,
+              "nextUp": "TBD"
             },
             {
               "rank": 3,
@@ -163,7 +165,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Premier League",
-              "lastSeasonPosition": "20"
+              "lastSeasonPosition": 20,
+              "nextUp": "TBD"
             },
             {
               "rank": 4,
@@ -211,7 +214,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "16"
+              "lastSeasonPosition": 16,
+              "nextUp": "TBD"
             },
             {
               "rank": 5,
@@ -259,7 +263,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "9"
+              "lastSeasonPosition": 9,
+              "nextUp": "TBD"
             },
             {
               "rank": 6,
@@ -307,7 +312,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "11"
+              "lastSeasonPosition": 11,
+              "nextUp": "TBD"
             },
             {
               "rank": 7,
@@ -355,7 +361,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "19"
+              "lastSeasonPosition": 19,
+              "nextUp": "TBD"
             },
             {
               "rank": 8,
@@ -403,7 +410,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "13"
+              "lastSeasonPosition": 13,
+              "nextUp": "TBD"
             },
             {
               "rank": 9,
@@ -451,7 +459,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "5"
+              "lastSeasonPosition": 5,
+              "nextUp": "TBD"
             },
             {
               "rank": 10,
@@ -499,7 +508,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "8"
+              "lastSeasonPosition": 8,
+              "nextUp": "TBD"
             },
             {
               "rank": 11,
@@ -547,7 +557,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "14"
+              "lastSeasonPosition": 14,
+              "nextUp": "TBD"
             },
             {
               "rank": 12,
@@ -595,7 +606,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "20"
+              "lastSeasonPosition": 20,
+              "nextUp": "TBD"
             },
             {
               "rank": 13,
@@ -643,7 +655,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "6"
+              "lastSeasonPosition": 6,
+              "nextUp": "TBD"
             },
             {
               "rank": 14,
@@ -691,7 +704,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "15"
+              "lastSeasonPosition": 15,
+              "nextUp": "TBD"
             },
             {
               "rank": 15,
@@ -739,7 +753,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "18"
+              "lastSeasonPosition": 18,
+              "nextUp": "TBD"
             },
             {
               "rank": 16,
@@ -787,7 +802,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
-              "lastSeasonPosition": "1"
+              "lastSeasonPosition": 1,
+              "nextUp": "TBD"
             },
             {
               "rank": 17,
@@ -835,7 +851,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
-              "lastSeasonPosition": "5"
+              "lastSeasonPosition": 5,
+              "nextUp": "TBD"
             },
             {
               "rank": 18,
@@ -883,7 +900,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "17"
+              "lastSeasonPosition": 17,
+              "nextUp": "TBD"
             },
             {
               "rank": 19,
@@ -931,7 +949,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
-              "lastSeasonPosition": "2"
+              "lastSeasonPosition": 2,
+              "nextUp": "TBD"
             },
             {
               "rank": 20,
@@ -979,7 +998,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "10"
+              "lastSeasonPosition": 10,
+              "nextUp": "TBD"
             },
             {
               "rank": 21,
@@ -1027,7 +1047,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "7"
+              "lastSeasonPosition": 7,
+              "nextUp": "TBD"
             },
             {
               "rank": 22,
@@ -1075,7 +1096,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Premier League",
-              "lastSeasonPosition": "18"
+              "lastSeasonPosition": 18,
+              "nextUp": "TBD"
             },
             {
               "rank": 23,
@@ -1123,7 +1145,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "21"
+              "lastSeasonPosition": 21,
+              "nextUp": "TBD"
             },
             {
               "rank": 24,
@@ -1171,7 +1194,8 @@
               "update": "2025-05-25T00:00:00+00:00",
               "highlight": true,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": "12"
+              "lastSeasonPosition": 12,
+              "nextUp": "TBD"
             }
           ]
         ]
