@@ -106,7 +106,7 @@
       height: 35px;
       width: 35px;
       border-radius: 4px;
-      margin-top: 6px;
+      margin-top: 4px;
       margin-bottom: 6px;
     }
 
@@ -195,7 +195,7 @@
   <div class="popup" id="teamPopup">
     <button class="popup-close" onclick="closePopup()">✕</button>
     <img id="popupLogo" src="" alt="Team Logo">
-    <div id="popupName" style="font-weight: bold;"></div>
+    <div id="popupName" style="font-weight: bold; letter-spacing: 1px;"></div>
     <div class="popup-content">
       <table>
         <tr>
@@ -310,7 +310,7 @@
         return `<span class="form-span ${cls}">${result}</span>`;
       }).join('');
 
-      document.getElementById('popupForm').innerHTML = `Form:  ${formHTML}`;
+      document.getElementById('popupForm').innerHTML = `FORM:  ${formHTML}`;
       document.getElementById('popupLastSeason').textContent = `${ordinal(team.lastPos)} in ${team.lastLeague}`;
       document.getElementById('popupNextFixture').textContent = team.nextUp
         ? `Next Up: ${team.nextUp}`
