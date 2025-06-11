@@ -11,11 +11,16 @@ permissions:
 jobs:
   detect:
     runs-on: ubuntu-latest
+    outputs:
+      league_id: ${{ steps.set-vars.outputs.league_id }}
+      season: ${{ steps.set-vars.outputs.season }}
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
       - name: Detect Cardiff’s League and Season
+        id: set-vars
         run: |
           TEAM_ID=43
           MONTH=$(date +%m)
@@ -43,8 +48,12 @@ jobs:
 
           echo "✅ Detected League ID: $LEAGUE_ID"
 
-          # Save league_id and season to file
+          # Save to Git-tracked JSON file (optional, still useful for debugging)
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
+
+          # Set GitHub Actions outputs
+          echo "league_id=$LEAGUE_ID" >> $GITHUB_OUTPUT
+          echo "season=$SEASON" >> $GITHUB_OUTPUT
 
       - name: Commit and Push league-info.json
         run: |
@@ -56,4 +65,3 @@ jobs:
           else
             git commit -m "Update league detection info"
             git push
-          fi
