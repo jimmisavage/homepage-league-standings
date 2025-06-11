@@ -51,10 +51,23 @@ jobs:
           echo "📑 Building previous season map from cache..."
           mkdir -p tmp
 
-          jq -s '.[0] * .[1] * .[2]' \
-            data/previous-season/league-${LEAGUE_ID}-map.json \
-            data/previous-season/league-${ABOVE}-map.json \
-            data/previous-season/league-${BELOW}-map.json > tmp/last-season-map.json
+          FILES=""
+          for id in $LEAGUE_ID $ABOVE $BELOW; do
+            FILE="data/previous-season/league-${id}-map.json"
+            if [[ -f "$FILE" ]]; then
+              echo "✅ Found: $FILE"
+              FILES="$FILES $FILE"
+            else
+              echo "⚠️ Missing: $FILE"
+            fi
+          done
+
+          if [[ -z "$FILES" ]]; then
+            echo "❌ No previous season data found. Exiting."
+            exit 1
+          fi
+
+          jq -s 'reduce .[] as $item ({}; . * $item)' $FILES > tmp/last-season-map.json
 
       - name: Fetch Upcoming Fixtures
         run: |
