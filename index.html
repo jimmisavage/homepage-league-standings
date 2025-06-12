@@ -90,7 +90,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: #0f172a;
-      #border: 100px solid #0f172a;
       border-radius: 8px;
       padding: 30px;
       width: 90%;
@@ -103,6 +102,20 @@
       text-align: center;
       max-height: 90vh;
       overflow-y: auto;
+      position: relative; /* Add this */
+      overflow: hidden;    /* Clip background image overflow */
+    }
+
+    .popup-bg-logo {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 150px;
+      opacity: 0.06;
+      transform: rotate(-20deg);
+      filter: blur(3px);
+      pointer-events: none; /* Don't block interaction */
+      z-index: 0;
     }
 
     .popup img {
@@ -257,6 +270,13 @@
             <td>${played}</td>
             <td>${points}</td>
           `;
+
+          const popup = document.querySelector('.popup');
+          const teamId = 63; // or whatever
+          const logo = document.createElement('img');
+          logo.src = `assets/logos/${teamId}.png`;
+          logo.className = 'popup-bg-logo';
+          popup.appendChild(logo);
 
           row.addEventListener('click', () => {
             showPopup({
