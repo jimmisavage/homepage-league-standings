@@ -312,6 +312,7 @@
     }
 
     function showPopup(team) {
+      console.log("Popup logo path:", team.logo);
       document.getElementById('popupName').textContent = team.name.toUpperCase();
       document.getElementById('popupLogo').src = team.logo;
       document.getElementById('popupBgLogo').src = team.logo;
