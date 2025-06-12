@@ -102,7 +102,7 @@
       text-align: center;
       max-height: 90vh;
       overflow-y: auto;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .popup img {
@@ -187,14 +187,14 @@
 
     .popup-bg-logo {
       position: absolute;
-      bottom: -20px;
-      right: -20px;
+      bottom: 0px;
+      right: 0px;
       width: 160px;
       opacity: 0.05;
       transform: rotate(-20deg);
       filter: blur(3px);
       pointer-events: none;
-      z-index: 0;
+      z-index: 10;
     }
   </style>
 </head>
