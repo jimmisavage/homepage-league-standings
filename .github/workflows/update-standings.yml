@@ -2,6 +2,9 @@ name: Update Standings
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0,30 11-21 * * *'
+    - cron: '0 22 * * *'
 
 permissions:
   contents: write
