@@ -1,7 +1,7 @@
 {
   "get": "standings",
   "parameters": {
-    "league": "40",
+    "league": "39",
     "season": "2024"
   },
   "errors": [],
@@ -13,10 +13,10 @@
   "response": [
     {
       "league": {
-        "id": 40,
-        "name": "Championship",
+        "id": 39,
+        "name": "Premier League",
         "country": "England",
-        "logo": "https://media.api-sports.io/football/leagues/40.png",
+        "logo": "https://media.api-sports.io/football/leagues/39.png",
         "flag": "https://media.api-sports.io/flags/gb-eng.svg",
         "season": 2024,
         "standings": [
@@ -24,1177 +24,981 @@
             {
               "rank": 1,
               "team": {
-                "id": 63,
-                "name": "Leeds",
-                "logo": "https://media.api-sports.io/football/teams/63.png"
+                "id": 40,
+                "name": "Liverpool",
+                "logo": "https://media.api-sports.io/football/teams/40.png"
               },
-              "points": 100,
-              "goalsDiff": 65,
-              "group": "Championship",
-              "form": "WWWWW",
+              "points": 84,
+              "goalsDiff": 45,
+              "group": "Premier League",
+              "form": "DLDLW",
               "status": "same",
-              "description": "Promotion",
+              "description": "Champions League",
               "all": {
-                "played": 46,
-                "win": 29,
-                "draw": 13,
+                "played": 38,
+                "win": 25,
+                "draw": 9,
                 "lose": 4,
                 "goals": {
-                  "for": 95,
-                  "against": 30
+                  "for": 86,
+                  "against": 41
                 }
               },
               "home": {
-                "played": 23,
-                "win": 18,
+                "played": 19,
+                "win": 14,
                 "draw": 4,
                 "lose": 1,
                 "goals": {
-                  "for": 61,
-                  "against": 12
+                  "for": 42,
+                  "against": 16
                 }
               },
               "away": {
-                "played": 23,
+                "played": 19,
                 "win": 11,
-                "draw": 9,
+                "draw": 5,
                 "lose": 3,
                 "goals": {
-                  "for": 34,
-                  "against": 18
+                  "for": 44,
+                  "against": 25
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
-              "lastSeasonLeague": "Championship",
+              "lastSeasonLeague": "Premier League",
               "lastSeasonPosition": 3,
               "nextUp": "TBD"
             },
             {
               "rank": 2,
               "team": {
-                "id": 44,
-                "name": "Burnley",
-                "logo": "https://media.api-sports.io/football/teams/44.png"
+                "id": 42,
+                "name": "Arsenal",
+                "logo": "https://media.api-sports.io/football/teams/42.png"
               },
-              "points": 100,
-              "goalsDiff": 53,
-              "group": "Championship",
-              "form": "WWWWW",
+              "points": 74,
+              "goalsDiff": 35,
+              "group": "Premier League",
+              "form": "WWDLD",
               "status": "same",
-              "description": "Promotion",
+              "description": "Champions League",
               "all": {
-                "played": 46,
-                "win": 28,
-                "draw": 16,
-                "lose": 2,
+                "played": 38,
+                "win": 20,
+                "draw": 14,
+                "lose": 4,
                 "goals": {
                   "for": 69,
-                  "against": 16
+                  "against": 34
                 }
               },
               "home": {
-                "played": 23,
-                "win": 14,
-                "draw": 9,
-                "lose": 0,
+                "played": 19,
+                "win": 11,
+                "draw": 6,
+                "lose": 2,
                 "goals": {
                   "for": 35,
-                  "against": 8
+                  "against": 17
                 }
               },
               "away": {
-                "played": 23,
-                "win": 14,
-                "draw": 7,
+                "played": 19,
+                "win": 9,
+                "draw": 8,
                 "lose": 2,
                 "goals": {
                   "for": 34,
-                  "against": 8
+                  "against": 17
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": true,
               "lastSeasonLeague": "Premier League",
-              "lastSeasonPosition": 19,
+              "lastSeasonPosition": 2,
               "nextUp": "TBD"
             },
             {
               "rank": 3,
               "team": {
-                "id": 62,
-                "name": "Sheffield Utd",
-                "logo": "https://media.api-sports.io/football/teams/62.png"
+                "id": 50,
+                "name": "Manchester City",
+                "logo": "https://media.api-sports.io/football/teams/50.png"
               },
-              "points": 90,
-              "goalsDiff": 27,
-              "group": "Championship",
-              "form": "LWWDW",
+              "points": 71,
+              "goalsDiff": 28,
+              "group": "Premier League",
+              "form": "WWDWW",
               "status": "same",
-              "description": "Promotion Playoffs",
+              "description": "Champions League",
               "all": {
-                "played": 46,
-                "win": 28,
+                "played": 38,
+                "win": 21,
                 "draw": 8,
-                "lose": 10,
+                "lose": 9,
                 "goals": {
-                  "for": 63,
-                  "against": 36
+                  "for": 72,
+                  "against": 44
                 }
               },
               "home": {
-                "played": 23,
-                "win": 15,
-                "draw": 4,
-                "lose": 4,
+                "played": 19,
+                "win": 13,
+                "draw": 3,
+                "lose": 3,
                 "goals": {
-                  "for": 33,
-                  "against": 17
+                  "for": 43,
+                  "against": 23
                 }
               },
               "away": {
-                "played": 23,
-                "win": 13,
-                "draw": 4,
+                "played": 19,
+                "win": 8,
+                "draw": 5,
                 "lose": 6,
                 "goals": {
-                  "for": 30,
-                  "against": 19
+                  "for": 29,
+                  "against": 21
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Premier League",
-              "lastSeasonPosition": 20,
+              "lastSeasonPosition": 1,
               "nextUp": "TBD"
             },
             {
               "rank": 4,
               "team": {
-                "id": 746,
-                "name": "Sunderland",
-                "logo": "https://media.api-sports.io/football/teams/746.png"
+                "id": 49,
+                "name": "Chelsea",
+                "logo": "https://media.api-sports.io/football/teams/49.png"
               },
-              "points": 76,
-              "goalsDiff": 14,
-              "group": "Championship",
-              "form": "WDWLL",
+              "points": 69,
+              "goalsDiff": 21,
+              "group": "Premier League",
+              "form": "WWLWW",
               "status": "same",
-              "description": "Promotion Playoffs",
+              "description": "Champions League",
               "all": {
-                "played": 46,
-                "win": 21,
-                "draw": 13,
-                "lose": 12,
+                "played": 38,
+                "win": 20,
+                "draw": 9,
+                "lose": 9,
                 "goals": {
-                  "for": 58,
-                  "against": 44
+                  "for": 64,
+                  "against": 43
                 }
               },
               "home": {
-                "played": 23,
+                "played": 19,
                 "win": 12,
-                "draw": 7,
-                "lose": 4,
+                "draw": 5,
+                "lose": 2,
                 "goals": {
-                  "for": 32,
+                  "for": 35,
                   "against": 18
                 }
               },
               "away": {
-                "played": 23,
-                "win": 9,
-                "draw": 6,
-                "lose": 8,
-                "goals": {
-                  "for": 26,
-                  "against": 26
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 16,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 5,
-              "team": {
-                "id": 1346,
-                "name": "Coventry",
-                "logo": "https://media.api-sports.io/football/teams/1346.png"
-              },
-              "points": 69,
-              "goalsDiff": 6,
-              "group": "Championship",
-              "form": "DLWLL",
-              "status": "same",
-              "description": "Promotion Playoffs",
-              "all": {
-                "played": 46,
-                "win": 20,
-                "draw": 9,
-                "lose": 17,
-                "goals": {
-                  "for": 64,
-                  "against": 58
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 14,
-                "draw": 3,
-                "lose": 6,
-                "goals": {
-                  "for": 40,
-                  "against": 24
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 6,
-                "draw": 6,
-                "lose": 11,
-                "goals": {
-                  "for": 24,
-                  "against": 34
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 9,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 6,
-              "team": {
-                "id": 56,
-                "name": "Bristol City",
-                "logo": "https://media.api-sports.io/football/teams/56.png"
-              },
-              "points": 68,
-              "goalsDiff": 4,
-              "group": "Championship",
-              "form": "LLDLL",
-              "status": "same",
-              "description": "Promotion Playoffs",
-              "all": {
-                "played": 46,
-                "win": 17,
-                "draw": 17,
-                "lose": 12,
-                "goals": {
-                  "for": 59,
-                  "against": 55
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 13,
-                "draw": 7,
-                "lose": 3,
-                "goals": {
-                  "for": 36,
-                  "against": 20
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 4,
-                "draw": 10,
-                "lose": 9,
-                "goals": {
-                  "for": 23,
-                  "against": 35
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 11,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 7,
-              "team": {
-                "id": 67,
-                "name": "Blackburn",
-                "logo": "https://media.api-sports.io/football/teams/67.png"
-              },
-              "points": 66,
-              "goalsDiff": 5,
-              "group": "Championship",
-              "form": "DWWWW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 19,
-                "draw": 9,
-                "lose": 18,
-                "goals": {
-                  "for": 53,
-                  "against": 48
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 12,
-                "draw": 4,
-                "lose": 7,
-                "goals": {
-                  "for": 34,
-                  "against": 23
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 7,
-                "draw": 5,
-                "lose": 11,
-                "goals": {
-                  "for": 19,
-                  "against": 25
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 19,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 8,
-              "team": {
-                "id": 58,
-                "name": "Millwall",
-                "logo": "https://media.api-sports.io/football/teams/58.png"
-              },
-              "points": 66,
-              "goalsDiff": -2,
-              "group": "Championship",
-              "form": "LWWLW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 18,
-                "draw": 12,
-                "lose": 16,
-                "goals": {
-                  "for": 47,
-                  "against": 49
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 12,
-                "draw": 4,
-                "lose": 7,
-                "goals": {
-                  "for": 27,
-                  "against": 19
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 6,
-                "draw": 8,
-                "lose": 9,
-                "goals": {
-                  "for": 20,
-                  "against": 30
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 13,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 9,
-              "team": {
-                "id": 60,
-                "name": "West Brom",
-                "logo": "https://media.api-sports.io/football/teams/60.png"
-              },
-              "points": 64,
-              "goalsDiff": 10,
-              "group": "Championship",
-              "form": "WDLLW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 15,
-                "draw": 19,
-                "lose": 12,
-                "goals": {
-                  "for": 57,
-                  "against": 47
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 11,
-                "draw": 8,
-                "lose": 4,
-                "goals": {
-                  "for": 33,
-                  "against": 20
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 4,
-                "draw": 11,
-                "lose": 8,
-                "goals": {
-                  "for": 24,
-                  "against": 27
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 5,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 10,
-              "team": {
-                "id": 70,
-                "name": "Middlesbrough",
-                "logo": "https://media.api-sports.io/football/teams/70.png"
-              },
-              "points": 64,
-              "goalsDiff": 8,
-              "group": "Championship",
-              "form": "LDLWL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 18,
-                "draw": 10,
-                "lose": 18,
-                "goals": {
-                  "for": 64,
-                  "against": 56
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 11,
-                "draw": 6,
-                "lose": 6,
-                "goals": {
-                  "for": 31,
-                  "against": 23
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 7,
-                "draw": 4,
-                "lose": 12,
-                "goals": {
-                  "for": 33,
-                  "against": 33
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 8,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 11,
-              "team": {
-                "id": 76,
-                "name": "Swansea",
-                "logo": "https://media.api-sports.io/football/teams/76.png"
-              },
-              "points": 61,
-              "goalsDiff": -5,
-              "group": "Championship",
-              "form": "DLWWW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 17,
-                "draw": 10,
-                "lose": 19,
-                "goals": {
-                  "for": 51,
-                  "against": 56
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 10,
-                "draw": 6,
-                "lose": 7,
-                "goals": {
-                  "for": 33,
-                  "against": 24
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 7,
-                "draw": 4,
-                "lose": 12,
-                "goals": {
-                  "for": 18,
-                  "against": 32
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 14,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 12,
-              "team": {
-                "id": 74,
-                "name": "Sheffield Wednesday",
-                "logo": "https://media.api-sports.io/football/teams/74.png"
-              },
-              "points": 58,
-              "goalsDiff": -9,
-              "group": "Championship",
-              "form": "DDWLL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 15,
-                "draw": 13,
-                "lose": 18,
-                "goals": {
-                  "for": 60,
-                  "against": 69
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 6,
-                "draw": 8,
-                "lose": 9,
-                "goals": {
-                  "for": 30,
-                  "against": 32
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 9,
-                "draw": 5,
-                "lose": 9,
-                "goals": {
-                  "for": 30,
-                  "against": 37
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 20,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 13,
-              "team": {
-                "id": 71,
-                "name": "Norwich",
-                "logo": "https://media.api-sports.io/football/teams/71.png"
-              },
-              "points": 57,
-              "goalsDiff": 3,
-              "group": "Championship",
-              "form": "WDLLL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 14,
-                "draw": 15,
-                "lose": 17,
-                "goals": {
-                  "for": 71,
-                  "against": 68
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 10,
-                "draw": 8,
-                "lose": 5,
-                "goals": {
-                  "for": 52,
-                  "against": 34
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 4,
-                "draw": 7,
-                "lose": 12,
-                "goals": {
-                  "for": 19,
-                  "against": 34
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 6,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 14,
-              "team": {
-                "id": 38,
-                "name": "Watford",
-                "logo": "https://media.api-sports.io/football/teams/38.png"
-              },
-              "points": 57,
-              "goalsDiff": -8,
-              "group": "Championship",
-              "form": "DLLLL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 16,
-                "draw": 9,
-                "lose": 21,
-                "goals": {
-                  "for": 53,
-                  "against": 61
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 12,
-                "draw": 4,
-                "lose": 7,
-                "goals": {
-                  "for": 27,
-                  "against": 22
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 4,
-                "draw": 5,
-                "lose": 14,
-                "goals": {
-                  "for": 26,
-                  "against": 39
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 15,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 15,
-              "team": {
-                "id": 72,
-                "name": "QPR",
-                "logo": "https://media.api-sports.io/football/teams/72.png"
-              },
-              "points": 56,
-              "goalsDiff": -10,
-              "group": "Championship",
-              "form": "WLLWD",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 14,
-                "draw": 14,
-                "lose": 18,
-                "goals": {
-                  "for": 53,
-                  "against": 63
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 7,
-                "draw": 8,
-                "lose": 8,
-                "goals": {
-                  "for": 31,
-                  "against": 34
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 7,
-                "draw": 6,
-                "lose": 10,
-                "goals": {
-                  "for": 22,
-                  "against": 29
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 18,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 16,
-              "team": {
-                "id": 1355,
-                "name": "Portsmouth",
-                "logo": "https://media.api-sports.io/football/teams/1355.png"
-              },
-              "points": 54,
-              "goalsDiff": -13,
-              "group": "Championship",
-              "form": "DDWWD",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 14,
-                "draw": 12,
-                "lose": 20,
-                "goals": {
-                  "for": 58,
-                  "against": 71
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 11,
-                "draw": 7,
-                "lose": 5,
-                "goals": {
-                  "for": 33,
-                  "against": 21
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 3,
-                "draw": 5,
-                "lose": 15,
-                "goals": {
-                  "for": 25,
-                  "against": 50
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 1,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 17,
-              "team": {
-                "id": 1338,
-                "name": "Oxford United",
-                "logo": "https://media.api-sports.io/football/teams/1338.png"
-              },
-              "points": 53,
-              "goalsDiff": -16,
-              "group": "Championship",
-              "form": "DWDLW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 13,
-                "draw": 14,
-                "lose": 19,
-                "goals": {
-                  "for": 49,
-                  "against": 65
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 11,
-                "draw": 5,
-                "lose": 7,
-                "goals": {
-                  "for": 31,
-                  "against": 29
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 2,
-                "draw": 9,
-                "lose": 12,
-                "goals": {
-                  "for": 18,
-                  "against": 36
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 5,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 18,
-              "team": {
-                "id": 75,
-                "name": "Stoke City",
-                "logo": "https://media.api-sports.io/football/teams/75.png"
-              },
-              "points": 51,
-              "goalsDiff": -17,
-              "group": "Championship",
-              "form": "DLLWW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 12,
-                "draw": 15,
-                "lose": 19,
-                "goals": {
-                  "for": 45,
-                  "against": 62
-                }
-              },
-              "home": {
-                "played": 23,
+                "played": 19,
                 "win": 8,
-                "draw": 9,
-                "lose": 6,
+                "draw": 4,
+                "lose": 7,
                 "goals": {
                   "for": 29,
                   "against": 25
                 }
               },
-              "away": {
-                "played": 23,
-                "win": 4,
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 6,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 5,
+              "team": {
+                "id": 34,
+                "name": "Newcastle",
+                "logo": "https://media.api-sports.io/football/teams/34.png"
+              },
+              "points": 66,
+              "goalsDiff": 21,
+              "group": "Premier League",
+              "form": "LLWDW",
+              "status": "same",
+              "description": "Champions League",
+              "all": {
+                "played": 38,
+                "win": 20,
                 "draw": 6,
-                "lose": 13,
+                "lose": 12,
                 "goals": {
-                  "for": 16,
-                  "against": 37
+                  "for": 68,
+                  "against": 47
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "home": {
+                "played": 19,
+                "win": 12,
+                "draw": 2,
+                "lose": 5,
+                "goals": {
+                  "for": 40,
+                  "against": 20
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 8,
+                "draw": 4,
+                "lose": 7,
+                "goals": {
+                  "for": 28,
+                  "against": 27
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
-              "lastSeasonLeague": "Championship",
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 7,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 6,
+              "team": {
+                "id": 66,
+                "name": "Aston Villa",
+                "logo": "https://media.api-sports.io/football/teams/66.png"
+              },
+              "points": 66,
+              "goalsDiff": 7,
+              "group": "Premier League",
+              "form": "LWWWL",
+              "status": "same",
+              "description": "UEFA Europa League",
+              "all": {
+                "played": 38,
+                "win": 19,
+                "draw": 9,
+                "lose": 10,
+                "goals": {
+                  "for": 58,
+                  "against": 51
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 11,
+                "draw": 7,
+                "lose": 1,
+                "goals": {
+                  "for": 34,
+                  "against": 20
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 8,
+                "draw": 2,
+                "lose": 9,
+                "goals": {
+                  "for": 24,
+                  "against": 31
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 4,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 7,
+              "team": {
+                "id": 65,
+                "name": "Nottingham Forest",
+                "logo": "https://media.api-sports.io/football/teams/65.png"
+              },
+              "points": 65,
+              "goalsDiff": 12,
+              "group": "Premier League",
+              "form": "LWDDL",
+              "status": "same",
+              "description": "Conference League Qualification",
+              "all": {
+                "played": 38,
+                "win": 19,
+                "draw": 8,
+                "lose": 11,
+                "goals": {
+                  "for": 58,
+                  "against": 46
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 9,
+                "draw": 5,
+                "lose": 5,
+                "goals": {
+                  "for": 26,
+                  "against": 16
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 10,
+                "draw": 3,
+                "lose": 6,
+                "goals": {
+                  "for": 32,
+                  "against": 30
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
               "lastSeasonPosition": 17,
               "nextUp": "TBD"
             },
             {
-              "rank": 19,
+              "rank": 8,
               "team": {
-                "id": 69,
-                "name": "Derby",
-                "logo": "https://media.api-sports.io/football/teams/69.png"
+                "id": 51,
+                "name": "Brighton",
+                "logo": "https://media.api-sports.io/football/teams/51.png"
               },
-              "points": 50,
-              "goalsDiff": -8,
-              "group": "Championship",
-              "form": "DWWLD",
+              "points": 61,
+              "goalsDiff": 7,
+              "group": "Premier League",
+              "form": "WWWDW",
               "status": "same",
               "description": null,
               "all": {
-                "played": 46,
-                "win": 13,
-                "draw": 11,
-                "lose": 22,
-                "goals": {
-                  "for": 48,
-                  "against": 56
-                }
-              },
-              "home": {
-                "played": 23,
-                "win": 9,
-                "draw": 5,
+                "played": 38,
+                "win": 16,
+                "draw": 13,
                 "lose": 9,
                 "goals": {
-                  "for": 25,
-                  "against": 18
-                }
-              },
-              "away": {
-                "played": 23,
-                "win": 4,
-                "draw": 6,
-                "lose": 13,
-                "goals": {
-                  "for": 23,
-                  "against": 38
-                }
-              },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 2,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 20,
-              "team": {
-                "id": 59,
-                "name": "Preston",
-                "logo": "https://media.api-sports.io/football/teams/59.png"
-              },
-              "points": 50,
-              "goalsDiff": -11,
-              "group": "Championship",
-              "form": "DLLLL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 46,
-                "win": 10,
-                "draw": 20,
-                "lose": 16,
-                "goals": {
-                  "for": 48,
+                  "for": 66,
                   "against": 59
                 }
               },
               "home": {
-                "played": 23,
+                "played": 19,
+                "win": 8,
+                "draw": 8,
+                "lose": 3,
+                "goals": {
+                  "for": 30,
+                  "against": 26
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 8,
+                "draw": 5,
+                "lose": 6,
+                "goals": {
+                  "for": 36,
+                  "against": 33
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 11,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 9,
+              "team": {
+                "id": 35,
+                "name": "Bournemouth",
+                "logo": "https://media.api-sports.io/football/teams/35.png"
+              },
+              "points": 56,
+              "goalsDiff": 12,
+              "group": "Premier League",
+              "form": "WLLWD",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 38,
+                "win": 15,
+                "draw": 11,
+                "lose": 12,
+                "goals": {
+                  "for": 58,
+                  "against": 46
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 8,
+                "draw": 4,
+                "lose": 7,
+                "goals": {
+                  "for": 23,
+                  "against": 16
+                }
+              },
+              "away": {
+                "played": 19,
                 "win": 7,
-                "draw": 12,
-                "lose": 4,
+                "draw": 7,
+                "lose": 5,
+                "goals": {
+                  "for": 35,
+                  "against": 30
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 12,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 10,
+              "team": {
+                "id": 55,
+                "name": "Brentford",
+                "logo": "https://media.api-sports.io/football/teams/55.png"
+              },
+              "points": 56,
+              "goalsDiff": 9,
+              "group": "Premier League",
+              "form": "DLWWW",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 38,
+                "win": 16,
+                "draw": 8,
+                "lose": 14,
+                "goals": {
+                  "for": 66,
+                  "against": 57
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 9,
+                "draw": 4,
+                "lose": 6,
+                "goals": {
+                  "for": 40,
+                  "against": 35
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 7,
+                "draw": 4,
+                "lose": 8,
                 "goals": {
                   "for": 26,
                   "against": 22
                 }
               },
-              "away": {
-                "played": 23,
-                "win": 3,
-                "draw": 8,
-                "lose": 12,
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 16,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 11,
+              "team": {
+                "id": 36,
+                "name": "Fulham",
+                "logo": "https://media.api-sports.io/football/teams/36.png"
+              },
+              "points": 54,
+              "goalsDiff": 0,
+              "group": "Premier League",
+              "form": "LWLLW",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 38,
+                "win": 15,
+                "draw": 9,
+                "lose": 14,
                 "goals": {
-                  "for": 22,
-                  "against": 37
+                  "for": 54,
+                  "against": 54
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "home": {
+                "played": 19,
+                "win": 7,
+                "draw": 5,
+                "lose": 7,
+                "goals": {
+                  "for": 27,
+                  "against": 30
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 8,
+                "draw": 4,
+                "lose": 7,
+                "goals": {
+                  "for": 27,
+                  "against": 24
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
-              "lastSeasonLeague": "Championship",
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 13,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 12,
+              "team": {
+                "id": 52,
+                "name": "Crystal Palace",
+                "logo": "https://media.api-sports.io/football/teams/52.png"
+              },
+              "points": 53,
+              "goalsDiff": 0,
+              "group": "Premier League",
+              "form": "DWWDD",
+              "status": "same",
+              "description": "UEFA Europa League",
+              "all": {
+                "played": 38,
+                "win": 13,
+                "draw": 14,
+                "lose": 11,
+                "goals": {
+                  "for": 51,
+                  "against": 51
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 6,
+                "draw": 7,
+                "lose": 6,
+                "goals": {
+                  "for": 24,
+                  "against": 26
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 7,
+                "draw": 7,
+                "lose": 5,
+                "goals": {
+                  "for": 27,
+                  "against": 25
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
               "lastSeasonPosition": 10,
               "nextUp": "TBD"
             },
             {
-              "rank": 21,
+              "rank": 13,
               "team": {
-                "id": 64,
-                "name": "Hull City",
-                "logo": "https://media.api-sports.io/football/teams/64.png"
+                "id": 45,
+                "name": "Everton",
+                "logo": "https://media.api-sports.io/football/teams/45.png"
               },
-              "points": 49,
-              "goalsDiff": -10,
-              "group": "Championship",
-              "form": "DLWLD",
+              "points": 48,
+              "goalsDiff": -2,
+              "group": "Premier League",
+              "form": "WWWDL",
               "status": "same",
               "description": null,
               "all": {
-                "played": 46,
-                "win": 12,
-                "draw": 13,
-                "lose": 21,
+                "played": 38,
+                "win": 11,
+                "draw": 15,
+                "lose": 12,
+                "goals": {
+                  "for": 42,
+                  "against": 44
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 5,
+                "draw": 9,
+                "lose": 5,
+                "goals": {
+                  "for": 26,
+                  "against": 23
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 6,
+                "draw": 6,
+                "lose": 7,
+                "goals": {
+                  "for": 16,
+                  "against": 21
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 15,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 14,
+              "team": {
+                "id": 48,
+                "name": "West Ham",
+                "logo": "https://media.api-sports.io/football/teams/48.png"
+              },
+              "points": 43,
+              "goalsDiff": -16,
+              "group": "Premier League",
+              "form": "WLWDL",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 38,
+                "win": 11,
+                "draw": 10,
+                "lose": 17,
+                "goals": {
+                  "for": 46,
+                  "against": 62
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 5,
+                "draw": 5,
+                "lose": 9,
+                "goals": {
+                  "for": 23,
+                  "against": 34
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 6,
+                "draw": 5,
+                "lose": 8,
+                "goals": {
+                  "for": 23,
+                  "against": 28
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 9,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 15,
+              "team": {
+                "id": 33,
+                "name": "Manchester United",
+                "logo": "https://media.api-sports.io/football/teams/33.png"
+              },
+              "points": 42,
+              "goalsDiff": -10,
+              "group": "Premier League",
+              "form": "WLLLD",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 38,
+                "win": 11,
+                "draw": 9,
+                "lose": 18,
                 "goals": {
                   "for": 44,
                   "against": 54
                 }
               },
               "home": {
-                "played": 23,
-                "win": 5,
-                "draw": 8,
-                "lose": 10,
+                "played": 19,
+                "win": 7,
+                "draw": 3,
+                "lose": 9,
                 "goals": {
-                  "for": 24,
+                  "for": 23,
                   "against": 28
                 }
               },
               "away": {
-                "played": 23,
-                "win": 7,
-                "draw": 5,
-                "lose": 11,
+                "played": 19,
+                "win": 4,
+                "draw": 6,
+                "lose": 9,
                 "goals": {
-                  "for": 20,
+                  "for": 21,
                   "against": 26
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 7,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 8,
               "nextUp": "TBD"
             },
             {
-              "rank": 22,
+              "rank": 16,
               "team": {
-                "id": 1359,
-                "name": "Luton",
-                "logo": "https://media.api-sports.io/football/teams/1359.png"
+                "id": 39,
+                "name": "Wolves",
+                "logo": "https://media.api-sports.io/football/teams/39.png"
               },
-              "points": 49,
-              "goalsDiff": -24,
-              "group": "Championship",
-              "form": "LWWWL",
+              "points": 42,
+              "goalsDiff": -15,
+              "group": "Premier League",
+              "form": "DLLLW",
               "status": "same",
-              "description": "Relegation",
+              "description": null,
               "all": {
-                "played": 46,
-                "win": 13,
-                "draw": 10,
-                "lose": 23,
+                "played": 38,
+                "win": 12,
+                "draw": 6,
+                "lose": 20,
                 "goals": {
-                  "for": 45,
+                  "for": 54,
                   "against": 69
                 }
               },
               "home": {
-                "played": 23,
-                "win": 9,
-                "draw": 7,
-                "lose": 7,
+                "played": 19,
+                "win": 6,
+                "draw": 3,
+                "lose": 10,
                 "goals": {
-                  "for": 25,
-                  "against": 22
+                  "for": 27,
+                  "against": 32
                 }
               },
               "away": {
-                "played": 23,
-                "win": 4,
+                "played": 19,
+                "win": 6,
                 "draw": 3,
-                "lose": 16,
+                "lose": 10,
                 "goals": {
-                  "for": 20,
-                  "against": 47
+                  "for": 27,
+                  "against": 37
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Premier League",
-              "lastSeasonPosition": 18,
+              "lastSeasonPosition": 14,
               "nextUp": "TBD"
             },
             {
-              "rank": 23,
+              "rank": 17,
               "team": {
-                "id": 1357,
-                "name": "Plymouth",
-                "logo": "https://media.api-sports.io/football/teams/1357.png"
+                "id": 47,
+                "name": "Tottenham",
+                "logo": "https://media.api-sports.io/football/teams/47.png"
               },
-              "points": 46,
-              "goalsDiff": -37,
-              "group": "Championship",
-              "form": "LWWLW",
+              "points": 38,
+              "goalsDiff": -1,
+              "group": "Premier League",
+              "form": "LLLDL",
               "status": "same",
-              "description": "Relegation",
+              "description": "Champions League",
               "all": {
-                "played": 46,
+                "played": 38,
                 "win": 11,
-                "draw": 13,
+                "draw": 5,
                 "lose": 22,
                 "goals": {
-                  "for": 51,
-                  "against": 88
+                  "for": 64,
+                  "against": 65
                 }
               },
               "home": {
-                "played": 23,
-                "win": 9,
-                "draw": 7,
-                "lose": 7,
+                "played": 19,
+                "win": 6,
+                "draw": 3,
+                "lose": 10,
                 "goals": {
-                  "for": 40,
-                  "against": 39
+                  "for": 35,
+                  "against": 35
                 }
               },
               "away": {
-                "played": 23,
-                "win": 2,
-                "draw": 6,
-                "lose": 15,
+                "played": 19,
+                "win": 5,
+                "draw": 2,
+                "lose": 12,
                 "goals": {
-                  "for": 11,
-                  "against": 49
+                  "for": 29,
+                  "against": 30
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
+              "update": "2025-05-26T00:00:00+00:00",
               "highlight": false,
-              "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 21,
+              "lastSeasonLeague": "Premier League",
+              "lastSeasonPosition": 5,
               "nextUp": "TBD"
             },
             {
-              "rank": 24,
+              "rank": 18,
               "team": {
-                "id": 43,
-                "name": "Cardiff",
-                "logo": "https://media.api-sports.io/football/teams/43.png"
+                "id": 46,
+                "name": "Leicester",
+                "logo": "https://media.api-sports.io/football/teams/46.png"
               },
-              "points": 44,
-              "goalsDiff": -25,
-              "group": "Championship",
-              "form": "LDDLL",
+              "points": 25,
+              "goalsDiff": -47,
+              "group": "Premier League",
+              "form": "LWDWL",
               "status": "same",
               "description": "Relegation",
               "all": {
-                "played": 46,
-                "win": 9,
-                "draw": 17,
-                "lose": 20,
+                "played": 38,
+                "win": 6,
+                "draw": 7,
+                "lose": 25,
                 "goals": {
-                  "for": 48,
-                  "against": 73
+                  "for": 33,
+                  "against": 80
                 }
               },
               "home": {
-                "played": 23,
-                "win": 7,
-                "draw": 6,
-                "lose": 10,
+                "played": 19,
+                "win": 4,
+                "draw": 3,
+                "lose": 12,
                 "goals": {
-                  "for": 24,
-                  "against": 27
+                  "for": 15,
+                  "against": 34
                 }
               },
               "away": {
-                "played": 23,
+                "played": 19,
                 "win": 2,
-                "draw": 11,
-                "lose": 10,
+                "draw": 4,
+                "lose": 13,
                 "goals": {
-                  "for": 24,
+                  "for": 18,
                   "against": 46
                 }
               },
-              "update": "2025-05-25T00:00:00+00:00",
-              "highlight": true,
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
               "lastSeasonLeague": "Championship",
-              "lastSeasonPosition": 12,
+              "lastSeasonPosition": 1,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 19,
+              "team": {
+                "id": 57,
+                "name": "Ipswich",
+                "logo": "https://media.api-sports.io/football/teams/57.png"
+              },
+              "points": 22,
+              "goalsDiff": -46,
+              "group": "Premier League",
+              "form": "LLLDL",
+              "status": "same",
+              "description": "Relegation",
+              "all": {
+                "played": 38,
+                "win": 4,
+                "draw": 10,
+                "lose": 24,
+                "goals": {
+                  "for": 36,
+                  "against": 82
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 1,
+                "draw": 4,
+                "lose": 14,
+                "goals": {
+                  "for": 14,
+                  "against": 44
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 3,
+                "draw": 6,
+                "lose": 10,
+                "goals": {
+                  "for": 22,
+                  "against": 38
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Championship",
+              "lastSeasonPosition": 2,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 20,
+              "team": {
+                "id": 41,
+                "name": "Southampton",
+                "logo": "https://media.api-sports.io/football/teams/41.png"
+              },
+              "points": 12,
+              "goalsDiff": -60,
+              "group": "Premier League",
+              "form": "LLDLL",
+              "status": "same",
+              "description": "Relegation",
+              "all": {
+                "played": 38,
+                "win": 2,
+                "draw": 6,
+                "lose": 30,
+                "goals": {
+                  "for": 26,
+                  "against": 86
+                }
+              },
+              "home": {
+                "played": 19,
+                "win": 1,
+                "draw": 3,
+                "lose": 15,
+                "goals": {
+                  "for": 13,
+                  "against": 47
+                }
+              },
+              "away": {
+                "played": 19,
+                "win": 1,
+                "draw": 3,
+                "lose": 15,
+                "goals": {
+                  "for": 13,
+                  "against": 39
+                }
+              },
+              "update": "2025-05-26T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "Championship",
+              "lastSeasonPosition": 4,
               "nextUp": "TBD"
             }
           ]
