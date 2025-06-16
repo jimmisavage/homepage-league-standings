@@ -16,9 +16,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Detect Cardiff’s League and Season
+      - name: Detect League and Season
         run: |
-          TEAM_ID=43
+          TEAM_ID=$(cat ./assets/teamid.txt)
           MONTH=$(date +%m)
           YEAR=$(date +%Y)
 
@@ -36,13 +36,13 @@ jobs:
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-          echo "$response" | jq . > tmp/cardiff-response.json
+          echo "$response" | jq . > tmp/team-response.json
 
           LEAGUE_ID=$(echo "$response" | jq -r '.response[0].league.id')
 
           if [ "$LEAGUE_ID" = "null" ] || [ -z "$LEAGUE_ID" ]; then
             echo "❌ Could not determine league ID. Exiting."
-            cat tmp/cardiff-response.json
+            cat tmp/team-response.json
             exit 1
           fi
 
