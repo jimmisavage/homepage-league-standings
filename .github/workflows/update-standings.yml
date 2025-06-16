@@ -114,18 +114,16 @@ jobs:
             split("\n") | map(select(length > 0)) | map(split(" ") | {(.[0]): {nextUp: (.[1:] | join(" "))}}) | add
           ' > tmp/next-fixtures-map.json
 
-      - name: Debug Team 63 Last Season Data
-        run: |
-          echo "🕵️ Debugging last season data for Leeds (team 63)"
-          jq '."63"' tmp/last-season-map.json || echo "❌ Team 63 not found!"
-
       - name: Build Final standings.json
         run: |
-          jq --slurpfile last tmp/last-season-map.json \
+          TEAM_ID=$(cat ./assets/teamid.txt)
+
+          jq --argjson teamId "$TEAM_ID" \
+             --slurpfile last tmp/last-season-map.json \
              --slurpfile fixtures tmp/next-fixtures-map.json '
             .response[0].league.standings[0] |= map(
               . + {
-                highlight: (if .team.id == 43 then true else false end),
+                highlight: (if .team.id == $teamId then true else false end),
                 lastSeasonLeague: ($last[0][(.team.id|tostring)].lastLeague // "Unknown"),
                 lastSeasonPosition: ($last[0][(.team.id|tostring)].lastRank // "?"),
                 nextUp: ($fixtures[0][(.team.id|tostring)].nextUp // "TBD")
