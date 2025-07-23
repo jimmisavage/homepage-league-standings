@@ -65,7 +65,7 @@
                 }
               },
               "update": "2025-05-26T00:00:00+00:00",
-              "highlight": true,
+              "highlight": false,
               "lastSeasonLeague": "Premier League",
               "lastSeasonPosition": 3,
               "nextUp": "TBD"
