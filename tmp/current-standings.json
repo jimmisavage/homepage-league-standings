@@ -24,33 +24,33 @@
             {
               "rank": 1,
               "team": {
-                "id": 1333,
-                "name": "AFC Wimbledon",
-                "logo": "https://media.api-sports.io/football/teams/1333.png"
+                "id": 1359,
+                "name": "Luton",
+                "logo": "https://media.api-sports.io/football/teams/1359.png"
               },
-              "points": 0,
-              "goalsDiff": 0,
+              "points": 3,
+              "goalsDiff": 1,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
               "description": "Promotion",
               "all": {
-                "played": 0,
-                "win": 0,
+                "played": 1,
+                "win": 1,
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 0,
+                  "for": 1,
                   "against": 0
                 }
               },
               "home": {
-                "played": 0,
-                "win": 0,
+                "played": 1,
+                "win": 1,
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 0,
+                  "for": 1,
                   "against": 0
                 }
               },
@@ -64,7 +64,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 2,
@@ -109,7 +109,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 3,
@@ -154,7 +154,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 4,
@@ -199,7 +199,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 5,
@@ -244,7 +244,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 6,
@@ -289,7 +289,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 7,
@@ -334,7 +334,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 8,
@@ -379,7 +379,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 9,
@@ -424,7 +424,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 10,
@@ -469,7 +469,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 11,
@@ -514,7 +514,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 12,
@@ -559,55 +559,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
               "rank": 13,
-              "team": {
-                "id": 1359,
-                "name": "Luton",
-                "logo": "https://media.api-sports.io/football/teams/1359.png"
-              },
-              "points": 0,
-              "goalsDiff": 0,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 0
-                }
-              },
-              "home": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 0
-                }
-              },
-              "update": "2025-07-28T00:00:00+00:00"
-            },
-            {
-              "rank": 14,
               "team": {
                 "id": 1374,
                 "name": "Mansfield Town",
@@ -649,10 +604,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 15,
+              "rank": 14,
               "team": {
                 "id": 1337,
                 "name": "Northampton",
@@ -694,10 +649,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 16,
+              "rank": 15,
               "team": {
                 "id": 1350,
                 "name": "Peterborough",
@@ -739,10 +694,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 17,
+              "rank": 16,
               "team": {
                 "id": 1357,
                 "name": "Plymouth",
@@ -784,10 +739,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 18,
+              "rank": 17,
               "team": {
                 "id": 1351,
                 "name": "Port Vale",
@@ -829,10 +784,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 19,
+              "rank": 18,
               "team": {
                 "id": 53,
                 "name": "Reading",
@@ -874,10 +829,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 20,
+              "rank": 19,
               "team": {
                 "id": 73,
                 "name": "Rotherham",
@@ -919,10 +874,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 21,
+              "rank": 20,
               "team": {
                 "id": 1368,
                 "name": "Stevenage",
@@ -933,7 +888,7 @@
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
-              "description": "Relegation",
+              "description": null,
               "all": {
                 "played": 0,
                 "win": 0,
@@ -964,10 +919,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 22,
+              "rank": 21,
               "team": {
                 "id": 4686,
                 "name": "Stockport County",
@@ -1009,10 +964,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 23,
+              "rank": 22,
               "team": {
                 "id": 61,
                 "name": "Wigan",
@@ -1054,10 +1009,10 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
             },
             {
-              "rank": 24,
+              "rank": 23,
               "team": {
                 "id": 1358,
                 "name": "Wycombe",
@@ -1099,7 +1054,52 @@
                   "against": 0
                 }
               },
-              "update": "2025-07-28T00:00:00+00:00"
+              "update": "2025-08-02T00:00:00+00:00"
+            },
+            {
+              "rank": 24,
+              "team": {
+                "id": 1333,
+                "name": "AFC Wimbledon",
+                "logo": "https://media.api-sports.io/football/teams/1333.png"
+              },
+              "points": 0,
+              "goalsDiff": -1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": "Relegation",
+              "all": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 1
+                }
+              },
+              "home": {
+                "played": 0,
+                "win": 0,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 0,
+                  "against": 1
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 1
+                }
+              },
+              "update": "2025-08-02T00:00:00+00:00"
             }
           ]
         ]
