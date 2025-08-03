@@ -204,6 +204,51 @@
             {
               "rank": 5,
               "team": {
+                "id": 4686,
+                "name": "Stockport County",
+                "logo": "https://media.api-sports.io/football/teams/4686.png"
+              },
+              "points": 3,
+              "goalsDiff": 2,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": "Promotionplayoff",
+              "all": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 0
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 0
+                }
+              },
+              "away": {
+                "played": 0,
+                "win": 0,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 0,
+                  "against": 0
+                }
+              },
+              "update": "2025-08-03T00:00:00+00:00"
+            },
+            {
+              "rank": 6,
+              "team": {
                 "id": 1368,
                 "name": "Stevenage",
                 "logo": "https://media.api-sports.io/football/teams/1368.png"
@@ -247,7 +292,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 6,
+              "rank": 7,
               "team": {
                 "id": 1343,
                 "name": "Bradford",
@@ -258,7 +303,7 @@
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
-              "description": "Promotionplayoff",
+              "description": null,
               "all": {
                 "played": 1,
                 "win": 1,
@@ -292,7 +337,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 7,
+              "rank": 8,
               "team": {
                 "id": 748,
                 "name": "Burton Albion",
@@ -337,7 +382,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "team": {
                 "id": 43,
                 "name": "Cardiff",
@@ -382,7 +427,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "team": {
                 "id": 73,
                 "name": "Rotherham",
@@ -427,7 +472,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 10,
+              "rank": 11,
               "team": {
                 "id": 1354,
                 "name": "Doncaster",
@@ -472,56 +517,11 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 11,
+              "rank": 12,
               "team": {
                 "id": 1359,
                 "name": "Luton",
                 "logo": "https://media.api-sports.io/football/teams/1359.png"
-              },
-              "points": 3,
-              "goalsDiff": 1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 1,
-                  "against": 0
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 1,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 0
-                }
-              },
-              "update": "2025-08-03T00:00:00+00:00"
-            },
-            {
-              "rank": 12,
-              "team": {
-                "id": 4686,
-                "name": "Stockport County",
-                "logo": "https://media.api-sports.io/football/teams/4686.png"
               },
               "points": 3,
               "goalsDiff": 1,
@@ -834,51 +834,6 @@
             {
               "rank": 19,
               "team": {
-                "id": 68,
-                "name": "Bolton",
-                "logo": "https://media.api-sports.io/football/teams/68.png"
-              },
-              "points": 0,
-              "goalsDiff": -1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "home": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "update": "2025-08-03T00:00:00+00:00"
-            },
-            {
-              "rank": 20,
-              "team": {
                 "id": 1364,
                 "name": "Exeter City",
                 "logo": "https://media.api-sports.io/football/teams/1364.png"
@@ -922,7 +877,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 21,
+              "rank": 20,
               "team": {
                 "id": 1337,
                 "name": "Northampton",
@@ -933,7 +888,7 @@
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
-              "description": "Relegation",
+              "description": null,
               "all": {
                 "played": 1,
                 "win": 0,
@@ -967,7 +922,7 @@
               "update": "2025-08-03T00:00:00+00:00"
             },
             {
-              "rank": 22,
+              "rank": 21,
               "team": {
                 "id": 1357,
                 "name": "Plymouth",
@@ -1007,6 +962,51 @@
                 "goals": {
                   "for": 0,
                   "against": 3
+                }
+              },
+              "update": "2025-08-03T00:00:00+00:00"
+            },
+            {
+              "rank": 22,
+              "team": {
+                "id": 68,
+                "name": "Bolton",
+                "logo": "https://media.api-sports.io/football/teams/68.png"
+              },
+              "points": 0,
+              "goalsDiff": -2,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": "Relegation",
+              "all": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 2
+                }
+              },
+              "home": {
+                "played": 0,
+                "win": 0,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 0,
+                  "against": 2
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 2
                 }
               },
               "update": "2025-08-03T00:00:00+00:00"
