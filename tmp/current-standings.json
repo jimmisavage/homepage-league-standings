@@ -24,6 +24,51 @@
             {
               "rank": 1,
               "team": {
+                "id": 43,
+                "name": "Cardiff",
+                "logo": "https://media.api-sports.io/football/teams/43.png"
+              },
+              "points": 4,
+              "goalsDiff": 1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": "Promotion",
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 1
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 1
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 0,
+                  "against": 1
+                }
+              },
+              "update": "2025-08-07T00:00:00+00:00"
+            },
+            {
+              "rank": 2,
+              "team": {
                 "id": 37,
                 "name": "Huddersfield",
                 "logo": "https://media.api-sports.io/football/teams/37.png"
@@ -67,7 +112,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 2,
+              "rank": 3,
               "team": {
                 "id": 747,
                 "name": "Barnsley",
@@ -78,7 +123,7 @@
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
-              "description": "Promotion",
+              "description": "Promotionplayoff",
               "all": {
                 "played": 1,
                 "win": 1,
@@ -112,7 +157,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 3,
+              "rank": 4,
               "team": {
                 "id": 61,
                 "name": "Wigan",
@@ -157,7 +202,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 4,
+              "rank": 5,
               "team": {
                 "id": 1379,
                 "name": "Lincoln",
@@ -202,7 +247,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 5,
+              "rank": 6,
               "team": {
                 "id": 4686,
                 "name": "Stockport County",
@@ -247,7 +292,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 6,
+              "rank": 7,
               "team": {
                 "id": 1368,
                 "name": "Stevenage",
@@ -258,7 +303,7 @@
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
-              "description": "Promotionplayoff",
+              "description": null,
               "all": {
                 "played": 1,
                 "win": 1,
@@ -292,7 +337,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 7,
+              "rank": 8,
               "team": {
                 "id": 1343,
                 "name": "Bradford",
@@ -337,56 +382,11 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "team": {
                 "id": 748,
                 "name": "Burton Albion",
                 "logo": "https://media.api-sports.io/football/teams/748.png"
-              },
-              "points": 3,
-              "goalsDiff": 1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 1
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 1
-                }
-              },
-              "away": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "update": "2025-08-07T00:00:00+00:00"
-            },
-            {
-              "rank": 9,
-              "team": {
-                "id": 43,
-                "name": "Cardiff",
-                "logo": "https://media.api-sports.io/football/teams/43.png"
               },
               "points": 3,
               "goalsDiff": 1,
@@ -564,6 +564,51 @@
             {
               "rank": 13,
               "team": {
+                "id": 1351,
+                "name": "Port Vale",
+                "logo": "https://media.api-sports.io/football/teams/1351.png"
+              },
+              "points": 1,
+              "goalsDiff": -1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 2,
+                "win": 0,
+                "draw": 1,
+                "lose": 1,
+                "goals": {
+                  "for": 1,
+                  "against": 2
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 0,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 0,
+                  "against": 2
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 1,
+                  "against": 2
+                }
+              },
+              "update": "2025-08-07T00:00:00+00:00"
+            },
+            {
+              "rank": 14,
+              "team": {
                 "id": 1356,
                 "name": "Blackpool",
                 "logo": "https://media.api-sports.io/football/teams/1356.png"
@@ -607,7 +652,7 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 14,
+              "rank": 15,
               "team": {
                 "id": 1374,
                 "name": "Mansfield Town",
@@ -652,56 +697,11 @@
               "update": "2025-08-07T00:00:00+00:00"
             },
             {
-              "rank": 15,
+              "rank": 16,
               "team": {
                 "id": 1350,
                 "name": "Peterborough",
                 "logo": "https://media.api-sports.io/football/teams/1350.png"
-              },
-              "points": 0,
-              "goalsDiff": -1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 1,
-                  "against": 2
-                }
-              },
-              "home": {
-                "played": 0,
-                "win": 0,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 2
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 1,
-                  "against": 2
-                }
-              },
-              "update": "2025-08-07T00:00:00+00:00"
-            },
-            {
-              "rank": 16,
-              "team": {
-                "id": 1351,
-                "name": "Port Vale",
-                "logo": "https://media.api-sports.io/football/teams/1351.png"
               },
               "points": 0,
               "goalsDiff": -1,
