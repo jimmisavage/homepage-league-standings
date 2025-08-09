@@ -73,9 +73,9 @@
             {
               "rank": 2,
               "team": {
-                "id": 748,
-                "name": "Burton Albion",
-                "logo": "https://media.api-sports.io/football/teams/748.png"
+                "id": 4686,
+                "name": "Stockport County",
+                "logo": "https://media.api-sports.io/football/teams/4686.png"
               },
               "points": 6,
               "goalsDiff": 3,
@@ -116,7 +116,7 @@
               "update": "2025-08-09T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 20,
+              "lastSeasonPosition": 3,
               "nextUp": "TBD"
             },
             {
@@ -171,12 +171,12 @@
             {
               "rank": 4,
               "team": {
-                "id": 4686,
-                "name": "Stockport County",
-                "logo": "https://media.api-sports.io/football/teams/4686.png"
+                "id": 1368,
+                "name": "Stevenage",
+                "logo": "https://media.api-sports.io/football/teams/1368.png"
               },
               "points": 6,
-              "goalsDiff": 3,
+              "goalsDiff": 2,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
@@ -187,115 +187,17 @@
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 3,
-                  "against": 0
+                  "for": 4,
+                  "against": 2
                 }
               },
               "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 0
-                }
-              },
-              "away": {
                 "played": 1,
                 "win": 1,
                 "draw": 0,
                 "lose": 0,
                 "goals": {
                   "for": 1,
-                  "against": 0
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 3,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 5,
-              "team": {
-                "id": 1379,
-                "name": "Lincoln",
-                "logo": "https://media.api-sports.io/football/teams/1379.png"
-              },
-              "points": 4,
-              "goalsDiff": 2,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": "Promotionplayoff",
-              "all": {
-                "played": 2,
-                "win": 1,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 0
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 0
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 11,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 6,
-              "team": {
-                "id": 1368,
-                "name": "Stevenage",
-                "logo": "https://media.api-sports.io/football/teams/1368.png"
-              },
-              "points": 4,
-              "goalsDiff": 1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": "Promotionplayoff",
-              "all": {
-                "played": 2,
-                "win": 1,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 3,
-                  "against": 2
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 0,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
                   "against": 2
                 }
               },
@@ -316,7 +218,154 @@
               "nextUp": "TBD"
             },
             {
+              "rank": 5,
+              "team": {
+                "id": 747,
+                "name": "Barnsley",
+                "logo": "https://media.api-sports.io/football/teams/747.png"
+              },
+              "points": 4,
+              "goalsDiff": 2,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": "Promotionplayoff",
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 5,
+                  "against": 3
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 0,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 3
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 3,
+                  "against": 3
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 12,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 6,
+              "team": {
+                "id": 748,
+                "name": "Burton Albion",
+                "logo": "https://media.api-sports.io/football/teams/748.png"
+              },
+              "points": 4,
+              "goalsDiff": 1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": "Promotionplayoff",
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 4,
+                  "against": 3
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 3
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 3
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 20,
+              "nextUp": "TBD"
+            },
+            {
               "rank": 7,
+              "team": {
+                "id": 1354,
+                "name": "Doncaster",
+                "logo": "https://media.api-sports.io/football/teams/1354.png"
+              },
+              "points": 4,
+              "goalsDiff": 1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 1
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 1,
+                  "against": 1
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 1,
+                  "against": 1
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League Two",
+              "lastSeasonPosition": 1,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 8,
               "team": {
                 "id": 1343,
                 "name": "Bradford",
@@ -365,7 +414,7 @@
               "nextUp": "TBD"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "team": {
                 "id": 43,
                 "name": "Cardiff",
@@ -414,210 +463,14 @@
               "nextUp": "TBD"
             },
             {
-              "rank": 9,
-              "team": {
-                "id": 73,
-                "name": "Rotherham",
-                "logo": "https://media.api-sports.io/football/teams/73.png"
-              },
-              "points": 4,
-              "goalsDiff": 1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 2,
-                "win": 1,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 1
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 1
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 13,
-              "nextUp": "TBD"
-            },
-            {
               "rank": 10,
-              "team": {
-                "id": 1354,
-                "name": "Doncaster",
-                "logo": "https://media.api-sports.io/football/teams/1354.png"
-              },
-              "points": 4,
-              "goalsDiff": 1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 2,
-                "win": 1,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 1,
-                  "against": 0
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 1,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 0
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League Two",
-              "lastSeasonPosition": 1,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 11,
-              "team": {
-                "id": 61,
-                "name": "Wigan",
-                "logo": "https://media.api-sports.io/football/teams/61.png"
-              },
-              "points": 3,
-              "goalsDiff": 1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 2,
-                "win": 1,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 3,
-                  "against": 2
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 3,
-                  "against": 2
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 2
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 15,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 12,
-              "team": {
-                "id": 747,
-                "name": "Barnsley",
-                "logo": "https://media.api-sports.io/football/teams/747.png"
-              },
-              "points": 3,
-              "goalsDiff": 0,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 2,
-                "win": 1,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 3,
-                  "against": 3
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 3
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 3,
-                  "against": 3
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 12,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 13,
               "team": {
                 "id": 1364,
                 "name": "Exeter City",
                 "logo": "https://media.api-sports.io/football/teams/1364.png"
               },
               "points": 3,
-              "goalsDiff": 0,
+              "goalsDiff": 1,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
@@ -628,7 +481,7 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 2,
+                  "for": 3,
                   "against": 2
                 }
               },
@@ -638,7 +491,7 @@
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 2,
+                  "for": 3,
                   "against": 2
                 }
               },
@@ -659,14 +512,14 @@
               "nextUp": "TBD"
             },
             {
-              "rank": 14,
+              "rank": 11,
               "team": {
-                "id": 68,
-                "name": "Bolton",
-                "logo": "https://media.api-sports.io/football/teams/68.png"
+                "id": 1333,
+                "name": "AFC Wimbledon",
+                "logo": "https://media.api-sports.io/football/teams/1333.png"
               },
               "points": 3,
-              "goalsDiff": -1,
+              "goalsDiff": 1,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
@@ -677,7 +530,105 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 1,
+                  "for": 2,
+                  "against": 1
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 1
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 1
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League Two",
+              "lastSeasonPosition": 5,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 12,
+              "team": {
+                "id": 61,
+                "name": "Wigan",
+                "logo": "https://media.api-sports.io/football/teams/61.png"
+              },
+              "points": 3,
+              "goalsDiff": 0,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 3,
+                  "against": 3
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 3,
+                  "against": 3
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 3
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 15,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 13,
+              "team": {
+                "id": 68,
+                "name": "Bolton",
+                "logo": "https://media.api-sports.io/football/teams/68.png"
+              },
+              "points": 3,
+              "goalsDiff": 0,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 2,
                   "against": 2
                 }
               },
@@ -687,7 +638,7 @@
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 1,
+                  "for": 2,
                   "against": 2
                 }
               },
@@ -708,14 +659,14 @@
               "nextUp": "TBD"
             },
             {
-              "rank": 15,
+              "rank": 14,
               "team": {
-                "id": 1373,
-                "name": "Leyton Orient",
-                "logo": "https://media.api-sports.io/football/teams/1373.png"
+                "id": 1379,
+                "name": "Lincoln",
+                "logo": "https://media.api-sports.io/football/teams/1379.png"
               },
               "points": 3,
-              "goalsDiff": -2,
+              "goalsDiff": 0,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
@@ -726,7 +677,105 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 1,
+                  "for": 2,
+                  "against": 2
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 2
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 2
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 11,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 15,
+              "team": {
+                "id": 73,
+                "name": "Rotherham",
+                "logo": "https://media.api-sports.io/football/teams/73.png"
+              },
+              "points": 3,
+              "goalsDiff": 0,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 2,
+                  "against": 2
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 1,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 2,
+                  "against": 2
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 2
+                }
+              },
+              "update": "2025-08-09T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 13,
+              "nextUp": "TBD"
+            },
+            {
+              "rank": 16,
+              "team": {
+                "id": 1373,
+                "name": "Leyton Orient",
+                "logo": "https://media.api-sports.io/football/teams/1373.png"
+              },
+              "points": 3,
+              "goalsDiff": -1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 2,
+                "win": 1,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 2,
                   "against": 3
                 }
               },
@@ -736,7 +785,7 @@
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 1,
+                  "for": 2,
                   "against": 3
                 }
               },
@@ -757,7 +806,7 @@
               "nextUp": "TBD"
             },
             {
-              "rank": 16,
+              "rank": 17,
               "team": {
                 "id": 1374,
                 "name": "Mansfield Town",
@@ -775,8 +824,8 @@
                 "draw": 1,
                 "lose": 1,
                 "goals": {
-                  "for": 1,
-                  "against": 2
+                  "for": 2,
+                  "against": 3
                 }
               },
               "home": {
@@ -785,8 +834,8 @@
                 "draw": 1,
                 "lose": 0,
                 "goals": {
-                  "for": 0,
-                  "against": 2
+                  "for": 1,
+                  "against": 3
                 }
               },
               "away": {
@@ -796,7 +845,7 @@
                 "lose": 1,
                 "goals": {
                   "for": 1,
-                  "against": 2
+                  "against": 3
                 }
               },
               "update": "2025-08-09T00:00:00+00:00",
@@ -806,7 +855,7 @@
               "nextUp": "TBD"
             },
             {
-              "rank": 17,
+              "rank": 18,
               "team": {
                 "id": 1351,
                 "name": "Port Vale",
@@ -852,55 +901,6 @@
               "highlight": false,
               "lastSeasonLeague": "League Two",
               "lastSeasonPosition": 2,
-              "nextUp": "TBD"
-            },
-            {
-              "rank": 18,
-              "team": {
-                "id": 1333,
-                "name": "AFC Wimbledon",
-                "logo": "https://media.api-sports.io/football/teams/1333.png"
-              },
-              "points": 1,
-              "goalsDiff": -1,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 2,
-                "win": 0,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 0,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 1
-                }
-              },
-              "update": "2025-08-09T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League Two",
-              "lastSeasonPosition": 5,
               "nextUp": "TBD"
             },
             {
@@ -955,9 +955,9 @@
             {
               "rank": 20,
               "team": {
-                "id": 1356,
-                "name": "Blackpool",
-                "logo": "https://media.api-sports.io/football/teams/1356.png"
+                "id": 1358,
+                "name": "Wycombe",
+                "logo": "https://media.api-sports.io/football/teams/1358.png"
               },
               "points": 0,
               "goalsDiff": -2,
@@ -971,8 +971,8 @@
                 "draw": 0,
                 "lose": 2,
                 "goals": {
-                  "for": 3,
-                  "against": 5
+                  "for": 2,
+                  "against": 4
                 }
               },
               "home": {
@@ -981,8 +981,8 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 2,
-                  "against": 5
+                  "for": 1,
+                  "against": 4
                 }
               },
               "away": {
@@ -992,24 +992,24 @@
                 "lose": 1,
                 "goals": {
                   "for": 1,
-                  "against": 5
+                  "against": 4
                 }
               },
               "update": "2025-08-09T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 9,
+              "lastSeasonPosition": 5,
               "nextUp": "TBD"
             },
             {
               "rank": 21,
               "team": {
-                "id": 1358,
-                "name": "Wycombe",
-                "logo": "https://media.api-sports.io/football/teams/1358.png"
+                "id": 1356,
+                "name": "Blackpool",
+                "logo": "https://media.api-sports.io/football/teams/1356.png"
               },
               "points": 0,
-              "goalsDiff": -2,
+              "goalsDiff": -3,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
@@ -1020,8 +1020,8 @@
                 "draw": 0,
                 "lose": 2,
                 "goals": {
-                  "for": 1,
-                  "against": 3
+                  "for": 3,
+                  "against": 6
                 }
               },
               "home": {
@@ -1030,8 +1030,8 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 0,
-                  "against": 3
+                  "for": 2,
+                  "against": 6
                 }
               },
               "away": {
@@ -1041,13 +1041,13 @@
                 "lose": 1,
                 "goals": {
                   "for": 1,
-                  "against": 3
+                  "against": 6
                 }
               },
               "update": "2025-08-09T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 5,
+              "lastSeasonPosition": 9,
               "nextUp": "TBD"
             },
             {
@@ -1107,7 +1107,7 @@
                 "logo": "https://media.api-sports.io/football/teams/1357.png"
               },
               "points": 0,
-              "goalsDiff": -3,
+              "goalsDiff": -4,
               "group": "League One: Regular Season",
               "form": null,
               "status": "same",
@@ -1119,7 +1119,7 @@
                 "lose": 2,
                 "goals": {
                   "for": 1,
-                  "against": 4
+                  "against": 5
                 }
               },
               "home": {
@@ -1129,7 +1129,7 @@
                 "lose": 1,
                 "goals": {
                   "for": 1,
-                  "against": 4
+                  "against": 5
                 }
               },
               "away": {
@@ -1139,7 +1139,7 @@
                 "lose": 1,
                 "goals": {
                   "for": 0,
-                  "against": 4
+                  "against": 5
                 }
               },
               "update": "2025-08-09T00:00:00+00:00",
