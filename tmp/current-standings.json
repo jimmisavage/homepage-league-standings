@@ -294,51 +294,6 @@
             {
               "rank": 7,
               "team": {
-                "id": 1364,
-                "name": "Exeter City",
-                "logo": "https://media.api-sports.io/football/teams/1364.png"
-              },
-              "points": 4,
-              "goalsDiff": 2,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 3,
-                "win": 1,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 4,
-                  "against": 2
-                }
-              },
-              "home": {
-                "played": 2,
-                "win": 1,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 4,
-                  "against": 2
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 2
-                }
-              },
-              "update": "2025-08-16T00:00:00+00:00"
-            },
-            {
-              "rank": 8,
-              "team": {
                 "id": 1343,
                 "name": "Bradford",
                 "logo": "https://media.api-sports.io/football/teams/1343.png"
@@ -382,7 +337,7 @@
               "update": "2025-08-16T00:00:00+00:00"
             },
             {
-              "rank": 9,
+              "rank": 8,
               "team": {
                 "id": 43,
                 "name": "Cardiff",
@@ -427,7 +382,7 @@
               "update": "2025-08-16T00:00:00+00:00"
             },
             {
-              "rank": 10,
+              "rank": 9,
               "team": {
                 "id": 748,
                 "name": "Burton Albion",
@@ -467,6 +422,51 @@
                 "goals": {
                   "for": 2,
                   "against": 4
+                }
+              },
+              "update": "2025-08-16T00:00:00+00:00"
+            },
+            {
+              "rank": 10,
+              "team": {
+                "id": 1364,
+                "name": "Exeter City",
+                "logo": "https://media.api-sports.io/football/teams/1364.png"
+              },
+              "points": 3,
+              "goalsDiff": 1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 3,
+                "win": 1,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 4,
+                  "against": 3
+                }
+              },
+              "home": {
+                "played": 2,
+                "win": 1,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 4,
+                  "against": 3
+                }
+              },
+              "away": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 0,
+                  "against": 3
                 }
               },
               "update": "2025-08-16T00:00:00+00:00"
@@ -699,6 +699,51 @@
             {
               "rank": 16,
               "team": {
+                "id": 1374,
+                "name": "Mansfield Town",
+                "logo": "https://media.api-sports.io/football/teams/1374.png"
+              },
+              "points": 3,
+              "goalsDiff": -1,
+              "group": "League One: Regular Season",
+              "form": null,
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 3,
+                "win": 1,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 3,
+                  "against": 4
+                }
+              },
+              "home": {
+                "played": 1,
+                "win": 0,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 1,
+                  "against": 4
+                }
+              },
+              "away": {
+                "played": 2,
+                "win": 1,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 2,
+                  "against": 4
+                }
+              },
+              "update": "2025-08-16T00:00:00+00:00"
+            },
+            {
+              "rank": 17,
+              "team": {
                 "id": 1373,
                 "name": "Leyton Orient",
                 "logo": "https://media.api-sports.io/football/teams/1373.png"
@@ -742,7 +787,7 @@
               "update": "2025-08-16T00:00:00+00:00"
             },
             {
-              "rank": 17,
+              "rank": 18,
               "team": {
                 "id": 1351,
                 "name": "Port Vale",
@@ -782,51 +827,6 @@
                 "goals": {
                   "for": 1,
                   "against": 2
-                }
-              },
-              "update": "2025-08-16T00:00:00+00:00"
-            },
-            {
-              "rank": 18,
-              "team": {
-                "id": 1374,
-                "name": "Mansfield Town",
-                "logo": "https://media.api-sports.io/football/teams/1374.png"
-              },
-              "points": 1,
-              "goalsDiff": -2,
-              "group": "League One: Regular Season",
-              "form": null,
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 3,
-                "win": 0,
-                "draw": 1,
-                "lose": 2,
-                "goals": {
-                  "for": 2,
-                  "against": 4
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 1,
-                  "against": 4
-                }
-              },
-              "away": {
-                "played": 2,
-                "win": 0,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 1,
-                  "against": 4
                 }
               },
               "update": "2025-08-16T00:00:00+00:00"
