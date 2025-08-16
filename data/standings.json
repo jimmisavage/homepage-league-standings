@@ -481,8 +481,8 @@
                 "draw": 0,
                 "lose": 2,
                 "goals": {
-                  "for": 4,
-                  "against": 3
+                  "for": 5,
+                  "against": 4
                 }
               },
               "home": {
@@ -491,8 +491,8 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 4,
-                  "against": 3
+                  "for": 5,
+                  "against": 4
                 }
               },
               "away": {
@@ -502,7 +502,7 @@
                 "lose": 1,
                 "goals": {
                   "for": 0,
-                  "against": 3
+                  "against": 4
                 }
               },
               "update": "2025-08-16T00:00:00+00:00",
@@ -775,8 +775,8 @@
                 "draw": 0,
                 "lose": 2,
                 "goals": {
-                  "for": 3,
-                  "against": 4
+                  "for": 4,
+                  "against": 5
                 }
               },
               "home": {
@@ -786,7 +786,7 @@
                 "lose": 1,
                 "goals": {
                   "for": 1,
-                  "against": 4
+                  "against": 5
                 }
               },
               "away": {
@@ -795,8 +795,8 @@
                 "draw": 0,
                 "lose": 1,
                 "goals": {
-                  "for": 2,
-                  "against": 4
+                  "for": 3,
+                  "against": 5
                 }
               },
               "update": "2025-08-16T00:00:00+00:00",
