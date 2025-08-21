@@ -64,7 +64,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 2,
@@ -109,7 +109,7 @@
                   "against": 0
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 3,
@@ -154,7 +154,7 @@
                   "against": 1
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 4,
@@ -199,7 +199,7 @@
                   "against": 1
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 5,
@@ -244,7 +244,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 6,
@@ -289,7 +289,7 @@
                   "against": 2
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 7,
@@ -334,7 +334,7 @@
                   "against": 2
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 8,
@@ -379,7 +379,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 9,
@@ -424,7 +424,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 10,
@@ -469,7 +469,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 11,
@@ -514,7 +514,7 @@
                   "against": 1
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 12,
@@ -559,7 +559,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 13,
@@ -604,7 +604,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 14,
@@ -649,10 +649,55 @@
                   "against": 2
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 15,
+              "team": {
+                "id": 68,
+                "name": "Bolton",
+                "logo": "https://media.api-sports.io/football/teams/68.png"
+              },
+              "points": 5,
+              "goalsDiff": 0,
+              "group": "League One ",
+              "form": "DDWL",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 4,
+                "win": 1,
+                "draw": 2,
+                "lose": 1,
+                "goals": {
+                  "for": 4,
+                  "against": 4
+                }
+              },
+              "home": {
+                "played": 2,
+                "win": 1,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 3,
+                  "against": 1
+                }
+              },
+              "away": {
+                "played": 2,
+                "win": 0,
+                "draw": 1,
+                "lose": 1,
+                "goals": {
+                  "for": 1,
+                  "against": 3
+                }
+              },
+              "update": "2025-08-21T00:00:00+00:00"
+            },
+            {
+              "rank": 16,
               "team": {
                 "id": 748,
                 "name": "Burton Albion",
@@ -694,52 +739,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
-            },
-            {
-              "rank": 16,
-              "team": {
-                "id": 68,
-                "name": "Bolton",
-                "logo": "https://media.api-sports.io/football/teams/68.png"
-              },
-              "points": 4,
-              "goalsDiff": 0,
-              "group": "League One ",
-              "form": "DWL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 3,
-                "win": 1,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 3,
-                  "against": 3
-                }
-              },
-              "home": {
-                "played": 1,
-                "win": 1,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 2,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 2,
-                "win": 0,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 1,
-                  "against": 3
-                }
-              },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 17,
@@ -784,7 +784,7 @@
                   "against": 4
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 18,
@@ -829,7 +829,7 @@
                   "against": 6
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 19,
@@ -874,7 +874,7 @@
                   "against": 2
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 20,
@@ -919,10 +919,55 @@
                   "against": 3
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 21,
+              "team": {
+                "id": 53,
+                "name": "Reading",
+                "logo": "https://media.api-sports.io/football/teams/53.png"
+              },
+              "points": 1,
+              "goalsDiff": -5,
+              "group": "League One ",
+              "form": "DLLL",
+              "status": "same",
+              "description": "Relegation",
+              "all": {
+                "played": 4,
+                "win": 0,
+                "draw": 1,
+                "lose": 3,
+                "goals": {
+                  "for": 2,
+                  "against": 7
+                }
+              },
+              "home": {
+                "played": 2,
+                "win": 0,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 1,
+                  "against": 4
+                }
+              },
+              "away": {
+                "played": 2,
+                "win": 0,
+                "draw": 1,
+                "lose": 1,
+                "goals": {
+                  "for": 1,
+                  "against": 3
+                }
+              },
+              "update": "2025-08-21T00:00:00+00:00"
+            },
+            {
+              "rank": 22,
               "team": {
                 "id": 1337,
                 "name": "Northampton",
@@ -964,52 +1009,7 @@
                   "against": 5
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
-            },
-            {
-              "rank": 22,
-              "team": {
-                "id": 53,
-                "name": "Reading",
-                "logo": "https://media.api-sports.io/football/teams/53.png"
-              },
-              "points": 0,
-              "goalsDiff": -5,
-              "group": "League One ",
-              "form": "LLL",
-              "status": "same",
-              "description": "Relegation",
-              "all": {
-                "played": 3,
-                "win": 0,
-                "draw": 0,
-                "lose": 3,
-                "goals": {
-                  "for": 1,
-                  "against": 6
-                }
-              },
-              "home": {
-                "played": 2,
-                "win": 0,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 1,
-                  "against": 4
-                }
-              },
-              "away": {
-                "played": 1,
-                "win": 0,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 0,
-                  "against": 2
-                }
-              },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 23,
@@ -1054,7 +1054,7 @@
                   "against": 5
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             },
             {
               "rank": 24,
@@ -1099,7 +1099,7 @@
                   "against": 4
                 }
               },
-              "update": "2025-08-20T00:00:00+00:00"
+              "update": "2025-08-21T00:00:00+00:00"
             }
           ]
         ]
