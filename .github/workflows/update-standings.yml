@@ -89,7 +89,7 @@ jobs:
         run: |
           echo "📅 Fetching upcoming fixtures..."
           START_DATE=$(date -d "+0 days" +%Y-%m-%d)
-          END_DATE=$(date -d "+6 days" +%Y-%m-%d)
+          END_DATE=$(date -d "+14 days" +%Y-%m-%d)
 
           FIXTURES=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
@@ -99,19 +99,30 @@ jobs:
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
           jq -r '
-            .response[] |
-            select(.teams.home.id and .teams.away.id) |
-            [
-              (.teams.home.id|tostring),
-              "\(.teams.away.name) (H)"
-            ],
-            [
-              (.teams.away.id|tostring),
-              "\(.teams.home.name) (A)"
-            ]
+            if (.response | length) == 0 then
+              # No fixtures → output a dummy line
+              "TBD TBD"
+            else
+              .response
+              | sort_by(.fixture.date)
+              | first as $next
+              | [
+                  [($next.teams.home.id|tostring), "\($next.teams.away.name) (H)"],
+                  [($next.teams.away.id|tostring), "\($next.teams.home.name) (A)"]
+                ] | .[]
+            end
           ' tmp/fixtures.json |
           jq -Rs '
-            split("\n") | map(select(length > 0)) | map(split(" ") | {(.[0]): {nextUp: (.[1:] | join(" "))}}) | add
+            split("\n")
+            | map(select(length > 0))
+            | map(
+                if . == "TBD TBD" then
+                  {"TBD": {nextUp: "TBD"}}
+                else
+                  (split(" ") | {(.[0]): {nextUp: (.[1:] | join(" "))}})
+                end
+              )
+            | add
           ' > tmp/next-fixtures-map.json
 
       - name: Build Final standings.json
