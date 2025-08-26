@@ -98,31 +98,16 @@ jobs:
 
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
-          jq -r '
-            if (.response | length) == 0 then
-              # No fixtures → output a dummy line
-              "TBD TBD"
+          jq -n --slurpfile f tmp/fixtures.json '
+            ($f[0].response | sort_by(.fixture.date) | first) as $next |
+            if $next == null then
+              {"TBD": {nextUp: "TBD"}}
             else
-              .response
-              | sort_by(.fixture.date)
-              | first as $next
-              | [
-                  [($next.teams.home.id|tostring), "\($next.teams.away.name) (H)"],
-                  [($next.teams.away.id|tostring), "\($next.teams.home.name) (A)"]
-                ] | .[]
+              {
+                ($next.teams.home.id|tostring): {nextUp: "\($next.teams.away.name) (H)"},
+                ($next.teams.away.id|tostring): {nextUp: "\($next.teams.home.name) (A)"}
+              }
             end
-          ' tmp/fixtures.json |
-          jq -Rs '
-            split("\n")
-            | map(select(length > 0))
-            | map(
-                if . == "TBD TBD" then
-                  {"TBD": {nextUp: "TBD"}}
-                else
-                  (split(" ") | {(.[0]): {nextUp: (.[1:] | join(" "))}})
-                end
-              )
-            | add
           ' > tmp/next-fixtures-map.json
 
       - name: Build Final standings.json
