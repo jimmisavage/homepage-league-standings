@@ -18,8 +18,6 @@ jobs:
       - name: Fetch fixtures
         run: |
           TEAM_ID=$(cat ./assets/teamid.txt)
-          API_KEY=$(cat ./assets/apikey.txt)
-
           mkdir -p tmp
           curl -s --request GET \
             --url "https://v3.football.api-sports.io/fixtures?season=$(date +%Y)&team=$TEAM_ID" \
