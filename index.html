@@ -330,7 +330,7 @@
         <td>${team.points}</td>
       `;
 
-      const formHTML = [...team.form].map(result => {
+      const formHTML = [...team.form].reverse().map(result => {
         const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
         return `<span class="form-span ${cls}">${result}</span>`;
       }).join('');
