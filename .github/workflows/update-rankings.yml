@@ -31,6 +31,7 @@ jobs:
           echo "📅 Using season: $SEASON"
           mkdir -p tmp
 
+          # Fetch team standings to detect league
           response=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&team=${TEAM_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
@@ -40,7 +41,7 @@ jobs:
 
           LEAGUE_ID=$(echo "$response" | jq -r '.response[0].league.id')
 
-          if [ "$LEAGUE_ID" = "null" ] || [ -z "$LEAGUE_ID" ]; then
+          if [ -z "$LEAGUE_ID" ] || [ "$LEAGUE_ID" = "null" ]; then
             echo "❌ Could not determine league ID. Exiting."
             cat tmp/team-response.json
             exit 1
@@ -49,6 +50,7 @@ jobs:
           echo "✅ Detected League ID: $LEAGUE_ID"
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
+          echo "TEAM_ID=$TEAM_ID" >> $GITHUB_ENV
 
       - name: Fetch Last Season Standings for 3 Leagues
         run: |
@@ -70,78 +72,81 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch Fixtures and Build ICS
+      - name: Fetch Upcoming Fixtures for Team
         run: |
-          mkdir -p public/cal
-          TMP_ICS=$(mktemp)
+          START_DATE=$(date -d "+0 days" +%Y-%m-%d)
+          END_DATE=$(date -d "+14 days" +%Y-%m-%d)
 
           FIXTURES=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?season=${SEASON}&team=${TEAM_ID}" \
+            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
-          # Start ICS
-          echo "BEGIN:VCALENDAR" > "$TMP_ICS"
-          echo "VERSION:2.0" >> "$TMP_ICS"
-          echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> "$TMP_ICS"
+          jq -n --slurpfile f tmp/fixtures.json '
+            ($f[0].response // [])
+            | map(select(.teams.home.id == ($env.TEAM_ID|tonumber) or .teams.away.id == ($env.TEAM_ID|tonumber)))
+            | sort_by(.fixture.date)
+            | reduce .[] as $fx ({}; 
+                . + {
+                  ($fx.teams.home.id|tostring): {nextUp: "\($fx.teams.away.name) (H)"},
+                  ($fx.teams.away.id|tostring): {nextUp: "\($fx.teams.home.name) (A)"}
+                }
+              )
+          ' > tmp/next-fixtures-map.json
 
-          # Loop fixtures sorted by date
-          echo "$FIXTURES" | jq -c '.response | sort_by(.fixture.date)[]' | while read -r match; do
-            ID=$(echo "$match" | jq -r '.fixture.id')
-            DATE=$(echo "$match" | jq -r '.fixture.date')
-            STADIUM=$(echo "$match" | jq -r '.fixture.venue.name')
-            STATUS=$(echo "$match" | jq -r '.fixture.status.short')
-            HOME=$(echo "$match" | jq -r '.teams.home.name')
-            AWAY=$(echo "$match" | jq -r '.teams.away.name')
-            HGOALS=$(echo "$match" | jq -r '.goals.home')
-            AGOALS=$(echo "$match" | jq -r '.goals.away')
-            LEAGUE=$(echo "$match" | jq -r '.league.name')
-            ROUND=$(echo "$match" | jq -r '.league.round')
-            KICKOFF=$(echo "$match" | jq -r '.fixture.date')
+      - name: Generate ICS for Team
+        run: |
+          ICS_FILE=public/cal/fixtures.ics
+          TEAM_ID=$(cat ./assets/teamid.txt)
 
-            DTSTART=$(date -u -d "$DATE" +"%Y%m%dT%H%M%SZ")
+          echo "BEGIN:VCALENDAR
+          VERSION:2.0
+          PRODID:-//GitHub Actions//Football Fixtures//EN" > $ICS_FILE
 
-            if [ "$STATUS" = "FT" ]; then
-              SUMMARY="$HOME $HGOALS - $AGOALS $AWAY"
-            else
-              SUMMARY="$HOME - $AWAY"
-            fi
+          jq -c --arg team "$TEAM_ID" '
+            .response[0].league.standings[0]
+            | map(select(.team.id == ($team|tonumber))) 
+            | .[] 
+            | .team.id as $tid
+            | ($tid | tostring) as $tid_str
+          ' tmp/team-response.json | while IFS= read -r team_data; do
+            # For each fixture
+            jq -c --arg team "$TEAM_ID" '
+              .response[]
+              | select(.teams.home.id == ($team|tonumber) or .teams.away.id == ($team|tonumber))
+            ' tmp/fixtures.json | while IFS= read -r fx; do
+              DATE=$(echo "$fx" | jq -r '.fixture.date')
+              HOME=$(echo "$fx" | jq -r '.teams.home.name')
+              AWAY=$(echo "$fx" | jq -r '.teams.away.name')
+              HOME_SCORE=$(echo "$fx" | jq -r '.goals.home // ""')
+              AWAY_SCORE=$(echo "$fx" | jq -r '.goals.away // ""')
+              VENUE=$(echo "$fx" | jq -r '.fixture.venue.name')
 
-            DESCRIPTION="Status: $STATUS\nKickoff: $KICKOFF\nLeague: $LEAGUE\nRound: $ROUND"
+              if [ -n "$HOME_SCORE" ] && [ -n "$AWAY_SCORE" ]; then
+                SUMMARY="$HOME $HOME_SCORE - $AWAY_SCORE $AWAY"
+              else
+                SUMMARY="$HOME - $AWAY"
+              fi
 
-            echo "BEGIN:VEVENT" >> "$TMP_ICS"
-            echo "UID:$ID@fixtures" >> "$TMP_ICS"
-            echo "DTSTAMP:$(date -u +"%Y%m%dT%H%M%SZ")" >> "$TMP_ICS"
-            echo "DTSTART:$DTSTART" >> "$TMP_ICS"
-            echo "SUMMARY:$SUMMARY" >> "$TMP_ICS"
-            echo "DESCRIPTION:$DESCRIPTION" >> "$TMP_ICS"
-            if [ "$STADIUM" != "null" ]; then
-              echo "LOCATION:$STADIUM" >> "$TMP_ICS"
-            fi
-            echo "END:VEVENT" >> "$TMP_ICS"
+              echo "BEGIN:VEVENT
+              DTSTART:$DATE
+              SUMMARY:$SUMMARY
+              LOCATION:$VENUE
+              END:VEVENT" >> $ICS_FILE
+            done
           done
 
-          echo "END:VCALENDAR" >> "$TMP_ICS"
-
-          # Only overwrite if changed
-          if ! cmp -s "$TMP_ICS" public/cal/fixtures.ics; then
-            mv "$TMP_ICS" public/cal/fixtures.ics
-            echo "ICS updated"
-          else
-            echo "No changes in ICS"
-            rm "$TMP_ICS"
-          fi
+          echo "END:VCALENDAR" >> $ICS_FILE
 
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/league-info.json data/previous-season/ public/cal/fixtures.ics
+          git add data/league-info.json data/previous-season/ tmp/fixtures.json tmp/next-fixtures-map.json public/cal/fixtures.ics
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update league info, previous season standings, and team ICS"
+            git commit -m "Update league info, fixtures, next fixtures map, and ICS"
             git push
-          fi
