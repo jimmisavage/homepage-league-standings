@@ -70,7 +70,7 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch Upcoming Fixtures
+      - name: Fetch Season Fixtures
         run: |
           START_DATE=$(date +%Y-%m-%d)
           END_DATE=$(date -d "next July" +%Y-%m-%d) # full season
@@ -92,39 +92,45 @@ jobs:
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
-          jq -r --arg team_id "$TEAM_ID" '
+          # Generate events
+          jq -c --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
-            | . as $fx
-            | (
-                $fx.fixture.date
-                | split("+")[0]        # strip timezone
-                | split("T")
-                | .[0] as $d
-                | .[1] as $t
-                | ($d | gsub("-";"")) + "T" + ($t | gsub(":","")) + "Z"
-              ) as $dtstart
-            | (
-                ($fx.fixture.date | split("+")[0] | split("T") | .[0] | gsub("-";"")) + "T" +
-                ((($fx.fixture.date | split("+")[0] | split("T") | .[1] | gsub(":","")) | tonumber + 20000)|tostring) + "Z"
-              ) as $dtend
-            | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|tostring) +
-              "\nDTSTART:" + $dtstart +
-              "\nDTEND:" + $dtend +
-              "\nSUMMARY:" + (
-                if $fx.teams.home.id == ($team_id|tonumber) then
-                  "\($fx.teams.home.name)" +
-                  (if $fx.fixture.status.short=="FT" then " \($fx.goals.home)-\($fx.goals.away)" else "" end) +
-                  " vs \($fx.teams.away.name)"
-                else
-                  "\($fx.teams.away.name) @ \($fx.teams.home.name)" +
-                  (if $fx.fixture.status.short=="FT" then " \($fx.goals.away)-\($fx.goals.home)" else "" end)
-                end
-              ) +
-              "\nDESCRIPTION:" + ("Referee: " + ($fx.fixture.referee // "TBD")) +
-              "\nLOCATION:" + ($fx.fixture.venue.name // "Unknown") +
-              "\nEND:VEVENT"
-          ' tmp/fixtures.json >> $ICS_FILE
+          ' tmp/fixtures.json | while read fx; do
+            DATE=$(echo "$fx" | jq -r '.fixture.date' | cut -d+ -f1)
+            START=$(date -u -d "$DATE" +%Y%m%dT%H%M%SZ)
+            END=$(date -u -d "$DATE +2 hours" +%Y%m%dT%H%M%SZ)
+
+            HOME=$(echo "$fx" | jq -r '.teams.home.name')
+            AWAY=$(echo "$fx" | jq -r '.teams.away.name')
+            STATUS=$(echo "$fx" | jq -r '.fixture.status.short')
+            SCORE=""
+            if [ "$STATUS" = "FT" ]; then
+              SCORE="$(echo "$fx" | jq -r '.goals.home')-$(echo "$fx" | jq -r '.goals.away')"
+            fi
+
+            if [ "$(echo "$fx" | jq -r '.teams.home.id')" = "$TEAM_ID" ]; then
+              SUMMARY="$HOME $SCORE vs $AWAY"
+            else
+              SUMMARY="$AWAY $SCORE @ $HOME"
+            fi
+
+            LOCATION=$(echo "$fx" | jq -r '.fixture.venue.name // "Unknown"')
+            REFEREE=$(echo "$fx" | jq -r '.fixture.referee // "TBD"')
+            UID=$(echo "$fx" | jq -r '.fixture.id')
+
+            cat <<EOL >> $ICS_FILE
+BEGIN:VEVENT
+UID:$UID@$LEAGUE_ID.football
+DTSTAMP:$(date -u +%Y%m%dT%H%M%SZ)
+DTSTART:$START
+DTEND:$END
+SUMMARY:$SUMMARY
+DESCRIPTION:Referee: $REFEREE
+LOCATION:$LOCATION
+END:VEVENT
+EOL
+          done
 
           echo "END:VCALENDAR" >> $ICS_FILE
 
@@ -138,4 +144,3 @@ jobs:
           else
             git commit -m "Update league info, standings, and team fixtures"
             git push
-          fi
