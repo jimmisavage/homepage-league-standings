@@ -49,6 +49,7 @@ jobs:
           echo "✅ Detected League ID: $LEAGUE_ID"
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
+          echo "TEAM_ID=$TEAM_ID" >> $GITHUB_ENV
 
       - name: Fetch Last Season Standings for 3 Leagues
         run: |
@@ -70,14 +71,63 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
+      - name: Fetch Fixtures and Build ICS
+        run: |
+          mkdir -p public/cal
+          FIXTURES=$(curl -s --request GET \
+            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?season=${SEASON}&team=${TEAM_ID}" \
+            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+
+          echo "$FIXTURES" | jq . > tmp/fixtures.json
+
+          # Start ICS
+          echo "BEGIN:VCALENDAR" > public/cal/fixtures.ics
+          echo "VERSION:2.0" >> public/cal/fixtures.ics
+          echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> public/cal/fixtures.ics
+
+          # Loop fixtures and add events
+          echo "$FIXTURES" | jq -c '.response[]' | while read -r match; do
+            ID=$(echo "$match" | jq -r '.fixture.id')
+            DATE=$(echo "$match" | jq -r '.fixture.date')
+            STADIUM=$(echo "$match" | jq -r '.fixture.venue.name')
+            STATUS=$(echo "$match" | jq -r '.fixture.status.short')
+            HOME=$(echo "$match" | jq -r '.teams.home.name')
+            AWAY=$(echo "$match" | jq -r '.teams.away.name')
+            HGOALS=$(echo "$match" | jq -r '.goals.home')
+            AGOALS=$(echo "$match" | jq -r '.goals.away')
+
+            # Format date for iCal (UTC)
+            DTSTART=$(date -u -d "$DATE" +"%Y%m%dT%H%M%SZ")
+
+            # Match title (with score if finished)
+            if [ "$STATUS" = "FT" ]; then
+              SUMMARY="$HOME $HGOALS - $AGOALS $AWAY"
+            else
+              SUMMARY="$HOME - $AWAY"
+            fi
+
+            echo "BEGIN:VEVENT" >> public/cal/fixtures.ics
+            echo "UID:$ID@fixtures" >> public/cal/fixtures.ics
+            echo "DTSTAMP:$(date -u +"%Y%m%dT%H%M%SZ")" >> public/cal/fixtures.ics
+            echo "DTSTART:$DTSTART" >> public/cal/fixtures.ics
+            echo "SUMMARY:$SUMMARY" >> public/cal/fixtures.ics
+            if [ "$STADIUM" != "null" ]; then
+              echo "LOCATION:$STADIUM" >> public/cal/fixtures.ics
+            fi
+            echo "END:VEVENT" >> public/cal/fixtures.ics
+          done
+
+          echo "END:VCALENDAR" >> public/cal/fixtures.ics
+
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/league-info.json data/previous-season/
+          git add data/league-info.json data/previous-season/ public/cal/fixtures.ics
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update league info and previous season standings for 3 leagues"
+            git commit -m "Update league info, standings and fixtures"
             git push
           fi
