@@ -85,21 +85,24 @@ jobs:
           TEAM_ID=$(cat ./assets/teamid.txt)
           mkdir -p public/cal
 
+          # Start calendar
           echo "BEGIN:VCALENDAR" > $ICS_FILE
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
+          # Append events for the selected team
           jq -r --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
-            # Strip timezone and format start time
-            | ($fx.fixture.date | sub("[:-]";"") | sub("\\+[0-9]+:?[0-9]*$";"Z")) as $dtstart
-            # 2-hour end time
-            | ($fx.fixture.date | fromdate | . + 7200 | strftime("%Y%m%dT%H%M%SZ")) as $dtend
+            # Normalize date to UTC Z format
+            | ($fx.fixture.date | sub("\\+00:00$";"Z")) as $dtstart
+            # Format start and end times
+            | ($dtstart | gsub("[-:]";"") | .[0:15]) as $dtstart_fmt
+            | ($dtstart | fromdate + 7200 | strftime("%Y%m%dT%H%M%SZ")) as $dtend_fmt
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
-              "\nDTSTART:" + $dtstart +
-              "\nDTEND:" + $dtend +
+              "\nDTSTART:" + $dtstart_fmt +
+              "\nDTEND:" + $dtend_fmt +
               "\nSUMMARY:" + (
                 if $fx.teams.home.id == ($team_id|tonumber) then
                   "\($fx.teams.home.name)" +
