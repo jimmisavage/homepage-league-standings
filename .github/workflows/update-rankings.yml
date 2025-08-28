@@ -94,14 +94,15 @@ jobs:
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | ($fx.fixture.date | split("+")[0]) as $dt
-            # Parse ISO timestamp to get components
             | ($dt | split("T") | .[0]) as $date
             | ($dt | split("T") | .[1] | .[0:2] | tonumber) as $hour
             | ($dt | split("T") | .[1] | .[2:4]) as $minute
-            | ($date | gsub("-";"")) + "T" + ($hour|tostring|lpad(2;"0")) + $minute + "00Z" as $dtstart
-            # DTEND is 2 hours later
-            | (($hour + 2) % 24 | tostring | lpad(2;"0")) as $end_hour
-            | ($date | gsub("-";"")) + "T" + $end_hour + $minute + "00Z" as $dtend
+            # Format start hour
+            | ($hour < 10 | if . then "0" + ($hour|tostring) else $hour|tostring end) as $start_hour
+            | $date | gsub("-";"") + "T" + $start_hour + $minute + "00Z" as $dtstart
+            # Format end hour (2 hours later)
+            | ((($hour + 2) % 24) < 10 | if . then "0" + ((($hour + 2) % 24)|tostring) else ((($hour + 2) % 24)|tostring) end) as $end_hour
+            | $date | gsub("-";"") + "T" + $end_hour + $minute + "00Z" as $dtend
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTSTART:" + $dtstart +
               "\nDTEND:" + $dtend +
