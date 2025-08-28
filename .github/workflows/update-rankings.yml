@@ -88,30 +88,28 @@ jobs:
           TEAM_ID=$(cat ./assets/teamid.txt)
           mkdir -p public/cal
 
-          # Start calendar safely with echo
+          # Start calendar
           echo "BEGIN:VCALENDAR" > $ICS_FILE
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
-          # Append events for the selected team
+          # All fixtures for the season
           jq -r --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
-            | ($fx.fixture.date | split("+")[0] | gsub("[-:]";"")) as $dt
+            | ($fx.fixture.date | split("+")[0] | gsub("[-:]";"")) as $dtstart
+            | ($fx.fixture.timestamp + 7200 | strftime("%Y%m%dT%H%M%SZ")) as $dtend  # add 2 hours
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
-              "\nDTSTART:" + $dt +
-              "\nSUMMARY:" + (
-                if $fx.teams.home.id == ($team_id|tonumber) then
-                  "\($fx.teams.home.name)" +
-                  (if $fx.fixture.status.short=="FT" then " \($fx.goals.home)-\($fx.goals.away)" else "" end) +
-                  " vs \($fx.teams.away.name)"
-                else
-                  "\($fx.teams.away.name) @ \($fx.teams.home.name)" +
-                  (if $fx.fixture.status.short=="FT" then " \($fx.goals.away)-\($fx.goals.home)" else "" end)
-                end
+              "\nDTSTART:" + $dtstart +
+              "\nDTEND:" + $dtend +
+              "\nSUMMARY:" +
+                "\($fx.teams.home.name) v \($fx.teams.away.name)" +
+                (if $fx.fixture.status.short=="FT" then " \($fx.goals.home)-\($fx.goals.away)" else "" end) +
+              "\nDESCRIPTION:" + (
+                "Referee: " + ($fx.fixture.referee // "TBD") +
+                " | Round: " + ($fx.league.round // "Unknown")
               ) +
-              "\nDESCRIPTION:" + ("Referee: " + ($fx.fixture.referee // "TBD")) +
               "\nLOCATION:" + ($fx.fixture.venue.name // "Unknown") +
               "\nEND:VEVENT"
           ' tmp/fixtures.json >> $ICS_FILE
