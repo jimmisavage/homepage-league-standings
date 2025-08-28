@@ -86,8 +86,8 @@ jobs:
           echo "VERSION:2.0" >> public/cal/fixtures.ics
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> public/cal/fixtures.ics
 
-          # Loop fixtures and add events
-          echo "$FIXTURES" | jq -c '.response[]' | while read -r match; do
+          # Loop fixtures sorted by date
+          echo "$FIXTURES" | jq -c '.response | sort_by(.fixture.date)[]' | while read -r match; do
             ID=$(echo "$match" | jq -r '.fixture.id')
             DATE=$(echo "$match" | jq -r '.fixture.date')
             STADIUM=$(echo "$match" | jq -r '.fixture.venue.name')
@@ -96,6 +96,9 @@ jobs:
             AWAY=$(echo "$match" | jq -r '.teams.away.name')
             HGOALS=$(echo "$match" | jq -r '.goals.home')
             AGOALS=$(echo "$match" | jq -r '.goals.away')
+            LEAGUE=$(echo "$match" | jq -r '.league.name')
+            ROUND=$(echo "$match" | jq -r '.league.round')
+            KICKOFF=$(echo "$match" | jq -r '.fixture.date')
 
             # Format date for iCal (UTC)
             DTSTART=$(date -u -d "$DATE" +"%Y%m%dT%H%M%SZ")
@@ -107,11 +110,14 @@ jobs:
               SUMMARY="$HOME - $AWAY"
             fi
 
+            DESCRIPTION="Status: $STATUS\nKickoff: $KICKOFF\nLeague: $LEAGUE\nRound: $ROUND"
+
             echo "BEGIN:VEVENT" >> public/cal/fixtures.ics
             echo "UID:$ID@fixtures" >> public/cal/fixtures.ics
             echo "DTSTAMP:$(date -u +"%Y%m%dT%H%M%SZ")" >> public/cal/fixtures.ics
             echo "DTSTART:$DTSTART" >> public/cal/fixtures.ics
             echo "SUMMARY:$SUMMARY" >> public/cal/fixtures.ics
+            echo "DESCRIPTION:$DESCRIPTION" >> public/cal/fixtures.ics
             if [ "$STADIUM" != "null" ]; then
               echo "LOCATION:$STADIUM" >> public/cal/fixtures.ics
             fi
@@ -128,6 +134,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update league info, standings and fixtures"
+            git commit -m "Update league info, standings and sorted fixtures ICS"
             git push
-          fi
