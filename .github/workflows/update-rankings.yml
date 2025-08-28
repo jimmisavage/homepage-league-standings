@@ -95,8 +95,9 @@ jobs:
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
-            | ($fx.fixture.date | split("+")[0] | gsub("[-:]";"")) as $dtstart
-            | ($fx.fixture.date | split("+")[0] | gsub("[-:]";"") | .[0:8] + "T" + (. | .[8:12] + "00Z")) as $dtend
+            | ($fx.fixture.date | split("+")[0]) as $dt
+            | ($dt | gsub("[-:]";"") + "Z") as $dtstart
+            | ($dt | gsub("[-:]";"") | .[0:8] + "T" + (. | .[8:10]|tonumber + 2 | tostring) + (. | .[10:12]) + "00Z") as $dtend
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTSTART:" + $dtstart +
               "\nDTEND:" + $dtend +
