@@ -70,7 +70,7 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch All Season Fixtures
+      - name: Fetch Full Season Fixtures
         run: |
           FIXTURES=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}" \
@@ -79,7 +79,7 @@ jobs:
 
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
-          # Build next-fixtures map for update-standing compatibility
+          # Build next-fixtures map for compatibility with update-standings logic
           jq -n --slurpfile f tmp/fixtures.json '
             $f[0].response
             | sort_by(.fixture.date)
@@ -94,21 +94,24 @@ jobs:
               )
           ' > tmp/next-fixtures-map.json
 
-      - name: Generate Full Season ICS for Team
+      - name: Generate ICS for Team
         run: |
           ICS_FILE=public/cal/fixtures.ics
           TEAM_ID=$(cat ./assets/teamid.txt)
-
           mkdir -p public/cal
 
-          echo "BEGIN:VCALENDAR
+          # Start the calendar
+          cat <<EOF > $ICS_FILE
+BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//GitHub Actions//Football Fixtures//EN" > $ICS_FILE
+PRODID:-//GitHub Actions//Football Fixtures//EN
+EOF
 
+          # Add all events for this team
           jq -c --arg team "$TEAM_ID" '
-.response[]
-| select(.teams.home.id == ($team|tonumber) or .teams.away.id == ($team|tonumber))
-' tmp/fixtures.json | while IFS= read -r fx; do
+            .response[]
+            | select(.teams.home.id == ($team|tonumber) or .teams.away.id == ($team|tonumber))
+          ' tmp/fixtures.json | while IFS= read -r fx; do
             DATE=$(echo "$fx" | jq -r '.fixture.date' | xargs -I{} date -u -d {} +%Y%m%dT%H%M%SZ)
             HOME=$(echo "$fx" | jq -r '.teams.home.name')
             AWAY=$(echo "$fx" | jq -r '.teams.away.name')
@@ -122,13 +125,16 @@ PRODID:-//GitHub Actions//Football Fixtures//EN" > $ICS_FILE
               SUMMARY="$HOME - $AWAY"
             fi
 
-            echo "BEGIN:VEVENT
+            cat <<EOV >> $ICS_FILE
+BEGIN:VEVENT
 DTSTART:$DATE
 SUMMARY:$SUMMARY
 LOCATION:$VENUE
-END:VEVENT" >> $ICS_FILE
+END:VEVENT
+EOV
           done
 
+          # Close the calendar
           echo "END:VCALENDAR" >> $ICS_FILE
 
       - name: Commit and Push
