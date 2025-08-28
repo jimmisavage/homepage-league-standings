@@ -21,7 +21,7 @@ jobs:
           mkdir -p tmp
           curl -s --request GET \
             --url "https://v3.football.api-sports.io/fixtures?season=$(date +%Y)&team=$TEAM_ID" \
-            --header "x-apisports-key: $API_KEY" \
+            --header "x-apisports-key: ${{ secrets.FOOTBALL_API_KEY }}" \
             -o tmp/fixtures.json
 
       - name: Generate ICS for Team
