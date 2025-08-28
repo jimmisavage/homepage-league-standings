@@ -24,11 +24,13 @@ jobs:
 
           if [ "$MONTH" -lt 8 ]; then
             SEASON=$((YEAR - 1))
+            END_DATE=$YEAR-07-31
           else
             SEASON=$YEAR
+            END_DATE=$((YEAR + 1))-07-31
           fi
 
-          echo "📅 Using season: $SEASON"
+          echo "📅 Using season: $SEASON, ending: $END_DATE"
           mkdir -p tmp
 
           response=$(curl -s --request GET \
@@ -49,6 +51,7 @@ jobs:
           echo "✅ Detected League ID: $LEAGUE_ID"
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
+          echo "END_DATE=$END_DATE" >> $GITHUB_ENV
 
       - name: Fetch Last Season Standings for 3 Leagues
         run: |
@@ -70,11 +73,9 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch Season Fixtures
+      - name: Fetch Upcoming Fixtures
         run: |
           START_DATE=$(date +%Y-%m-%d)
-          END_DATE=$(date -d "next July" +%Y-%m-%d) # full season
-          
           FIXTURES=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
@@ -92,45 +93,37 @@ jobs:
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
-          # Generate events
-          jq -c --arg team_id "$TEAM_ID" '
+          jq -r --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
-          ' tmp/fixtures.json | while read fx; do
-            DATE=$(echo "$fx" | jq -r '.fixture.date' | cut -d+ -f1)
-            START=$(date -u -d "$DATE" +%Y%m%dT%H%M%SZ)
-            END=$(date -u -d "$DATE +2 hours" +%Y%m%dT%H%M%SZ)
-
-            HOME=$(echo "$fx" | jq -r '.teams.home.name')
-            AWAY=$(echo "$fx" | jq -r '.teams.away.name')
-            STATUS=$(echo "$fx" | jq -r '.fixture.status.short')
-            SCORE=""
-            if [ "$STATUS" = "FT" ]; then
-              SCORE="$(echo "$fx" | jq -r '.goals.home')-$(echo "$fx" | jq -r '.goals.away')"
-            fi
-
-            if [ "$(echo "$fx" | jq -r '.teams.home.id')" = "$TEAM_ID" ]; then
-              SUMMARY="$HOME $SCORE vs $AWAY"
-            else
-              SUMMARY="$AWAY $SCORE @ $HOME"
-            fi
-
-            LOCATION=$(echo "$fx" | jq -r '.fixture.venue.name // "Unknown"')
-            REFEREE=$(echo "$fx" | jq -r '.fixture.referee // "TBD"')
-            UID=$(echo "$fx" | jq -r '.fixture.id')
-
-            cat <<EOL >> $ICS_FILE
-BEGIN:VEVENT
-UID:$UID@$LEAGUE_ID.football
-DTSTAMP:$(date -u +%Y%m%dT%H%M%SZ)
-DTSTART:$START
-DTEND:$END
-SUMMARY:$SUMMARY
-DESCRIPTION:Referee: $REFEREE
-LOCATION:$LOCATION
-END:VEVENT
-EOL
-          done
+            | . as $fx
+            | (
+                $fx.fixture.date | split("+")[0]
+              ) as $start
+            | (
+                # Add 2 hours for DTEND
+                ($start | strptime("%Y-%m-%dT%H:%M:%S") | mktime + 7200 | strftime("%Y%m%dT%H%M%SZ"))
+              ) as $dtend
+            | (
+                $start | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%Y%m%dT%H%M%SZ")
+              ) as $dtstart
+            | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
+              "\nDTSTART:" + $dtstart +
+              "\nDTEND:" + $dtend +
+              "\nSUMMARY:" + (
+                if $fx.teams.home.id == ($team_id|tonumber) then
+                  "\($fx.teams.home.name)" +
+                  (if $fx.fixture.status.short=="FT" then " \($fx.goals.home)-\($fx.goals.away)" else "" end) +
+                  " vs \($fx.teams.away.name)"
+                else
+                  "\($fx.teams.away.name) @ \($fx.teams.home.name)" +
+                  (if $fx.fixture.status.short=="FT" then " \($fx.goals.away)-\($fx.goals.home)" else "" end)
+                end
+              ) +
+              "\nDESCRIPTION:" + ("Referee: " + ($fx.fixture.referee // "TBD")) +
+              "\nLOCATION:" + ($fx.fixture.venue.name // "Unknown") +
+              "\nEND:VEVENT"
+          ' tmp/fixtures.json >> $ICS_FILE
 
           echo "END:VCALENDAR" >> $ICS_FILE
 
