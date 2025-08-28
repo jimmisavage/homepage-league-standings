@@ -92,14 +92,16 @@ jobs:
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
-          # Append events for each fixture
+          # Append events for each fixture with 2-hour duration
           jq -r --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | ($fx.fixture.date | gsub("[-:]";"") | split("+")[0]) as $dt
+            | ($dt[0:8] + "T" + ($dt[9:15] | tonumber + 20000 | tostring)) as $dt_end  # add 2 hours
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTSTART:" + $dt +
+              "\nDTEND:" + $dt_end +
               "\nSUMMARY:" + (
                 if $fx.teams.home.id == ($team_id|tonumber) then
                   "\($fx.teams.home.name)" +
