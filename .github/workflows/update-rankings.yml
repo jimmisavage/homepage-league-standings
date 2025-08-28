@@ -100,12 +100,9 @@ jobs:
           TEAM_ID=$(cat ./assets/teamid.txt)
           mkdir -p public/cal
 
-          # Start the calendar
-          cat <<'EOF' > $ICS_FILE
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//GitHub Actions//Football Fixtures//EN
-EOF
+          echo "BEGIN:VCALENDAR" > $ICS_FILE
+          echo "VERSION:2.0" >> $ICS_FILE
+          echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
           # Add all events for this team
           jq -c --arg team "$TEAM_ID" '
