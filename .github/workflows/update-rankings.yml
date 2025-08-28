@@ -85,19 +85,23 @@ jobs:
           TEAM_ID=$(cat ./assets/teamid.txt)
           mkdir -p public/cal
 
-          # Start calendar
           echo "BEGIN:VCALENDAR" > $ICS_FILE
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
-          # Append events for the selected team
           jq -r --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | ($fx.fixture.date | split("+")[0]) as $dt
-            | ($dt | gsub("[-:]";"") + "Z") as $dtstart
-            | ($dt | gsub("[-:]";"") | .[0:8] + "T" + (. | .[8:10]|tonumber + 2 | tostring) + (. | .[10:12]) + "00Z") as $dtend
+            # Parse ISO timestamp to get components
+            | ($dt | split("T") | .[0]) as $date
+            | ($dt | split("T") | .[1] | .[0:2] | tonumber) as $hour
+            | ($dt | split("T") | .[1] | .[2:4]) as $minute
+            | ($date | gsub("-";"")) + "T" + ($hour|tostring|lpad(2;"0")) + $minute + "00Z" as $dtstart
+            # DTEND is 2 hours later
+            | (($hour + 2) % 24 | tostring | lpad(2;"0")) as $end_hour
+            | ($date | gsub("-";"")) + "T" + $end_hour + $minute + "00Z" as $dtend
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTSTART:" + $dtstart +
               "\nDTEND:" + $dtend +
