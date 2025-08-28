@@ -31,15 +31,14 @@ jobs:
           echo "📅 Using season: $SEASON"
           mkdir -p tmp
 
-          # Get current standings for team
-          RESPONSE=$(curl -s --request GET \
+          response=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&team=${TEAM_ID}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
-          echo "$RESPONSE" | jq . > tmp/team-response.json
+          echo "$response" | jq . > tmp/team-response.json
 
-          LEAGUE_ID=$(echo "$RESPONSE" | jq -r '.response[0].league.id')
+          LEAGUE_ID=$(echo "$response" | jq -r '.response[0].league.id')
 
           if [ "$LEAGUE_ID" = "null" ] || [ -z "$LEAGUE_ID" ]; then
             echo "❌ Could not determine league ID. Exiting."
@@ -71,32 +70,32 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch Full Season Fixtures
+      - name: Fetch Upcoming Fixtures for Team
         run: |
-          START_DATE=$(date -d "${SEASON}-08-01" +%Y-%m-%d)
-          END_DATE=$(date -d "${SEASON}-07-31 +1 year" +%Y-%m-%d)
+          START_DATE=$(date -d "+0 days" +%Y-%m-%d)
+          END_DATE=$(date -d "+365 days" +%Y-%m-%d)  # full season
+          TEAM_ID=$(cat ./assets/teamid.txt)
 
           FIXTURES=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
+            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?team=${TEAM_ID}&season=${SEASON}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
-          # Map next fixture per team
+          # Map next fixture for the team
           jq -n --slurpfile f tmp/fixtures.json '
             if ($f[0].response | length) == 0 then
               {"TBD": {nextUp: "TBD"}}
             else
               $f[0].response
               | sort_by(.fixture.date)
-              | reduce .[] as $fx ({}; 
-                  . +
+              | reduce .[] as $fx ({}; . +
                   {
                     ($fx.teams.home.id|tostring):
-                      {nextUp: "\($fx.teams.away.name) (H)"},
+                      (if has($fx.teams.home.id|tostring) then .[$fx.teams.home.id|tostring] else {nextUp: "\($fx.teams.away.name) (H)"} end),
                     ($fx.teams.away.id|tostring):
-                      {nextUp: "\($fx.teams.home.name) (A)"}
+                      (if has($fx.teams.away.id|tostring) then .[$fx.teams.away.id|tostring] else {nextUp: "\($fx.teams.home.name) (A)"} end)
                   }
                 )
             end
@@ -108,16 +107,26 @@ jobs:
           TEAM_ID=$(cat ./assets/teamid.txt)
           mkdir -p public/cal
 
+          # Start calendar safely with echo (YAML-safe)
           echo "BEGIN:VCALENDAR" > $ICS_FILE
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
+          # Append events for each fixture
           jq -r --arg team_id "$TEAM_ID" '
             .response[]
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
+            | (
+                $fx.fixture.date
+                | split("T")
+                | .[0] + "T" + .[1]
+                | split("+")[0]
+                | split("-")
+                | join("")
+              ) as $dt
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
-              "\nDTSTART:" + ($fx.fixture.date | sub("-";"") | sub("-";"") | sub(":","") | sub(":","") | split("+")[0]) +
+              "\nDTSTART:" + $dt +
               "\nSUMMARY:" + (
                 if $fx.teams.home.id == ($team_id|tonumber) then
                   "\($fx.teams.home.name)" +
@@ -143,5 +152,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update league info, standings, fixtures ICS"
+            git commit -m "Update rankings, next fixture, and ICS calendar"
             git push
