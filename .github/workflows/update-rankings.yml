@@ -101,7 +101,7 @@ jobs:
           mkdir -p public/cal
 
           # Start the calendar
-          cat <<EOF > $ICS_FILE
+          cat <<'EOF' > $ICS_FILE
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//GitHub Actions//Football Fixtures//EN
