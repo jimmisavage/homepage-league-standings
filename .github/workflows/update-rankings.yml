@@ -11,6 +11,7 @@ permissions:
 jobs:
   detect-and-rank:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -69,16 +70,15 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch Current Season Fixtures for Team
+      - name: Fetch Team Fixtures
         run: |
           TEAM_ID=$(cat ./assets/teamid.txt)
+          START_DATE=$(date -d "2025-08-01" +%Y-%m-%d)  # season start
+          END_DATE=$(date -d "2026-06-30" +%Y-%m-%d)    # season end
+
           mkdir -p tmp
-
-          START_DATE=$(date +%Y-%m-%d)
-          END_DATE=$(date -d "$SEASON-07-01 +1 year" +%Y-%m-%d) # cover full season
-
           FIXTURES=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?team=${TEAM_ID}&season=${SEASON}" \
+            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
             --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
@@ -90,7 +90,7 @@ jobs:
           TEAM_ID=$(cat ./assets/teamid.txt)
           mkdir -p public/cal
 
-          # Start calendar safely
+          # Start calendar safely with echo
           echo "BEGIN:VCALENDAR" > $ICS_FILE
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
@@ -101,10 +101,10 @@ jobs:
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | (
-                ($fx.fixture.date | fromdateiso8601) + (2*3600)
+                ($fx.fixture.date | sub("\\+00:00$";"") | fromdateiso8601) + 7200  # 2-hour duration
               ) as $end_ts
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
-              "\nDTSTART:" + ($fx.fixture.date | fromdateiso8601 | strftime("%Y%m%dT%H%M%SZ")) +
+              "\nDTSTART:" + ($fx.fixture.date | sub("\\+00:00$";"") | fromdateiso8601 | strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTEND:" + ($end_ts | strftime("%Y%m%dT%H%M%SZ")) +
               "\nSUMMARY:" + (
                 if $fx.teams.home.id == ($team_id|tonumber) then
@@ -133,5 +133,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Update league info, standings and team ICS"
+            git commit -m "Update league info, standings, and team fixtures ICS"
             git push
