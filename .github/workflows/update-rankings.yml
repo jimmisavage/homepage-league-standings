@@ -80,21 +80,24 @@ jobs:
       - name: Generate ICS for Team
         run: |
           ICS_FILE=public/cal/fixtures.ics
-
           mkdir -p public/cal
+
+          # List of league IDs to treat as regular league games
+          # Replace these IDs with your actual league IDs for Premier League, Championship, etc.
+          LEAGUE_IDS="39 40 41 42 43 44"
 
           # Start calendar
           echo "BEGIN:VCALENDAR" > $ICS_FILE
           echo "VERSION:2.0" >> $ICS_FILE
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
-          # Append events
-          jq -r '
+          jq -r --arg leagues "$LEAGUE_IDS" '
             .response[]
             | . as $fx
             | ($fx.fixture.date | sub("\\+00:00$"; "Z") | fromdate) as $start_ts
             | ($start_ts | strftime("%Y%m%dT%H%M%SZ")) as $dtstart_fmt
             | ($start_ts + 7200 | strftime("%Y%m%dT%H%M%SZ")) as $dtend_fmt
+            | ($leagues | split(" ")) as $league_list
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football"
               + "\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ"))
               + "\nDTSTART:" + $dtstart_fmt
@@ -107,7 +110,8 @@ jobs:
                       end)
                     + $fx.teams.away.name
                   )
-                  + (if $fx.league.type != "League"
+                  + (if ($fx.league.id | tostring) as $id
+                        | ($league_list | index($id)) | not
                       then " (\($fx.league.name))"
                       else ""
                     end)
