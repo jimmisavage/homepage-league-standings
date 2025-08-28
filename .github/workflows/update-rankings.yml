@@ -128,3 +128,4 @@ jobs:
           else
             git commit -m "Update league info, standings, and team fixtures"
             git push
+          fi
