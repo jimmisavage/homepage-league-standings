@@ -80,7 +80,6 @@ jobs:
       - name: Generate ICS for Team
         run: |
           ICS_FILE=public/cal/fixtures.ics
-          TEAM_ID=$(cat ./assets/teamid.txt)
 
           mkdir -p public/cal
 
@@ -90,9 +89,8 @@ jobs:
           echo "PRODID:-//GitHub Actions//Football Fixtures//EN" >> $ICS_FILE
 
           # Append events
-          jq -r --arg team_id "$TEAM_ID" '
+          jq -r '
             .response[]
-            | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | ($fx.fixture.date | sub("\\+00:00$"; "Z") | fromdate) as $start_ts
             | ($start_ts | strftime("%Y%m%dT%H%M%SZ")) as $dtstart_fmt
@@ -102,20 +100,13 @@ jobs:
               + "\nDTSTART:" + $dtstart_fmt
               + "\nDTEND:" + $dtend_fmt
               + "\nSUMMARY:" +
-                  ( if $fx.teams.home.id == ($team_id|tonumber)
-                    then "\($fx.teams.home.name)"
-                      + (if $fx.fixture.status.short=="FT"
-                          then " \($fx.goals.home) v \($fx.goals.away) "
-                          else " v "
-                        end)
-                      + "\($fx.teams.away.name)"
-                    else "\($fx.teams.away.name)"
-                      + (if $fx.fixture.status.short=="FT"
-                          then " \($fx.goals.away) v \($fx.goals.home) "
-                          else " v "
-                        end)
-                      + "\($fx.teams.home.name)"
-                    end )
+                  ($fx.teams.home.name
+                    + (if $fx.fixture.status.short=="FT"
+                        then " \($fx.goals.home) v \($fx.goals.away) "
+                        else " v "
+                      end)
+                    + $fx.teams.away.name
+                  )
                   + (if $fx.league.type != "League"
                       then " (\($fx.league.name))"
                       else ""
