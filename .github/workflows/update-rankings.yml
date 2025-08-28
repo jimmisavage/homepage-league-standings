@@ -24,13 +24,11 @@ jobs:
 
           if [ "$MONTH" -lt 8 ]; then
             SEASON=$((YEAR - 1))
-            END_DATE=$YEAR-07-31
           else
             SEASON=$YEAR
-            END_DATE=$((YEAR + 1))-07-31
           fi
 
-          echo "📅 Using season: $SEASON, ending: $END_DATE"
+          echo "📅 Using season: $SEASON"
           mkdir -p tmp
 
           response=$(curl -s --request GET \
@@ -51,7 +49,6 @@ jobs:
           echo "✅ Detected League ID: $LEAGUE_ID"
           echo "LEAGUE_ID=$LEAGUE_ID" >> $GITHUB_ENV
           echo "SEASON=$SEASON" >> $GITHUB_ENV
-          echo "END_DATE=$END_DATE" >> $GITHUB_ENV
 
       - name: Fetch Last Season Standings for 3 Leagues
         run: |
@@ -73,9 +70,11 @@ jobs:
 
           echo "{\"league_id\": $LEAGUE_ID, \"season\": $SEASON}" > data/league-info.json
 
-      - name: Fetch Upcoming Fixtures
+      - name: Fetch Full Season Fixtures
         run: |
           START_DATE=$(date +%Y-%m-%d)
+          END_DATE=$(date -d "1 July next year" +%Y-%m-%d)
+
           FIXTURES=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
@@ -98,15 +97,17 @@ jobs:
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | (
-                $fx.fixture.date | split("+")[0]
-              ) as $start
-            | (
-                # Add 2 hours for DTEND
-                ($start | strptime("%Y-%m-%dT%H:%M:%S") | mktime + 7200 | strftime("%Y%m%dT%H%M%SZ"))
-              ) as $dtend
-            | (
-                $start | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%Y%m%dT%H%M%SZ")
+                $fx.fixture.date
+                | split("+")[0]
+                | split("T")
+                | .[0] as $d
+                | .[1] as $t
+                | ($d | gsub("-";"")) + "T" + ($t | gsub(":","")) + "Z"
               ) as $dtstart
+            | (
+                ($fx.fixture.date | split("+")[0] | split("T") | .[0] | gsub("-";"")) + "T" +
+                ((($fx.fixture.date | split("+")[0] | split("T") | .[1] | gsub(":","")) | tonumber + 20000)|tostring) + "Z"
+              ) as $dtend
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTSTART:" + $dtstart +
               "\nDTEND:" + $dtend +
