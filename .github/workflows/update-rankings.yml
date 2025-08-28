@@ -72,13 +72,10 @@ jobs:
 
       - name: Fetch All Season Fixtures
         run: |
-          START_DATE=$(date +%Y-%m-%d)
-          END_DATE=$(date -d "+365 days" +%Y-%m-%d)  # full season window
-          
           FIXTURES=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
-            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
-            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+          --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}" \
+          --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
+          --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
 
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
