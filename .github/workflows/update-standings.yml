@@ -99,14 +99,20 @@ jobs:
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
           jq -n --slurpfile f tmp/fixtures.json '
-            ($f[0].response | sort_by(.fixture.date) | first) as $next |
-            if $next == null then
+            if ($f[0].response | length) == 0 then
               {"TBD": {nextUp: "TBD"}}
             else
-              {
-                ($next.teams.home.id|tostring): {nextUp: "\($next.teams.away.name) (H)"},
-                ($next.teams.away.id|tostring): {nextUp: "\($next.teams.home.name) (A)"}
-              }
+              $f[0].response
+              | sort_by(.fixture.date)
+              | reduce .[] as $fx ({};
+                  . +
+                  {
+                    ($fx.teams.home.id|tostring):
+                      (if has($fx.teams.home.id|tostring) then .[$fx.teams.home.id|tostring] else {nextUp: "\($fx.teams.away.name) (H)"} end),
+                    ($fx.teams.away.id|tostring):
+                      (if has($fx.teams.away.id|tostring) then .[$fx.teams.away.id|tostring] else {nextUp: "\($fx.teams.home.name) (A)"} end)
+                  }
+                )
             end
           ' > tmp/next-fixtures-map.json
 
