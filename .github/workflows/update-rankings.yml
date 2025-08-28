@@ -73,8 +73,8 @@ jobs:
       - name: Fetch Full Season Fixtures
         run: |
           START_DATE=$(date +%Y-%m-%d)
-          END_DATE=$(date -d "1 July next year" +%Y-%m-%d)
-
+          END_DATE=$(date -d "next year-07-01" +%Y-%m-%d) # full season
+          
           FIXTURES=$(curl -s --request GET \
             --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=${LEAGUE_ID}&season=${SEASON}&from=${START_DATE}&to=${END_DATE}" \
             --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
@@ -97,16 +97,21 @@ jobs:
             | select(.teams.home.id == ($team_id|tonumber) or .teams.away.id == ($team_id|tonumber))
             | . as $fx
             | (
-                $fx.fixture.date
-                | split("+")[0]
-                | split("T")
-                | .[0] as $d
-                | .[1] as $t
-                | ($d | gsub("-";"")) + "T" + ($t | gsub(":","")) + "Z"
+                # DTSTART: YYYYMMDDTHHMMSSZ
+                ($fx.fixture.date | split("+")[0] | split("T") | .[0] | split("-") | join("")) +
+                "T" +
+                ($fx.fixture.date | split("+")[0] | split("T") | .[1] | split(":") | join("")) +
+                "Z"
               ) as $dtstart
             | (
-                ($fx.fixture.date | split("+")[0] | split("T") | .[0] | gsub("-";"")) + "T" +
-                ((($fx.fixture.date | split("+")[0] | split("T") | .[1] | gsub(":","")) | tonumber + 20000)|tostring) + "Z"
+                # DTEND: add 2h manually (approx, not timezone-correct)
+                ($fx.fixture.date | split("+")[0] | split("T") | .[0] | split("-") | join("")) +
+                "T" +
+                (( ($fx.fixture.date | split("+")[0] | split("T") | .[1] | split(":") | .[0] | tonumber + 2) | tostring) +
+                 ($fx.fixture.date | split("+")[0] | split("T") | .[1] | split(":") | .[1]) +
+                 ($fx.fixture.date | split("+")[0] | split("T") | .[1] | split(":") | .[2] // "00")
+                ) +
+                "Z"
               ) as $dtend
             | "BEGIN:VEVENT\nUID:\($fx.fixture.id)@\($fx.league.id).football\nDTSTAMP:" + (now|strftime("%Y%m%dT%H%M%SZ")) +
               "\nDTSTART:" + $dtstart +
