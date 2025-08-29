@@ -85,6 +85,8 @@ You can use this in homepage or google calendar (i've not tested other apps but 
 Fixtures.ics can be found in public/cal/fixtures.ics. To access from external apps use https://<yourusername>.github.io/homepage-league-standings/public/cal/fixtures.ics
 
 An example homepage services.yml
+<pre>
+  - League Table:
     - Cardiff City:
         icon: https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Cardiff_City_crest.svg/1200px-Cardiff_City_crest.svg.png
         widget:
@@ -95,7 +97,9 @@ An example homepage services.yml
           previousDays: 10 
           integrations: 
             - type: ical 
-              url: https://<yourusername>.github.io/homepage-league-standings/public/cal/fixtures.ics
+              url: https://YOU.github.io/homepage-league-standings/public/cal/fixtures.ics
               color: blue
               params: 
                 showName: false
+</pre>
+*Replace YOU with your GitHub username.
