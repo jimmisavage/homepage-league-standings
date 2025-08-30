@@ -80,7 +80,7 @@
               "points": 15,
               "goalsDiff": 5,
               "group": "League One ",
-              "form": "LWWWW",
+              "form": "WLWWW",
               "status": "same",
               "description": "Promotion",
               "all": {
@@ -129,7 +129,7 @@
               "points": 14,
               "goalsDiff": 4,
               "group": "League One ",
-              "form": "DWWDW",
+              "form": "WDWWD",
               "status": "same",
               "description": "Promotion Playoffs",
               "all": {
@@ -176,9 +176,9 @@
                 "logo": "https://media.api-sports.io/football/teams/747.png"
               },
               "points": 13,
-              "goalsDiff": 5,
+              "goalsDiff": 4,
               "group": "League One ",
-              "form": "LWDWW",
+              "form": "WLWDW",
               "status": "same",
               "description": "Promotion Playoffs",
               "all": {
@@ -188,7 +188,7 @@
                 "lose": 1,
                 "goals": {
                   "for": 11,
-                  "against": 6
+                  "against": 7
                 }
               },
               "home": {
@@ -198,7 +198,7 @@
                 "lose": 0,
                 "goals": {
                   "for": 7,
-                  "against": 3
+                  "against": 4
                 }
               },
               "away": {
@@ -219,55 +219,6 @@
             },
             {
               "rank": 5,
-              "team": {
-                "id": 1379,
-                "name": "Lincoln",
-                "logo": "https://media.api-sports.io/football/teams/1379.png"
-              },
-              "points": 13,
-              "goalsDiff": 3,
-              "group": "League One ",
-              "form": "DWWLW",
-              "status": "same",
-              "description": "Promotion Playoffs",
-              "all": {
-                "played": 6,
-                "win": 4,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 8,
-                  "against": 5
-                }
-              },
-              "home": {
-                "played": 3,
-                "win": 3,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 6,
-                  "against": 2
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 1,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 2,
-                  "against": 3
-                }
-              },
-              "update": "2025-08-30T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 11,
-              "nextUp": "Mansfield Town (H)"
-            },
-            {
-              "rank": 6,
               "team": {
                 "id": 1354,
                 "name": "Doncaster",
@@ -316,6 +267,55 @@
               "nextUp": "Rotherham (H)"
             },
             {
+              "rank": 6,
+              "team": {
+                "id": 37,
+                "name": "Huddersfield",
+                "logo": "https://media.api-sports.io/football/teams/37.png"
+              },
+              "points": 12,
+              "goalsDiff": 5,
+              "group": "League One ",
+              "form": "LWWLW",
+              "status": "same",
+              "description": "Promotion Playoffs",
+              "all": {
+                "played": 6,
+                "win": 4,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 11,
+                  "against": 6
+                }
+              },
+              "home": {
+                "played": 3,
+                "win": 3,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 6,
+                  "against": 0
+                }
+              },
+              "away": {
+                "played": 3,
+                "win": 1,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 5,
+                  "against": 6
+                }
+              },
+              "update": "2025-08-30T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 10,
+              "nextUp": "Barnsley (A)"
+            },
+            {
               "rank": 7,
               "team": {
                 "id": 1359,
@@ -325,7 +325,7 @@
               "points": 12,
               "goalsDiff": 5,
               "group": "League One ",
-              "form": "LWLWW",
+              "form": "WLWLW",
               "status": "same",
               "description": null,
               "all": {
@@ -367,55 +367,6 @@
             {
               "rank": 8,
               "team": {
-                "id": 37,
-                "name": "Huddersfield",
-                "logo": "https://media.api-sports.io/football/teams/37.png"
-              },
-              "points": 12,
-              "goalsDiff": 4,
-              "group": "League One ",
-              "form": "WWLWW",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 6,
-                "win": 4,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 10,
-                  "against": 6
-                }
-              },
-              "home": {
-                "played": 3,
-                "win": 3,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 6,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 1,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 4,
-                  "against": 6
-                }
-              },
-              "update": "2025-08-30T00:00:00+00:00",
-              "highlight": false,
-              "lastSeasonLeague": "League One",
-              "lastSeasonPosition": 10,
-              "nextUp": "Barnsley (A)"
-            },
-            {
-              "rank": 9,
-              "team": {
                 "id": 4686,
                 "name": "Stockport County",
                 "logo": "https://media.api-sports.io/football/teams/4686.png"
@@ -423,7 +374,7 @@
               "points": 11,
               "goalsDiff": 3,
               "group": "League One ",
-              "form": "WLDWW",
+              "form": "DWLDW",
               "status": "same",
               "description": null,
               "all": {
@@ -463,25 +414,74 @@
               "nextUp": "Wigan (A)"
             },
             {
+              "rank": 9,
+              "team": {
+                "id": 1379,
+                "name": "Lincoln",
+                "logo": "https://media.api-sports.io/football/teams/1379.png"
+              },
+              "points": 11,
+              "goalsDiff": 2,
+              "group": "League One ",
+              "form": "DDWWL",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 6,
+                "win": 3,
+                "draw": 2,
+                "lose": 1,
+                "goals": {
+                  "for": 8,
+                  "against": 6
+                }
+              },
+              "home": {
+                "played": 3,
+                "win": 2,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 6,
+                  "against": 3
+                }
+              },
+              "away": {
+                "played": 3,
+                "win": 1,
+                "draw": 1,
+                "lose": 1,
+                "goals": {
+                  "for": 2,
+                  "against": 3
+                }
+              },
+              "update": "2025-08-30T00:00:00+00:00",
+              "highlight": false,
+              "lastSeasonLeague": "League One",
+              "lastSeasonPosition": 11,
+              "nextUp": "Mansfield Town (H)"
+            },
+            {
               "rank": 10,
               "team": {
                 "id": 1374,
                 "name": "Mansfield Town",
                 "logo": "https://media.api-sports.io/football/teams/1374.png"
               },
-              "points": 9,
-              "goalsDiff": 3,
+              "points": 10,
+              "goalsDiff": 4,
               "group": "League One ",
-              "form": "WWWLL",
+              "form": "DWWWL",
               "status": "same",
               "description": null,
               "all": {
                 "played": 6,
                 "win": 3,
-                "draw": 0,
-                "lose": 3,
+                "draw": 1,
+                "lose": 2,
                 "goals": {
-                  "for": 10,
+                  "for": 11,
                   "against": 7
                 }
               },
@@ -498,10 +498,10 @@
               "away": {
                 "played": 3,
                 "win": 1,
-                "draw": 0,
-                "lose": 2,
+                "draw": 1,
+                "lose": 1,
                 "goals": {
-                  "for": 3,
+                  "for": 4,
                   "against": 4
                 }
               },
@@ -521,7 +521,7 @@
               "points": 9,
               "goalsDiff": 3,
               "group": "League One ",
-              "form": "LWLWL",
+              "form": "WLWLW",
               "status": "same",
               "description": null,
               "all": {
@@ -570,7 +570,7 @@
               "points": 9,
               "goalsDiff": 2,
               "group": "League One ",
-              "form": "WLWWL",
+              "form": "LWLWW",
               "status": "same",
               "description": null,
               "all": {
@@ -619,7 +619,7 @@
               "points": 8,
               "goalsDiff": 1,
               "group": "League One ",
-              "form": "DLWLW",
+              "form": "DDLWL",
               "status": "same",
               "description": null,
               "all": {
@@ -668,7 +668,7 @@
               "points": 7,
               "goalsDiff": 0,
               "group": "League One ",
-              "form": "DDDWL",
+              "form": "DDDDW",
               "status": "same",
               "description": null,
               "all": {
@@ -717,7 +717,7 @@
               "points": 7,
               "goalsDiff": -2,
               "group": "League One ",
-              "form": "WLLDL",
+              "form": "WWLLD",
               "status": "same",
               "description": null,
               "all": {
@@ -766,7 +766,7 @@
               "points": 7,
               "goalsDiff": -4,
               "group": "League One ",
-              "form": "LWDWL",
+              "form": "LLWDW",
               "status": "same",
               "description": null,
               "all": {
@@ -815,7 +815,7 @@
               "points": 5,
               "goalsDiff": -4,
               "group": "League One ",
-              "form": "DDLLL",
+              "form": "WDDLL",
               "status": "same",
               "description": null,
               "all": {
@@ -864,7 +864,7 @@
               "points": 4,
               "goalsDiff": -4,
               "group": "League One ",
-              "form": "LDLW",
+              "form": "LLDLW",
               "status": "same",
               "description": null,
               "all": {
@@ -962,7 +962,7 @@
               "points": 4,
               "goalsDiff": -6,
               "group": "League One ",
-              "form": "LLWLL",
+              "form": "DLLWL",
               "status": "same",
               "description": null,
               "all": {
@@ -1060,7 +1060,7 @@
               "points": 2,
               "goalsDiff": -4,
               "group": "League One ",
-              "form": "DLDLL",
+              "form": "LDLDL",
               "status": "same",
               "description": "Relegation",
               "all": {
@@ -1109,7 +1109,7 @@
               "points": 2,
               "goalsDiff": -4,
               "group": "League One ",
-              "form": "LLDDL",
+              "form": "LLLDD",
               "status": "same",
               "description": "Relegation",
               "all": {
@@ -1158,7 +1158,7 @@
               "points": 1,
               "goalsDiff": -9,
               "group": "League One ",
-              "form": "DLLLL",
+              "form": "LDLLL",
               "status": "same",
               "description": "Relegation",
               "all": {
