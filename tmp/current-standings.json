@@ -76,7 +76,7 @@
               "points": 16,
               "goalsDiff": 4,
               "group": "League One ",
-              "form": "WWLDW",
+              "form": "WWWLD",
               "status": "same",
               "description": "Promotion",
               "all": {
@@ -113,6 +113,51 @@
             },
             {
               "rank": 3,
+              "team": {
+                "id": 37,
+                "name": "Huddersfield",
+                "logo": "https://media.api-sports.io/football/teams/37.png"
+              },
+              "points": 15,
+              "goalsDiff": 6,
+              "group": "League One ",
+              "form": "WLWWL",
+              "status": "same",
+              "description": "Promotion Playoffs",
+              "all": {
+                "played": 7,
+                "win": 5,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 14,
+                  "against": 8
+                }
+              },
+              "home": {
+                "played": 4,
+                "win": 4,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 9,
+                  "against": 2
+                }
+              },
+              "away": {
+                "played": 3,
+                "win": 1,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 5,
+                  "against": 6
+                }
+              },
+              "update": "2025-09-06T00:00:00+00:00"
+            },
+            {
+              "rank": 4,
               "team": {
                 "id": 1368,
                 "name": "Stevenage",
@@ -157,51 +202,6 @@
               "update": "2025-09-06T00:00:00+00:00"
             },
             {
-              "rank": 4,
-              "team": {
-                "id": 1379,
-                "name": "Lincoln",
-                "logo": "https://media.api-sports.io/football/teams/1379.png"
-              },
-              "points": 14,
-              "goalsDiff": 3,
-              "group": "League One ",
-              "form": "DDWWL",
-              "status": "same",
-              "description": "Promotion Playoffs",
-              "all": {
-                "played": 7,
-                "win": 4,
-                "draw": 2,
-                "lose": 1,
-                "goals": {
-                  "for": 10,
-                  "against": 7
-                }
-              },
-              "home": {
-                "played": 4,
-                "win": 3,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 8,
-                  "against": 4
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 1,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 2,
-                  "against": 3
-                }
-              },
-              "update": "2025-09-06T00:00:00+00:00"
-            },
-            {
               "rank": 5,
               "team": {
                 "id": 1343,
@@ -211,7 +211,7 @@
               "points": 14,
               "goalsDiff": 2,
               "group": "League One ",
-              "form": "WDWWD",
+              "form": "LWDWW",
               "status": "same",
               "description": "Promotion Playoffs",
               "all": {
@@ -249,51 +249,6 @@
             {
               "rank": 6,
               "team": {
-                "id": 37,
-                "name": "Huddersfield",
-                "logo": "https://media.api-sports.io/football/teams/37.png"
-              },
-              "points": 13,
-              "goalsDiff": 5,
-              "group": "League One ",
-              "form": "LWWLW",
-              "status": "same",
-              "description": "Promotion Playoffs",
-              "all": {
-                "played": 7,
-                "win": 4,
-                "draw": 1,
-                "lose": 2,
-                "goals": {
-                  "for": 11,
-                  "against": 6
-                }
-              },
-              "home": {
-                "played": 4,
-                "win": 3,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 6,
-                  "against": 0
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 1,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 5,
-                  "against": 6
-                }
-              },
-              "update": "2025-09-06T00:00:00+00:00"
-            },
-            {
-              "rank": 7,
-              "team": {
                 "id": 747,
                 "name": "Barnsley",
                 "logo": "https://media.api-sports.io/football/teams/747.png"
@@ -303,7 +258,7 @@
               "group": "League One ",
               "form": "WLWDW",
               "status": "same",
-              "description": null,
+              "description": "Promotion Playoffs",
               "all": {
                 "played": 6,
                 "win": 4,
@@ -337,7 +292,7 @@
               "update": "2025-09-06T00:00:00+00:00"
             },
             {
-              "rank": 8,
+              "rank": 7,
               "team": {
                 "id": 1359,
                 "name": "Luton",
@@ -382,6 +337,51 @@
               "update": "2025-09-06T00:00:00+00:00"
             },
             {
+              "rank": 8,
+              "team": {
+                "id": 1379,
+                "name": "Lincoln",
+                "logo": "https://media.api-sports.io/football/teams/1379.png"
+              },
+              "points": 12,
+              "goalsDiff": 2,
+              "group": "League One ",
+              "form": "DDDWW",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 7,
+                "win": 3,
+                "draw": 3,
+                "lose": 1,
+                "goals": {
+                  "for": 10,
+                  "against": 8
+                }
+              },
+              "home": {
+                "played": 4,
+                "win": 2,
+                "draw": 2,
+                "lose": 0,
+                "goals": {
+                  "for": 8,
+                  "against": 5
+                }
+              },
+              "away": {
+                "played": 3,
+                "win": 1,
+                "draw": 1,
+                "lose": 1,
+                "goals": {
+                  "for": 2,
+                  "against": 3
+                }
+              },
+              "update": "2025-09-06T00:00:00+00:00"
+            },
+            {
               "rank": 9,
               "team": {
                 "id": 4686,
@@ -389,9 +389,9 @@
                 "logo": "https://media.api-sports.io/football/teams/4686.png"
               },
               "points": 11,
-              "goalsDiff": 2,
+              "goalsDiff": 1,
               "group": "League One ",
-              "form": "DWLDW",
+              "form": "LDWLD",
               "status": "same",
               "description": null,
               "all": {
@@ -400,8 +400,8 @@
                 "draw": 2,
                 "lose": 2,
                 "goals": {
-                  "for": 11,
-                  "against": 9
+                  "for": 12,
+                  "against": 11
                 }
               },
               "home": {
@@ -420,8 +420,8 @@
                 "draw": 2,
                 "lose": 1,
                 "goals": {
-                  "for": 6,
-                  "against": 6
+                  "for": 7,
+                  "against": 8
                 }
               },
               "update": "2025-09-06T00:00:00+00:00"
@@ -429,59 +429,14 @@
             {
               "rank": 10,
               "team": {
-                "id": 1374,
-                "name": "Mansfield Town",
-                "logo": "https://media.api-sports.io/football/teams/1374.png"
-              },
-              "points": 10,
-              "goalsDiff": 3,
-              "group": "League One ",
-              "form": "DWWWL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 7,
-                "win": 3,
-                "draw": 1,
-                "lose": 3,
-                "goals": {
-                  "for": 11,
-                  "against": 8
-                }
-              },
-              "home": {
-                "played": 3,
-                "win": 2,
-                "draw": 0,
-                "lose": 1,
-                "goals": {
-                  "for": 7,
-                  "against": 3
-                }
-              },
-              "away": {
-                "played": 4,
-                "win": 1,
-                "draw": 1,
-                "lose": 2,
-                "goals": {
-                  "for": 4,
-                  "against": 5
-                }
-              },
-              "update": "2025-09-06T00:00:00+00:00"
-            },
-            {
-              "rank": 11,
-              "team": {
                 "id": 68,
                 "name": "Bolton",
                 "logo": "https://media.api-sports.io/football/teams/68.png"
               },
               "points": 10,
-              "goalsDiff": 1,
+              "goalsDiff": 3,
               "group": "League One ",
-              "form": "DDDDW",
+              "form": "WDDDD",
               "status": "same",
               "description": null,
               "all": {
@@ -490,7 +445,7 @@
                 "draw": 4,
                 "lose": 1,
                 "goals": {
-                  "for": 7,
+                  "for": 9,
                   "against": 6
                 }
               },
@@ -500,7 +455,7 @@
                 "draw": 2,
                 "lose": 0,
                 "goals": {
-                  "for": 5,
+                  "for": 7,
                   "against": 2
                 }
               },
@@ -517,6 +472,51 @@
               "update": "2025-09-06T00:00:00+00:00"
             },
             {
+              "rank": 11,
+              "team": {
+                "id": 1374,
+                "name": "Mansfield Town",
+                "logo": "https://media.api-sports.io/football/teams/1374.png"
+              },
+              "points": 10,
+              "goalsDiff": 2,
+              "group": "League One ",
+              "form": "LDWWW",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 7,
+                "win": 3,
+                "draw": 1,
+                "lose": 3,
+                "goals": {
+                  "for": 11,
+                  "against": 9
+                }
+              },
+              "home": {
+                "played": 3,
+                "win": 2,
+                "draw": 0,
+                "lose": 1,
+                "goals": {
+                  "for": 7,
+                  "against": 3
+                }
+              },
+              "away": {
+                "played": 4,
+                "win": 1,
+                "draw": 1,
+                "lose": 2,
+                "goals": {
+                  "for": 4,
+                  "against": 6
+                }
+              },
+              "update": "2025-09-06T00:00:00+00:00"
+            },
+            {
               "rank": 12,
               "team": {
                 "id": 1373,
@@ -526,7 +526,7 @@
               "points": 10,
               "goalsDiff": -3,
               "group": "League One ",
-              "form": "LLWDW",
+              "form": "WLLWD",
               "status": "same",
               "description": null,
               "all": {
@@ -535,8 +535,8 @@
                 "draw": 1,
                 "lose": 3,
                 "goals": {
-                  "for": 8,
-                  "against": 11
+                  "for": 9,
+                  "against": 12
                 }
               },
               "home": {
@@ -555,8 +555,8 @@
                 "draw": 0,
                 "lose": 2,
                 "goals": {
-                  "for": 4,
-                  "against": 8
+                  "for": 5,
+                  "against": 9
                 }
               },
               "update": "2025-09-06T00:00:00+00:00"
@@ -571,7 +571,7 @@
               "points": 9,
               "goalsDiff": 2,
               "group": "League One ",
-              "form": "WLWLW",
+              "form": "LWLWL",
               "status": "same",
               "description": null,
               "all": {
@@ -609,14 +609,59 @@
             {
               "rank": 14,
               "team": {
+                "id": 61,
+                "name": "Wigan",
+                "logo": "https://media.api-sports.io/football/teams/61.png"
+              },
+              "points": 9,
+              "goalsDiff": 1,
+              "group": "League One ",
+              "form": "DDDLW",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 7,
+                "win": 2,
+                "draw": 3,
+                "lose": 2,
+                "goals": {
+                  "for": 10,
+                  "against": 9
+                }
+              },
+              "home": {
+                "played": 3,
+                "win": 2,
+                "draw": 1,
+                "lose": 0,
+                "goals": {
+                  "for": 6,
+                  "against": 2
+                }
+              },
+              "away": {
+                "played": 4,
+                "win": 0,
+                "draw": 2,
+                "lose": 2,
+                "goals": {
+                  "for": 4,
+                  "against": 7
+                }
+              },
+              "update": "2025-09-06T00:00:00+00:00"
+            },
+            {
+              "rank": 15,
+              "team": {
                 "id": 1333,
                 "name": "AFC Wimbledon",
                 "logo": "https://media.api-sports.io/football/teams/1333.png"
               },
               "points": 9,
-              "goalsDiff": 1,
+              "goalsDiff": -1,
               "group": "League One ",
-              "form": "LWLWW",
+              "form": "LLWLW",
               "status": "same",
               "description": null,
               "all": {
@@ -626,7 +671,7 @@
                 "lose": 4,
                 "goals": {
                   "for": 8,
-                  "against": 7
+                  "against": 9
                 }
               },
               "home": {
@@ -646,52 +691,7 @@
                 "lose": 3,
                 "goals": {
                   "for": 4,
-                  "against": 6
-                }
-              },
-              "update": "2025-09-06T00:00:00+00:00"
-            },
-            {
-              "rank": 15,
-              "team": {
-                "id": 61,
-                "name": "Wigan",
-                "logo": "https://media.api-sports.io/football/teams/61.png"
-              },
-              "points": 8,
-              "goalsDiff": 0,
-              "group": "League One ",
-              "form": "DDLWL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 7,
-                "win": 2,
-                "draw": 2,
-                "lose": 3,
-                "goals": {
-                  "for": 9,
-                  "against": 9
-                }
-              },
-              "home": {
-                "played": 3,
-                "win": 2,
-                "draw": 1,
-                "lose": 0,
-                "goals": {
-                  "for": 6,
-                  "against": 2
-                }
-              },
-              "away": {
-                "played": 4,
-                "win": 0,
-                "draw": 1,
-                "lose": 3,
-                "goals": {
-                  "for": 3,
-                  "against": 7
+                  "against": 8
                 }
               },
               "update": "2025-09-06T00:00:00+00:00"
@@ -751,7 +751,7 @@
               "points": 7,
               "goalsDiff": -3,
               "group": "League One ",
-              "form": "LDLLW",
+              "form": "WLDLL",
               "status": "same",
               "description": null,
               "all": {
@@ -794,9 +794,9 @@
                 "logo": "https://media.api-sports.io/football/teams/1357.png"
               },
               "points": 6,
-              "goalsDiff": -8,
+              "goalsDiff": -7,
               "group": "League One ",
-              "form": "LWLLL",
+              "form": "WLWLL",
               "status": "same",
               "description": null,
               "all": {
@@ -805,8 +805,8 @@
                 "draw": 0,
                 "lose": 5,
                 "goals": {
-                  "for": 6,
-                  "against": 14
+                  "for": 8,
+                  "against": 15
                 }
               },
               "home": {
@@ -815,8 +815,8 @@
                 "draw": 0,
                 "lose": 2,
                 "goals": {
-                  "for": 4,
-                  "against": 5
+                  "for": 6,
+                  "against": 6
                 }
               },
               "away": {
@@ -839,9 +839,9 @@
                 "logo": "https://media.api-sports.io/football/teams/1358.png"
               },
               "points": 5,
-              "goalsDiff": -3,
+              "goalsDiff": -2,
               "group": "League One ",
-              "form": "LDLDL",
+              "form": "WLDLD",
               "status": "same",
               "description": null,
               "all": {
@@ -850,7 +850,7 @@
                 "draw": 2,
                 "lose": 4,
                 "goals": {
-                  "for": 6,
+                  "for": 7,
                   "against": 9
                 }
               },
@@ -860,7 +860,7 @@
                 "draw": 1,
                 "lose": 2,
                 "goals": {
-                  "for": 4,
+                  "for": 5,
                   "against": 5
                 }
               },
@@ -1021,7 +1021,7 @@
               "points": 2,
               "goalsDiff": -5,
               "group": "League One ",
-              "form": "LLLDD",
+              "form": "LLLLD",
               "status": "same",
               "description": "Relegation",
               "all": {
@@ -1030,8 +1030,8 @@
                 "draw": 2,
                 "lose": 5,
                 "goals": {
-                  "for": 3,
-                  "against": 8
+                  "for": 4,
+                  "against": 9
                 }
               },
               "home": {
@@ -1040,8 +1040,8 @@
                 "draw": 1,
                 "lose": 3,
                 "goals": {
-                  "for": 2,
-                  "against": 5
+                  "for": 3,
+                  "against": 6
                 }
               },
               "away": {
@@ -1063,20 +1063,20 @@
                 "name": "Peterborough",
                 "logo": "https://media.api-sports.io/football/teams/1350.png"
               },
-              "points": 2,
-              "goalsDiff": -9,
+              "points": 1,
+              "goalsDiff": -10,
               "group": "League One ",
-              "form": "LDLLL",
+              "form": "LLDLL",
               "status": "same",
               "description": "Relegation",
               "all": {
                 "played": 7,
                 "win": 0,
-                "draw": 2,
-                "lose": 5,
+                "draw": 1,
+                "lose": 6,
                 "goals": {
-                  "for": 2,
-                  "against": 11
+                  "for": 4,
+                  "against": 14
                 }
               },
               "home": {
@@ -1092,11 +1092,11 @@
               "away": {
                 "played": 4,
                 "win": 0,
-                "draw": 1,
-                "lose": 3,
+                "draw": 0,
+                "lose": 4,
                 "goals": {
-                  "for": 1,
-                  "against": 7
+                  "for": 3,
+                  "against": 10
                 }
               },
               "update": "2025-09-06T00:00:00+00:00"
