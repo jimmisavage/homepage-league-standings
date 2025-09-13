@@ -24,6 +24,51 @@
             {
               "rank": 1,
               "team": {
+                "id": 1343,
+                "name": "Bradford",
+                "logo": "https://media.api-sports.io/football/teams/1343.png"
+              },
+              "points": 17,
+              "goalsDiff": 5,
+              "group": "League One ",
+              "form": "LWDWW",
+              "status": "same",
+              "description": "Promotion",
+              "all": {
+                "played": 8,
+                "win": 5,
+                "draw": 2,
+                "lose": 1,
+                "goals": {
+                  "for": 14,
+                  "against": 9
+                }
+              },
+              "home": {
+                "played": 4,
+                "win": 4,
+                "draw": 0,
+                "lose": 0,
+                "goals": {
+                  "for": 10,
+                  "against": 4
+                }
+              },
+              "away": {
+                "played": 4,
+                "win": 1,
+                "draw": 2,
+                "lose": 1,
+                "goals": {
+                  "for": 4,
+                  "against": 5
+                }
+              },
+              "update": "2025-09-13T00:00:00+00:00"
+            },
+            {
+              "rank": 2,
+              "team": {
                 "id": 43,
                 "name": "Cardiff",
                 "logo": "https://media.api-sports.io/football/teams/43.png"
@@ -67,7 +112,7 @@
               "update": "2025-09-13T00:00:00+00:00"
             },
             {
-              "rank": 2,
+              "rank": 3,
               "team": {
                 "id": 1354,
                 "name": "Doncaster",
@@ -78,7 +123,7 @@
               "group": "League One ",
               "form": "WWWLD",
               "status": "same",
-              "description": "Promotion",
+              "description": "Promotion Playoffs",
               "all": {
                 "played": 7,
                 "win": 5,
@@ -107,51 +152,6 @@
                 "goals": {
                   "for": 3,
                   "against": 3
-                }
-              },
-              "update": "2025-09-13T00:00:00+00:00"
-            },
-            {
-              "rank": 3,
-              "team": {
-                "id": 37,
-                "name": "Huddersfield",
-                "logo": "https://media.api-sports.io/football/teams/37.png"
-              },
-              "points": 15,
-              "goalsDiff": 6,
-              "group": "League One ",
-              "form": "WLWWL",
-              "status": "same",
-              "description": "Promotion Playoffs",
-              "all": {
-                "played": 7,
-                "win": 5,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 14,
-                  "against": 8
-                }
-              },
-              "home": {
-                "played": 4,
-                "win": 4,
-                "draw": 0,
-                "lose": 0,
-                "goals": {
-                  "for": 9,
-                  "against": 2
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 1,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 5,
-                  "against": 6
                 }
               },
               "update": "2025-09-13T00:00:00+00:00"
@@ -204,44 +204,44 @@
             {
               "rank": 5,
               "team": {
-                "id": 1343,
-                "name": "Bradford",
-                "logo": "https://media.api-sports.io/football/teams/1343.png"
+                "id": 37,
+                "name": "Huddersfield",
+                "logo": "https://media.api-sports.io/football/teams/37.png"
               },
-              "points": 14,
-              "goalsDiff": 2,
+              "points": 15,
+              "goalsDiff": 3,
               "group": "League One ",
-              "form": "LWDWW",
+              "form": "WLWWL",
               "status": "same",
               "description": "Promotion Playoffs",
               "all": {
-                "played": 7,
-                "win": 4,
-                "draw": 2,
-                "lose": 1,
+                "played": 8,
+                "win": 5,
+                "draw": 0,
+                "lose": 3,
                 "goals": {
-                  "for": 11,
-                  "against": 9
+                  "for": 14,
+                  "against": 11
                 }
               },
               "home": {
-                "played": 3,
-                "win": 3,
+                "played": 4,
+                "win": 4,
                 "draw": 0,
                 "lose": 0,
                 "goals": {
-                  "for": 7,
-                  "against": 4
+                  "for": 9,
+                  "against": 2
                 }
               },
               "away": {
                 "played": 4,
                 "win": 1,
-                "draw": 2,
-                "lose": 1,
+                "draw": 0,
+                "lose": 3,
                 "goals": {
-                  "for": 4,
-                  "against": 5
+                  "for": 5,
+                  "against": 9
                 }
               },
               "update": "2025-09-13T00:00:00+00:00"
@@ -703,16 +703,16 @@
                 "name": "Northampton",
                 "logo": "https://media.api-sports.io/football/teams/1337.png"
               },
-              "points": 7,
+              "points": 8,
               "goalsDiff": -2,
               "group": "League One ",
               "form": "WWLLD",
               "status": "same",
               "description": null,
               "all": {
-                "played": 6,
+                "played": 7,
                 "win": 2,
-                "draw": 1,
+                "draw": 2,
                 "lose": 3,
                 "goals": {
                   "for": 4,
@@ -720,9 +720,9 @@
                 }
               },
               "home": {
-                "played": 3,
+                "played": 4,
                 "win": 1,
-                "draw": 1,
+                "draw": 2,
                 "lose": 1,
                 "goals": {
                   "for": 2,
@@ -924,6 +924,51 @@
             {
               "rank": 21,
               "team": {
+                "id": 1356,
+                "name": "Blackpool",
+                "logo": "https://media.api-sports.io/football/teams/1356.png"
+              },
+              "points": 5,
+              "goalsDiff": -6,
+              "group": "League One ",
+              "form": "DLLWL",
+              "status": "same",
+              "description": "Relegation",
+              "all": {
+                "played": 7,
+                "win": 1,
+                "draw": 2,
+                "lose": 4,
+                "goals": {
+                  "for": 7,
+                  "against": 13
+                }
+              },
+              "home": {
+                "played": 3,
+                "win": 1,
+                "draw": 1,
+                "lose": 1,
+                "goals": {
+                  "for": 6,
+                  "against": 6
+                }
+              },
+              "away": {
+                "played": 4,
+                "win": 0,
+                "draw": 1,
+                "lose": 3,
+                "goals": {
+                  "for": 1,
+                  "against": 7
+                }
+              },
+              "update": "2025-09-13T00:00:00+00:00"
+            },
+            {
+              "rank": 22,
+              "team": {
                 "id": 748,
                 "name": "Burton Albion",
                 "logo": "https://media.api-sports.io/football/teams/748.png"
@@ -962,51 +1007,6 @@
                 "goals": {
                   "for": 3,
                   "against": 5
-                }
-              },
-              "update": "2025-09-13T00:00:00+00:00"
-            },
-            {
-              "rank": 22,
-              "team": {
-                "id": 1356,
-                "name": "Blackpool",
-                "logo": "https://media.api-sports.io/football/teams/1356.png"
-              },
-              "points": 4,
-              "goalsDiff": -6,
-              "group": "League One ",
-              "form": "DLLWL",
-              "status": "same",
-              "description": "Relegation",
-              "all": {
-                "played": 6,
-                "win": 1,
-                "draw": 1,
-                "lose": 4,
-                "goals": {
-                  "for": 7,
-                  "against": 13
-                }
-              },
-              "home": {
-                "played": 3,
-                "win": 1,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 6,
-                  "against": 6
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 0,
-                "draw": 0,
-                "lose": 3,
-                "goals": {
-                  "for": 1,
-                  "against": 7
                 }
               },
               "update": "2025-09-13T00:00:00+00:00"
