@@ -30,10 +30,10 @@
               },
               "points": 23,
               "goalsDiff": 7,
-              "group": "League One ",
+              "group": "League One",
               "form": "WWWLW",
               "status": "same",
-              "description": "Promotion",
+              "description": "Promotion - Championship",
               "all": {
                 "played": 10,
                 "win": 7,
@@ -64,7 +64,7 @@
                   "against": 6
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League Two",
               "lastSeasonPosition": 3,
@@ -79,10 +79,10 @@
               },
               "points": 22,
               "goalsDiff": 7,
-              "group": "League One ",
+              "group": "League One",
               "form": "WWDWL",
               "status": "same",
-              "description": "Promotion",
+              "description": "Promotion - Championship",
               "all": {
                 "played": 9,
                 "win": 7,
@@ -113,7 +113,7 @@
                   "against": 7
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 14,
@@ -128,10 +128,10 @@
               },
               "points": 21,
               "goalsDiff": 8,
-              "group": "League One ",
+              "group": "League One",
               "form": "WWWDD",
               "status": "same",
-              "description": "Promotion Playoffs",
+              "description": "Promotion - League One (Play Offs: )",
               "all": {
                 "played": 10,
                 "win": 6,
@@ -162,7 +162,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 11,
@@ -177,10 +177,10 @@
               },
               "points": 20,
               "goalsDiff": 10,
-              "group": "League One ",
+              "group": "League One",
               "form": "WLDWW",
               "status": "same",
-              "description": "Promotion Playoffs",
+              "description": "Promotion - League One (Play Offs: )",
               "all": {
                 "played": 9,
                 "win": 6,
@@ -211,7 +211,7 @@
                   "against": 1
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": true,
               "lastSeasonLeague": "Championship",
               "lastSeasonPosition": 24,
@@ -226,10 +226,10 @@
               },
               "points": 19,
               "goalsDiff": 5,
-              "group": "League One ",
+              "group": "League One",
               "form": "WDLWL",
               "status": "same",
-              "description": "Promotion Playoffs",
+              "description": "Promotion - League One (Play Offs: )",
               "all": {
                 "played": 10,
                 "win": 6,
@@ -260,7 +260,7 @@
                   "against": 9
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 10,
@@ -275,10 +275,10 @@
               },
               "points": 18,
               "goalsDiff": 2,
-              "group": "League One ",
+              "group": "League One",
               "form": "WWWLL",
               "status": "same",
-              "description": "Promotion Playoffs",
+              "description": "Promotion - League One (Play Offs: )",
               "all": {
                 "played": 10,
                 "win": 6,
@@ -309,7 +309,7 @@
                   "against": 9
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League Two",
               "lastSeasonPosition": 5,
@@ -324,7 +324,7 @@
               },
               "points": 16,
               "goalsDiff": 2,
-              "group": "League One ",
+              "group": "League One",
               "form": "DWDLD",
               "status": "same",
               "description": null,
@@ -358,7 +358,7 @@
                   "against": 8
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 3,
@@ -373,7 +373,7 @@
               },
               "points": 16,
               "goalsDiff": 2,
-              "group": "League One ",
+              "group": "League One",
               "form": "LLWWL",
               "status": "same",
               "description": null,
@@ -407,7 +407,7 @@
                   "against": 4
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 12,
@@ -422,7 +422,7 @@
               },
               "points": 16,
               "goalsDiff": -1,
-              "group": "League One ",
+              "group": "League One",
               "form": "LLLWW",
               "status": "same",
               "description": null,
@@ -456,7 +456,7 @@
                   "against": 7
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League Two",
               "lastSeasonPosition": 1,
@@ -471,7 +471,7 @@
               },
               "points": 15,
               "goalsDiff": 3,
-              "group": "League One ",
+              "group": "League One",
               "form": "WLLWL",
               "status": "same",
               "description": null,
@@ -505,7 +505,7 @@
                   "against": 5
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
               "lastSeasonPosition": 22,
@@ -520,7 +520,7 @@
               },
               "points": 14,
               "goalsDiff": 4,
-              "group": "League One ",
+              "group": "League One",
               "form": "LWDWD",
               "status": "same",
               "description": null,
@@ -554,7 +554,7 @@
                   "against": 7
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 8,
@@ -569,7 +569,7 @@
               },
               "points": 14,
               "goalsDiff": 2,
-              "group": "League One ",
+              "group": "League One",
               "form": "WLDLD",
               "status": "same",
               "description": null,
@@ -603,7 +603,7 @@
                   "against": 8
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 17,
@@ -618,7 +618,7 @@
               },
               "points": 13,
               "goalsDiff": -1,
-              "group": "League One ",
+              "group": "League One",
               "form": "WLWWW",
               "status": "same",
               "description": null,
@@ -652,7 +652,7 @@
                   "against": 7
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 19,
@@ -667,7 +667,7 @@
               },
               "points": 12,
               "goalsDiff": -1,
-              "group": "League One ",
+              "group": "League One",
               "form": "LLWDD",
               "status": "same",
               "description": null,
@@ -701,7 +701,7 @@
                   "against": 11
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 15,
@@ -716,7 +716,7 @@
               },
               "points": 12,
               "goalsDiff": -3,
-              "group": "League One ",
+              "group": "League One",
               "form": "WLWWL",
               "status": "same",
               "description": null,
@@ -750,7 +750,7 @@
                   "against": 11
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "Championship",
               "lastSeasonPosition": 23,
@@ -765,7 +765,7 @@
               },
               "points": 11,
               "goalsDiff": 0,
-              "group": "League One ",
+              "group": "League One",
               "form": "WWWLL",
               "status": "same",
               "description": null,
@@ -799,7 +799,7 @@
                   "against": 3
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League Two",
               "lastSeasonPosition": 2,
@@ -814,7 +814,7 @@
               },
               "points": 11,
               "goalsDiff": -5,
-              "group": "League One ",
+              "group": "League One",
               "form": "LLDWL",
               "status": "same",
               "description": null,
@@ -848,7 +848,7 @@
                   "against": 11
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 6,
@@ -863,7 +863,7 @@
               },
               "points": 9,
               "goalsDiff": -2,
-              "group": "League One ",
+              "group": "League One",
               "form": "LLLLW",
               "status": "same",
               "description": null,
@@ -897,7 +897,7 @@
                   "against": 6
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 16,
@@ -912,7 +912,7 @@
               },
               "points": 9,
               "goalsDiff": -4,
-              "group": "League One ",
+              "group": "League One",
               "form": "DWLWD",
               "status": "same",
               "description": null,
@@ -946,7 +946,7 @@
                   "against": 9
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 7,
@@ -961,7 +961,7 @@
               },
               "points": 8,
               "goalsDiff": -2,
-              "group": "League One ",
+              "group": "League One",
               "form": "LWLWL",
               "status": "same",
               "description": null,
@@ -995,7 +995,7 @@
                   "against": 8
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 5,
@@ -1010,10 +1010,10 @@
               },
               "points": 7,
               "goalsDiff": -6,
-              "group": "League One ",
+              "group": "League One",
               "form": "LLLWL",
               "status": "same",
-              "description": "Relegation",
+              "description": "Relegation - League Two",
               "all": {
                 "played": 9,
                 "win": 2,
@@ -1044,7 +1044,7 @@
                   "against": 9
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 13,
@@ -1059,10 +1059,10 @@
               },
               "points": 7,
               "goalsDiff": -7,
-              "group": "League One ",
+              "group": "League One",
               "form": "LWLDL",
               "status": "same",
-              "description": "Relegation",
+              "description": "Relegation - League Two",
               "all": {
                 "played": 9,
                 "win": 2,
@@ -1093,7 +1093,7 @@
                   "against": 9
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 9,
@@ -1108,10 +1108,10 @@
               },
               "points": 7,
               "goalsDiff": -11,
-              "group": "League One ",
+              "group": "League One",
               "form": "LWWLL",
               "status": "same",
-              "description": "Relegation",
+              "description": "Relegation - League Two",
               "all": {
                 "played": 10,
                 "win": 2,
@@ -1142,7 +1142,7 @@
                   "against": 10
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 18,
@@ -1157,10 +1157,10 @@
               },
               "points": 5,
               "goalsDiff": -9,
-              "group": "League One ",
+              "group": "League One",
               "form": "LDLLL",
               "status": "same",
-              "description": "Relegation",
+              "description": "Relegation - League Two",
               "all": {
                 "played": 8,
                 "win": 1,
@@ -1191,7 +1191,7 @@
                   "against": 5
                 }
               },
-              "update": "2025-09-28T00:00:00+00:00",
+              "update": "2025-09-30T00:00:00+00:00",
               "highlight": false,
               "lastSeasonLeague": "League One",
               "lastSeasonPosition": 20,
