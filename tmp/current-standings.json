@@ -164,29 +164,29 @@
                 "logo": "https://media.api-sports.io/football/teams/43.png"
               },
               "points": 20,
-              "goalsDiff": 10,
+              "goalsDiff": 9,
               "group": "League One",
-              "form": "WLDWW",
+              "form": "LWLDW",
               "status": "same",
               "description": "Promotion - League One (Play Offs: )",
               "all": {
-                "played": 9,
+                "played": 10,
                 "win": 6,
                 "draw": 2,
-                "lose": 1,
+                "lose": 2,
                 "goals": {
                   "for": 15,
-                  "against": 5
+                  "against": 6
                 }
               },
               "home": {
-                "played": 4,
+                "played": 5,
                 "win": 3,
                 "draw": 0,
-                "lose": 1,
+                "lose": 2,
                 "goals": {
                   "for": 10,
-                  "against": 4
+                  "against": 5
                 }
               },
               "away": {
@@ -294,6 +294,51 @@
             {
               "rank": 7,
               "team": {
+                "id": 1359,
+                "name": "Luton",
+                "logo": "https://media.api-sports.io/football/teams/1359.png"
+              },
+              "points": 16,
+              "goalsDiff": 3,
+              "group": "League One",
+              "form": "DWLLW",
+              "status": "same",
+              "description": null,
+              "all": {
+                "played": 10,
+                "win": 5,
+                "draw": 1,
+                "lose": 4,
+                "goals": {
+                  "for": 14,
+                  "against": 11
+                }
+              },
+              "home": {
+                "played": 5,
+                "win": 3,
+                "draw": 0,
+                "lose": 2,
+                "goals": {
+                  "for": 5,
+                  "against": 4
+                }
+              },
+              "away": {
+                "played": 5,
+                "win": 2,
+                "draw": 1,
+                "lose": 2,
+                "goals": {
+                  "for": 9,
+                  "against": 7
+                }
+              },
+              "update": "2025-09-30T00:00:00+00:00"
+            },
+            {
+              "rank": 8,
+              "team": {
                 "id": 4686,
                 "name": "Stockport County",
                 "logo": "https://media.api-sports.io/football/teams/4686.png"
@@ -337,7 +382,7 @@
               "update": "2025-09-30T00:00:00+00:00"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "team": {
                 "id": 747,
                 "name": "Barnsley",
@@ -382,7 +427,7 @@
               "update": "2025-09-30T00:00:00+00:00"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "team": {
                 "id": 1354,
                 "name": "Doncaster",
@@ -422,51 +467,6 @@
                 "goals": {
                   "for": 3,
                   "against": 7
-                }
-              },
-              "update": "2025-09-30T00:00:00+00:00"
-            },
-            {
-              "rank": 10,
-              "team": {
-                "id": 1359,
-                "name": "Luton",
-                "logo": "https://media.api-sports.io/football/teams/1359.png"
-              },
-              "points": 15,
-              "goalsDiff": 3,
-              "group": "League One",
-              "form": "WLLWL",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 9,
-                "win": 5,
-                "draw": 0,
-                "lose": 4,
-                "goals": {
-                  "for": 12,
-                  "against": 9
-                }
-              },
-              "home": {
-                "played": 5,
-                "win": 3,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 5,
-                  "against": 4
-                }
-              },
-              "away": {
-                "played": 4,
-                "win": 2,
-                "draw": 0,
-                "lose": 2,
-                "goals": {
-                  "for": 7,
-                  "against": 5
                 }
               },
               "update": "2025-09-30T00:00:00+00:00"
@@ -924,6 +924,96 @@
             {
               "rank": 21,
               "team": {
+                "id": 1356,
+                "name": "Blackpool",
+                "logo": "https://media.api-sports.io/football/teams/1356.png"
+              },
+              "points": 8,
+              "goalsDiff": -7,
+              "group": "League One",
+              "form": "DLWLD",
+              "status": "same",
+              "description": "Relegation - League Two",
+              "all": {
+                "played": 10,
+                "win": 2,
+                "draw": 2,
+                "lose": 6,
+                "goals": {
+                  "for": 10,
+                  "against": 17
+                }
+              },
+              "home": {
+                "played": 5,
+                "win": 2,
+                "draw": 2,
+                "lose": 1,
+                "goals": {
+                  "for": 9,
+                  "against": 8
+                }
+              },
+              "away": {
+                "played": 5,
+                "win": 0,
+                "draw": 0,
+                "lose": 5,
+                "goals": {
+                  "for": 1,
+                  "against": 9
+                }
+              },
+              "update": "2025-09-30T00:00:00+00:00"
+            },
+            {
+              "rank": 22,
+              "team": {
+                "id": 748,
+                "name": "Burton Albion",
+                "logo": "https://media.api-sports.io/football/teams/748.png"
+              },
+              "points": 8,
+              "goalsDiff": -8,
+              "group": "League One",
+              "form": "WLDLL",
+              "status": "same",
+              "description": "Relegation - League Two",
+              "all": {
+                "played": 9,
+                "win": 2,
+                "draw": 2,
+                "lose": 5,
+                "goals": {
+                  "for": 6,
+                  "against": 14
+                }
+              },
+              "home": {
+                "played": 5,
+                "win": 1,
+                "draw": 1,
+                "lose": 3,
+                "goals": {
+                  "for": 2,
+                  "against": 9
+                }
+              },
+              "away": {
+                "played": 4,
+                "win": 1,
+                "draw": 1,
+                "lose": 2,
+                "goals": {
+                  "for": 4,
+                  "against": 5
+                }
+              },
+              "update": "2025-09-30T00:00:00+00:00"
+            },
+            {
+              "rank": 23,
+              "team": {
                 "id": 73,
                 "name": "Rotherham",
                 "logo": "https://media.api-sports.io/football/teams/73.png"
@@ -967,52 +1057,7 @@
               "update": "2025-09-30T00:00:00+00:00"
             },
             {
-              "rank": 22,
-              "team": {
-                "id": 1356,
-                "name": "Blackpool",
-                "logo": "https://media.api-sports.io/football/teams/1356.png"
-              },
-              "points": 7,
-              "goalsDiff": -7,
-              "group": "League One",
-              "form": "LWLDL",
-              "status": "same",
-              "description": "Relegation - League Two",
-              "all": {
-                "played": 9,
-                "win": 2,
-                "draw": 1,
-                "lose": 6,
-                "goals": {
-                  "for": 8,
-                  "against": 15
-                }
-              },
-              "home": {
-                "played": 4,
-                "win": 2,
-                "draw": 1,
-                "lose": 1,
-                "goals": {
-                  "for": 7,
-                  "against": 6
-                }
-              },
-              "away": {
-                "played": 5,
-                "win": 0,
-                "draw": 0,
-                "lose": 5,
-                "goals": {
-                  "for": 1,
-                  "against": 9
-                }
-              },
-              "update": "2025-09-30T00:00:00+00:00"
-            },
-            {
-              "rank": 23,
+              "rank": 24,
               "team": {
                 "id": 1350,
                 "name": "Peterborough",
@@ -1052,51 +1097,6 @@
                 "goals": {
                   "for": 4,
                   "against": 10
-                }
-              },
-              "update": "2025-09-30T00:00:00+00:00"
-            },
-            {
-              "rank": 24,
-              "team": {
-                "id": 748,
-                "name": "Burton Albion",
-                "logo": "https://media.api-sports.io/football/teams/748.png"
-              },
-              "points": 5,
-              "goalsDiff": -9,
-              "group": "League One",
-              "form": "LDLLL",
-              "status": "same",
-              "description": "Relegation - League Two",
-              "all": {
-                "played": 8,
-                "win": 1,
-                "draw": 2,
-                "lose": 5,
-                "goals": {
-                  "for": 5,
-                  "against": 14
-                }
-              },
-              "home": {
-                "played": 5,
-                "win": 1,
-                "draw": 1,
-                "lose": 3,
-                "goals": {
-                  "for": 2,
-                  "against": 9
-                }
-              },
-              "away": {
-                "played": 3,
-                "win": 0,
-                "draw": 1,
-                "lose": 2,
-                "goals": {
-                  "for": 3,
-                  "against": 5
                 }
               },
               "update": "2025-09-30T00:00:00+00:00"
