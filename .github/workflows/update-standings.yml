@@ -49,42 +49,6 @@ jobs:
 
           echo "$CURRENT" | jq . > tmp/current-standings.json
 
-      - name: Build Previous Season Map
-        run: |
-          echo "📑 Building previous season map from cache..."
-            mkdir -p tmp
-
-            TMP_MERGE="tmp/merge_parts.jsonl"
-            > "$TMP_MERGE"  # start fresh
-
-            for id in $LEAGUE_ID $ABOVE $BELOW; do
-              FILE="data/previous-season/league-${id}.json"
-              if [[ -f "$FILE" ]]; then
-                echo "✅ Found: $FILE"
-                jq '
-                    .response[0].league as $league |
-                    $league.standings[]? |
-                    .[]? |
-                    {
-                      "\(.team.id)": {
-                        lastLeague: $league.name,
-                        lastRank: .rank
-                      }
-                    }
-                  ' "$FILE" >> "$TMP_MERGE"
-              else
-                echo "⚠️ Missing: $FILE"
-              fi
-            done
-
-            if [[ -s "$TMP_MERGE" ]]; then
-              jq -s 'reduce .[] as $item ({}; . * $item)' "$TMP_MERGE" > tmp/last-season-map.json
-              echo "✅ Last season map written to tmp/last-season-map.json"
-            else
-              echo "❌ No valid previous season data found. Exiting."
-              exit 1
-            fi
-
       - name: Fetch Upcoming Fixtures
         run: |
           echo "📅 Fetching upcoming fixtures..."
