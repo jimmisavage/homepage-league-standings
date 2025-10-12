@@ -21,6 +21,7 @@ jobs:
 
           MONTH=$(date +%m)
           YEAR=$(date +%Y)
+          # Determine the current football season (runs Aug to May)
           if [ "$MONTH" -lt 8 ]; then
             SEASON=$((YEAR - 1))
           else
@@ -30,10 +31,13 @@ jobs:
 
           mkdir -p tmp
 
+          # --- UPDATED API CALL ---
+          # Changed URL from rapidapi.com to v3.api-football.com
+          # Changed header from X-RapidAPI-Key to x-apisports-key
+          # Removed X-RapidAPI-Host header
           response=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${SEASON}&team=${TEAM_ID}" \
-            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
-            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+            --url "https://v3.api-football.com/standings?season=${SEASON}&team=${TEAM_ID}" \
+            --header "x-apisports-key: ${{ secrets.API_FOOTBALL_KEY }}")
 
           echo "$response" | jq . > tmp/team-response.json
 
@@ -59,10 +63,10 @@ jobs:
 
           for LID in $LEAGUE_ID $ABOVE $BELOW; do
             echo "Fetching last season standings for league $LID"
+            # --- UPDATED API CALL ---
             RESPONSE=$(curl -s --request GET \
-              --url "https://api-football-v1.p.rapidapi.com/v3/standings?season=${LAST_SEASON}&league=${LID}" \
-              --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
-              --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+              --url "https://v3.api-football.com/standings?season=${LAST_SEASON}&league=${LID}" \
+              --header "x-apisports-key: ${{ secrets.API_FOOTBALL_KEY }}")
             echo "$RESPONSE" | jq . > "data/previous-season/league-${LID}.json"
           done
 
@@ -71,10 +75,10 @@ jobs:
       - name: Fetch All Fixtures for Team
         run: |
           TEAM_ID=$(cat ./assets/teamid.txt)
+          # --- UPDATED API CALL ---
           FIXTURES=$(curl -s --request GET \
-            --url "https://api-football-v1.p.rapidapi.com/v3/fixtures?team=${TEAM_ID}&season=${SEASON}" \
-            --header "X-RapidAPI-Key: ${{ secrets.RAPIDAPI_KEY }}" \
-            --header "X-RapidAPI-Host: api-football-v1.p.rapidapi.com")
+            --url "https://v3.api-football.com/fixtures?team=${TEAM_ID}&season=${SEASON}" \
+            --header "x-apisports-key: ${{ secrets.API_FOOTBALL_KEY }}")
           echo "$FIXTURES" | jq . > tmp/fixtures.json
 
       - name: Generate ICS for Team
@@ -110,11 +114,11 @@ jobs:
                       end)
                     + $fx.teams.away.name
                   )
-                  + (if ($fx.league.id | tostring) as $id
-                        | ($league_list | index($id)) | not
-                      then " (\($fx.league.name))"
-                      else ""
-                    end)
+                + (if ($fx.league.id | tostring) as $id
+                    | ($league_list | index($id)) | not
+                  then " (\($fx.league.name))"
+                    else ""
+                  end)
               + "\nDESCRIPTION:" + ("Referee: " + ($fx.fixture.referee // "TBD"))
               + "\nLOCATION:" + ($fx.fixture.venue.name // "Unknown")
               + "\nEND:VEVENT"
