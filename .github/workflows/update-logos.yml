@@ -1,0 +1,95 @@
+name: Update Team Logos
+
+on:
+  schedule:
+    # Runs every day at 1:00 AM
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-logos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Load Configuration
+        id: load_config
+        run: |
+          if [[ -f "./config.env" ]]; then
+            source ./config.env
+            echo "API_LEAGUE_ID=${API_LEAGUE_ID}" >> $GITHUB_ENV
+            echo "SEASON=${CURRENT_SEASON}" >> $GITHUB_ENV
+          else
+            echo "❌ ERROR: config.env file not found."
+            exit 1
+          fi
+
+      - name: Clean Old Logos
+        run: |
+          rm -rf assets/logos
+          mkdir -p assets/logos
+
+      - name: Download Team Logos via API
+        env:
+          API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          API_LEAGUE_ID: ${{ env.API_LEAGUE_ID }}
+          SEASON: ${{ env.SEASON }}
+        shell: python
+        run: |
+          import os, json, requests, re
+          API_KEY = os.environ.get("API_KEY")
+          LEAGUE_ID = os.environ.get("API_LEAGUE_ID")
+          SEASON = os.environ.get("SEASON").split('/')[0]
+          if not API_KEY or not LEAGUE_ID:
+              print("❌ API Key or League ID is missing.")
+              exit(1)
+          url = f"https://v3.football.api-sports.io/teams?league={LEAGUE_ID}&season={SEASON}"
+          headers = {"x-apisports-key": API_KEY}
+          try:
+              response = requests.get(url, headers=headers)
+              response.raise_for_status()
+              api_data = response.json()
+              teams = api_data.get('response', [])
+              print(f"✅ Found {len(teams)} teams in the league from API.")
+          except Exception as e:
+              print(f"❌ Failed to fetch from API: {e}")
+              exit(1)
+          download_count = 0
+          for team_data in teams:
+              team_name = team_data['team']['name']
+              logo_url = team_data['team']['logo']
+              if logo_url:
+                  filename = re.sub(r'[^a-z0-9]+', '-', team_name.lower()).strip('-')
+                  filepath = f"assets/logos/{filename}.png"
+                  try:
+                      logo_res = requests.get(logo_url)
+                      if logo_res.status_code == 200:
+                          with open(filepath, 'wb') as f: f.write(logo_res.content)
+                          download_count += 1
+                  except:
+                      print(f"⚠️ Failed to download logo for {team_name}")
+          print(f"🖼️  Successfully downloaded {download_count} logos.")
+
+      - name: Commit and Push Logos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/logos/
+          if git diff --staged --quiet; then
+            echo "🟢 No new logos to commit."
+          else
+            git commit -m "🖼️ Automated daily logo update"
+            git push
+          fi
