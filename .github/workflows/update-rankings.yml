@@ -34,7 +34,7 @@ jobs:
             exit 1
           fi
 
-      - name: Fetch and Parse Standings Table (Python Scraper via -c)
+      - name: Fetch and Parse Standings Table (Robust Script Execution)
         run: |
           mkdir -p data tmp
           
@@ -42,9 +42,8 @@ jobs:
           echo "Fetching HTML standings from $LEAGUE_URL"
           curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$LEAGUE_URL" -o tmp/bbc-standings.html
           
-          # 2. Python script logic (saved as a single string for stability)
-          # We escape internal quotes and use triple quotes for multiline string definition in Python
-          PYTHON_SCRIPT="
+          # 2. Write Python script to a file
+          cat <<'PYTHON_SCRIPT' > tmp/scrape.py
 import json
 from bs4 import BeautifulSoup
 import sys
@@ -69,7 +68,7 @@ if not standings_table:
     print('Error: Could not find the main standings table (check BBC class names).')
     # Write debug information to a file
     with open('tmp/debug_html_start.txt', 'w') as dbg:
-        dbg.write('HTML CONTENT START\\n')
+        dbg.write("HTML CONTENT START\\n")
         dbg.write(html_content[:4000]) 
     print('A debug file tmp/debug_html_start.txt was created to inspect the fetched content. Check your logs.')
     sys.exit(1)
@@ -123,9 +122,10 @@ with open('data/standings.json', 'w') as outfile:
     json.dump(final_json, outfile, indent=4)
     
 print('✅ Standings JSON generated successfully: data/standings.json')
-"
-          # Execute the Python script using -c
-          python3 -c "$PYTHON_SCRIPT"
+PYTHON_SCRIPT
+          
+          # 3. Execute the script file
+          python3 tmp/scrape.py
           
       - name: Fetch Upcoming Fixtures (HTML)
         run: |
