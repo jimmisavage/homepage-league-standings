@@ -2,8 +2,8 @@ name: Update Football Data from BBC Sport
 
 on:
   schedule:
-    # Runs every day at 02:00 UTC to ensure league tables are settled.
-    - cron: '0 2 * * *'
+    # Runs every 5 minutes past every hour from 12 through 23.
+    - cron: '*/5 12-23 * * *'
   workflow_dispatch: # Allows manual running
 
 permissions:
