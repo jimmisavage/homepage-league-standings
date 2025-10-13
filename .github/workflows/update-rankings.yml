@@ -34,15 +34,15 @@ jobs:
             exit 1
           fi
 
-      - name: Fetch and Parse Standings Table (Robust Script Execution)
+      - name: 1. Fetch Standings HTML
         run: |
           mkdir -p data tmp
-          
-          # 1. Fetch the HTML content
           echo "Fetching HTML standings from $LEAGUE_URL"
           curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$LEAGUE_URL" -o tmp/bbc-standings.html
-          
-          # 2. Write Python script to a file
+
+      - name: 2. Write and Execute Python Scraper
+        run: |
+          # Write Python script to a file for stable execution
           cat <<'PYTHON_SCRIPT' > tmp/scrape.py
 import json
 from bs4 import BeautifulSoup
@@ -66,7 +66,6 @@ standings_table = soup.find('table', class_=lambda c: c and 'table' in c.lower()
 
 if not standings_table:
     print('Error: Could not find the main standings table (check BBC class names).')
-    # Write debug information to a file
     with open('tmp/debug_html_start.txt', 'w') as dbg:
         dbg.write("HTML CONTENT START\\n")
         dbg.write(html_content[:4000]) 
@@ -88,7 +87,6 @@ for row in tbody.find_all('tr'):
 
     try:
         rank_text = cols[0].get_text(strip=True)
-        # Extract Team Name
         team_name_element = cols[1].find('span', class_='ssrcss-1c9v1s-Name') 
         team_name = team_name_element.get_text(strip=True) if team_name_element else cols[1].get_text(strip=True)
         
@@ -124,10 +122,10 @@ with open('data/standings.json', 'w') as outfile:
 print('✅ Standings JSON generated successfully: data/standings.json')
 PYTHON_SCRIPT
           
-          # 3. Execute the script file
+          # Execute the script file
           python3 tmp/scrape.py
           
-      - name: Fetch Upcoming Fixtures (HTML)
+      - name: 3. Fetch Upcoming Fixtures (HTML)
         run: |
           mkdir -p public/cal
           echo "Fetching fixtures from $FIXTURES_URL"
