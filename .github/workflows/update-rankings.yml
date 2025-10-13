@@ -1,6 +1,4 @@
-# This workflow scrapes the BBC Sport website for football standings and fixtures.
-
-name: Update Rankings (BBC Scraper)
+name: Update Rankings
 
 on:
   schedule:
@@ -17,82 +15,129 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Install pup (HTML Parser)
-        # pup is a powerful command-line HTML parser
-        run: sudo apt-get update && sudo apt-get install -y pup
-
       - name: Load Configuration Variables
-        # Loads variables like TEAM_SLUG, LEAGUE_SLUG, etc., from config.env
+        id: load_config
         run: |
-          if [ -f config.env ]; then
-            source config.env
-            echo "TEAM_SLUG=$TEAM_SLUG" >> $GITHUB_ENV
-            echo "LEAGUE_SLUG=$LEAGUE_SLUG" >> $GITHUB_ENV
-            echo "LEAGUE_NAME=$LEAGUE_NAME" >> $GITHUB_ENV
-            echo "CURRENT_SEASON=$CURRENT_SEASON" >> $GITHUB_ENV
-            echo "✅ Loaded config variables."
+          if [[ -f "./config.env" ]]; then
+            echo "Loading variables from config.env"
+            source ./config.env
+            echo "TEAM_NAME=$TEAM_NAME" >> $GITHUB_ENV
+            echo "LEAGUE_URL=$LEAGUE_URL" >> $GITHUB_ENV
+            echo "FIXTURES_URL=$FIXTURES_URL" >> $GITHUB_ENV
+            echo "SEASON=$SEASON" >> $GITHUB_ENV # e.g., 2025/26
+            echo "LEAGUE_ID_NAME=$LEAGUE_ID_NAME" >> $GITHUB_ENV # e.g., LeagueOne
           else
-            echo "❌ ERROR: config.env not found. Please create it and set variables."
+            echo "❌ ERROR: config.env file not found. Please create it."
             exit 1
           fi
 
-      - name: Scrape Standings Table (Current League)
-        # Scrapes the BBC table and uses 'pup' to output clean JSON structure
+      - name: Fetch and Parse Standings Table (Python Scraper)
         run: |
-          mkdir -p tmp data
-
-          STANDINGS_URL="https://www.bbc.co.uk/sport/football/${LEAGUE_SLUG}/table"
-          echo "🌐 Scraping standings from: $STANDINGS_URL"
-
-          # Fetch HTML and use pup to target the main standings table rows
-          # We extract the entire row content and convert it to JSON structure
-          curl -s "$STANDINGS_URL" | pup 'table.ssrcss-1q3n90n-Table.exw0g190 tr.ssrcss-1hplq7p-TableRow.exw0g191:not(.ssrcss-1b7736g-HeaderRow.exw0g192) json{}' > tmp/scraped-standings-raw.json
-
-          if [ ! -s tmp/scraped-standings-raw.json ]; then
-            echo "❌ Scraping failed or returned empty data. Check if the LEAGUE_SLUG is correct or if BBC updated their HTML."
-            exit 1
-          fi
-
-      - name: Format Standings Data
-        # Uses JQ to process the raw scraped JSON into a clean output format
-        run: |
-          TEAM_SLUG="${{ env.TEAM_SLUG }}"
-
-          jq -r --arg teamSlug "$TEAM_SLUG" '
-            [
-              .[] |
-              .children |
-              # Create a map of column headers to their corresponding cell content for easier parsing
-              {
-                "rank": .[0].children[0].children[0].text, # Rank (1)
-                "team_name": .[1].children[0].children[1].children[0].text, # Team Name (Cardiff City)
-                "team_slug": .[1].children[0].children[1].attributes.href | split("/")[-1], # Team Slug (cardiff-city)
-                "played": .[2].text,
-                "won": .[3].text,
-                "drawn": .[4].text,
-                "lost": .[5].text,
-                "goals_for": .[6].text,
-                "goals_against": .[7].text,
-                "goal_difference": .[8].text,
-                "points": .[9].text,
-                "highlight": (if .[1].children[0].children[1].attributes.href | split("/")[-1] == $teamSlug then true else false end)
-              }
-            ]
-          ' tmp/scraped-standings-raw.json > data/standings.json
-
-          # Save league info (now used from config)
-          echo "{\"league_name\": \"${{ env.LEAGUE_NAME }}\", \"season\": \"${{ env.CURRENT_SEASON }}\"}" > data/league-info.json
+          mkdir -p data tmp
           
-          echo "✅ Standings data generated in data/standings.json"
+          # 1. Fetch the HTML content
+          echo "Fetching HTML standings from $LEAGUE_URL"
+          curl -s "$LEAGUE_URL" -o tmp/bbc-standings.html
+          
+          # 2. Python script to find the specific table and parse it into JSON
+          # We are targeting the table with class ssrcss-1q3n90n-Table (common BBC class)
+          python3 - <<EOF
+import json
+from bs4 import BeautifulSoup
+import sys
 
-      - name: Commit and Push Standings
+try:
+    with open('tmp/bbc-standings.html', 'r', encoding='utf-8') as f:
+        html_content = f.read()
+except FileNotFoundError:
+    print("Error: Could not read tmp/bbc-standings.html")
+    sys.exit(1)
+
+soup = BeautifulSoup(html_content, 'html.parser')
+# BBC often uses a table with a generic or complex class for standings
+# Searching for the specific table element containing the ranks
+standings_table = soup.find('table', class_=lambda c: c and 'ssrcss' in c and 'table' in c.lower())
+
+if not standings_table:
+    print("Error: Could not find the main standings table (check BBC class names).")
+    # Output the fetched HTML for debugging if the table is missing
+    # print(html_content[:2000]) 
+    sys.exit(1)
+
+data_list = []
+# Iterate over all table rows (skipping the header row [0])
+for row in standings_table.find('tbody').find_all('tr'):
+    cols = row.find_all(['th', 'td'])
+    
+    # We expect 11 columns: Rank, Team, Played, Won, Drawn, Lost, GF, GA, GD, Pts, Form
+    if len(cols) < 10:
+        continue # Skip rows that don't look like team data
+
+    try:
+        team_name_element = cols[1].find('span', class_='ssrcss-1c9v1s-Name')
+        team_name = team_name_element.get_text(strip=True) if team_name_element else cols[1].get_text(strip=True)
+        
+        # --- Map data to a simple structure ---
+        team_data = {
+            "rank": int(cols[0].get_text(strip=True)),
+            "team_name": team_name,
+            "played": int(cols[2].get_text(strip=True)),
+            "won": int(cols[3].get_text(strip=True)),
+            "drawn": int(cols[4].get_text(strip=True)),
+            "lost": int(cols[5].get_text(strip=True)),
+            "goals_for": int(cols[6].get_text(strip=True)),
+            "goals_against": int(cols[7].get_text(strip=True)),
+            "goal_difference": int(cols[8].get_text(strip=True)),
+            "points": int(cols[9].get_text(strip=True)),
+            # Assuming team ID is not strictly needed for basic ranking display
+            # We will use the name for matching (Cardiff City)
+        }
+        data_list.append(team_data)
+        
+    except Exception as e:
+        print(f"Skipping row due to parsing error: {e}")
+        continue
+
+# Create a simplified JSON structure mirroring the API-Football output for later compatibility
+final_json = {
+    "league_info": {
+        "name": "$LEAGUE_ID_NAME",
+        "season": "$SEASON"
+    },
+    "standings": data_list
+}
+
+with open('data/standings.json', 'w') as outfile:
+    json.dump(final_json, outfile, indent=4)
+    
+print("✅ Standings JSON generated successfully: data/standings.json")
+EOF
+        
+      - name: Fetch Upcoming Fixtures
+        run: |
+          # Fetch fixtures page HTML
+          echo "Fetching fixtures from $FIXTURES_URL"
+          curl -s "$FIXTURES_URL" -o tmp/bbc-fixtures.html
+
+          # No full ICS generation for now, just saving the HTML for future ICS work
+          mkdir -p public/cal
+          cp tmp/bbc-fixtures.html public/cal/fixtures.html
+          echo "Future ICS calendar file saved as public/cal/fixtures.html (HTML source)"
+
+
+      - name: Generate League Info File
+        run: |
+          # This file is crucial for the second workflow
+          echo "{\"league_id\": \"$LEAGUE_ID_NAME\", \"season\": \"$SEASON\"}" > data/league-info.json
+
+      - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/standings.json data/league-info.json
+          git add data/league-info.json data/standings.json public/cal/fixtures.html
           if git diff --cached --quiet; then
             echo "🟢 No changes to commit."
           else
-            git commit -m "Scraper: Update current standings for ${{ env.LEAGUE_NAME }} (${{ env.CURRENT_SEASON }})"
+            git commit -m "Scrape update: Standings and fixtures from BBC Sport for $LEAGUE_ID_NAME"
             git push
           fi
