@@ -21,12 +21,10 @@ jobs:
 
       - name: Load Configuration Variables
         id: load_config
-        # Source the config file to load variables into the shell environment
         run: |
           if [[ -f "./config.env" ]]; then
             echo "Loading variables from config.env"
             source ./config.env
-            # Set variables as GitHub environment variables for subsequent steps
             echo "TEAM_NAME=$TEAM_NAME" >> $GITHUB_ENV
             echo "LEAGUE_URL=$LEAGUE_URL" >> $GITHUB_ENV
             echo "FIXTURES_URL=$FIXTURES_URL" >> $GITHUB_ENV
@@ -38,24 +36,21 @@ jobs:
           fi
 
       - name: Fetch and Parse Standings Table (Python Scraper)
-        # Uses python3 which is pre-installed on the runner
+        # Use "|" for a literal block style, ensuring all indentation is preserved
         run: |
           mkdir -p data tmp
           
-          # 1. Fetch the HTML content
+          # 1. Fetch the HTML content using curl
           echo "Fetching HTML standings from $LEAGUE_URL"
-          # Adding a User-Agent to prevent basic request blocking
           curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$LEAGUE_URL" -o tmp/bbc-standings.html
           
           # 2. Python script to find the specific table and parse it into JSON
-          # Note: The EOF must be on a line by itself, with NO indentation.
           python3 - <<'EOF'
 import json
 from bs4 import BeautifulSoup
 import sys
 import os
 
-# Retrieve environment variables set in the previous step
 LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME', 'League')
 SEASON = os.environ.get('SEASON', 'Unknown')
 
@@ -69,13 +64,12 @@ except FileNotFoundError:
 soup = BeautifulSoup(html_content, 'html.parser')
 
 # --- CRITICAL: Find the main standings table ---
-# BBC tables often have classes containing 'table' and a generated ssrcss unique identifier.
-# We are searching for any table that looks like a BBC standings table.
+# Search for tables with 'table' and the ssrcss- generated class
 standings_table = soup.find('table', class_=lambda c: c and 'table' in c.lower() and 'ssrcss' in c)
 
 if not standings_table:
     print("Error: Could not find the main standings table (check BBC class names).")
-    # Log the fetched content for manual inspection if scraping fails
+    # Write debug information to a file
     with open('tmp/debug_html_start.txt', 'w') as dbg:
         dbg.write("HTML CONTENT START\\n")
         dbg.write(html_content[:4000]) 
@@ -90,22 +84,17 @@ if not tbody:
     sys.exit(1)
     
 for row in tbody.find_all('tr'):
-    # Find all table data cells (th for rank, td for stats)
     cols = row.find_all(['th', 'td'])
     
-    # Ensure it's a full data row (expected 10+ columns)
     if len(cols) < 10:
         continue 
 
     try:
-        # Extract Rank from the first cell (cols[0])
         rank_text = cols[0].get_text(strip=True)
-        # Extract Team Name from the second cell (cols[1]) - handles nested spans
-        team_name_element = cols[1].find('span', class_='ssrcss-1c9v1s-Name') # Generic BBC team name class guess
+        # Assuming BBC format: team name is in cols[1], potentially nested in a span
+        team_name_element = cols[1].find('span', class_='ssrcss-1c9v1s-Name') 
         team_name = team_name_element.get_text(strip=True) if team_name_element else cols[1].get_text(strip=True)
         
-        # --- Map data structure ---
-        # Data is pulled by column index from the table row
         team_data = {
             "rank": int(rank_text),
             "team_name": team_name,
@@ -124,7 +113,6 @@ for row in tbody.find_all('tr'):
         print(f"Skipping row due to parsing error: {e}")
         continue
 
-# Create final JSON output structure
 final_json = {
     "league_info": {
         "name": LEAGUE_ID_NAME,
@@ -141,7 +129,6 @@ EOF
 
       - name: Fetch Upcoming Fixtures (HTML)
         run: |
-          # Fetch fixtures page HTML for future processing (e.g., ICS file creation)
           mkdir -p public/cal
           echo "Fetching fixtures from $FIXTURES_URL"
           curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$FIXTURES_URL" -o public/cal/fixtures.html
@@ -149,7 +136,6 @@ EOF
 
       - name: Generate League Info File
         run: |
-          # This is the dependency for the second workflow (update_standings)
           echo "{\"league_id\": \"$LEAGUE_ID_NAME\", \"season\": \"$SEASON\"}" > data/league-info.json
 
       - name: Commit and Push
