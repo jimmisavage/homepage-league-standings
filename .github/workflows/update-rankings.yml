@@ -47,7 +47,6 @@ jobs:
           curl -s "$LEAGUE_URL" -o tmp/bbc-standings.html
           
           # 2. Python script to find the specific table and parse it into JSON
-          # We use "cat <<EOF" to run a multiline script safely
           python3 - <<EOF
 import json
 from bs4 import BeautifulSoup
@@ -75,7 +74,7 @@ if not standings_table:
     print("Error: Could not find the main standings table (check BBC class names).")
     # Log the fetched content for manual inspection if scraping fails
     with open('tmp/debug_html_start.txt', 'w') as dbg:
-        dbg.write("HTML CONTENT START\n" + html_content[:4000]) 
+        dbg.write("HTML CONTENT START\\n" + html_content[:4000]) 
     print("A debug file 'tmp/debug_html_start.txt' was created to inspect the fetched content. Check your logs.")
     sys.exit(1)
 
