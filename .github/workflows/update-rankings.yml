@@ -16,7 +16,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Python Dependencies
-        # BeautifulSoup is required for HTML parsing
         run: pip install beautifulsoup4
 
       - name: Load Configuration Variables
@@ -35,17 +34,17 @@ jobs:
             exit 1
           fi
 
-      - name: Fetch and Parse Standings Table (Python Scraper)
-        # Use "|" for a literal block style, ensuring all indentation is preserved
+      - name: Fetch and Parse Standings Table (Python Scraper via -c)
         run: |
           mkdir -p data tmp
           
-          # 1. Fetch the HTML content using curl
+          # 1. Fetch the HTML content
           echo "Fetching HTML standings from $LEAGUE_URL"
           curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$LEAGUE_URL" -o tmp/bbc-standings.html
           
-          # 2. Python script to find the specific table and parse it into JSON
-          python3 - <<'EOF'
+          # 2. Python script logic (saved as a single string for stability)
+          # We escape internal quotes and use triple quotes for multiline string definition in Python
+          PYTHON_SCRIPT="
 import json
 from bs4 import BeautifulSoup
 import sys
@@ -58,29 +57,28 @@ try:
     with open('tmp/bbc-standings.html', 'r', encoding='utf-8') as f:
         html_content = f.read()
 except FileNotFoundError:
-    print("Error: Could not read tmp/bbc-standings.html")
+    print('Error: Could not read tmp/bbc-standings.html')
     sys.exit(1)
 
 soup = BeautifulSoup(html_content, 'html.parser')
 
 # --- CRITICAL: Find the main standings table ---
-# Search for tables with 'table' and the ssrcss- generated class
 standings_table = soup.find('table', class_=lambda c: c and 'table' in c.lower() and 'ssrcss' in c)
 
 if not standings_table:
-    print("Error: Could not find the main standings table (check BBC class names).")
+    print('Error: Could not find the main standings table (check BBC class names).')
     # Write debug information to a file
     with open('tmp/debug_html_start.txt', 'w') as dbg:
-        dbg.write("HTML CONTENT START\\n")
+        dbg.write('HTML CONTENT START\\n')
         dbg.write(html_content[:4000]) 
-    print("A debug file 'tmp/debug_html_start.txt' was created to inspect the fetched content. Check your logs.")
+    print('A debug file tmp/debug_html_start.txt was created to inspect the fetched content. Check your logs.')
     sys.exit(1)
 
 data_list = []
 tbody = standings_table.find('tbody')
 
 if not tbody:
-    print("Error: Table body not found.")
+    print('Error: Table body not found.')
     sys.exit(1)
     
 for row in tbody.find_all('tr'):
@@ -91,42 +89,44 @@ for row in tbody.find_all('tr'):
 
     try:
         rank_text = cols[0].get_text(strip=True)
-        # Assuming BBC format: team name is in cols[1], potentially nested in a span
+        # Extract Team Name
         team_name_element = cols[1].find('span', class_='ssrcss-1c9v1s-Name') 
         team_name = team_name_element.get_text(strip=True) if team_name_element else cols[1].get_text(strip=True)
         
         team_data = {
-            "rank": int(rank_text),
-            "team_name": team_name,
-            "played": int(cols[2].get_text(strip=True)),
-            "won": int(cols[3].get_text(strip=True)),
-            "drawn": int(cols[4].get_text(strip=True)),
-            "lost": int(cols[5].get_text(strip=True)),
-            "goals_for": int(cols[6].get_text(strip=True)),
-            "goals_against": int(cols[7].get_text(strip=True)),
-            "goal_difference": int(cols[8].get_text(strip=True)),
-            "points": int(cols[9].get_text(strip=True)),
+            'rank': int(rank_text),
+            'team_name': team_name,
+            'played': int(cols[2].get_text(strip=True)),
+            'won': int(cols[3].get_text(strip=True)),
+            'drawn': int(cols[4].get_text(strip=True)),
+            'lost': int(cols[5].get_text(strip=True)),
+            'goals_for': int(cols[6].get_text(strip=True)),
+            'goals_against': int(cols[7].get_text(strip=True)),
+            'goal_difference': int(cols[8].get_text(strip=True)),
+            'points': int(cols[9].get_text(strip=True)),
         }
         data_list.append(team_data)
         
     except Exception as e:
-        print(f"Skipping row due to parsing error: {e}")
+        print(f'Skipping row due to parsing error: {e}')
         continue
 
 final_json = {
-    "league_info": {
-        "name": LEAGUE_ID_NAME,
-        "season": SEASON
+    'league_info': {
+        'name': LEAGUE_ID_NAME,
+        'season': SEASON
     },
-    "standings": data_list
+    'standings': data_list
 }
 
 with open('data/standings.json', 'w') as outfile:
     json.dump(final_json, outfile, indent=4)
     
-print("✅ Standings JSON generated successfully: data/standings.json")
-EOF
-
+print('✅ Standings JSON generated successfully: data/standings.json')
+"
+          # Execute the Python script using -c
+          python3 -c "$PYTHON_SCRIPT"
+          
       - name: Fetch Upcoming Fixtures (HTML)
         run: |
           mkdir -p public/cal
