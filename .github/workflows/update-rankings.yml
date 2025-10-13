@@ -105,4 +105,113 @@ jobs:
                   return []
 
               standings_data = []
-              for row in
+              for row in table.find('tbody').find_all('tr'):
+                  cells = row.find_all(['th', 'td'])
+                  if len(cells) < 10: continue
+                      
+                  try:
+                      team_name_element = cells[1].find('span', class_=lambda c: c and 'team-name' in c)
+                      team_name = team_name_element.get_text(strip=True) if team_name_element else cells[1].get_text(strip=True)
+
+                      team_entry = {
+                          'rank': int(cells[0].get_text(strip=True)),
+                          'team': {'name': team_name},
+                          'points': int(cells[9].get_text(strip=True)),
+                          'goalsDiff': int(cells[8].get_text(strip=True)),
+                          'all': {
+                              'played': int(cells[2].get_text(strip=True)),
+                              'win': int(cells[3].get_text(strip=True)),
+                              'draw': int(cells[4].get_text(strip=True)),
+                              'lose': int(cells[5].get_text(strip=True)),
+                          },
+                          'highlight': True if TEAM_NAME and TEAM_NAME.lower() in team_name.lower() else False,
+                          'nextUp': 'TBD'
+                      }
+                      standings_data.append(team_entry)
+                  except (ValueError, IndexError) as e:
+                      print(f"⚠️ Skipping a row in standings due to parsing error: {e}")
+                      continue
+                      
+              print(f"✅ Parsed {len(standings_data)} teams from the standings table.")
+              return standings_data
+              
+          def parse_fixtures(html_content):
+              """Parses upcoming fixtures from BBC Sport HTML."""
+              if not html_content: return {}
+              
+              with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f:
+                  f.write(html_content)
+              
+              soup = BeautifulSoup(html_content, 'html.parser')
+              fixture_blocks = soup.find_all('div', class_='qa-match-block')
+              next_up_map = {}
+              
+              for block in fixture_blocks:
+                  try:
+                      home_team_el = block.find('span', class_='sp-c-fixture__team-name--home')
+                      away_team_el = block.find('span', class_='sp-c-fixture__team-name--away')
+                      
+                      if not home_team_el or not away_team_el: continue
+                          
+                      home_team = home_team_el.find('abbr').get('title')
+                      away_team = away_team_el.find('abbr').get('title')
+                      
+                      if home_team and home_team not in next_up_map:
+                          next_up_map[home_team] = f"{away_team} (H)"
+                      if away_team and away_team not in next_up_map:
+                          next_up_map[away_team] = f"{home_team} (A)"
+                  except AttributeError:
+                      continue
+                          
+              print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries.")
+              return next_up_map
+
+          def main():
+              standings_html = fetch_html(LEAGUE_URL, 'tmp/bbc-standings.html')
+              fixtures_html = fetch_html(FIXTURES_URL)
+              
+              standings = parse_standings(standings_html)
+              fixtures_map = parse_fixtures(fixtures_html)
+              
+              for team in standings:
+                  team_name = team['team']['name']
+                  if team_name in fixtures_map:
+                      team['nextUp'] = fixtures_map[team_name]
+
+              final_json = {
+                  'response': [{
+                      'league': {
+                          'name': LEAGUE_ID_NAME,
+                          'season': SEASON,
+                          'standings': [standings]
+                      }
+                  }]
+              }
+
+              with open('data/standings.json', 'w', encoding='utf-8') as f:
+                  json.dump(final_json, f, indent=4)
+                  
+              print("🚀 Successfully created final data/standings.json file.")
+
+          if __name__ == "__main__":
+              main()
+
+      - name: Generate League Info File
+        run: |
+          echo "{\"league_id\": \"$LEAGUE_ID_NAME\", \"season\": \"$SEASON\"}" > data/league-info.json
+          echo "✅ Wrote league info to data/league-info.json"
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/standings.json data/league-info.json public/cal/fixtures.html
+          
+          if git diff --staged --quiet; then
+            echo "🟢 No changes detected in data files."
+          else
+            echo "💾 Committing updated data..."
+            git commit -m "📊 Automated data update from BBC Sport" -m "Date: $(date -u)"
+            git push
+            echo "✅ Push successful."
+          fi
