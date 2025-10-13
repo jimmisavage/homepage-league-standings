@@ -1,149 +1,221 @@
-name: Update Rankings
+name: Update Football Data from BBC Sport
 
 on:
   schedule:
-    - cron: '0 0 * * *' # every day at midnight
-  workflow_dispatch:
+    # Runs every day at 02:00 UTC to ensure league tables are settled.
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allows manual running
 
 permissions:
   contents: write
 
 jobs:
-  scrape-and-rank:
+  scrape-and-process:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+      - name:  checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
       - name: Install Python Dependencies
-        run: pip install beautifulsoup4
+        run: pip install beautifulsoup4 requests
 
       - name: Load Configuration Variables
         id: load_config
         run: |
           if [[ -f "./config.env" ]]; then
-            echo "Loading variables from config.env"
+            echo "✅ Loading variables from config.env"
             source ./config.env
+            # Pass variables to subsequent steps via GITHUB_ENV
             echo "TEAM_NAME=$TEAM_NAME" >> $GITHUB_ENV
             echo "LEAGUE_URL=$LEAGUE_URL" >> $GITHUB_ENV
             echo "FIXTURES_URL=$FIXTURES_URL" >> $GITHUB_ENV
-            echo "SEASON=$SEASON" >> $GITHUB_ENV
             echo "LEAGUE_ID_NAME=$LEAGUE_ID_NAME" >> $GITHUB_ENV
+            echo "SEASON=$SEASON" >> $GITHUB_ENV
           else
             echo "❌ ERROR: config.env file not found. Please create it."
             exit 1
           fi
 
-      - name: 1. Fetch Standings HTML
-        run: |
-          mkdir -p data tmp
-          echo "Fetching HTML standings from $LEAGUE_URL"
-          curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$LEAGUE_URL" -o tmp/bbc-standings.html
+      - name: Create Directories
+        run: mkdir -p data tmp public/cal assets/logos
 
-      - name: 2. Write and Execute Python Scraper
+      - name: Run Python Scraper and Data Processor
+        id: python_script
+        env:
+          # Pass secrets and env vars to the Python script
+          TEAM_NAME: ${{ env.TEAM_NAME }}
+          LEAGUE_URL: ${{ env.LEAGUE_URL }}
+          FIXTURES_URL: ${{ env.FIXTURES_URL }}
+          LEAGUE_ID_NAME: ${{ env.LEAGUE_ID_NAME }}
+          SEASON: ${{ env.SEASON }}
         run: |
-          # Write Python script to a file for stable execution
-          cat <<'PYTHON_SCRIPT' > tmp/scrape.py
-import json
-from bs4 import BeautifulSoup
-import sys
+          cat <<'PYTHON_SCRIPT' > tmp/run_scraper.py
 import os
+import json
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime
 
-LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME', 'League')
-SEASON = os.environ.get('SEASON', 'Unknown')
+# --- Configuration ---
+TEAM_NAME = os.environ.get('TEAM_NAME')
+LEAGUE_URL = os.environ.get('LEAGUE_URL')
+FIXTURES_URL = os.environ.get('FIXTURES_URL')
+LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
+SEASON = os.environ.get('SEASON')
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 
-try:
-    with open('tmp/bbc-standings.html', 'r', encoding='utf-8') as f:
-        html_content = f.read()
-except FileNotFoundError:
-    print('Error: Could not read tmp/bbc-standings.html')
-    sys.exit(1)
-
-soup = BeautifulSoup(html_content, 'html.parser')
-
-# --- CRITICAL: Find the main standings table ---
-standings_table = soup.find('table', class_=lambda c: c and 'table' in c.lower() and 'ssrcss' in c)
-
-if not standings_table:
-    print('Error: Could not find the main standings table (check BBC class names).')
-    with open('tmp/debug_html_start.txt', 'w') as dbg:
-        dbg.write("HTML CONTENT START\\n")
-        dbg.write(html_content[:4000]) 
-    print('A debug file tmp/debug_html_start.txt was created to inspect the fetched content. Check your logs.')
-    sys.exit(1)
-
-data_list = []
-tbody = standings_table.find('tbody')
-
-if not tbody:
-    print('Error: Table body not found.')
-    sys.exit(1)
-    
-for row in tbody.find_all('tr'):
-    cols = row.find_all(['th', 'td'])
-    
-    if len(cols) < 10:
-        continue 
-
+def fetch_html(url, file_path):
+    """Fetches HTML from a URL and saves it to a file."""
     try:
-        rank_text = cols[0].get_text(strip=True)
-        team_name_element = cols[1].find('span', class_='ssrcss-1c9v1s-Name') 
-        team_name = team_name_element.get_text(strip=True) if team_name_element else cols[1].get_text(strip=True)
-        
-        team_data = {
-            'rank': int(rank_text),
-            'team_name': team_name,
-            'played': int(cols[2].get_text(strip=True)),
-            'won': int(cols[3].get_text(strip=True)),
-            'drawn': int(cols[4].get_text(strip=True)),
-            'lost': int(cols[5].get_text(strip=True)),
-            'goals_for': int(cols[6].get_text(strip=True)),
-            'goals_against': int(cols[7].get_text(strip=True)),
-            'goal_difference': int(cols[8].get_text(strip=True)),
-            'points': int(cols[9].get_text(strip=True)),
-        }
-        data_list.append(team_data)
-        
-    except Exception as e:
-        print(f'Skipping row due to parsing error: {e}')
-        continue
+        response = requests.get(url, headers=HEADERS)
+        response.raise_for_status()
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(response.text)
+        print(f"✅ Successfully fetched and saved {url} to {file_path}")
+        return response.text
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Error fetching {url}: {e}")
+        return None
 
-final_json = {
-    'league_info': {
-        'name': LEAGUE_ID_NAME,
-        'season': SEASON
-    },
-    'standings': data_list
-}
-
-with open('data/standings.json', 'w') as outfile:
-    json.dump(final_json, outfile, indent=4)
+def parse_standings(html_content):
+    """Parses the league standings table from BBC Sport HTML."""
+    if not html_content:
+        return []
     
-print('✅ Standings JSON generated successfully: data/standings.json')
+    soup = BeautifulSoup(html_content, 'html.parser')
+    # Use a more stable selector: the table with a caption containing "table"
+    table = soup.find('table', class_='gs-o-table')
+
+    if not table:
+        print("❌ Could not find the standings table using 'gs-o-table' class.")
+        return []
+
+    standings_data = []
+    for row in table.find('tbody').find_all('tr'):
+        cells = row.find_all(['th', 'td'])
+        if len(cells) < 10:
+            continue
+            
+        try:
+            team_name_element = cells[1].find('span', class_=lambda c: c and 'team-name' in c)
+            team_name = team_name_element.get_text(strip=True) if team_name_element else cells[1].get_text(strip=True)
+
+            team_entry = {
+                'rank': int(cells[0].get_text(strip=True)),
+                'team': {'name': team_name}, # Mimic old API structure
+                'points': int(cells[9].get_text(strip=True)),
+                'goalsDiff': int(cells[8].get_text(strip=True)),
+                'all': { # Mimic old API structure
+                    'played': int(cells[2].get_text(strip=True)),
+                    'win': int(cells[3].get_text(strip=True)),
+                    'draw': int(cells[4].get_text(strip=True)),
+                    'lose': int(cells[5].get_text(strip=True)),
+                },
+                'highlight': True if TEAM_NAME and TEAM_NAME.lower() in team_name.lower() else False,
+                'nextUp': 'TBD' # Default value, to be filled later
+            }
+            standings_data.append(team_entry)
+        except (ValueError, IndexError) as e:
+            print(f"⚠️ Skipping a row in standings due to parsing error: {e}")
+            continue
+            
+    print(f"✅ Parsed {len(standings_data)} teams from the standings table.")
+    return standings_data
+    
+def parse_fixtures(html_content):
+    """Parses upcoming fixtures from BBC Sport HTML."""
+    if not html_content:
+        return {}
+        
+    soup = BeautifulSoup(html_content, 'html.parser')
+    fixture_blocks = soup.find_all('div', class_='qa-match-block')
+    
+    next_up_map = {}
+    
+    for block in fixture_blocks:
+        home_team_el = block.find('span', class_='sp-c-fixture__team-name--home')
+        away_team_el = block.find('span', class_='sp-c-fixture__team-name--away')
+        
+        if not home_team_el or not away_team_el:
+            continue
+            
+        home_team = home_team_el.find('abbr').get('title')
+        away_team = away_team_el.find('abbr').get('title')
+        
+        if home_team not in next_up_map:
+            next_up_map[home_team] = f"{away_team} (H)"
+        if away_team not in next_up_map:
+            next_up_map[away_team] = f"{home_team} (A)"
+            
+    print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries.")
+    # Save raw fixtures HTML for calendar link
+    with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f:
+        f.write(str(soup))
+
+    return next_up_map
+
+def main():
+    # 1. Fetch data
+    standings_html = fetch_html(LEAGUE_URL, 'tmp/bbc-standings.html')
+    fixtures_html = fetch_html(FIXTURES_URL, 'tmp/bbc-fixtures.html')
+    
+    # 2. Parse data
+    standings = parse_standings(standings_html)
+    fixtures_map = parse_fixtures(fixtures_html)
+    
+    # 3. Combine data
+    for team in standings:
+        team_name = team['team']['name']
+        if team_name in fixtures_map:
+            team['nextUp'] = fixtures_map[team_name]
+
+    # 4. Construct final JSON output
+    final_json = {
+        'response': [{
+            'league': {
+                'name': LEAGUE_ID_NAME,
+                'season': int(SEASON) if SEASON and SEASON.isdigit() else SEASON,
+                'standings': [standings] # Nesting to match old API format
+            }
+        }]
+    }
+
+    # 5. Write to file
+    with open('data/standings.json', 'w', encoding='utf-8') as f:
+        json.dump(final_json, f, indent=4)
+        
+    print("🚀 Successfully created final data/standings.json file.")
+
+if __name__ == "__main__":
+    main()
+
 PYTHON_SCRIPT
-          
-          # Execute the script file
-          python3 tmp/scrape.py
-          
-      - name: 3. Fetch Upcoming Fixtures (HTML)
-        run: |
-          mkdir -p public/cal
-          echo "Fetching fixtures from $FIXTURES_URL"
-          curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "$FIXTURES_URL" -o public/cal/fixtures.html
-          echo "Future ICS calendar source saved as public/cal/fixtures.html"
+          python3 tmp/run_scraper.py
 
       - name: Generate League Info File
         run: |
           echo "{\"league_id\": \"$LEAGUE_ID_NAME\", \"season\": \"$SEASON\"}" > data/league-info.json
+          echo "✅ Wrote league info to data/league-info.json"
 
       - name: Commit and Push
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git add data/league-info.json data/standings.json public/cal/fixtures.html
-          if git diff --cached --quiet; then
-            echo "🟢 No changes to commit."
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Add all generated data
+          git add data/standings.json data/league-info.json public/cal/fixtures.html
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "🟢 No changes detected in data files."
           else
-            git commit -m "Scrape update: Standings and fixtures from BBC Sport for $LEAGUE_ID_NAME"
+            echo "💾 Committing updated data..."
+            git commit -m "📊 Automated data update from BBC Sport" -m "Date: $(date -u)"
             git push
+            echo "✅ Push successful."
           fi
