@@ -11,9 +11,11 @@
       --header-bg: transparent;
       --font-family: 'Manrope', 'Manrope-Fallback', Arial, sans-serif;
     }
+
     body {
       background: transparent;
       font-family: var(--font-family);
+      spacing: 0.25rem;
       letter-spacing: .1px;
       font-size: 0.75rem;
       margin: 0;
@@ -23,6 +25,7 @@
       height: 100vh;
       color: var(--text-color);
     }
+
     .scroll-container {
       height: 100%;
       padding: 6px;
@@ -30,7 +33,11 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    .scroll-container::-webkit-scrollbar { display: none; }
+
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -38,6 +45,7 @@
       margin-top: -4px;
       margin-bottom: 5px;
     }
+
     th, td {
       padding: 2px 4px;
       vertical-align: middle;
@@ -46,42 +54,141 @@
       text-overflow: ellipsis;
       line-height: 1.2;
     }
+
     th {
       background-color: var(--header-bg);
       font-weight: 600;
       text-transform: uppercase;
       font-size: 10px;
     }
-    th:nth-child(1), td:nth-child(1) { text-align: left; }
+
+    th:nth-child(1), td:nth-child(1) {
+      text-align: left;
+    }
+
     th:nth-child(2), th:nth-child(3),
-    td:nth-child(2), td:nth-child(3) { text-align: center; }
-    tr:nth-child(even) { background-color: var(--alt-bg); }
-    tr:hover { background-color: rgba(255, 255, 255, 0.05); }
-    .cardiff-highlight { color: #2b7fff !important; font-weight: bold; }
+    td:nth-child(2), td:nth-child(3) {
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--alt-bg);
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .cardiff-highlight {
+      color: #2b7fff !important;
+      font-weight: bold;
+    }
+
     .popup {
-      position: fixed; top: 50%; left: 50%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       background-color: #0f172a;
-      border-radius: 8px; padding: 30px;
-      width: 90%; max-width: 350px;
-      z-index: 9999; font-size: 0.55rem;
-      display: none; flex-direction: column;
-      align-items: center; text-align: center;
-      max-height: 90vh; overflow-y: auto;
+      border-radius: 8px;
+      padding: 30px;
+      width: 90%;
+      max-width: 350px;
+      z-index: 9999;
+      font-size: 0.55rem;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-height: 90vh;
+      overflow-y: auto;
+      overflow: visible;
     }
-    .popup img { height: 35px; width: 35px; margin-bottom: 6px; }
-    .popup-content table { font-size: 0.55rem; }
-    .popup-content table td { text-align: center; }
+
+    .popup img {
+      height: 35px;
+      width: 35px;
+      border-radius: 4px;
+      margin-top: 3px;
+      margin-bottom: 6px;
+      z-index: 1;
+    }
+
+    .popup-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 1;
+    }
+
+    .popup-content table {
+      width: 100%;
+      font-size: 0.55rem;
+      margin-bottom: 0px;
+    }
+
+    .popup-content table td {
+      text-align: center;
+    }
+
     .popup-close {
-      position: absolute; top: 10px; right: 15px;
-      background: none; border: none;
-      color: #aaa; font-size: 1.5rem; cursor: pointer;
+      position: absolute;
+      top: 28px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 0.85rem;
+      cursor: pointer;
+      z-index: 2;
     }
+
     .popup-footer {
-      display: flex; justify-content: space-between;
-      width: 100%; margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 0px;
+      z-index: 1;
     }
-    .popup-nextfixture, .popup-lastseason { font-size: 0.50rem; color: #aaa; }
+
+    #popupForm {
+      text-align: center;
+      margin-top: 0px;
+      margin-bottom: -2px;
+      z-index: 1;
+    }
+
+    .popup-nextfixture,
+    .popup-lastseason {
+      font-size: 0.50rem;
+      color: #aaa;
+    }
+
+    .form-span {
+      display: inline-block;
+      width: 1.2ch;
+      font-weight: bold;
+      text-align: center;
+      margin-right: 6px;
+    }
+
+    .form-w { color: #22c55e; }
+    .form-d { color: #e2e8f0; }
+    .form-l { color: #ef4444; }
+
+    .popup-bg-logo {
+      position: absolute;
+      bottom: -40px;
+      right: 0px;
+      width: 250px !important;
+      height: 250px !important;
+      opacity: 0.09 !important;
+      transform: rotate(-25deg);
+      filter: blur(3px);
+      pointer-events: none;
+      z-index: 0;
+    }
   </style>
 </head>
 <body>
@@ -99,7 +206,7 @@
   </div>
 
   <div class="popup" id="teamPopup">
-    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <button class="popup-close" onclick="closePopup()">✕</button>
     <img id="popupLogo" src="" alt="Team Logo">
     <div id="popupName" style="font-weight: bold; letter-spacing: 1px;"></div>
     <div class="popup-content">
@@ -115,6 +222,7 @@
         <div class="popup-lastseason" id="popupLastSeason"></div>
       </div>
     </div>
+    <img id="popupBgLogo" class="popup-bg-logo" src="" alt="" />
   </div>
 
   <script>
@@ -139,8 +247,6 @@
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
           const highlight = team.highlight ?? false;
-          
-          const teamSlug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
           const row = document.createElement('tr');
           if (highlight) row.classList.add('cardiff-highlight');
@@ -154,7 +260,7 @@
           row.addEventListener('click', () => {
             showPopup({
               name: name,
-              logo: team.team.logo,
+              logo: team.team.logo, // Use the direct URL from the JSON
               position: team.rank ?? '-',
               played: played,
               won: team.all.win ?? '-',
@@ -177,41 +283,5 @@
 
     function showPopup(team) {
       document.getElementById('popupName').textContent = team.name.toUpperCase();
-      document.getElementById('popupLogo').src = team.logo;
-      document.getElementById('popupLogo').onerror = function() { this.style.display = 'none'; }; // Hide if logo not found
-      document.getElementById('popupLogo').onload = function() { this.style.display = 'block'; };
-
-      document.getElementById('popupStatsRow').innerHTML = `
-        <td>${team.position}</td>
-        <td>${team.played}</td>
-        <td>${team.won}</td>
-        <td>${team.lose}</td>
-        <td>${team.draw}</td>
-        <td>${team.goalsFor}</td>
-        <td>${team.goalsAgainst}</td>
-        <td>${team.goalDiff}</td>
-        <td>${team.points}</td>
-      `;
-
-      document.getElementById('popupForm').innerHTML = `Form: N/A`;
-      document.getElementById('popupLastSeason').textContent = `Last Season: N/A`;
-      document.getElementById('popupNextFixture').textContent = `Next Up: ${team.nextUp}`;
-      document.getElementById('teamPopup').style.display = 'flex';
-    }
-
-    function closePopup() {
-      document.getElementById('teamPopup').style.display = 'none';
-    }
-
-    // Close popup if clicking outside of it
-    window.addEventListener('click', function(event) {
-        const popup = document.getElementById('teamPopup');
-        if (event.target == popup) {
-            closePopup();
-        }
-    });
-
-    getTable();
-  </script>
-</body>
-</html>
+      
+      const logoImg = document.getElementById('popup
