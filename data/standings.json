@@ -5,7 +5,488 @@
                 "name": "League One",
                 "season": "2025/2026",
                 "standings": [
-                    []
+                    [
+                        {
+                            "rank": 1,
+                            "team": {
+                                "name": "Stevenage"
+                            },
+                            "points": 25,
+                            "goalsDiff": 9,
+                            "all": {
+                                "played": 10,
+                                "win": 8,
+                                "draw": 1,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 8
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
+                                "name": "Bradford City"
+                            },
+                            "points": 24,
+                            "goalsDiff": 7,
+                            "all": {
+                                "played": 11,
+                                "win": 7,
+                                "draw": 3,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 20,
+                                    "against": 13
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 3,
+                            "team": {
+                                "name": "Cardiff City"
+                            },
+                            "points": 23,
+                            "goalsDiff": 10,
+                            "all": {
+                                "played": 11,
+                                "win": 7,
+                                "draw": 2,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 9
+                                }
+                            },
+                            "highlight": true,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 4,
+                            "team": {
+                                "name": "Stockport County"
+                            },
+                            "points": 22,
+                            "goalsDiff": 4,
+                            "all": {
+                                "played": 12,
+                                "win": 6,
+                                "draw": 4,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 18,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
+                                "name": "AFC Wimbledon"
+                            },
+                            "points": 22,
+                            "goalsDiff": 4,
+                            "all": {
+                                "played": 12,
+                                "win": 7,
+                                "draw": 1,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 13
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 6,
+                            "team": {
+                                "name": "Lincoln City"
+                            },
+                            "points": 21,
+                            "goalsDiff": 7,
+                            "all": {
+                                "played": 11,
+                                "win": 6,
+                                "draw": 3,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 10
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 7,
+                            "team": {
+                                "name": "Huddersfield Town"
+                            },
+                            "points": 19,
+                            "goalsDiff": 4,
+                            "all": {
+                                "played": 11,
+                                "win": 6,
+                                "draw": 1,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 13
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
+                                "name": "Barnsley"
+                            },
+                            "points": 17,
+                            "goalsDiff": 2,
+                            "all": {
+                                "played": 10,
+                                "win": 5,
+                                "draw": 2,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 9,
+                            "team": {
+                                "name": "Bolton Wanderers"
+                            },
+                            "points": 17,
+                            "goalsDiff": 2,
+                            "all": {
+                                "played": 12,
+                                "win": 4,
+                                "draw": 5,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 10,
+                            "team": {
+                                "name": "Doncaster Rovers"
+                            },
+                            "points": 17,
+                            "goalsDiff": -5,
+                            "all": {
+                                "played": 12,
+                                "win": 5,
+                                "draw": 2,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 11,
+                                    "against": 16
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 11,
+                            "team": {
+                                "name": "Luton Town"
+                            },
+                            "points": 16,
+                            "goalsDiff": 1,
+                            "all": {
+                                "played": 11,
+                                "win": 5,
+                                "draw": 1,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 14,
+                                    "against": 13
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 12,
+                            "team": {
+                                "name": "Mansfield Town"
+                            },
+                            "points": 15,
+                            "goalsDiff": 2,
+                            "all": {
+                                "played": 11,
+                                "win": 4,
+                                "draw": 3,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 13,
+                            "team": {
+                                "name": "Leyton Orient"
+                            },
+                            "points": 14,
+                            "goalsDiff": -2,
+                            "all": {
+                                "played": 12,
+                                "win": 4,
+                                "draw": 2,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 20,
+                                    "against": 22
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 14,
+                            "team": {
+                                "name": "Northampton Town"
+                            },
+                            "points": 14,
+                            "goalsDiff": -2,
+                            "all": {
+                                "played": 11,
+                                "win": 4,
+                                "draw": 2,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 8,
+                                    "against": 10
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
+                                "name": "Port Vale"
+                            },
+                            "points": 13,
+                            "goalsDiff": 0,
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 4,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 11,
+                                    "against": 11
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 16,
+                            "team": {
+                                "name": "Exeter City"
+                            },
+                            "points": 13,
+                            "goalsDiff": -1,
+                            "all": {
+                                "played": 12,
+                                "win": 4,
+                                "draw": 1,
+                                "lose": 7,
+                                "goals": {
+                                    "for": 12,
+                                    "against": 13
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 17,
+                            "team": {
+                                "name": "Wigan Athletic"
+                            },
+                            "points": 13,
+                            "goalsDiff": -2,
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 4,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 15,
+                                    "against": 17
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
+                                "name": "Plymouth Argyle"
+                            },
+                            "points": 13,
+                            "goalsDiff": -3,
+                            "all": {
+                                "played": 11,
+                                "win": 4,
+                                "draw": 1,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 19
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "name": "Wycombe Wanderers"
+                            },
+                            "points": 12,
+                            "goalsDiff": -1,
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 3,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 14,
+                                    "against": 15
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
+                                "name": "Burton Albion"
+                            },
+                            "points": 12,
+                            "goalsDiff": -5,
+                            "all": {
+                                "played": 11,
+                                "win": 3,
+                                "draw": 3,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 10,
+                                    "against": 15
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 21,
+                            "team": {
+                                "name": "Reading"
+                            },
+                            "points": 11,
+                            "goalsDiff": -4,
+                            "all": {
+                                "played": 11,
+                                "win": 2,
+                                "draw": 5,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 12,
+                                    "against": 16
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
+                                "name": "Rotherham United"
+                            },
+                            "points": 11,
+                            "goalsDiff": -5,
+                            "all": {
+                                "played": 11,
+                                "win": 3,
+                                "draw": 2,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 11,
+                                    "against": 16
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
+                                "name": "Blackpool"
+                            },
+                            "points": 8,
+                            "goalsDiff": -10,
+                            "all": {
+                                "played": 12,
+                                "win": 2,
+                                "draw": 2,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 10,
+                                    "against": 20
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 24,
+                            "team": {
+                                "name": "Peterborough United"
+                            },
+                            "points": 7,
+                            "goalsDiff": -12,
+                            "all": {
+                                "played": 11,
+                                "win": 2,
+                                "draw": 1,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 8,
+                                    "against": 20
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        }
+                    ]
                 ]
             }
         }
