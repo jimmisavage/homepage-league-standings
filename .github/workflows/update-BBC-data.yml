@@ -2,12 +2,16 @@ name: Update Football Data from BBC Sport
 
 on:
   schedule:
-    # Runs every 5 minutes past every hour from 12 through 23.
+    # Runs every 5 minutes on match days
     - cron: '*/5 12-23 * * *'
+    # Also runs once late at night to catch up
+    - cron: '0 2 * * *'
   workflow_dispatch: # Allows manual running
 
 permissions:
   contents: write
+  # The 'actions' permission is needed for upload-artifact in some security settings
+  actions: read 
 
 jobs:
   scrape-and-process:
@@ -99,9 +103,6 @@ jobs:
               
               soup = BeautifulSoup(html_content, 'html.parser')
               # --- NEW, MORE ROBUST SELECTOR ---
-              # Find the main table container (often a <div> with a specific data attribute)
-              # Then search for the table within that container.
-              
               # First, try finding the table using common BBC/Opta classes
               table = soup.find('table', class_='gs-o-table') # Original
               if not table:
@@ -109,24 +110,29 @@ jobs:
               
               # If that fails, try finding the table by looking for the header "Team"
               if not table:
-                  header_row = soup.find('th', string='Team')
+                  header_row = soup.find('th', string=lambda s: s and 'Team' in s)
                   if header_row:
                       # Traverse up to find the <table> element
                       table = header_row.find_parent('table')
               
               if not table:
                   print("❌ Could not find the standings table (failed all attempts).")
-                  # You can log a snippet of the HTML here to inspect
-                  # with open('tmp/debug_html_snippet.html', 'w') as f: f.write(html_content[html_content.find('<table'):html_content.find('</table>')+8])
                   return []
               # --- END NEW SELECTOR ---
 
               standings_data = []
-              for row in table.find('tbody').find_all('tr'):
+              # NOTE: We now search specifically within the table we found
+              tbody = table.find('tbody')
+              if not tbody:
+                  print("❌ Found table but no tbody element.")
+                  return []
+
+              for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
                   if len(cells) < 10: continue
                       
                   try:
+                      # Assuming the team name is still in the second cell
                       team_name_element = cells[1].find('span', class_=lambda c: c and 'team-name' in c)
                       team_name = team_name_element.get_text(strip=True) if team_name_element else cells[1].get_text(strip=True)
 
@@ -212,6 +218,13 @@ jobs:
 
           if __name__ == "__main__":
               main()
+      
+      - name: 💾 Upload Debug Artifact
+        uses: actions/upload-artifact@v4
+        if: always() # This ensures it runs even if the previous step fails
+        with:
+          name: bbc-html-output
+          path: tmp/bbc-standings.html
 
       - name: Generate League Info File
         run: |
@@ -222,8 +235,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/standings.json data/league-info.json public/cal/fixtures.html
           
+          # Only add files if they exist
+          git add data/standings.json data/league-info.json
+          if [ -f "public/cal/fixtures.html" ]; then
+            git add public/cal/fixtures.html
+          fi
+
           if git diff --staged --quiet; then
             echo "🟢 No changes detected in data files."
           else
