@@ -235,13 +235,6 @@ jobs:
           if __name__ == "__main__":
               main()
       
-      - name: 💾 Upload Debug Artifact
-        uses: actions/upload-artifact@v4
-        if: always() # This ensures it runs even if the previous step fails
-        with:
-          name: bbc-html-output
-          path: tmp/bbc-standings.html
-
       - name: Generate League Info File
         run: |
           echo "{\"league_id\": \"$LEAGUE_ID_NAME\", \"season\": \"$SEASON\"}" > data/league-info.json
