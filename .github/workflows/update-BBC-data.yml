@@ -70,6 +70,7 @@ jobs:
           import json
           import requests
           from bs4 import BeautifulSoup
+          import re # Need for slugifying the name
 
           # --- Configuration ---
           TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ') # Convert slug to name for matching
@@ -81,16 +82,13 @@ jobs:
 
           def fetch_html(url, file_path_for_debug=None):
               """Fetches HTML from a URL and optionally saves it."""
-              if not url:
-                  print("❌ Cannot fetch: URL is missing.")
-                  return None
+              if not url: return None
               try:
                   print(f"Fetching {url}...")
                   response = requests.get(url, headers=HEADERS)
                   response.raise_for_status()
                   if file_path_for_debug:
-                      with open(file_path_for_debug, 'w', encoding='utf-8') as f:
-                          f.write(response.text)
+                      with open(file_path_for_debug, 'w', encoding='utf-8') as f: f.write(response.text)
                   print(f"✅ Successfully fetched {url}")
                   return response.text
               except requests.exceptions.RequestException as e:
@@ -102,64 +100,82 @@ jobs:
               if not html_content: return []
               
               soup = BeautifulSoup(html_content, 'html.parser')
-              # --- NEW, MORE ROBUST SELECTOR ---
-              # First, try finding the table using common BBC/Opta classes
-              table = soup.find('table', class_='gs-o-table') # Original
-              if not table:
-                  table = soup.find('table', class_='ssrcss-1c9v1s-Table') # Another common Opta table class
               
-              # If that fails, try finding the table by looking for the header "Team"
-              if not table:
-                  header_row = soup.find('th', string=lambda s: s and 'Team' in s)
-                  if header_row:
-                      # Traverse up to find the <table> element
-                      table = header_row.find_parent('table')
+              # --- CRITICAL FIX: Use the stable data-testid attribute ---
+              table = soup.find('table', {'data-testid': 'football-table'})
               
               if not table:
-                  print("❌ Could not find the standings table (failed all attempts).")
+                  print("❌ Could not find the standings table using 'data-testid: football-table'.")
                   return []
-              # --- END NEW SELECTOR ---
 
               standings_data = []
-              # NOTE: We now search specifically within the table we found
               tbody = table.find('tbody')
               if not tbody:
                   print("❌ Found table but no tbody element.")
                   return []
 
               for row in tbody.find_all('tr'):
+                  # Target all cells including the rank/team header cell (th/td)
                   cells = row.find_all(['th', 'td'])
-                  if len(cells) < 10: continue
+                  
+                  # We expect 10 main columns (Rank, Team, P, W, D, L, F, A, GD, Pts) + 1 for Form
+                  if len(cells) < 10: 
+                      print(f"⚠️ Skipping row with {len(cells)} cells (expected at least 10).")
+                      continue
                       
                   try:
-                      # Assuming the team name is still in the second cell
-                      team_name_element = cells[1].find('span', class_=lambda c: c and 'team-name' in c)
-                      team_name = team_name_element.get_text(strip=True) if team_name_element else cells[1].get_text(strip=True)
+                      # Ranks are in the first cell, inside a span
+                      rank_span = cells[0].find('span', class_=lambda c: c and 'Rank' in c)
+                      rank = int(rank_span.get_text(strip=True)) if rank_span else int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True))
+
+                      # Team Name is linked/wrapped, grab the visible name
+                      team_name_link = cells[0].find('a', class_=lambda c: c and 'TeamNameLink' in c)
+                      team_name_span = team_name_link.find('span', class_='visually-hidden') if team_name_link else None
+                      
+                      # The visually hidden span contains the full team name: "Stevenage"
+                      team_name = team_name_span.get_text(strip=True) if team_name_span else cells[0].get_text(strip=True)
+                      
+                      # Played is in column 2, Won in 3, Drawn in 4, etc. (relative index from 1)
+                      played = int(cells[1].get_text(strip=True))
+                      won = int(cells[2].get_text(strip=True))
+                      drawn = int(cells[3].get_text(strip=True))
+                      lost = int(cells[4].get_text(strip=True))
+                      goals_for = int(cells[5].get_text(strip=True))
+                      goals_against = int(cells[6].get_text(strip=True))
+                      goal_diff = int(cells[7].get_text(strip=True))
+                      points = int(cells[8].get_text(strip=True))
+                      
+                      # The name 'Cardiff City' is what we want, not the short 'Cardiff' slug.
+                      team_name = team_name.replace('AFC Wimbledon', 'AFC Wimbledon') # Correct name from visually-hidden span
 
                       team_entry = {
-                          'rank': int(cells[0].get_text(strip=True)),
+                          'rank': rank,
                           'team': {'name': team_name},
-                          'points': int(cells[9].get_text(strip=True)),
-                          'goalsDiff': int(cells[8].get_text(strip=True)),
+                          'points': points,
+                          'goalsDiff': goal_diff,
                           'all': {
-                              'played': int(cells[2].get_text(strip=True)),
-                              'win': int(cells[3].get_text(strip=True)),
-                              'draw': int(cells[4].get_text(strip=True)),
-                              'lose': int(cells[5].get_text(strip=True)),
+                              'played': played,
+                              'win': won,
+                              'draw': drawn,
+                              'lose': lost,
+                              'goals': { # Re-add for older front-ends that might expect it
+                                'for': goals_for,
+                                'against': goals_against,
+                              }
                           },
-                          'highlight': True if TEAM_NAME and TEAM_NAME.lower() in team_name.lower() else False,
+                          'highlight': True if TEAM_NAME and TEAM_NAME.lower().replace('-', ' ') in team_name.lower() else False,
                           'nextUp': 'TBD'
                       }
                       standings_data.append(team_entry)
-                  except (ValueError, IndexError) as e:
-                      print(f"⚠️ Skipping a row in standings due to parsing error: {e}")
+                  except Exception as e:
+                      print(f'⚠️ Skipping row due to parsing error: {e}. Row data inspection is recommended.')
                       continue
                       
               print(f"✅ Parsed {len(standings_data)} teams from the standings table.")
               return standings_data
               
           def parse_fixtures(html_content):
-              """Parses upcoming fixtures from BBC Sport HTML."""
+              # ... (this function does not change)
               if not html_content: return {}
               
               with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f:
