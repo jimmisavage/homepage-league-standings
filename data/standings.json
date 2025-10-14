@@ -9,7 +9,8 @@
                         {
                             "rank": 1,
                             "team": {
-                                "name": "Stevenage"
+                                "name": "Stevenage",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
                             "points": 25,
                             "goalsDiff": 9,
@@ -29,7 +30,8 @@
                         {
                             "rank": 2,
                             "team": {
-                                "name": "Bradford City"
+                                "name": "Bradford City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.a5f7e984d5.svg"
                             },
                             "points": 24,
                             "goalsDiff": 7,
@@ -49,7 +51,8 @@
                         {
                             "rank": 3,
                             "team": {
-                                "name": "Cardiff City"
+                                "name": "Cardiff City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.6f9871e0e8.svg"
                             },
                             "points": 23,
                             "goalsDiff": 10,
@@ -69,7 +72,8 @@
                         {
                             "rank": 4,
                             "team": {
-                                "name": "Stockport County"
+                                "name": "Stockport County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.4c9076c46a.svg"
                             },
                             "points": 22,
                             "goalsDiff": 4,
@@ -89,7 +93,8 @@
                         {
                             "rank": 5,
                             "team": {
-                                "name": "AFC Wimbledon"
+                                "name": "AFC Wimbledon",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
                             "points": 22,
                             "goalsDiff": 4,
@@ -109,7 +114,8 @@
                         {
                             "rank": 6,
                             "team": {
-                                "name": "Lincoln City"
+                                "name": "Lincoln City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
                             "points": 21,
                             "goalsDiff": 7,
@@ -129,7 +135,8 @@
                         {
                             "rank": 7,
                             "team": {
-                                "name": "Huddersfield Town"
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.9046363950.svg"
                             },
                             "points": 19,
                             "goalsDiff": 4,
@@ -149,7 +156,8 @@
                         {
                             "rank": 8,
                             "team": {
-                                "name": "Barnsley"
+                                "name": "Barnsley",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.b1da670c98.svg"
                             },
                             "points": 17,
                             "goalsDiff": 2,
@@ -169,7 +177,8 @@
                         {
                             "rank": 9,
                             "team": {
-                                "name": "Bolton Wanderers"
+                                "name": "Bolton Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.fd75ea107a.svg"
                             },
                             "points": 17,
                             "goalsDiff": 2,
@@ -189,7 +198,8 @@
                         {
                             "rank": 10,
                             "team": {
-                                "name": "Doncaster Rovers"
+                                "name": "Doncaster Rovers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.a86ca0f8f4.svg"
                             },
                             "points": 17,
                             "goalsDiff": -5,
@@ -209,7 +219,8 @@
                         {
                             "rank": 11,
                             "team": {
-                                "name": "Luton Town"
+                                "name": "Luton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.e10f2cdaad.svg"
                             },
                             "points": 16,
                             "goalsDiff": 1,
@@ -229,7 +240,8 @@
                         {
                             "rank": 12,
                             "team": {
-                                "name": "Mansfield Town"
+                                "name": "Mansfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.d70f49e821.svg"
                             },
                             "points": 15,
                             "goalsDiff": 2,
@@ -249,7 +261,8 @@
                         {
                             "rank": 13,
                             "team": {
-                                "name": "Leyton Orient"
+                                "name": "Leyton Orient",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.6662bcb452.svg"
                             },
                             "points": 14,
                             "goalsDiff": -2,
@@ -269,7 +282,8 @@
                         {
                             "rank": 14,
                             "team": {
-                                "name": "Northampton Town"
+                                "name": "Northampton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
                             "points": 14,
                             "goalsDiff": -2,
@@ -289,7 +303,8 @@
                         {
                             "rank": 15,
                             "team": {
-                                "name": "Port Vale"
+                                "name": "Port Vale",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.a6d8357fb2.svg"
                             },
                             "points": 13,
                             "goalsDiff": 0,
@@ -309,7 +324,8 @@
                         {
                             "rank": 16,
                             "team": {
-                                "name": "Exeter City"
+                                "name": "Exeter City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.b9cf31e0d7.svg"
                             },
                             "points": 13,
                             "goalsDiff": -1,
@@ -329,7 +345,8 @@
                         {
                             "rank": 17,
                             "team": {
-                                "name": "Wigan Athletic"
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.a03f486f47.svg"
                             },
                             "points": 13,
                             "goalsDiff": -2,
@@ -349,7 +366,8 @@
                         {
                             "rank": 18,
                             "team": {
-                                "name": "Plymouth Argyle"
+                                "name": "Plymouth Argyle",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.a98cfc4134.svg"
                             },
                             "points": 13,
                             "goalsDiff": -3,
@@ -369,7 +387,8 @@
                         {
                             "rank": 19,
                             "team": {
-                                "name": "Wycombe Wanderers"
+                                "name": "Wycombe Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.916cb8de39.svg"
                             },
                             "points": 12,
                             "goalsDiff": -1,
@@ -389,7 +408,8 @@
                         {
                             "rank": 20,
                             "team": {
-                                "name": "Burton Albion"
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
                             },
                             "points": 12,
                             "goalsDiff": -5,
@@ -409,7 +429,8 @@
                         {
                             "rank": 21,
                             "team": {
-                                "name": "Reading"
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.8de8268260.svg"
                             },
                             "points": 11,
                             "goalsDiff": -4,
@@ -429,7 +450,8 @@
                         {
                             "rank": 22,
                             "team": {
-                                "name": "Rotherham United"
+                                "name": "Rotherham United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.4172044726.svg"
                             },
                             "points": 11,
                             "goalsDiff": -5,
@@ -449,7 +471,8 @@
                         {
                             "rank": 23,
                             "team": {
-                                "name": "Blackpool"
+                                "name": "Blackpool",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.feea97454d.svg"
                             },
                             "points": 8,
                             "goalsDiff": -10,
@@ -469,7 +492,8 @@
                         {
                             "rank": 24,
                             "team": {
-                                "name": "Peterborough United"
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.f9f2ea9723.svg"
                             },
                             "points": 7,
                             "goalsDiff": -12,
