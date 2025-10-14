@@ -154,7 +154,7 @@
           row.addEventListener('click', () => {
             showPopup({
               name: name,
-              logo: `./assets/logos/${teamSlug}.png`,
+              logo: team.team.logo,
               position: team.rank ?? '-',
               played: played,
               won: team.all.win ?? '-',
