@@ -299,20 +299,20 @@
       }
     }
 
-    function showPopup(team) {
+function showPopup(team) {
       document.getElementById('popupName').textContent = team.name.toUpperCase();
       document.getElementById('popupLogo').src = team.logo;
       document.getElementById('popupBgLogo').src = team.logo;
 
-      // NOTE: Goals For/Against are not available from the BBC scrape, so they are shown as '-'
+      // Now uses the real data for Goals For (F) and Against (A)
       document.getElementById('popupStatsRow').innerHTML = `
         <td>${team.position}</td>
         <td>${team.played}</td>
         <td>${team.won}</td>
         <td>${team.lose}</td>
         <td>${team.draw}</td>
-        <td>-</td> 
-        <td>-</td>
+        <td>${team.all.goals.for}</td>
+        <td>${team.all.goals.against}</td>
         <td>${team.goalDiff}</td>
         <td>${team.points}</td>
       `;
