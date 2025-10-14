@@ -98,11 +98,28 @@ jobs:
               if not html_content: return []
               
               soup = BeautifulSoup(html_content, 'html.parser')
-              table = soup.find('table', class_='gs-o-table')
-
+              # --- NEW, MORE ROBUST SELECTOR ---
+              # Find the main table container (often a <div> with a specific data attribute)
+              # Then search for the table within that container.
+              
+              # First, try finding the table using common BBC/Opta classes
+              table = soup.find('table', class_='gs-o-table') # Original
               if not table:
-                  print("❌ Could not find the standings table using 'gs-o-table' class.")
+                  table = soup.find('table', class_='ssrcss-1c9v1s-Table') # Another common Opta table class
+              
+              # If that fails, try finding the table by looking for the header "Team"
+              if not table:
+                  header_row = soup.find('th', string='Team')
+                  if header_row:
+                      # Traverse up to find the <table> element
+                      table = header_row.find_parent('table')
+              
+              if not table:
+                  print("❌ Could not find the standings table (failed all attempts).")
+                  # You can log a snippet of the HTML here to inspect
+                  # with open('tmp/debug_html_snippet.html', 'w') as f: f.write(html_content[html_content.find('<table'):html_content.find('</table>')+8])
                   return []
+              # --- END NEW SELECTOR ---
 
               standings_data = []
               for row in table.find('tbody').find_all('tr'):
