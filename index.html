@@ -119,7 +119,7 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-top: 12px; 
+      margin-top: 12px; /* <-- Add this line */
       z-index: 1;
     }
 
@@ -182,17 +182,9 @@
       margin-right: 6px;
     }
 
-    .form-w {
-      color: #22c55e;
-    }
-
-    .form-d {
-      color: #e2e8f0;
-    }
-
-    .form-l {
-      color: #ef4444;
-    }
+    .form-w { color: #22c55e; }
+    .form-d { color: #e2e8f0; }
+    .form-l { color: #ef4444; }
 
     .popup-bg-logo {
       position: absolute;
@@ -246,36 +238,24 @@
     async function getTable() {
       try {
         const res = await fetch('./data/standings.json');
-        if (!res.ok) throw new Error(`Failed to load standings.json: ${res.status} ${res.statusText}`);
+        if (!res.ok) throw new Error(`Failed to load standings.json: ${res.status}`);
 
         const data = await res.json();
-        const league = data.response?.[0]?.league;
+        const standings = data.response?.[0]?.league?.standings?.[0];
 
-        if (!league || !league.standings) {
-          document.body.innerHTML = '<p style="color:#ccc; font-family: var(--font-family); padding: 1rem; text-align:center;">We\'ll see you in the new season!</p>';
+        if (!standings || standings.length === 0) {
+          document.body.innerHTML = '<p style="color:#ccc; padding: 1rem; text-align:center;">Standings data is not available.</p>';
           return;
         }
 
-        const standings = league.standings[0];
         const tbody = document.querySelector("#leagueTable tbody");
         tbody.innerHTML = '';
 
         standings.forEach(team => {
-          const { id, name } = team.team;
+          const name = team.team.name;
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
-          const position = team.rank;
           const highlight = team.highlight ?? false;
-          const lastLeague = team.lastSeasonLeague ?? 'Unknown League';
-          const lastPos = team.lastSeasonPosition ?? '?';
-          const nextUp = team.nextUp ?? '';
-          const won = team.all.win ?? '-';
-          const draw = team.all.draw ?? '-';
-          const lose = team.all.lose ?? '-';
-          const goalsFor = team.all.goals.for ?? '-';
-          const goalsAgainst = team.all.goals.against ?? '-';
-          const goalDiff = goalsFor - goalsAgainst;
-          const form = team.form ?? 'N/A';
 
           const row = document.createElement('tr');
           if (highlight) row.classList.add('cardiff-highlight');
@@ -287,26 +267,21 @@
           `;
 
           row.addEventListener('click', () => {
-          console.log("Popup logo path:", team.logo);
             showPopup({
-              name,
-              logo: `./assets/logos/${id}.png`,
-              position,
-              played,
-              won,
-              lose,
-              draw,
-              goalsFor,
-              goalsAgainst,
-              goalDiff,
-              points,
-              form,
-              lastLeague,
-              lastPos,
-              nextUp
+              name: name,
+              logo: team.team.logo, // Use the direct URL from the JSON
+              position: team.rank ?? '-',
+              played: played,
+              won: team.all.win ?? '-',
+              lose: team.all.lose ?? '-',
+              draw: team.all.draw ?? '-',
+              goalsFor: team.all.goals.for ?? '-',
+              goalsAgainst: team.all.goals.against ?? '-',
+              goalDiff: team.goalsDiff ?? '-',
+              points: points,
+              nextUp: team.nextUp ?? 'TBD',
             });
           });
-
           tbody.appendChild(row);
         });
       } catch (err) {
@@ -315,16 +290,14 @@
       }
     }
 
-    function ordinal(n) {
-      const s = ["th", "st", "nd", "rd"];
-      const v = n % 100;
-      return n + (s[(v - 20) % 10] || s[v] || s[0]);
-    }
-
     function showPopup(team) {
-      console.log("Popup logo path:", team.logo);
       document.getElementById('popupName').textContent = team.name.toUpperCase();
-      document.getElementById('popupLogo').src = team.logo;
+      
+      const logoImg = document.getElementById('popupLogo');
+      logoImg.src = team.logo;
+      logoImg.style.display = 'block'; // Show it by default
+      logoImg.onerror = function() { this.style.display = 'none'; }; // Hide if logo not found
+      
       document.getElementById('popupBgLogo').src = team.logo;
 
       document.getElementById('popupStatsRow').innerHTML = `
@@ -339,23 +312,26 @@
         <td>${team.points}</td>
       `;
 
-      const formHTML = [...team.form].reverse().map(result => {
-        const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
-        return `<span class="form-span ${cls}">${result}</span>`;
-      }).join('');
-
-      document.getElementById('popupForm').innerHTML = `${formHTML}`;
-      document.getElementById('popupLastSeason').textContent = `${ordinal(team.lastPos)} in ${team.lastLeague}`;
-      document.getElementById('popupNextFixture').textContent = team.nextUp
-        ? `Next Up: ${team.nextUp}`
-        : '';
-
+      // Data for Form and Last Season is no longer available from our scrape
+      document.getElementById('popupForm').innerHTML = ``; // Clear form
+      document.getElementById('popupLastSeason').textContent = ``; // Clear last season
+      
+      document.getElementById('popupNextFixture').textContent = `Next Up: ${team.nextUp}`;
       document.getElementById('teamPopup').style.display = 'flex';
     }
 
     function closePopup() {
       document.getElementById('teamPopup').style.display = 'none';
     }
+
+    // Close popup if clicking outside of it
+    window.addEventListener('click', function(event) {
+        const popup = document.getElementById('teamPopup');
+        // Check if the click is outside the popup's content area
+        if (event.target == popup) {
+            closePopup();
+        }
+    });
 
     getTable();
   </script>
