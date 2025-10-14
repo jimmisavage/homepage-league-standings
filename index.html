@@ -237,36 +237,35 @@
     async function getTable() {
       try {
         const res = await fetch('./data/standings.json');
-        if (!res.ok) throw new Error(`Failed to load standings.json: ${res.status} ${res.statusText}`);
+        if (!res.ok) throw new Error(`Failed to load standings.json: ${res.status}`);
 
         const data = await res.json();
-        const league = data.response?.[0]?.league;
+        // The data structure from the scraper is slightly different, let's navigate it
+        const standings = data.response?.[0]?.league?.standings?.[0];
 
-        if (!league || !league.standings) {
-          document.body.innerHTML = '<p style="color:#ccc; font-family: var(--font-family); padding: 1rem; text-align:center;">We\'ll see you in the new season!</p>';
+        if (!standings || standings.length === 0) {
+          document.body.innerHTML = '<p style="color:#ccc; font-family: var(--font-family); padding: 1rem; text-align:center;">Standings data is not available.</p>';
           return;
         }
 
-        const standings = league.standings[0];
         const tbody = document.querySelector("#leagueTable tbody");
         tbody.innerHTML = '';
 
         standings.forEach(team => {
-          const { id, name } = team.team;
+          // --- Data that IS AVAILABLE from our scraper ---
+          const name = team.team.name;
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
-          const position = team.rank;
+          const position = team.rank ?? '-';
           const highlight = team.highlight ?? false;
-          const lastLeague = team.lastSeasonLeague ?? 'Unknown League';
-          const lastPos = team.lastSeasonPosition ?? '?';
-          const nextUp = team.nextUp ?? '';
+          const nextUp = team.nextUp ?? 'TBD';
           const won = team.all.win ?? '-';
           const draw = team.all.draw ?? '-';
           const lose = team.all.lose ?? '-';
-          const goalsFor = team.all.goals.for ?? '-';
-          const goalsAgainst = team.all.goals.against ?? '-';
-          const goalDiff = goalsFor - goalsAgainst;
-          const form = team.form ?? 'N/A';
+          const goalDiff = team.goalsDiff ?? '-';
+
+          // --- Create a filename-friendly "slug" from the team name for the logo ---
+          const teamSlug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
           const row = document.createElement('tr');
           if (highlight) row.classList.add('cardiff-highlight');
@@ -278,23 +277,17 @@
           `;
 
           row.addEventListener('click', () => {
-          console.log("Popup logo path:", team.logo);
             showPopup({
               name,
-              logo: `./assets/logos/${id}.png`,
+              logo: `./assets/logos/${teamSlug}.png`, // Use the new slug for the logo path
               position,
               played,
               won,
               lose,
               draw,
-              goalsFor,
-              goalsAgainst,
               goalDiff,
               points,
-              form,
-              lastLeague,
-              lastPos,
-              nextUp
+              nextUp,
             });
           });
 
@@ -306,41 +299,29 @@
       }
     }
 
-    function ordinal(n) {
-      const s = ["th", "st", "nd", "rd"];
-      const v = n % 100;
-      return n + (s[(v - 20) % 10] || s[v] || s[0]);
-    }
-
     function showPopup(team) {
-      console.log("Popup logo path:", team.logo);
       document.getElementById('popupName').textContent = team.name.toUpperCase();
       document.getElementById('popupLogo').src = team.logo;
       document.getElementById('popupBgLogo').src = team.logo;
 
+      // NOTE: Goals For/Against are not available from the BBC scrape, so they are shown as '-'
       document.getElementById('popupStatsRow').innerHTML = `
         <td>${team.position}</td>
         <td>${team.played}</td>
         <td>${team.won}</td>
         <td>${team.lose}</td>
         <td>${team.draw}</td>
-        <td>${team.goalsFor}</td>
-        <td>${team.goalsAgainst}</td>
+        <td>-</td> 
+        <td>-</td>
         <td>${team.goalDiff}</td>
         <td>${team.points}</td>
       `;
 
-      const formHTML = [...team.form].reverse().map(result => {
-        const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
-        return `<span class="form-span ${cls}">${result}</span>`;
-      }).join('');
-
-      document.getElementById('popupForm').innerHTML = `${formHTML}`;
-      document.getElementById('popupLastSeason').textContent = `${ordinal(team.lastPos)} in ${team.lastLeague}`;
-      document.getElementById('popupNextFixture').textContent = team.nextUp
-        ? `Next Up: ${team.nextUp}`
-        : '';
-
+      // NOTE: Form and Last Season data are not available from the scrape
+      document.getElementById('popupForm').innerHTML = `Form: N/A`;
+      document.getElementById('popupLastSeason').textContent = `Last Season: N/A`;
+      
+      document.getElementById('popupNextFixture').textContent = `Next Up: ${team.nextUp}`;
       document.getElementById('teamPopup').style.display = 'flex';
     }
 
