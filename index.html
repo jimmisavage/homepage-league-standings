@@ -284,4 +284,47 @@
     function showPopup(team) {
       document.getElementById('popupName').textContent = team.name.toUpperCase();
       
-      const logoImg = document.getElementById('popup
+      const logoImg = document.getElementById('popupLogo');
+      logoImg.src = team.logo;
+      logoImg.style.display = 'block'; // Show it by default
+      logoImg.onerror = function() { this.style.display = 'none'; }; // Hide if logo not found
+      
+      document.getElementById('popupBgLogo').src = team.logo;
+
+      document.getElementById('popupStatsRow').innerHTML = `
+        <td>${team.position}</td>
+        <td>${team.played}</td>
+        <td>${team.won}</td>
+        <td>${team.lose}</td>
+        <td>${team.draw}</td>
+        <td>${team.goalsFor}</td>
+        <td>${team.goalsAgainst}</td>
+        <td>${team.goalDiff}</td>
+        <td>${team.points}</td>
+      `;
+
+      // Data for Form and Last Season is no longer available from our scrape
+      document.getElementById('popupForm').innerHTML = ``; // Clear form
+      document.getElementById('popupLastSeason').textContent = ``; // Clear last season
+      
+      document.getElementById('popupNextFixture').textContent = `Next Up: ${team.nextUp}`;
+      document.getElementById('teamPopup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('teamPopup').style.display = 'none';
+    }
+
+    // Close popup if clicking outside of it
+    window.addEventListener('click', function(event) {
+        const popup = document.getElementById('teamPopup');
+        // Check if the click is outside the popup's content area
+        if (event.target == popup) {
+            closePopup();
+        }
+    });
+
+    getTable();
+  </script>
+</body>
+</html>
