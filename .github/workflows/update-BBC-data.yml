@@ -1,20 +1,18 @@
-name: Update Football Data from BBC Sport
+name: Update Standings from BBC Sport
 
 on:
   schedule:
-    # Runs every 5 minutes on match days
-    - cron: '*/5 12-23 * * *'
+    # Runs every 5 minutes on match days (adjust hours/days as needed)
+    - cron: '*/5 12-23 * * SAT,SUN'
     # Also runs once late at night to catch up
     - cron: '0 2 * * *'
-  workflow_dispatch: # Allows manual running
+  workflow_dispatch:
 
 permissions:
   contents: write
-  # The 'actions' permission is needed for upload-artifact in some security settings
-  actions: read 
 
 jobs:
-  scrape-and-process:
+  scrape-standings:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -32,29 +30,21 @@ jobs:
         id: load_config
         run: |
           if [[ -f "./config.env" ]]; then
-            echo "✅ Loading variables from config.env"
             source ./config.env
-
-            # --- Build full URLs from slugs ---
             LEAGUE_URL="https://www.bbc.co.uk/sport/football/${LEAGUE_SLUG}/table"
             FIXTURES_URL="https://www.bbc.co.uk/sport/football/${LEAGUE_SLUG}/scores-fixtures"
-
-            echo "Constructed League URL: $LEAGUE_URL"
-            echo "Constructed Fixtures URL: $FIXTURES_URL"
-
-            # --- Set variables for the Python script ---
             echo "TEAM_NAME=${TEAM_SLUG}" >> $GITHUB_ENV
             echo "LEAGUE_URL=${LEAGUE_URL}" >> $GITHUB_ENV
             echo "FIXTURES_URL=${FIXTURES_URL}" >> $GITHUB_ENV
             echo "LEAGUE_ID_NAME=${LEAGUE_NAME}" >> $GITHUB_ENV
             echo "SEASON=${CURRENT_SEASON}" >> $GITHUB_ENV
           else
-            echo "❌ ERROR: config.env file not found. Please create it."
+            echo "❌ ERROR: config.env file not found."
             exit 1
           fi
 
       - name: Create Directories
-        run: mkdir -p data tmp public/cal assets/logos
+        run: mkdir -p data tmp public/cal
 
       - name: Run Python Scraper and Data Processor
         id: python_script
@@ -70,180 +60,104 @@ jobs:
           import json
           import requests
           from bs4 import BeautifulSoup
-          import re # Need for slugifying the name
 
-          # --- Configuration ---
-          TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ') # Convert slug to name for matching
+          TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
           LEAGUE_URL = os.environ.get('LEAGUE_URL')
           FIXTURES_URL = os.environ.get('FIXTURES_URL')
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
-          HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+          HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
-          def fetch_html(url, file_path_for_debug=None):
-              """Fetches HTML from a URL and optionally saves it."""
+          def fetch_html(url):
               if not url: return None
               try:
-                  print(f"Fetching {url}...")
                   response = requests.get(url, headers=HEADERS)
                   response.raise_for_status()
-                  if file_path_for_debug:
-                      with open(file_path_for_debug, 'w', encoding='utf-8') as f: f.write(response.text)
-                  print(f"✅ Successfully fetched {url}")
                   return response.text
-              except requests.exceptions.RequestException as e:
-                  print(f"❌ Error fetching {url}: {e}")
+              except:
                   return None
 
           def parse_standings(html_content):
-              """Parses the league standings table from BBC Sport HTML."""
               if not html_content: return []
-              
               soup = BeautifulSoup(html_content, 'html.parser')
-              
               table = soup.find('table', {'data-testid': 'football-table'})
-              
               if not table:
-                  print("❌ Could not find the standings table using 'data-testid: football-table'.")
+                  print("❌ Could not find standings table.")
                   return []
-
               standings_data = []
               tbody = table.find('tbody')
               if not tbody:
-                  print("❌ Found table but no tbody element.")
+                  print("❌ Found table but no tbody.")
                   return []
-
               for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
-                  
-                  if len(cells) < 10: 
-                      continue
-                      
+                  if len(cells) < 10: continue
                   try:
                       rank = int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True))
-
                       team_name_span = cells[0].find('span', class_='visually-hidden')
-                      team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown Team"
-                      
+                      team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
                       played = int(cells[1].get_text(strip=True))
                       won = int(cells[2].get_text(strip=True))
                       drawn = int(cells[3].get_text(strip=True))
                       lost = int(cells[4].get_text(strip=True))
-                      # --- ADDED THESE TWO LINES ---
                       goals_for = int(cells[5].get_text(strip=True))
                       goals_against = int(cells[6].get_text(strip=True))
-                      # ---------------------------
                       goal_diff = int(cells[7].get_text(strip=True))
                       points = int(cells[8].get_text(strip=True))
-
                       team_entry = {
-                          'rank': rank,
-                          'team': {'name': team_name},
-                          'points': points,
-                          'goalsDiff': goal_diff,
+                          'rank': rank, 'team': {'name': team_name}, 'points': points, 'goalsDiff': goal_diff,
                           'all': {
-                              'played': played,
-                              'win': won,
-                              'draw': drawn,
-                              'lose': lost,
-                              'goals': {
-                                  'for': goals_for,
-                                  'against': goals_against,
-                              }
+                              'played': played, 'win': won, 'draw': drawn, 'lose': lost,
+                              'goals': { 'for': goals_for, 'against': goals_against }
                           },
-                          'highlight': True if TEAM_NAME and TEAM_NAME.lower().replace('-', ' ') in team_name.lower() else False,
+                          'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False,
                           'nextUp': 'TBD'
                       }
                       standings_data.append(team_entry)
                   except Exception as e:
-                      print(f'⚠️ Skipping row due to parsing error: {e}.')
+                      print(f"⚠️ Skipping row due to parsing error: {e}")
                       continue
-                      
-              print(f"✅ Parsed {len(standings_data)} teams from the standings table.")
+              print(f"✅ Parsed {len(standings_data)} teams.")
               return standings_data
-              
+
           def parse_fixtures(html_content):
-              # ... (this function does not change)
               if not html_content: return {}
-              
-              with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f:
-                  f.write(html_content)
-              
+              with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f: f.write(html_content)
               soup = BeautifulSoup(html_content, 'html.parser')
               fixture_blocks = soup.find_all('div', class_='qa-match-block')
               next_up_map = {}
-              
               for block in fixture_blocks:
                   try:
-                      home_team_el = block.find('span', class_='sp-c-fixture__team-name--home')
-                      away_team_el = block.find('span', class_='sp-c-fixture__team-name--away')
-                      
-                      if not home_team_el or not away_team_el: continue
-                          
-                      home_team = home_team_el.find('abbr').get('title')
-                      away_team = away_team_el.find('abbr').get('title')
-                      
-                      if home_team and home_team not in next_up_map:
-                          next_up_map[home_team] = f"{away_team} (H)"
-                      if away_team and away_team not in next_up_map:
-                          next_up_map[away_team] = f"{home_team} (A)"
-                  except AttributeError:
-                      continue
-                          
+                      home_team = block.find('span', class_='sp-c-fixture__team-name--home').find('abbr').get('title')
+                      away_team = block.find('span', class_='sp-c-fixture__team-name--away').find('abbr').get('title')
+                      if home_team and home_team not in next_up_map: next_up_map[home_team] = f"{away_team} (H)"
+                      if away_team and away_team not in next_up_map: next_up_map[away_team] = f"{home_team} (A)"
+                  except AttributeError: continue
               print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries.")
               return next_up_map
 
           def main():
-              standings_html = fetch_html(LEAGUE_URL, 'tmp/bbc-standings.html')
-              fixtures_html = fetch_html(FIXTURES_URL)
-              
-              standings = parse_standings(standings_html)
-              fixtures_map = parse_fixtures(fixtures_html)
-              
+              standings = parse_standings(fetch_html(LEAGUE_URL))
+              fixtures_map = parse_fixtures(fetch_html(FIXTURES_URL))
               for team in standings:
-                  team_name = team['team']['name']
-                  if team_name in fixtures_map:
-                      team['nextUp'] = fixtures_map[team_name]
+                  if team['team']['name'] in fixtures_map: team['nextUp'] = fixtures_map[team['team']['name']]
+              final_json = {'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}
+              with open('data/standings.json', 'w', encoding='utf-8') as f: json.dump(final_json, f, indent=4)
+              print("🚀 Scrape complete.")
 
-              final_json = {
-                  'response': [{
-                      'league': {
-                          'name': LEAGUE_ID_NAME,
-                          'season': SEASON,
-                          'standings': [standings]
-                      }
-                  }]
-              }
+          if __name__ == "__main__": main()
 
-              with open('data/standings.json', 'w', encoding='utf-8') as f:
-                  json.dump(final_json, f, indent=4)
-                  
-              print("🚀 Successfully created final data/standings.json file.")
-
-          if __name__ == "__main__":
-              main()
-      
-      - name: Generate League Info File
-        run: |
-          echo "{\"league_id\": \"$LEAGUE_ID_NAME\", \"season\": \"$SEASON\"}" > data/league-info.json
-          echo "✅ Wrote league info to data/league-info.json"
-
-      - name: Commit and Push
+      - name: Commit and Push Standings
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Only add files if they exist
-          git add data/standings.json data/league-info.json
+          git add data/standings.json
           if [ -f "public/cal/fixtures.html" ]; then
             git add public/cal/fixtures.html
           fi
-
           if git diff --staged --quiet; then
-            echo "🟢 No changes detected in data files."
+            echo "🟢 No changes to standings."
           else
-            echo "💾 Committing updated data..."
-            git commit -m "📊 Automated data update from BBC Sport" -m "Date: $(date -u)"
+            git commit -m "📊 Automated standings update"
             git push
-            echo "✅ Push successful."
           fi
