@@ -295,8 +295,8 @@
       
       const logoImg = document.getElementById('popupLogo');
       logoImg.src = team.logo;
-      logoImg.style.display = 'block'; // Show it by default
-      logoImg.onerror = function() { this.style.display = 'none'; }; // Hide if logo not found
+      logoImg.style.display = 'block';
+      logoImg.onerror = function() { this.style.display = 'none'; };
       
       document.getElementById('popupBgLogo').src = team.logo;
 
@@ -312,14 +312,22 @@
         <td>${team.points}</td>
       `;
 
-      // Data for Form and Last Season is no longer available from our scrape
-      document.getElementById('popupForm').innerHTML = ``; // Clear form
-      document.getElementById('popupLastSeason').textContent = ``; // Clear last season
-      
+      // --- NEW: Re-add the form HTML generation ---
+      if (team.form && team.form.length > 0) {
+        const formHTML = [...team.form].map(result => {
+          const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
+          return `<span class="form-span ${cls}">${result}</span>`;
+        }).join('');
+        document.getElementById('popupForm').innerHTML = formHTML;
+      } else {
+        document.getElementById('popupForm').innerHTML = '';
+      }
+      // ------------------------------------------
+
+      document.getElementById('popupLastSeason').textContent = ``; // Last season data is not available
       document.getElementById('popupNextFixture').textContent = `Next Up: ${team.nextUp}`;
       document.getElementById('teamPopup').style.display = 'flex';
     }
-
     function closePopup() {
       document.getElementById('teamPopup').style.display = 'none';
     }
