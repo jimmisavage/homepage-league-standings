@@ -1,18 +1,19 @@
-name: Update Standings from BBC Sport
+name: Update Football Data from BBC Sport
 
 on:
   schedule:
-    # Runs every 5 minutes on match days (adjust hours/days as needed)
-    - cron: '*/5 12-23 * * SAT,SUN'
+    # Runs every 5 minutes on match days
+    - cron: '*/5 12-23 * * *'
     # Also runs once late at night to catch up
     - cron: '0 2 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual running
 
 permissions:
   contents: write
+  actions: read 
 
 jobs:
-  scrape-standings:
+  scrape-and-process:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -68,13 +69,18 @@ jobs:
           SEASON = os.environ.get('SEASON')
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
-          def fetch_html(url):
+          def fetch_html(url, file_path_for_debug=None):
               if not url: return None
               try:
+                  print(f"Fetching {url}...")
                   response = requests.get(url, headers=HEADERS)
                   response.raise_for_status()
+                  if file_path_for_debug:
+                      with open(file_path_for_debug, 'w', encoding='utf-8') as f: f.write(response.text)
+                  print(f"✅ Successfully fetched {url}")
                   return response.text
               except:
+                  print(f"❌ Error fetching {url}")
                   return None
 
           def parse_standings(html_content):
@@ -91,16 +97,13 @@ jobs:
                   return []
               for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
-                  # --- THE FIX IS HERE: Change 11 back to 10 ---
                   if len(cells) < 10: continue
-                  # ---------------------------------------------
                   try:
                       rank = int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True))
                       team_name_span = cells[0].find('span', class_='visually-hidden')
                       team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
                       logo_img = cells[0].find('img', class_=lambda c: c and 'BadgeImage' in c)
                       logo_url = logo_img['src'] if logo_img else ''
-                      
                       played = int(cells[1].get_text(strip=True))
                       won = int(cells[2].get_text(strip=True))
                       drawn = int(cells[3].get_text(strip=True))
@@ -109,22 +112,17 @@ jobs:
                       goals_against = int(cells[6].get_text(strip=True))
                       goal_diff = int(cells[7].get_text(strip=True))
                       points = int(cells[8].get_text(strip=True))
-
-                      # Extract the form string from the 10th cell (index 9)
                       form_cell = cells[9]
                       form_letters = [div.get_text(strip=True) for div in form_cell.find_all('div', {'data-testid': 'letter-content'})]
                       form_string = "".join(form_letters)
-                      
                       team_entry = {
-                          'rank': rank,
-                          'team': {'name': team_name, 'logo': logo_url},
-                          'points': points, 'goalsDiff': goal_diff, 'form': form_string,
+                          'rank': rank, 'team': {'name': team_name, 'logo': logo_url}, 'points': points,
+                          'goalsDiff': goal_diff, 'form': form_string,
                           'all': {
                               'played': played, 'win': won, 'draw': drawn, 'lose': lost,
                               'goals': { 'for': goals_for, 'against': goals_against }
                           },
-                          'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False,
-                          'nextUp': 'TBD'
+                          'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False, 'nextUp': 'TBD'
                       }
                       standings_data.append(team_entry)
                   except Exception as e:
@@ -135,38 +133,54 @@ jobs:
 
           def parse_fixtures(html_content):
               if not html_content: return {}
-              
-              # Save the raw HTML for debugging or other uses
-              with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f:
-                  f.write(html_content)
-              
               soup = BeautifulSoup(html_content, 'html.parser')
               next_up_map = {}
-              
-              # --- NEW SELECTOR: Find all list items that represent a fixture ---
               fixture_list_items = soup.find_all('li', class_=lambda c: c and 'gs-o-list-ui__item--flush' in c)
-
               for item in fixture_list_items:
                   try:
-                      # The full team names are in visually-hidden spans
                       home_team_span = item.find('span', {'data-testid': 'home-team-name'})
                       away_team_span = item.find('span', {'data-testid': 'away-team-name'})
-
                       if home_team_span and away_team_span:
                           home_team = home_team_span.get_text(strip=True)
                           away_team = away_team_span.get_text(strip=True)
-                          
-                          # Add to map if not already present (we only want the *next* match)
                           if home_team and home_team not in next_up_map:
                               next_up_map[home_team] = f"{away_team} (H)"
                           if away_team and away_team not in next_up_map:
                               next_up_map[away_team] = f"{home_team} (A)"
                   except AttributeError:
-                      # This will skip any list items that are not match fixtures (e.g., headers)
                       continue
-                          
               print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries.")
               return next_up_map
+
+          def main():
+              standings_html = fetch_html(LEAGUE_URL, 'tmp/bbc-standings.html')
+              fixtures_html = fetch_html(FIXTURES_URL, 'tmp/bbc-fixtures.html')
+              standings = parse_standings(standings_html)
+              fixtures_map = parse_fixtures(fixtures_html)
+              for team in standings:
+                  if team['team']['name'] in fixtures_map:
+                      team['nextUp'] = fixtures_map[team['team']['name']]
+              final_json = {'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}
+              with open('data/standings.json', 'w', encoding='utf-8') as f:
+                  json.dump(final_json, f, indent=4)
+              print("🚀 Scrape complete.")
+
+          if __name__ == "__main__":
+              main()
+
+      - name: 💾 Upload Table Debug Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bbc-table-html-output
+          path: tmp/bbc-standings.html
+
+      - name: 💾 Upload Fixtures Debug Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bbc-fixtures-html-output
+          path: tmp/bbc-fixtures.html
 
       - name: Commit and Push Standings
         run: |
