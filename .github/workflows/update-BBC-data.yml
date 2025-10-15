@@ -91,17 +91,15 @@ jobs:
                   return []
               for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
-                  if len(cells) < 10: continue
+                  # Now we expect 11 columns, including form
+                  if len(cells) < 11: continue
                   try:
                       rank = int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True))
                       team_name_span = cells[0].find('span', class_='visually-hidden')
                       team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
-                      
-                      # --- NEW: Extract the logo URL ---
                       logo_img = cells[0].find('img', class_=lambda c: c and 'BadgeImage' in c)
                       logo_url = logo_img['src'] if logo_img else ''
-                      # --------------------------------
-
+                      
                       played = int(cells[1].get_text(strip=True))
                       won = int(cells[2].get_text(strip=True))
                       drawn = int(cells[3].get_text(strip=True))
@@ -110,12 +108,17 @@ jobs:
                       goals_against = int(cells[6].get_text(strip=True))
                       goal_diff = int(cells[7].get_text(strip=True))
                       points = int(cells[8].get_text(strip=True))
+
+                      # --- NEW: Extract the form string ---
+                      form_cell = cells[9]
+                      form_letters = [div.get_text(strip=True) for div in form_cell.find_all('div', {'data-testid': 'letter-content'})]
+                      form_string = "".join(form_letters)
+                      # ------------------------------------
                       
                       team_entry = {
                           'rank': rank,
-                          # --- ADD 'logo' to the team object ---
                           'team': {'name': team_name, 'logo': logo_url},
-                          'points': points, 'goalsDiff': goal_diff,
+                          'points': points, 'goalsDiff': goal_diff, 'form': form_string,
                           'all': {
                               'played': played, 'win': won, 'draw': drawn, 'lose': lost,
                               'goals': { 'for': goals_for, 'against': goals_against }
