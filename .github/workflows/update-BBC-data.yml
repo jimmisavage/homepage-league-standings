@@ -91,8 +91,9 @@ jobs:
                   return []
               for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
-                  # Now we expect 11 columns, including form
-                  if len(cells) < 11: continue
+                  # --- THE FIX IS HERE: Change 11 back to 10 ---
+                  if len(cells) < 10: continue
+                  # ---------------------------------------------
                   try:
                       rank = int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True))
                       team_name_span = cells[0].find('span', class_='visually-hidden')
@@ -109,11 +110,10 @@ jobs:
                       goal_diff = int(cells[7].get_text(strip=True))
                       points = int(cells[8].get_text(strip=True))
 
-                      # --- NEW: Extract the form string ---
+                      # Extract the form string from the 10th cell (index 9)
                       form_cell = cells[9]
                       form_letters = [div.get_text(strip=True) for div in form_cell.find_all('div', {'data-testid': 'letter-content'})]
                       form_string = "".join(form_letters)
-                      # ------------------------------------
                       
                       team_entry = {
                           'rank': rank,
