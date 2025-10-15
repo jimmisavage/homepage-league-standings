@@ -135,30 +135,38 @@ jobs:
 
           def parse_fixtures(html_content):
               if not html_content: return {}
-              with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f: f.write(html_content)
+              
+              # Save the raw HTML for debugging or other uses
+              with open('public/cal/fixtures.html', 'w', encoding='utf-8') as f:
+                  f.write(html_content)
+              
               soup = BeautifulSoup(html_content, 'html.parser')
-              fixture_blocks = soup.find_all('div', class_='qa-match-block')
               next_up_map = {}
-              for block in fixture_blocks:
+              
+              # --- NEW SELECTOR: Find all list items that represent a fixture ---
+              fixture_list_items = soup.find_all('li', class_=lambda c: c and 'gs-o-list-ui__item--flush' in c)
+
+              for item in fixture_list_items:
                   try:
-                      home_team = block.find('span', class_='sp-c-fixture__team-name--home').find('abbr').get('title')
-                      away_team = block.find('span', class_='sp-c-fixture__team-name--away').find('abbr').get('title')
-                      if home_team and home_team not in next_up_map: next_up_map[home_team] = f"{away_team} (H)"
-                      if away_team and away_team not in next_up_map: next_up_map[away_team] = f"{home_team} (A)"
-                  except AttributeError: continue
+                      # The full team names are in visually-hidden spans
+                      home_team_span = item.find('span', {'data-testid': 'home-team-name'})
+                      away_team_span = item.find('span', {'data-testid': 'away-team-name'})
+
+                      if home_team_span and away_team_span:
+                          home_team = home_team_span.get_text(strip=True)
+                          away_team = away_team_span.get_text(strip=True)
+                          
+                          # Add to map if not already present (we only want the *next* match)
+                          if home_team and home_team not in next_up_map:
+                              next_up_map[home_team] = f"{away_team} (H)"
+                          if away_team and away_team not in next_up_map:
+                              next_up_map[away_team] = f"{home_team} (A)"
+                  except AttributeError:
+                      # This will skip any list items that are not match fixtures (e.g., headers)
+                      continue
+                          
               print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries.")
               return next_up_map
-
-          def main():
-              standings = parse_standings(fetch_html(LEAGUE_URL))
-              fixtures_map = parse_fixtures(fetch_html(FIXTURES_URL))
-              for team in standings:
-                  if team['team']['name'] in fixtures_map: team['nextUp'] = fixtures_map[team['team']['name']]
-              final_json = {'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}
-              with open('data/standings.json', 'w', encoding='utf-8') as f: json.dump(final_json, f, indent=4)
-              print("🚀 Scrape complete.")
-
-          if __name__ == "__main__": main()
 
       - name: Commit and Push Standings
         run: |
