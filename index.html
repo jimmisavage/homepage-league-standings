@@ -314,22 +314,25 @@
         <td>${team.points}</td>
       `;
 
-      // --- NEW: Re-add the form HTML generation ---
+      // --- THE CHANGE IS HERE ---
       if (team.form && team.form.length > 0) {
         const formHTML = [...team.form].map(result => {
           const cls = result === 'W' ? 'form-w' : result === 'D' ? 'form-d' : 'form-l';
           return `<span class="form-span ${cls}">${result}</span>`;
         }).join('');
-        document.getElementById('popupForm').innerHTML = formHTML;
+        // Clear the old location and populate the new one
+        document.getElementById('popupForm').innerHTML = '';
+        document.getElementById('popupLastSeason').innerHTML = formHTML;
       } else {
         document.getElementById('popupForm').innerHTML = '';
+        document.getElementById('popupLastSeason').innerHTML = '';
       }
-      // ------------------------------------------
+      // --------------------------
 
-      document.getElementById('popupLastSeason').textContent = ``; // Last season data is not available
       document.getElementById('popupNextFixture').textContent = `Next Up: ${team.nextUp}`;
       document.getElementById('teamPopup').style.display = 'flex';
     }
+    
     function closePopup() {
       document.getElementById('teamPopup').style.display = 'none';
     }
