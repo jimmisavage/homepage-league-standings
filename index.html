@@ -256,6 +256,7 @@
           const played = team.all.played ?? '-';
           const points = team.points ?? '-';
           const highlight = team.highlight ?? false;
+          const form = team.form ?? ''; // <-- Add this line to get the form data
 
           const row = document.createElement('tr');
           if (highlight) row.classList.add('cardiff-highlight');
@@ -280,6 +281,7 @@
               goalDiff: team.goalsDiff ?? '-',
               points: points,
               nextUp: team.nextUp ?? 'TBD',
+              form: form, // <-- Add this line to pass the form data to the popup
             });
           });
           tbody.appendChild(row);
