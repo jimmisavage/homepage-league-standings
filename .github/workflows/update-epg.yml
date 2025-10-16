@@ -27,6 +27,7 @@ jobs:
           from bs4 import BeautifulSoup
           from datetime import datetime, timedelta, timezone
           from dateutil.relativedelta import relativedelta
+          from zoneinfo import ZoneInfo # <-- Add this line
 
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
           LEAGUE_SLUGS = [
