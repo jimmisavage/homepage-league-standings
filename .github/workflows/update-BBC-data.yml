@@ -2,16 +2,14 @@ name: Update Standings from BBC Sport
 
 on:
   schedule:
-    # Runs every 5 minutes on weekend match days (12:00-23:00)
     - cron: '*/5 12-23 * * SAT,SUN'
-    # Runs every 5 minutes on weeknight match days (19:00-23:00)
     - cron: '*/5 19-23 * * MON-FRI'
-    # Also runs once late at night to catch up
     - cron: '0 2 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   scrape-standings:
@@ -33,13 +31,10 @@ jobs:
         run: |
           if [[ -f "./config.env" ]]; then
             source ./config.env
-            # Build BBC Table URL
             LEAGUE_URL="https://www.bbc.co.uk/sport/football/${LEAGUE_SLUG}/table"
-            
-            # Pass all variables to the environment
             echo "TEAM_NAME=${TEAM_SLUG}" >> $GITHUB_ENV
             echo "LEAGUE_URL=${LEAGUE_URL}" >> $GITHUB_ENV
-            echo "EFL_FIXTURES_URL=${EFL_FIXTURES_URL}" >> $GITHUB_ENV # Read new EFL URL
+            echo "EFL_FIXTURES_URL=${EFL_FIXTURES_URL}" >> $GITHUB_ENV
             echo "LEAGUE_ID_NAME=${LEAGUE_NAME}" >> $GITHUB_ENV
             echo "SEASON=${CURRENT_SEASON}" >> $GITHUB_ENV
           else
@@ -48,7 +43,7 @@ jobs:
           fi
 
       - name: Create Directories
-        run: mkdir -p data
+        run: mkdir -p data tmp
 
       - name: Run Python Scraper and Data Processor
         id: python_script
@@ -67,35 +62,32 @@ jobs:
 
           TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
           LEAGUE_URL = os.environ.get('LEAGUE_URL')
-          FIXTURES_URL = os.environ.get('EFL_FIXTURES_URL') # Use the new EFL URL
+          FIXTURES_URL = os.environ.get('EFL_FIXTURES_URL')
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
-          def fetch_html(url):
+          def fetch_html(url, file_path_for_debug=None):
               if not url: return None
               try:
                   print(f"Fetching {url}...")
                   response = requests.get(url, headers=HEADERS)
                   response.raise_for_status()
+                  if file_path_for_debug:
+                      with open(file_path_for_debug, 'w', encoding='utf-8') as f: f.write(response.text)
                   return response.text
               except Exception as e:
                   print(f"❌ Error fetching {url}: {e}")
                   return None
 
           def parse_standings(html_content):
-              # This function remains the same as it correctly parses the BBC table
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
               table = soup.find('table', {'data-testid': 'football-table'})
-              if not table:
-                  print("❌ Could not find standings table.")
-                  return []
+              if not table: return []
               standings_data = []
               tbody = table.find('tbody')
-              if not tbody:
-                  print("❌ Found table but no tbody.")
-                  return []
+              if not tbody: return []
               for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
                   if len(cells) < 10: continue
@@ -120,56 +112,49 @@ jobs:
                           'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False, 'nextUp': 'TBD'
                       }
                       standings_data.append(team_entry)
-                  except Exception as e:
-                      print(f"⚠️ Skipping row due to parsing error: {e}")
-                      continue
+                  except: continue
               print(f"✅ Parsed {len(standings_data)} teams from BBC table.")
               return standings_data
 
           def parse_fixtures(html_content):
-              # --- THIS FUNCTION IS COMPLETELY REWRITTEN FOR EFL.COM ---
               if not html_content: return {}
               soup = BeautifulSoup(html_content, 'html.parser')
               next_up_map = {}
-              
-              # Find all fixture blocks using their specific class
               all_fixtures = soup.find_all('div', class_='match-item')
-
               for fixture in all_fixtures:
                   try:
-                      # Fixtures that are already played have a score, future ones don't
                       score = fixture.find('div', class_='match-item__score')
-                      if score:
-                          continue # Skip this match, it's already happened
-
+                      if score: continue
                       home_team_name = fixture.find('div', class_='match-item__team--home').find('p').get_text(strip=True)
                       away_team_name = fixture.find('div', class_='match-item__team--away').find('p').get_text(strip=True)
-
                       if home_team_name and home_team_name not in next_up_map:
                           next_up_map[home_team_name] = f"{away_team_name} (H)"
                       if away_team_name and away_team_name not in next_up_map:
                           next_up_map[away_team_name] = f"{away_team_name} (A)"
-                  except AttributeError:
-                      continue
-                          
+                  except: continue
               print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries from EFL.com.")
               return next_up_map
 
           def main():
-              standings = parse_standings(fetch_html(LEAGUE_URL))
-              fixtures_map = parse_fixtures(fetch_html(FIXTURES_URL)) # Now fetches from EFL.com
-              
+              standings_html = fetch_html(LEAGUE_URL)
+              fixtures_html = fetch_html(FIXTURES_URL, 'tmp/efl-fixtures.html') # Save EFL html for debugging
+              standings = parse_standings(standings_html)
+              fixtures_map = parse_fixtures(fixtures_html)
               for team in standings:
-                  # Team names from BBC (e.g. "Huddersfield Town") must match EFL.com names
                   if team['team']['name'] in fixtures_map:
                       team['nextUp'] = fixtures_map[team['team']['name']]
-              
               final_json = {'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}
-              with open('data/standings.json', 'w', encoding='utf-8') as f:
-                  json.dump(final_json, f, indent=4)
+              with open('data/standings.json', 'w', encoding='utf-8') as f: json.dump(final_json, f, indent=4)
               print("🚀 Scrape complete.")
 
           if __name__ == "__main__": main()
+
+      - name: 💾 Upload EFL Debug Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: efl-fixtures-html-output
+          path: tmp/efl-fixtures.html
 
       - name: Commit and Push Standings
         run: |
