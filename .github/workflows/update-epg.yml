@@ -2,7 +2,7 @@ name: Update EPG
 
 on:
   schedule:
-    - cron: '0 3 * * *' # Runs once a day at 3 AM
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -48,14 +48,21 @@ jobs:
               fixtures = []
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
+                  if not script_tag:
+                      print("DEBUG: Script tag not found.")
+                      return []
+                  
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
                   
-                  # --- ROBUST PARSING LOGIC ---
+                  # --- FINAL DEBUGGING ---
+                  print("DEBUG: Raw extracted text snippet:")
+                  print(json_text[:500])
+                  # -----------------------
+
                   data = json.loads(json_text)
                   if isinstance(data, str):
                       data = json.loads(data)
-                  # ----------------------------
-
+                  
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
                   if fixtures_key:
                       event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
@@ -70,7 +77,7 @@ jobs:
                                           'competition': event.get('tournament', {}).get('name', {}).get('full', '')
                                       })
               except Exception as e:
-                  print(f"⚠️ Could not parse fixtures from a page: {e}")
+                  print(f"⚠️ Error during fixture parsing: {e}")
               return fixtures
 
           def main():
@@ -81,7 +88,6 @@ jobs:
               for slug in LEAGUE_SLUGS:
                   print(f"\n--- Processing Fixtures for {slug} ---")
                   base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
-                  
                   url1 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}"
                   url2 = f"{url1}?filter=fixtures"
                   url3 = f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
@@ -97,6 +103,7 @@ jobs:
               
               print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures across all competitions.")
 
+              # --- EPG Generation Logic ---
               now_utc = datetime.now(timezone.utc)
               future_limit = now_utc + timedelta(days=60)
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
