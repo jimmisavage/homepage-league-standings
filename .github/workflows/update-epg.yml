@@ -23,35 +23,85 @@ jobs:
       - name: Generate EPG File
         shell: python
         run: |
-          import json
-          import os
+          import os, json, requests
+          from bs4 import BeautifulSoup
           from datetime import datetime, timedelta, timezone
-          from zoneinfo import ZoneInfo # <-- Import the timezone library
+          from dateutil.relativedelta import relativedelta
 
-          LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
+          HEADERS = {'User-Agent': 'Mozilla/5.0'}
+          LEAGUE_SLUGS = [
+              "premier-league", "championship", "league-one",
+              "league-two", "fa-cup", "league-cup"
+          ]
 
-          def create_epg():
+          def fetch_html(url):
               try:
-                  with open('data/fixtures.json', 'r') as f:
-                      fixtures_data = json.load(f)
-              except (IOError, KeyError, IndexError):
-                  print("❌ Fixtures data not found. Cannot generate EPG.")
-                  return
+                  print(f"Fetching HTML: {url}")
+                  r = requests.get(url, headers=HEADERS)
+                  r.raise_for_status()
+                  return r.text
+              except: return None
+
+          def parse_fixtures(html_content, competition_name):
+              if not html_content: return []
+              soup = BeautifulSoup(html_content, 'html.parser')
+              fixtures = []
+              try:
+                  script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
+                  json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
+                  data = json.loads(json.loads(json_text))
+                  fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
+                  if fixtures_key:
+                      event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
+                      for group in event_groups:
+                          for s_group in group.get('secondaryGroups', []):
+                              for event in s_group.get('events', []):
+                                  if event.get('status') == 'PreEvent':
+                                      fixtures.append({
+                                          'home_team': event['home']['fullName'],
+                                          'away_team': event['away']['fullName'],
+                                          'datetime_utc': event['startDateTime'],
+                                          'competition': competition_name
+                                      })
+              except Exception as e:
+                  print(f"⚠️ Could not parse fixtures from a page: {e}")
+              return fixtures
+
+          def main():
+              all_fixtures, all_teams = [], set()
+              today = datetime.now()
+              next_month_date = today + relativedelta(months=1)
+
+              for slug in LEAGUE_SLUGS:
+                  competition_name = slug.replace('-', ' ').title()
+                  if competition_name == "Fa Cup": competition_name = "FA Cup"
+                  if competition_name == "League Cup": competition_name = "EFL Cup"
+                  
+                  print(f"\n--- Processing Fixtures for {slug} ---")
+                  base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
+                  url1 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}"
+                  url2 = f"{url1}?filter=fixtures"
+                  url3 = f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
+                  
+                  for url in [url1, url2, url3]:
+                      fixtures_html = fetch_html(url)
+                      all_fixtures.extend(parse_fixtures(fixtures_html, competition_name))
               
-              # --- Get a set of all teams from the fixtures ---
-              all_teams = set()
-              for fix in fixtures_data:
+              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
+              for fix in unique_fixtures:
                   all_teams.add(fix['home_team'])
                   all_teams.add(fix['away_team'])
-
-              # --- Define the correct UK timezone ---
-              uk_tz = ZoneInfo("Europe/London")
-              now_local = datetime.now(timezone.utc).astimezone(uk_tz)
-              future_limit = now_local + timedelta(days=60)
               
+              print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures across all competitions.")
+
+              # --- EPG Generation Logic ---
+              now_utc = datetime.now(timezone.utc)
+              uk_tz = ZoneInfo("Europe/London")
+              now_local = now_utc.astimezone(uk_tz)
+              future_limit = now_local + timedelta(days=60)
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
               team_fixtures = {team: [] for team in all_teams}
-              for fix in fixtures_data:
+              for fix in unique_fixtures:
                   team_fixtures.setdefault(fix['home_team'], []).append(fix)
                   team_fixtures.setdefault(fix['away_team'], []).append(fix)
 
@@ -60,10 +110,9 @@ jobs:
                   xml += f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name></channel>'
                   
                   sorted_fixtures = sorted(team_fixtures.get(team_name, []), key=lambda x: x['datetime_utc'])
+                  next_game_start = datetime.fromisoformat(sorted_fixtures[0]['datetime_utc'].replace('Z', '+00:00')) if sorted_fixtures else None
+                  next_game_start_local = next_game_start.astimezone(uk_tz) if next_game_start else None
                   
-                  next_game_start_utc = datetime.fromisoformat(sorted_fixtures[0]['datetime_utc'].replace('Z', '+00:00')) if sorted_fixtures else None
-                  next_game_start_local = next_game_start_utc.astimezone(uk_tz) if next_game_start_utc else None
-
                   stop_time = next_game_start_local if next_game_start_local else future_limit
                   if stop_time > now_local:
                       start_str = now_local.strftime('%Y%m%d%H%M%S %z')
@@ -74,22 +123,18 @@ jobs:
                       home_team, away_team = fixture['home_team'], fixture['away_team']
                       is_home_game = team_name == home_team
                       opponent, venue = (away_team, "(H)") if is_home_game else (home_team, "(A)")
-                      
-                      # --- Convert each game's time to the UK timezone ---
                       dt_start_utc = datetime.fromisoformat(fixture['datetime_utc'].replace('Z', '+00:00'))
                       dt_start_local = dt_start_utc.astimezone(uk_tz)
                       dt_stop_local = dt_start_local + timedelta(hours=2)
-                      start_str = dt_start_local.strftime('%Y%m%d%H%M%S %z')
-                      stop_str = dt_stop_local.strftime('%Y%m%d%H%M%S %z')
-                      
+                      start_str, stop_str = dt_start_local.strftime('%Y%m%d%H%M%S %z'), dt_stop_local.strftime('%Y%m%d%H%M%S %z')
                       xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">vs. {opponent} {venue}</title><desc lang="en">{fixture.get("competition", "")}</desc><category lang="en">Sports</category></programme>'
               
               xml += '\n</tv>'
               with open('epg.xml', 'w', encoding='utf-8') as f: f.write(xml)
               print("✅ EPG file generated successfully.")
 
-          create_epg()
-          
+          if __name__ == "__main__":
+              main()
       - name: Commit and Push EPG
         run: |
           git config user.name "github-actions[bot]"
