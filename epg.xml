@@ -24,4 +24,6 @@
   <channel id="rotherham-united.uk"><display-name lang="en">Rotherham United</display-name></channel>
   <channel id="blackpool.uk"><display-name lang="en">Blackpool</display-name></channel>
   <channel id="peterborough-united.uk"><display-name lang="en">Peterborough United</display-name></channel>
+  <programme start="20251016190000 +0000" stop="20251016210000 +0000" channel="huddersfield-town.uk"><title lang="en">vs. Bolton Wanderers (H)</title><desc lang="en">League One</desc><category lang="en">Sports</category></programme>
+  <programme start="20251016190000 +0000" stop="20251016210000 +0000" channel="bolton-wanderers.uk"><title lang="en">vs. Huddersfield Town (A)</title><desc lang="en">League One</desc><category lang="en">Sports</category></programme>
 </tv>
