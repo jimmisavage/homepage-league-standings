@@ -2,10 +2,8 @@ name: Update data
 
 on:
   schedule:
-    # Runs every 5 minutes on match days
     - cron: '*/5 12-23 * * SAT,SUN'
     - cron: '*/5 19-23 * * MON-FRI'
-    # Also runs once late at night to catch up
     - cron: '0 2 * * *'
   workflow_dispatch:
 
@@ -109,37 +107,59 @@ jobs:
               soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
               try:
-                  # Find the script tag containing all the page data
+                  print("--- Fixture Debug Start ---")
+                  print("1. Searching for INITIAL_DATA script tag...")
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
-                  # Extract the JSON part of the script
+                  if not script_tag:
+                      print("❌ Step 1 FAILED: Script tag not found.")
+                      return []
+                  print("✅ Step 1 SUCCESS: Found script tag.")
+
+                  print("2. Extracting JSON text...")
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
+                  if not json_text:
+                      print("❌ Step 2 FAILED: Could not extract JSON text.")
+                      return []
+                  print("✅ Step 2 SUCCESS: Extracted JSON text.")
+
+                  print("3. Parsing JSON data...")
                   data = json.loads(json_text)
-                  
-                  # Navigate the complex JSON structure to find the fixtures
-                  # The key varies, so we search for the one that contains the relevant data
+                  print("✅ Step 3 SUCCESS: Parsed JSON.")
+
+                  print("4. Searching for 'sport-data-scores-fixtures' key in data...")
+                  found_fixtures_key = False
                   for key, value in data.get('data', {}).items():
                       if 'sport-data-scores-fixtures' in key:
+                          found_fixtures_key = True
+                          print(f"✅ Step 4 SUCCESS: Found key '{key}'.")
+                          print("5. Navigating eventGroups...")
                           event_groups = value.get('data', {}).get('eventGroups', [])
+                          if not event_groups:
+                              print("⚠️ Step 5 WARNING: 'eventGroups' list is empty.")
+                          
                           for group in event_groups:
                               for secondary_group in group.get('secondaryGroups', []):
                                   for event in secondary_group.get('events', []):
-                                      if event.get('status') == 'PreEvent': # Only get future games
+                                      if event.get('status') == 'PreEvent':
                                           fixtures.append({
                                               'home_team': event['home']['fullName'],
                                               'away_team': event['away']['fullName'],
                                               'datetime_utc': event['startDateTime']
                                           })
-                          break # Stop after finding the first valid fixture block
-              except (json.JSONDecodeError, AttributeError, KeyError, IndexError) as e:
-                  print(f"❌ Error parsing fixtures JSON: {e}")
+                          break
+                  if not found_fixtures_key:
+                      print("❌ Step 4 FAILED: Could not find 'sport-data-scores-fixtures' key.")
+              except Exception as e:
+                  print(f"❌ An unexpected error occurred: {e}")
 
+              print(f"--- Fixture Debug End ---")
               print(f"✅ Parsed {len(fixtures)} fixture details from embedded JSON.")
               return fixtures
 
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
               standings_url = f"{base_bbc_url}/table"
-              fixtures_url = f"{base_bbc_url}/scores-fixtures" # Only need one URL now
+              fixtures_url = f"{base_bbc_url}/scores-fixtures"
               
               standings_html = fetch_html(standings_url)
               fixtures_html = fetch_html(fixtures_url)
@@ -147,7 +167,6 @@ jobs:
               standings = parse_standings(standings_html)
               all_fixtures = parse_fixtures(fixtures_html)
 
-              # Create a simple map for 'Next Up'
               next_up_map = {}
               for fix in sorted(all_fixtures, key=lambda x: x['datetime_utc']):
                   if fix['home_team'] not in next_up_map:
@@ -164,7 +183,6 @@ jobs:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
               with open('data/fixtures.json', 'w') as f:
                   json.dump(all_fixtures, f, indent=4)
-
               print("🚀 Scrape complete.")
 
           if __name__ == "__main__": main()
@@ -204,7 +222,6 @@ jobs:
                   home_slug = ''.join(c for c in home_team.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
                   away_slug = ''.join(c for c in away_team.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
                   
-                  # The datetime is now in ISO format with a 'Z' for UTC
                   dt_start = datetime.fromisoformat(fixture['datetime_utc'].replace('Z', '+00:00'))
                   dt_stop = dt_start + timedelta(hours=2)
                   start_str = dt_start.strftime('%Y%m%d%H%M%S %z')
