@@ -1,0 +1,112 @@
+name: Update EPG
+
+on:
+  schedule:
+    # Runs once a day at 3 AM
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-epg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install Python Dependencies
+        run: pip install requests
+      - name: Generate EPG File
+        shell: python
+        run: |
+          import os, json, requests
+          from datetime import datetime, timedelta, timezone
+
+          HEADERS = {'User-Agent': 'Mozilla/5.0'}
+          COMPETITIONS = {
+              "Premier League": "urn:bbc:sportsdata:football:tournament:premier-league",
+              "Championship": "urn:bbc:sportsdata:football:tournament:championship",
+              "League One": "urn:bbc:sportsdata:football:tournament:league-one",
+              "League Two": "urn:bbc:sportsdata:football:tournament:league-two",
+              "FA Cup": "urn:bbc:sportsdata:football:tournament:fa-cup",
+              "EFL Cup": "urn:bbc:sportsdata:football:tournament:league-cup"
+          }
+
+          def fetch_json(url):
+              try:
+                  print(f"Fetching JSON: {url}")
+                  r = requests.get(url, headers=HEADERS)
+                  r.raise_for_status()
+                  return r.json()
+              except: return None
+
+          def main():
+              all_fixtures, all_teams = [], set()
+              today = datetime.now()
+              end_date = today + timedelta(days=60)
+
+              for comp_name, comp_urn in COMPETITIONS.items():
+                  fixtures_api_url = f"https://www.bbc.co.uk/sport/football/--schedules/public/v1/programmes?start={today.strftime('%Y-%m-%d')}&end={end_date.strftime('%Y-%m-%d')}&urn={comp_urn}"
+                  fixtures_json = fetch_json(fixtures_api_url)
+                  if fixtures_json:
+                      for programme in fixtures_json.get('programmes', []):
+                          if programme.get('state') == 'pre':
+                              home_team = programme['homeTeam']['name']['full']
+                              away_team = programme['awayTeam']['name']['full']
+                              all_fixtures.append({'home_team': home_team, 'away_team': away_team, 'datetime_utc': programme['startTime'], 'competition': comp_name})
+                              all_teams.add(home_team)
+                              all_teams.add(away_team)
+              
+              print(f"✅ Found {len(all_fixtures)} total fixtures across {len(COMPETITIONS)} competitions.")
+
+              now_utc = datetime.now(timezone.utc)
+              future_limit = now_utc + timedelta(days=60)
+              xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
+              team_fixtures = {team: [] for team in all_teams}
+              for fix in all_fixtures:
+                  team_fixtures.setdefault(fix['home_team'], []).append(fix)
+                  team_fixtures.setdefault(fix['away_team'], []).append(fix)
+
+              for team_name in sorted(all_teams):
+                  team_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
+                  xml += f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name></channel>'
+                  
+                  sorted_fixtures = sorted(team_fixtures.get(team_name, []), key=lambda x: x['datetime_utc'])
+                  next_game_start = datetime.fromisoformat(sorted_fixtures[0]['datetime_utc'].replace('Z', '+00:00')) if sorted_fixtures else None
+                  
+                  stop_time = next_game_start if next_game_start else future_limit
+                  if stop_time > now_utc:
+                      start_str, stop_str = now_utc.strftime('%Y%m%d%H%M%S %z'), stop_time.strftime('%Y%m%d%H%M%S %z')
+                      xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">No Game Scheduled</title></programme>'
+                  
+                  for fixture in sorted_fixtures:
+                      home_team, away_team = fixture['home_team'], fixture['away_team']
+                      is_home_game = team_name == home_team
+                      opponent, venue = (away_team, "(H)") if is_home_game else (home_team, "(A)")
+                      dt_start = datetime.fromisoformat(fixture['datetime_utc'].replace('Z', '+00:00'))
+                      dt_stop = dt_start + timedelta(hours=2)
+                      start_str, stop_str = dt_start.strftime('%Y%m%d%H%M%S %z'), dt_stop.strftime('%Y%m%d%H%M%S %z')
+                      xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">vs. {opponent} {venue}</title><desc lang="en">{fixture.get("competition", "")}</desc><category lang="en">Sports</category></programme>'
+              
+              xml += '\n</tv>'
+              with open('epg.xml', 'w', encoding='utf-8') as f: f.write(xml)
+              print("✅ EPG file generated successfully.")
+
+          if __name__ == "__main__":
+              main()
+      - name: Commit and Push EPG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add epg.xml
+          if git diff --staged --quiet; then
+            echo "🟢 No changes to EPG."
+          else
+            git commit -m "🗓️ Automated EPG update"
+            git push
+          fi
