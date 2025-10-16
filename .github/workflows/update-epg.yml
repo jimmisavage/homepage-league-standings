@@ -48,13 +48,16 @@ jobs:
               fixtures = []
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
-                  if not script_tag: return []
+                  if not script_tag:
+                      return [] # Return early if no script tag
                   
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
                   
-                  data = json.loads(json_text)
-                  if isinstance(data, str):
-                      data = json.loads(data)
+                  # --- THIS IS THE CORRECTED LOGIC ---
+                  # The data is a JSON string literal (a string inside a string), 
+                  # so we must parse it twice to get the final dictionary.
+                  data = json.loads(json.loads(json_text))
+                  # ------------------------------------
                   
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
                   if fixtures_key:
