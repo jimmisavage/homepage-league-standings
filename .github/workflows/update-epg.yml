@@ -2,7 +2,7 @@ name: Update EPG
 
 on:
   schedule:
-    - cron: '0 3 * * *' # Runs once a day at 3 AM
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -42,22 +42,17 @@ jobs:
                   return r.text
               except: return None
 
-          def parse_fixtures(html_content):
+          def parse_fixtures(html_content, competition_name):
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
-                  if not script_tag:
-                      return [] # Return early if no script tag
-                  
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
                   
-                  # --- THIS IS THE CORRECTED LOGIC ---
-                  # The data is a JSON string literal (a string inside a string), 
-                  # so we must parse it twice to get the final dictionary.
-                  data = json.loads(json.loads(json_text))
-                  # ------------------------------------
+                  data = json.loads(json_text)
+                  if isinstance(data, str):
+                      data = json.loads(data)
                   
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
                   if fixtures_key:
@@ -70,10 +65,10 @@ jobs:
                                           'home_team': event['home']['fullName'],
                                           'away_team': event['away']['fullName'],
                                           'datetime_utc': event['startDateTime'],
-                                          'competition': event.get('tournament', {}).get('name', {}).get('full', '')
+                                          'competition': competition_name
                                       })
               except Exception as e:
-                  print(f"⚠️ Could not parse fixtures from a page: {e}")
+                  print(f"⚠️ Could not parse fixtures from {competition_name}: {e}")
               return fixtures
 
           def main():
@@ -82,17 +77,20 @@ jobs:
               next_month_date = today + relativedelta(months=1)
 
               for slug in LEAGUE_SLUGS:
+                  competition_name = slug.replace('-', ' ').title()
+                  if competition_name == "Fa Cup": competition_name = "FA Cup"
+                  if competition_name == "League Cup": competition_name = "EFL Cup"
+                  
                   print(f"\n--- Processing Fixtures for {slug} ---")
                   base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
                   
-                  # Build the three essential URLs for each league
                   url1 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}"
                   url2 = f"{url1}?filter=fixtures"
                   url3 = f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
                   
                   for url in [url1, url2, url3]:
                       fixtures_html = fetch_html(url)
-                      all_fixtures.extend(parse_fixtures(fixtures_html))
+                      all_fixtures.extend(parse_fixtures(fixtures_html, competition_name))
               
               unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
               for fix in unique_fixtures:
