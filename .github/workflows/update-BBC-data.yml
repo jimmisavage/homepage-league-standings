@@ -137,29 +137,32 @@ jobs:
               return next_up_map
 
           def main():
-              # --- THIS FUNCTION IS NOW SMARTER ---
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
               standings_url = f"{base_bbc_url}/table"
 
-              # Generate URLs for this month and next month's fixtures
               today = datetime.now()
               next_month_date = today + relativedelta(months=1)
-              url_this_month = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
+              
+              # 1. URL for today/next match day this month
+              url_this_month_today = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
+              # 2. URL for the rest of this month's fixtures
+              url_this_month_future = f"{url_this_month_today}?filter=fixtures"
+              # 3. URL for all of next month's fixtures
               url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
 
-              # Fetch all data
+              # Fetch all pages
               standings_html = fetch_html(standings_url)
-              fixtures_html_this_month = fetch_html(url_this_month)
-              fixtures_html_next_month = fetch_html(url_next_month)
+              html1 = fetch_html(url_this_month_today)
+              html2 = fetch_html(url_this_month_future)
+              html3 = fetch_html(url_next_month)
               
-              # Parse standings
               standings = parse_standings(standings_html)
               
-              # Parse fixtures from both months and combine them
-              fixtures_map = parse_fixtures(fixtures_html_this_month)
-              # .update() merges the second dictionary into the first
-              fixtures_map.update(parse_fixtures(fixtures_html_next_month))
-              print(f"✅ Combined fixtures from two months, total: {len(fixtures_map)} entries.")
+              # Parse all three and combine them
+              fixtures_map = parse_fixtures(html1)
+              fixtures_map.update(parse_fixtures(html2))
+              fixtures_map.update(parse_fixtures(html3))
+              print(f"✅ Combined fixtures from three pages, total: {len(fixtures_map)} entries.")
 
               # Map fixtures to standings
               for team in standings:
@@ -170,8 +173,6 @@ jobs:
               with open('data/standings.json', 'w', encoding='utf-8') as f:
                   json.dump(final_json, f, indent=4)
               print("🚀 Scrape complete.")
-
-          if __name__ == "__main__": main()
 
       - name: Commit and Push Standings
         run: |
