@@ -143,14 +143,10 @@ jobs:
               today = datetime.now()
               next_month_date = today + relativedelta(months=1)
               
-              # 1. URL for today/next match day this month
               url_this_month_today = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
-              # 2. URL for the rest of this month's fixtures
               url_this_month_future = f"{url_this_month_today}?filter=fixtures"
-              # 3. URL for all of next month's fixtures
               url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
 
-              # Fetch all pages
               standings_html = fetch_html(standings_url)
               html1 = fetch_html(url_this_month_today)
               html2 = fetch_html(url_this_month_future)
@@ -158,13 +154,18 @@ jobs:
               
               standings = parse_standings(standings_html)
               
-              # Parse all three and combine them
               fixtures_map = parse_fixtures(html1)
               fixtures_map.update(parse_fixtures(html2))
               fixtures_map.update(parse_fixtures(html3))
-              print(f"✅ Combined fixtures from three pages, total: {len(fixtures_map)} entries.")
+              
+              # --- ADD THESE DEBUG PRINTS ---
+              print("\n--- DEBUG: Team names from Standings Page ---")
+              print(sorted([team['team']['name'] for team in standings]))
+              
+              print("\n--- DEBUG: Team names from Fixtures Page ---")
+              print(sorted(fixtures_map.keys()))
+              # --------------------------------
 
-              # Map fixtures to standings
               for team in standings:
                   if team['team']['name'] in fixtures_map:
                       team['nextUp'] = fixtures_map[team['team']['name']]
@@ -172,7 +173,7 @@ jobs:
               final_json = {'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}
               with open('data/standings.json', 'w', encoding='utf-8') as f:
                   json.dump(final_json, f, indent=4)
-              print("🚀 Scrape complete.")
+              print("\n🚀 Scrape complete.")
 
       - name: Commit and Push Standings
         run: |
