@@ -1,0 +1,257 @@
+name: Update data
+
+on:
+  schedule:
+    # Runs every 5 minutes on match days
+    - cron: '*/5 12-23 * * SAT,SUN'
+    - cron: '*/5 19-23 * * MON-FRI'
+    # Also runs once late at night to catch up
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python Dependencies
+        run: pip install beautifulsoup4 requests python-dateutil
+
+      - name: Load Configuration Variables
+        id: load_config
+        run: |
+          if [[ -f "./config.env" ]]; then
+            source ./config.env
+            echo "LEAGUE_SLUG=${LEAGUE_SLUG}" >> $GITHUB_ENV
+            echo "TEAM_NAME=${TEAM_SLUG}" >> $GITHUB_ENV
+            echo "LEAGUE_ID_NAME=${LEAGUE_NAME}" >> $GITHUB_ENV
+            echo "SEASON=${CURRENT_SEASON}" >> $GITHUB_ENV
+          else
+            echo "❌ ERROR: config.env file not found."
+            exit 1
+          fi
+
+      - name: Run Python Scraper
+        id: python_scraper
+        env:
+          LEAGUE_SLUG: ${{ env.LEAGUE_SLUG }}
+          TEAM_NAME: ${{ env.TEAM_NAME }}
+          LEAGUE_ID_NAME: ${{ env.LEAGUE_ID_NAME }}
+          SEASON: ${{ env.SEASON }}
+        shell: python
+        run: |
+          import os
+          import json
+          import requests
+          from bs4 import BeautifulSoup
+          from datetime import datetime, timedelta
+          from dateutil.relativedelta import relativedelta
+          import re
+
+          # --- CONFIGURATION ---
+          TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
+          LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG')
+          LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
+          SEASON = os.environ.get('SEASON')
+          HEADERS = {'User-Agent': 'Mozilla/5.0'}
+
+          # --- HELPER FUNCTIONS ---
+          def fetch_html(url):
+              if not url: return None
+              try:
+                  print(f"Fetching {url}...")
+                  response = requests.get(url, headers=HEADERS)
+                  response.raise_for_status()
+                  return response.text
+              except Exception as e:
+                  print(f"❌ Error fetching {url}: {e}")
+                  return None
+
+          def parse_standings(html_content):
+              if not html_content: return []
+              soup = BeautifulSoup(html_content, 'html.parser')
+              table = soup.find('table', {'data-testid': 'football-table'})
+              if not table: return []
+              standings_data = []
+              tbody = table.find('tbody')
+              if not tbody: return []
+              for row in tbody.find_all('tr'):
+                  cells = row.find_all(['th', 'td'])
+                  if len(cells) < 10: continue
+                  try:
+                      team_name_span = cells[0].find('span', class_='visually-hidden')
+                      team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
+                      standings_data.append({
+                          'rank': int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True)),
+                          'team': {'name': team_name, 'logo': cells[0].find('img')['src'] if cells[0].find('img') else ''},
+                          'points': int(cells[8].get_text(strip=True)),
+                          'goalsDiff': int(cells[7].get_text(strip=True)),
+                          'form': "".join([div.get_text(strip=True) for div in cells[9].find_all('div', {'data-testid': 'letter-content'})]),
+                          'all': {
+                              'played': int(cells[1].get_text(strip=True)), 'win': int(cells[2].get_text(strip=True)),
+                              'draw': int(cells[3].get_text(strip=True)), 'lose': int(cells[4].get_text(strip=True)),
+                              'goals': {'for': int(cells[5].get_text(strip=True)), 'against': int(cells[6].get_text(strip=True))}
+                          },
+                          'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False, 'nextUp': 'TBD'
+                      })
+                  except: continue
+              print(f"✅ Parsed {len(standings_data)} teams from BBC table.")
+              return standings_data
+
+          def parse_fixtures(html_content):
+              if not html_content: return []
+              soup = BeautifulSoup(html_content, 'html.parser')
+              fixtures = []
+              # Find all date headers
+              date_groups = soup.find_all('div', class_=lambda c: c and 'HeaderWrapper' in c)
+              for group in date_groups:
+                  try:
+                      date_str = group.find('h2').get_text(strip=True)
+                      # Find all fixture blocks that are siblings of this date header
+                      for fixture_item in group.find_next_siblings('ul'):
+                          for li in fixture_item.find_all('li', attrs={'data-tipo-topic-id': True}):
+                              home_wrapper = li.select_one('div[class*="TeamHome"] .visually-hidden')
+                              away_wrapper = li.select_one('div[class*="TeamAway"] .visually-hidden')
+                              time_el = li.find('time')
+                              if home_wrapper and away_wrapper and time_el:
+                                  kick_off_time = time_el.get_text(strip=True)
+                                  # Combine date and time, then parse it. Assumes current year.
+                                  # E.g., "Thursday 16th October" + "20:00"
+                                  full_date_str = date_str.replace('st','').replace('nd','').replace('rd','').replace('th','') + f" {datetime.now().year} {kick_off_time}"
+                                  dt_obj = datetime.strptime(full_date_str, '%A %d %B %Y %H:%M')
+                                  
+                                  fixtures.append({
+                                      'home_team': home_wrapper.get_text(strip=True),
+                                      'away_team': away_wrapper.get_text(strip=True),
+                                      'datetime_utc': dt_obj.isoformat()
+                                  })
+                  except:
+                      continue
+              print(f"✅ Parsed {len(fixtures)} fixture details.")
+              return fixtures
+
+          def main():
+              base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
+              standings_url = f"{base_bbc_url}/table"
+              
+              today = datetime.now()
+              next_month_date = today + relativedelta(months=1)
+              url_this_month = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
+              url_this_month_future = f"{url_this_month}?filter=fixtures"
+              url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
+              
+              standings_html = fetch_html(standings_url)
+              standings = parse_standings(standings_html)
+
+              all_fixtures = []
+              all_fixtures.extend(parse_fixtures(fetch_html(url_this_month)))
+              all_fixtures.extend(parse_fixtures(fetch_html(url_this_month_future)))
+              all_fixtures.extend(parse_fixtures(fetch_html(url_next_month)))
+              
+              # Remove duplicates if any
+              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
+              print(f"✅ Combined fixtures, total unique: {len(unique_fixtures)}.")
+
+              # Create a simple map for 'Next Up'
+              next_up_map = {}
+              for fix in sorted(unique_fixtures, key=lambda x: x['datetime_utc']):
+                  if fix['home_team'] not in next_up_map:
+                      next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
+                  if fix['away_team'] not in next_up_map:
+                      next_up_map[fix['away_team']] = f"{fix['home_team']} (A)"
+
+              for team in standings:
+                  if team['team']['name'] in next_up_map:
+                      team['nextUp'] = next_up_map[team['team']['name']]
+              
+              # Save data for the webpage and EPG generator
+              os.makedirs('data', exist_ok=True)
+              with open('data/standings.json', 'w') as f:
+                  json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
+              with open('data/fixtures.json', 'w') as f:
+                  json.dump(unique_fixtures, f, indent=4)
+
+              print("🚀 Scrape complete.")
+
+          if __name__ == "__main__": main()
+      
+      - name: Generate EPG File
+        shell: python
+        run: |
+          import json
+          from datetime import datetime, timedelta
+
+          def create_epg():
+              try:
+                  with open('data/standings.json', 'r') as f:
+                      standings_data = json.load()['response'][0]['league']['standings'][0]
+                  with open('data/fixtures.json', 'r') as f:
+                      fixtures_data = json.load()
+              except (IOError, KeyError, IndexError):
+                  print("❌ Standings or fixtures data not found. Cannot generate EPG.")
+                  return
+
+              xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
+
+              # 1. Define channels (teams)
+              for team in standings_data:
+                  team_name = team['team']['name']
+                  team_slug = team_name.lower().replace(' ', '-')
+                  xml += f'\n  <channel id="{team_slug}.uk">'
+                  xml += f'\n    <display-name lang="en">{team_name}</display-name>'
+                  xml += '\n  </channel>'
+
+              # 2. Define programmes (matches)
+              for fixture in fixtures_data:
+                  home_team = fixture['home_team']
+                  away_team = fixture['away_team']
+                  home_slug = home_team.lower().replace(' ', '-')
+                  away_slug = away_team.lower().replace(' ', '-')
+                  
+                  dt_start = datetime.fromisoformat(fixture['datetime_utc'])
+                  dt_stop = dt_start + timedelta(hours=2) # Assume 2 hour duration
+                  
+                  start_str = dt_start.strftime('%Y%m%d%H%M%S +0000')
+                  stop_str = dt_stop.strftime('%Y%m%d%H%M%S +0000')
+
+                  # Create an entry for the home team's "channel"
+                  xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{home_slug}.uk">'
+                  xml += f'\n    <title lang="en">vs. {away_team} (H)</title>'
+                  xml += f'\n    <desc lang="en">{LEAGUE_ID_NAME}</desc>'
+                  xml += '\n    <category lang="en">Sports</category>\n  </programme>'
+                  
+                  # Create an entry for the away team's "channel"
+                  xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{away_slug}.uk">'
+                  xml += f'\n    <title lang="en">vs. {home_team} (A)</title>'
+                  xml += f'\n    <desc lang="en">{LEAGUE_ID_NAME}</desc>'
+                  xml += '\n    <category lang="en">Sports</category>\n  </programme>'
+
+              xml += '\n</tv>'
+
+              with open('epg.xml', 'w', encoding='utf-8') as f:
+                  f.write(xml)
+              print("✅ EPG file generated successfully.")
+
+          create_epg()
+
+      - name: Commit and Push Data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/standings.json data/fixtures.json epg.xml
+          if git diff --staged --quiet; then
+            echo "🟢 No data changes to commit."
+          else
+            git commit -m "📊 Automated standings and EPG update"
+            git push
+          fi
