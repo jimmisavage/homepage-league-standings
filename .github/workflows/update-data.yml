@@ -111,9 +111,13 @@ jobs:
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
-                  data = json.loads(json_text)
                   
-                  # The data is nested under a key that includes the page URL
+                  # --- THE DEFINITIVE FIX ---
+                  # The data is double-encoded, so we parse it twice to get the dictionary
+                  inner_json_string = json.loads(json_text)
+                  data = json.loads(inner_json_string)
+                  # --------------------------
+                  
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
 
                   if fixtures_key:
