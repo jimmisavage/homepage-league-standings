@@ -48,13 +48,14 @@ jobs:
               fixtures = []
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
+                  if not script_tag: return []
+                  
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
                   
-                  # --- THE DEFINITIVE FIX ---
-                  # The data is a JSON string literal, so we must parse it twice.
-                  data = json.loads(json.loads(json_text))
-                  # ------------------------
-
+                  data = json.loads(json_text)
+                  if isinstance(data, str):
+                      data = json.loads(data)
+                  
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
                   if fixtures_key:
                       event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
@@ -80,13 +81,15 @@ jobs:
               for slug in LEAGUE_SLUGS:
                   print(f"\n--- Processing Fixtures for {slug} ---")
                   base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
-                  url1 = f"{base_url}/scores-fixtures" # Main page often has most data
-                  url2 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}?filter=fixtures"
+                  
+                  # Build the three essential URLs for each league
+                  url1 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}"
+                  url2 = f"{url1}?filter=fixtures"
                   url3 = f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
                   
-                  # We only need to fetch the main page for each slug
-                  fixtures_html = fetch_html(url1)
-                  all_fixtures.extend(parse_fixtures(fixtures_html))
+                  for url in [url1, url2, url3]:
+                      fixtures_html = fetch_html(url)
+                      all_fixtures.extend(parse_fixtures(fixtures_html))
               
               unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
               for fix in unique_fixtures:
@@ -95,7 +98,6 @@ jobs:
               
               print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures across all competitions.")
 
-              # --- EPG Generation ---
               now_utc = datetime.now(timezone.utc)
               future_limit = now_utc + timedelta(days=60)
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
