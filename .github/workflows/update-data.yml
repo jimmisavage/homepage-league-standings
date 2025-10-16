@@ -2,9 +2,9 @@ name: Update data
 
 on:
   schedule:
-    # Runs every 5 minutes on match days
-    - cron: '*/5 12-23 * * SAT,SUN'
-    - cron: '*/5 19-23 * * MON-FRI'
+    # Runs every 10 minutes on match days
+    - cron: '*/10 12-23 * * SAT,SUN'
+    - cron: '*/10 19-23 * * MON-FRI'
     # Also runs once late at night to catch up
     - cron: '0 2 * * *'
   workflow_dispatch:
