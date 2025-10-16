@@ -1,75 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv>
-  <channel id="stevenage.uk">
-    <display-name lang="en">Stevenage</display-name>
-  </channel>
-  <channel id="bradford-city.uk">
-    <display-name lang="en">Bradford City</display-name>
-  </channel>
-  <channel id="cardiff-city.uk">
-    <display-name lang="en">Cardiff City</display-name>
-  </channel>
-  <channel id="stockport-county.uk">
-    <display-name lang="en">Stockport County</display-name>
-  </channel>
-  <channel id="afc-wimbledon.uk">
-    <display-name lang="en">AFC Wimbledon</display-name>
-  </channel>
-  <channel id="lincoln-city.uk">
-    <display-name lang="en">Lincoln City</display-name>
-  </channel>
-  <channel id="huddersfield-town.uk">
-    <display-name lang="en">Huddersfield Town</display-name>
-  </channel>
-  <channel id="barnsley.uk">
-    <display-name lang="en">Barnsley</display-name>
-  </channel>
-  <channel id="bolton-wanderers.uk">
-    <display-name lang="en">Bolton Wanderers</display-name>
-  </channel>
-  <channel id="doncaster-rovers.uk">
-    <display-name lang="en">Doncaster Rovers</display-name>
-  </channel>
-  <channel id="luton-town.uk">
-    <display-name lang="en">Luton Town</display-name>
-  </channel>
-  <channel id="mansfield-town.uk">
-    <display-name lang="en">Mansfield Town</display-name>
-  </channel>
-  <channel id="leyton-orient.uk">
-    <display-name lang="en">Leyton Orient</display-name>
-  </channel>
-  <channel id="northampton-town.uk">
-    <display-name lang="en">Northampton Town</display-name>
-  </channel>
-  <channel id="port-vale.uk">
-    <display-name lang="en">Port Vale</display-name>
-  </channel>
-  <channel id="exeter-city.uk">
-    <display-name lang="en">Exeter City</display-name>
-  </channel>
-  <channel id="wigan-athletic.uk">
-    <display-name lang="en">Wigan Athletic</display-name>
-  </channel>
-  <channel id="plymouth-argyle.uk">
-    <display-name lang="en">Plymouth Argyle</display-name>
-  </channel>
-  <channel id="wycombe-wanderers.uk">
-    <display-name lang="en">Wycombe Wanderers</display-name>
-  </channel>
-  <channel id="burton-albion.uk">
-    <display-name lang="en">Burton Albion</display-name>
-  </channel>
-  <channel id="reading.uk">
-    <display-name lang="en">Reading</display-name>
-  </channel>
-  <channel id="rotherham-united.uk">
-    <display-name lang="en">Rotherham United</display-name>
-  </channel>
-  <channel id="blackpool.uk">
-    <display-name lang="en">Blackpool</display-name>
-  </channel>
-  <channel id="peterborough-united.uk">
-    <display-name lang="en">Peterborough United</display-name>
-  </channel>
+  <channel id="stevenage.uk"><display-name lang="en">Stevenage</display-name></channel>
+  <channel id="bradford-city.uk"><display-name lang="en">Bradford City</display-name></channel>
+  <channel id="cardiff-city.uk"><display-name lang="en">Cardiff City</display-name></channel>
+  <channel id="stockport-county.uk"><display-name lang="en">Stockport County</display-name></channel>
+  <channel id="afc-wimbledon.uk"><display-name lang="en">AFC Wimbledon</display-name></channel>
+  <channel id="lincoln-city.uk"><display-name lang="en">Lincoln City</display-name></channel>
+  <channel id="huddersfield-town.uk"><display-name lang="en">Huddersfield Town</display-name></channel>
+  <channel id="barnsley.uk"><display-name lang="en">Barnsley</display-name></channel>
+  <channel id="bolton-wanderers.uk"><display-name lang="en">Bolton Wanderers</display-name></channel>
+  <channel id="doncaster-rovers.uk"><display-name lang="en">Doncaster Rovers</display-name></channel>
+  <channel id="luton-town.uk"><display-name lang="en">Luton Town</display-name></channel>
+  <channel id="mansfield-town.uk"><display-name lang="en">Mansfield Town</display-name></channel>
+  <channel id="leyton-orient.uk"><display-name lang="en">Leyton Orient</display-name></channel>
+  <channel id="northampton-town.uk"><display-name lang="en">Northampton Town</display-name></channel>
+  <channel id="port-vale.uk"><display-name lang="en">Port Vale</display-name></channel>
+  <channel id="exeter-city.uk"><display-name lang="en">Exeter City</display-name></channel>
+  <channel id="wigan-athletic.uk"><display-name lang="en">Wigan Athletic</display-name></channel>
+  <channel id="plymouth-argyle.uk"><display-name lang="en">Plymouth Argyle</display-name></channel>
+  <channel id="wycombe-wanderers.uk"><display-name lang="en">Wycombe Wanderers</display-name></channel>
+  <channel id="burton-albion.uk"><display-name lang="en">Burton Albion</display-name></channel>
+  <channel id="reading.uk"><display-name lang="en">Reading</display-name></channel>
+  <channel id="rotherham-united.uk"><display-name lang="en">Rotherham United</display-name></channel>
+  <channel id="blackpool.uk"><display-name lang="en">Blackpool</display-name></channel>
+  <channel id="peterborough-united.uk"><display-name lang="en">Peterborough United</display-name></channel>
 </tv>
