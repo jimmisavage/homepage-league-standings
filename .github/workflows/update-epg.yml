@@ -23,9 +23,7 @@ jobs:
       - name: Generate EPG File
         shell: python
         run: |
-          import os
-          import json
-          import requests
+          import os, json, requests
           from bs4 import BeautifulSoup
           from datetime import datetime, timedelta, timezone
           from dateutil.relativedelta import relativedelta
@@ -44,36 +42,44 @@ jobs:
                   return r.text
               except: return None
 
-          def parse_fixtures(html_content):
+          def parse_fixtures_from_html(html_content, competition_name):
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
-              try:
-                  script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
-                  json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
-                  
-                  # --- ROBUST PARSING LOGIC ---
-                  # The data can be single or double encoded. This handles both.
-                  data = json.loads(json_text)
-                  if isinstance(data, str):
-                      data = json.loads(data)
-                  # ----------------------------
+              
+              # Find all date headings on the page
+              date_headers = soup.find_all('h2', class_=lambda c: c and 'GroupHeader' in c)
+              
+              for header in date_headers:
+                  try:
+                      date_str = header.get_text(strip=True)
+                      # The list of fixtures is the next <ul> element after the date header
+                      fixture_list = header.find_parent().find_next_sibling('ul')
+                      if not fixture_list: continue
 
-                  fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
-                  if fixtures_key:
-                      event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
-                      for group in event_groups:
-                          for s_group in group.get('secondaryGroups', []):
-                              for event in s_group.get('events', []):
-                                  if event.get('status') == 'PreEvent':
-                                      fixtures.append({
-                                          'home_team': event['home']['fullName'],
-                                          'away_team': event['away']['fullName'],
-                                          'datetime_utc': event['startDateTime'],
-                                          'competition': event.get('tournament', {}).get('name', {}).get('full', '')
-                                      })
-              except Exception as e:
-                  print(f"⚠️ Could not parse fixtures from a page: {e}")
+                      for item in fixture_list.find_all('li', attrs={'data-tipo-topic-id': True}):
+                          home_span = item.select_one('div[class*="TeamHome"] span.visually-hidden')
+                          away_span = item.select_one('div[class*="TeamAway"] span.visually-hidden')
+                          time_el = item.find('time')
+
+                          if home_span and away_span and time_el:
+                              kick_off_time = time_el.get_text(strip=True)
+                              # Clean up date string and combine with time
+                              clean_date_str = date_str.replace('st','').replace('nd','').replace('rd','').replace('th','')
+                              full_date_str = f"{clean_date_str} {datetime.now().year} {kick_off_time}"
+                              
+                              # Parse the combined date and time string
+                              dt_obj = datetime.strptime(full_date_str, '%A %d %B %Y %H:%M')
+                              
+                              fixtures.append({
+                                  'home_team': home_span.get_text(strip=True),
+                                  'away_team': away_span.get_text(strip=True),
+                                  'datetime_utc': dt_obj.isoformat() + 'Z',
+                                  'competition': competition_name
+                              })
+                  except Exception as e:
+                      print(f"⚠️ Error processing a fixture block: {e}")
+                      continue
               return fixtures
 
           def main():
@@ -82,16 +88,14 @@ jobs:
               next_month_date = today + relativedelta(months=1)
 
               for slug in LEAGUE_SLUGS:
-                  print(f"\n--- Processing Fixtures for {slug} ---")
+                  competition_name = slug.replace('-', ' ').title()
+                  print(f"\n--- Processing Fixtures for {competition_name} ---")
                   base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
                   
-                  url1 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}"
-                  url2 = f"{url1}?filter=fixtures"
-                  url3 = f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
-                  
-                  for url in [url1, url2, url3]:
-                      fixtures_html = fetch_html(url)
-                      all_fixtures.extend(parse_fixtures(fixtures_html))
+                  # We only need to fetch the main fixtures page now
+                  fixtures_url = f"{base_url}/scores-fixtures"
+                  fixtures_html = fetch_html(fixtures_url)
+                  all_fixtures.extend(parse_fixtures_from_html(fixtures_html, competition_name))
               
               unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
               for fix in unique_fixtures:
@@ -100,6 +104,7 @@ jobs:
               
               print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures across all competitions.")
 
+              # --- EPG Generation Logic ---
               now_utc = datetime.now(timezone.utc)
               future_limit = now_utc + timedelta(days=60)
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
