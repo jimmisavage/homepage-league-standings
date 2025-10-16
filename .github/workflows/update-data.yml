@@ -187,16 +187,23 @@ jobs:
       
       - name: Generate EPG File
         shell: python
+        env:
+          LEAGUE_ID_NAME: ${{ env.LEAGUE_ID_NAME }}
         run: |
           import json
           from datetime import datetime, timedelta
 
+          LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
+
           def create_epg():
               try:
+                  # --- THIS IS THE FIX ---
+                  # We need to open the files first
                   with open('data/standings.json', 'r') as f:
-                      standings_data = json.load()['response'][0]['league']['standings'][0]
+                      standings_data = json.load(f)['response'][0]['league']['standings'][0]
                   with open('data/fixtures.json', 'r') as f:
-                      fixtures_data = json.load()
+                      fixtures_data = json.load(f)
+                  # -----------------------
               except (IOError, KeyError, IndexError):
                   print("❌ Standings or fixtures data not found. Cannot generate EPG.")
                   return
@@ -206,7 +213,7 @@ jobs:
               # 1. Define channels (teams)
               for team in standings_data:
                   team_name = team['team']['name']
-                  team_slug = team_name.lower().replace(' ', '-')
+                  team_slug = team_name.lower().replace(' ', '-').replace('&', 'and') # handle '&'
                   xml += f'\n  <channel id="{team_slug}.uk">'
                   xml += f'\n    <display-name lang="en">{team_name}</display-name>'
                   xml += '\n  </channel>'
@@ -215,8 +222,8 @@ jobs:
               for fixture in fixtures_data:
                   home_team = fixture['home_team']
                   away_team = fixture['away_team']
-                  home_slug = home_team.lower().replace(' ', '-')
-                  away_slug = away_team.lower().replace(' ', '-')
+                  home_slug = home_team.lower().replace(' ', '-').replace('&', 'and')
+                  away_slug = away_team.lower().replace(' ', '-').replace('&', 'and')
                   
                   dt_start = datetime.fromisoformat(fixture['datetime_utc'])
                   dt_stop = dt_start + timedelta(hours=2) # Assume 2 hour duration
