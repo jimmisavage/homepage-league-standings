@@ -1,9 +1,11 @@
-name: Update data
+name: Update Standings and EPG
 
 on:
   schedule:
+    # Runs every 5 minutes on match days
     - cron: '*/5 12-23 * * SAT,SUN'
     - cron: '*/5 19-23 * * MON-FRI'
+    # Also runs once late at night to catch up
     - cron: '0 2 * * *'
   workflow_dispatch:
 
@@ -107,52 +109,27 @@ jobs:
               soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
               try:
-                  print("--- Fixture Debug Start ---")
-                  print("1. Searching for INITIAL_DATA script tag...")
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
-                  if not script_tag:
-                      print("❌ Step 1 FAILED: Script tag not found.")
-                      return []
-                  print("✅ Step 1 SUCCESS: Found script tag.")
-
-                  print("2. Extracting JSON text...")
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
-                  if not json_text:
-                      print("❌ Step 2 FAILED: Could not extract JSON text.")
-                      return []
-                  print("✅ Step 2 SUCCESS: Extracted JSON text.")
-
-                  print("3. Parsing JSON data...")
                   data = json.loads(json_text)
-                  print("✅ Step 3 SUCCESS: Parsed JSON.")
+                  
+                  # The data is nested under a key that includes the page URL
+                  fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
 
-                  print("4. Searching for 'sport-data-scores-fixtures' key in data...")
-                  found_fixtures_key = False
-                  for key, value in data.get('data', {}).items():
-                      if 'sport-data-scores-fixtures' in key:
-                          found_fixtures_key = True
-                          print(f"✅ Step 4 SUCCESS: Found key '{key}'.")
-                          print("5. Navigating eventGroups...")
-                          event_groups = value.get('data', {}).get('eventGroups', [])
-                          if not event_groups:
-                              print("⚠️ Step 5 WARNING: 'eventGroups' list is empty.")
-                          
-                          for group in event_groups:
-                              for secondary_group in group.get('secondaryGroups', []):
-                                  for event in secondary_group.get('events', []):
-                                      if event.get('status') == 'PreEvent':
-                                          fixtures.append({
-                                              'home_team': event['home']['fullName'],
-                                              'away_team': event['away']['fullName'],
-                                              'datetime_utc': event['startDateTime']
-                                          })
-                          break
-                  if not found_fixtures_key:
-                      print("❌ Step 4 FAILED: Could not find 'sport-data-scores-fixtures' key.")
+                  if fixtures_key:
+                      event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
+                      for group in event_groups:
+                          for secondary_group in group.get('secondaryGroups', []):
+                              for event in secondary_group.get('events', []):
+                                  if event.get('status') == 'PreEvent':
+                                      fixtures.append({
+                                          'home_team': event['home']['fullName'],
+                                          'away_team': event['away']['fullName'],
+                                          'datetime_utc': event['startDateTime']
+                                      })
               except Exception as e:
-                  print(f"❌ An unexpected error occurred: {e}")
+                  print(f"❌ Error parsing fixtures JSON: {e}")
 
-              print(f"--- Fixture Debug End ---")
               print(f"✅ Parsed {len(fixtures)} fixture details from embedded JSON.")
               return fixtures
 
@@ -212,8 +189,7 @@ jobs:
               
               for team in standings_data:
                   team_name = team['team']['name']
-                  team_slug = team_name.lower().replace('&', 'and').replace(' ', '-')
-                  team_slug = ''.join(c for c in team_slug if c.isalnum() or c == '-')
+                  team_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
                   xml += f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name></channel>'
 
               for fixture in fixtures_data:
