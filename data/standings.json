@@ -74,6 +74,28 @@
                         {
                             "rank": 4,
                             "team": {
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.9046363950.svg"
+                            },
+                            "points": 22,
+                            "goalsDiff": 5,
+                            "form": "LWLDWL",
+                            "all": {
+                                "played": 12,
+                                "win": 7,
+                                "draw": 1,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 18,
+                                    "against": 13
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "TBD"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.4c9076c46a.svg"
                             },
@@ -94,7 +116,7 @@
                             "nextUp": "TBD"
                         },
                         {
-                            "rank": 5,
+                            "rank": 6,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -116,7 +138,7 @@
                             "nextUp": "TBD"
                         },
                         {
-                            "rank": 6,
+                            "rank": 7,
                             "team": {
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
@@ -132,28 +154,6 @@
                                 "goals": {
                                     "for": 17,
                                     "against": 10
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "TBD"
-                        },
-                        {
-                            "rank": 7,
-                            "team": {
-                                "name": "Huddersfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.9046363950.svg"
-                            },
-                            "points": 19,
-                            "goalsDiff": 4,
-                            "form": "LWLDWL",
-                            "all": {
-                                "played": 11,
-                                "win": 6,
-                                "draw": 1,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 17,
-                                    "against": 13
                                 }
                             },
                             "highlight": false,
@@ -188,16 +188,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.fd75ea107a.svg"
                             },
                             "points": 17,
-                            "goalsDiff": 2,
+                            "goalsDiff": 1,
                             "form": "WDWLWL",
                             "all": {
-                                "played": 12,
+                                "played": 13,
                                 "win": 4,
                                 "draw": 5,
-                                "lose": 3,
+                                "lose": 4,
                                 "goals": {
                                     "for": 16,
-                                    "against": 14
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
