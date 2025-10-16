@@ -23,13 +23,14 @@ jobs:
       - name: Generate EPG File
         shell: python
         run: |
-          import os, json, requests
+          import os
+          import json
+          import requests
           from bs4 import BeautifulSoup
           from datetime import datetime, timedelta, timezone
           from dateutil.relativedelta import relativedelta
 
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
-          # List of competition slugs from their BBC URL
           LEAGUE_SLUGS = [
               "premier-league", "championship", "league-one",
               "league-two", "fa-cup", "league-cup"
@@ -50,10 +51,18 @@ jobs:
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
-                  data = json.loads(json.loads(json_text))
+                  
+                  # --- ROBUST PARSING LOGIC ---
+                  # The data can be single or double encoded. This handles both.
+                  data = json.loads(json_text)
+                  if isinstance(data, str):
+                      data = json.loads(data)
+                  # ----------------------------
+
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
                   if fixtures_key:
-                      for group in data['data'][fixtures_key].get('data', {}).get('eventGroups', []):
+                      event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
+                      for group in event_groups:
                           for s_group in group.get('secondaryGroups', []):
                               for event in s_group.get('events', []):
                                   if event.get('status') == 'PreEvent':
@@ -64,7 +73,7 @@ jobs:
                                           'competition': event.get('tournament', {}).get('name', {}).get('full', '')
                                       })
               except Exception as e:
-                  print(f"⚠️ Error parsing fixtures JSON chunk: {e}")
+                  print(f"⚠️ Could not parse fixtures from a page: {e}")
               return fixtures
 
           def main():
@@ -91,7 +100,6 @@ jobs:
               
               print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures across all competitions.")
 
-              # --- EPG Generation Logic ---
               now_utc = datetime.now(timezone.utc)
               future_limit = now_utc + timedelta(days=60)
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
@@ -133,9 +141,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add epg.xml
-          if git diff --staged --quiet; then
-            echo "🟢 No changes to EPG."
-          else
-            git commit -m "🗓️ Automated EPG update"
-            git push
+          if git diff --staged --quiet;
+            then echo "🟢 No changes to EPG.";
+            else git commit -m "🗓️ Automated EPG update"; git push;
           fi
