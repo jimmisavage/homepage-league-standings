@@ -2,7 +2,7 @@ name: Update Standings from BBC Sport
 
 on:
   schedule:
-    # Runs every 5 minutes on match days (adjust hours/days as needed)
+    # Runs every 5 minutes on match days
     - cron: '*/5 12-23 * * SAT,SUN'
     - cron: '*/5 19-23 * * MON-FRI'
     # Also runs once late at night to catch up
@@ -75,7 +75,6 @@ jobs:
                   return None
 
           def parse_standings(html_content):
-              # This function is correct and does not need to change
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
               table = soup.find('table', {'data-testid': 'football-table'})
@@ -114,39 +113,37 @@ jobs:
               return standings_data
 
           def parse_fixtures(html_content):
-              # This function is correct and does not need to change
               if not html_content: return {}
               soup = BeautifulSoup(html_content, 'html.parser')
               next_up_map = {}
               all_fixtures = soup.find_all('li', attrs={'data-tipo-topic-id': True})
               for fixture in all_fixtures:
                   try:
-                      home_team_div = fixture.select_one('div[class*="TeamHome"]')
-                      away_team_div = fixture.select_one('div[class*="TeamAway"]')
-                      if home_team_div and away_team_div:
-                          home_team_span = home_team_div.find('span', class_='visually-hidden')
-                          away_team_span = away_team_div.find('span', class_='visually-hidden')
-                          if home_team_span and away_team_span:
-                              home_team = home_team_span.get_text(strip=True)
-                              away_team = away_team_span.get_text(strip=True)
-                              if home_team and home_team not in next_up_map:
-                                  next_up_map[home_team] = f"{away_team} (H)"
-                              if away_team and away_team not in next_up_map:
-                                  next_up_map[away_team] = f"{home_team} (A)"
-                  except: continue
+                      # Find the two team name wrappers in each fixture block
+                      team_name_wrappers = fixture.find_all('div', class_=lambda c: c and 'TeamNameWrapper' in c)
+                      if len(team_name_wrappers) == 2:
+                          # The first is home, the second is away. Get the full name from the hidden span.
+                          home_team_name = team_name_wrappers[0].find('span', class_='visually-hidden').get_text(strip=True)
+                          away_team_name = team_name_wrappers[1].find('span', class_='visually-hidden').get_text(strip=True)
+                          
+                          if home_team_name and home_team_name not in next_up_map:
+                              next_up_map[home_team_name] = f"{away_team_name} (H)"
+                          if away_team_name and away_team_name not in next_up_map:
+                              next_up_map[away_team_name] = f"{home_team_name} (A)"
+                  except:
+                      continue
+              print(f"✅ Parsed {len(next_up_map)} upcoming fixture entries.")
               return next_up_map
 
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
               standings_url = f"{base_bbc_url}/table"
-
               today = datetime.now()
               next_month_date = today + relativedelta(months=1)
-              
               url_this_month_today = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
               url_this_month_future = f"{url_this_month_today}?filter=fixtures"
               url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
-
+              
               standings_html = fetch_html(standings_url)
               html1 = fetch_html(url_this_month_today)
               html2 = fetch_html(url_this_month_future)
@@ -157,14 +154,7 @@ jobs:
               fixtures_map = parse_fixtures(html1)
               fixtures_map.update(parse_fixtures(html2))
               fixtures_map.update(parse_fixtures(html3))
-              
-              # --- ADD THESE DEBUG PRINTS ---
-              print("\n--- DEBUG: Team names from Standings Page ---")
-              print(sorted([team['team']['name'] for team in standings]))
-              
-              print("\n--- DEBUG: Team names from Fixtures Page ---")
-              print(sorted(fixtures_map.keys()))
-              # --------------------------------
+              print(f"✅ Combined fixtures from three pages, total: {len(fixtures_map)} entries.")
 
               for team in standings:
                   if team['team']['name'] in fixtures_map:
@@ -173,7 +163,9 @@ jobs:
               final_json = {'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}
               with open('data/standings.json', 'w', encoding='utf-8') as f:
                   json.dump(final_json, f, indent=4)
-              print("\n🚀 Scrape complete.")
+              print("🚀 Scrape complete.")
+
+          if __name__ == "__main__": main()
 
       - name: Commit and Push Standings
         run: |
