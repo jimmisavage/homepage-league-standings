@@ -25,7 +25,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install Python Dependencies
-        run: pip install beautifulsoup4 requests python-dateutil
+        run: pip install beautifulsoup4 requests
 
       - name: Load Configuration Variables
         id: load_config
@@ -55,17 +55,13 @@ jobs:
           import requests
           from bs4 import BeautifulSoup
           from datetime import datetime, timedelta
-          from dateutil.relativedelta import relativedelta
-          import re
 
-          # --- CONFIGURATION ---
           TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
           LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG')
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
-          # --- HELPER FUNCTIONS ---
           def fetch_html(url):
               if not url: return None
               try:
@@ -112,59 +108,48 @@ jobs:
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
-              # Find all date headers
-              date_groups = soup.find_all('div', class_=lambda c: c and 'HeaderWrapper' in c)
-              for group in date_groups:
-                  try:
-                      date_str = group.find('h2').get_text(strip=True)
-                      # Find all fixture blocks that are siblings of this date header
-                      for fixture_item in group.find_next_siblings('ul'):
-                          for li in fixture_item.find_all('li', attrs={'data-tipo-topic-id': True}):
-                              home_wrapper = li.select_one('div[class*="TeamHome"] .visually-hidden')
-                              away_wrapper = li.select_one('div[class*="TeamAway"] .visually-hidden')
-                              time_el = li.find('time')
-                              if home_wrapper and away_wrapper and time_el:
-                                  kick_off_time = time_el.get_text(strip=True)
-                                  # Combine date and time, then parse it. Assumes current year.
-                                  # E.g., "Thursday 16th October" + "20:00"
-                                  full_date_str = date_str.replace('st','').replace('nd','').replace('rd','').replace('th','') + f" {datetime.now().year} {kick_off_time}"
-                                  dt_obj = datetime.strptime(full_date_str, '%A %d %B %Y %H:%M')
-                                  
-                                  fixtures.append({
-                                      'home_team': home_wrapper.get_text(strip=True),
-                                      'away_team': away_wrapper.get_text(strip=True),
-                                      'datetime_utc': dt_obj.isoformat()
-                                  })
-                  except:
-                      continue
-              print(f"✅ Parsed {len(fixtures)} fixture details.")
+              try:
+                  # Find the script tag containing all the page data
+                  script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
+                  # Extract the JSON part of the script
+                  json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
+                  data = json.loads(json_text)
+                  
+                  # Navigate the complex JSON structure to find the fixtures
+                  # The key varies, so we search for the one that contains the relevant data
+                  for key, value in data.get('data', {}).items():
+                      if 'sport-data-scores-fixtures' in key:
+                          event_groups = value.get('data', {}).get('eventGroups', [])
+                          for group in event_groups:
+                              for secondary_group in group.get('secondaryGroups', []):
+                                  for event in secondary_group.get('events', []):
+                                      if event.get('status') == 'PreEvent': # Only get future games
+                                          fixtures.append({
+                                              'home_team': event['home']['fullName'],
+                                              'away_team': event['away']['fullName'],
+                                              'datetime_utc': event['startDateTime']
+                                          })
+                          break # Stop after finding the first valid fixture block
+              except (json.JSONDecodeError, AttributeError, KeyError, IndexError) as e:
+                  print(f"❌ Error parsing fixtures JSON: {e}")
+
+              print(f"✅ Parsed {len(fixtures)} fixture details from embedded JSON.")
               return fixtures
 
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
               standings_url = f"{base_bbc_url}/table"
-              
-              today = datetime.now()
-              next_month_date = today + relativedelta(months=1)
-              url_this_month = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
-              url_this_month_future = f"{url_this_month}?filter=fixtures"
-              url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
+              fixtures_url = f"{base_bbc_url}/scores-fixtures" # Only need one URL now
               
               standings_html = fetch_html(standings_url)
-              standings = parse_standings(standings_html)
-
-              all_fixtures = []
-              all_fixtures.extend(parse_fixtures(fetch_html(url_this_month)))
-              all_fixtures.extend(parse_fixtures(fetch_html(url_this_month_future)))
-              all_fixtures.extend(parse_fixtures(fetch_html(url_next_month)))
+              fixtures_html = fetch_html(fixtures_url)
               
-              # Remove duplicates if any
-              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
-              print(f"✅ Combined fixtures, total unique: {len(unique_fixtures)}.")
+              standings = parse_standings(standings_html)
+              all_fixtures = parse_fixtures(fixtures_html)
 
               # Create a simple map for 'Next Up'
               next_up_map = {}
-              for fix in sorted(unique_fixtures, key=lambda x: x['datetime_utc']):
+              for fix in sorted(all_fixtures, key=lambda x: x['datetime_utc']):
                   if fix['home_team'] not in next_up_map:
                       next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
                   if fix['away_team'] not in next_up_map:
@@ -174,12 +159,11 @@ jobs:
                   if team['team']['name'] in next_up_map:
                       team['nextUp'] = next_up_map[team['team']['name']]
               
-              # Save data for the webpage and EPG generator
               os.makedirs('data', exist_ok=True)
               with open('data/standings.json', 'w') as f:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
               with open('data/fixtures.json', 'w') as f:
-                  json.dump(unique_fixtures, f, indent=4)
+                  json.dump(all_fixtures, f, indent=4)
 
               print("🚀 Scrape complete.")
 
@@ -191,7 +175,7 @@ jobs:
           LEAGUE_ID_NAME: ${{ env.LEAGUE_ID_NAME }}
         run: |
           import json
-          import os  # <-- Add this line
+          import os
           from datetime import datetime, timedelta
 
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
@@ -207,43 +191,30 @@ jobs:
                   return
 
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
-
-              # 1. Define channels (teams)
+              
               for team in standings_data:
                   team_name = team['team']['name']
-                  # Sanitize name for XML id
                   team_slug = team_name.lower().replace('&', 'and').replace(' ', '-')
                   team_slug = ''.join(c for c in team_slug if c.isalnum() or c == '-')
-                  xml += f'\n  <channel id="{team_slug}.uk">'
-                  xml += f'\n    <display-name lang="en">{team_name}</display-name>'
-                  xml += '\n  </channel>'
+                  xml += f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name></channel>'
 
-              # 2. Define programmes (matches)
               for fixture in fixtures_data:
                   home_team = fixture['home_team']
                   away_team = fixture['away_team']
-                  home_slug = home_team.lower().replace('&', 'and').replace(' ', '-')
-                  home_slug = ''.join(c for c in home_slug if c.isalnum() or c == '-')
-                  away_slug = away_team.lower().replace('&', 'and').replace(' ', '-')
-                  away_slug = ''.join(c for c in away_slug if c.isalnum() or c == '-')
+                  home_slug = ''.join(c for c in home_team.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
+                  away_slug = ''.join(c for c in away_team.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
                   
-                  dt_start = datetime.fromisoformat(fixture['datetime_utc'])
-                  dt_stop = dt_start + timedelta(hours=2) # Assume 2 hour duration
-                  
-                  start_str = dt_start.strftime('%Y%m%d%H%M%S +0000')
-                  stop_str = dt_stop.strftime('%Y%m%d%H%M%S +0000')
+                  # The datetime is now in ISO format with a 'Z' for UTC
+                  dt_start = datetime.fromisoformat(fixture['datetime_utc'].replace('Z', '+00:00'))
+                  dt_stop = dt_start + timedelta(hours=2)
+                  start_str = dt_start.strftime('%Y%m%d%H%M%S %z')
+                  stop_str = dt_stop.strftime('%Y%m%d%H%M%S %z')
 
-                  # Create an entry for the home team's "channel"
                   xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{home_slug}.uk">'
-                  xml += f'\n    <title lang="en">vs. {away_team} (H)</title>'
-                  xml += f'\n    <desc lang="en">{LEAGUE_ID_NAME}</desc>'
-                  xml += '\n    <category lang="en">Sports</category>\n  </programme>'
+                  xml += f'<title lang="en">vs. {away_team} (H)</title><desc lang="en">{LEAGUE_ID_NAME}</desc><category lang="en">Sports</category></programme>'
                   
-                  # Create an entry for the away team's "channel"
                   xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{away_slug}.uk">'
-                  xml += f'\n    <title lang="en">vs. {home_team} (A)</title>'
-                  xml += f'\n    <desc lang="en">{LEAGUE_ID_NAME}</desc>'
-                  xml += '\n    <category lang="en">Sports</category>\n  </programme>'
+                  xml += f'<title lang="en">vs. {home_team} (A)</title><desc lang="en">{LEAGUE_ID_NAME}</desc><category lang="en">Sports</category></programme>'
 
               xml += '\n</tv>'
 
