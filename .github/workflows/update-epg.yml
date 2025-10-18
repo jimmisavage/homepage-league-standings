@@ -1,10 +1,32 @@
-- name: Generate EPG File
+name: Update EPG
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-epg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install Python Dependencies
+        run: pip install beautifulsoup4 requests python-dateutil
+      - name: Generate EPG File
         shell: python
         run: |
           import os, json, requests
           from bs4 import BeautifulSoup
           from datetime import datetime, timedelta, timezone
-          from dateutil.relivedelta import relativedelta
+          from dateutil.relativedelta import relativedelta
           from zoneinfo import ZoneInfo
 
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
@@ -72,25 +94,25 @@
                   team_fixtures.setdefault(fix['home_team'], []).append(fix)
                   team_fixtures.setdefault(fix['away_team'], []).append(fix)
 
-              **# Construct the base URL for logo assets**
-              **repo = os.environ['GITHUB_REPOSITORY']**
-              **base_icon_url = f"https://raw.githubusercontent.com/{repo}/main/assets/logos"**
+              # Construct the base URL for logo assets
+              repo = os.environ['GITHUB_REPOSITORY']
+              base_icon_url = f"https://raw.githubusercontent.com/{repo}/main/assets/logos"
 
               for team_name in sorted(all_teams):
                   team_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
                   
-                  **# Start building the channel tag with display name**
-                  **channel_xml = f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name>'**
+                  # Start building the channel tag with display name
+                  channel_xml = f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name>'
                   
-                  **# Check for a logo file and add the icon tag if it exists**
-                  **logo_path = f"assets/logos/{team_slug}.png" # Assuming all logos are .png**
-                  **if os.path.exists(logo_path):**
-                      **icon_url = f"{base_icon_url}/{team_slug}.png"**
-                      **channel_xml += f'<icon src="{icon_url}"/>'**
+                  # Check for a logo file and add the icon tag if it exists
+                  logo_path = f"assets/logos/{team_slug}.png" # Assuming all logos are .png
+                  if os.path.exists(logo_path):
+                      icon_url = f"{base_icon_url}/{team_slug}.png"
+                      channel_xml += f'<icon src="{icon_url}"/>'
                   
-                  **# Close the channel tag and add it to the main XML string**
-                  **channel_xml += '</channel>'**
-                  **xml += channel_xml**
+                  # Close the channel tag and add it to the main XML string
+                  channel_xml += '</channel>'
+                  xml += channel_xml
                   
                   sorted_fixtures = sorted(team_fixtures.get(team_name, []), key=lambda x: x['datetime_utc'])
                   last_event_end_time = now_local
@@ -99,13 +121,11 @@
                       dt_start_utc = datetime.fromisoformat(fixture['datetime_utc'].replace('Z', '+00:00'))
                       dt_start_local = dt_start_utc.astimezone(uk_tz)
                       
-                      # Create "No Game" block in the gap before this game
                       if dt_start_local > last_event_end_time:
                           start_str = last_event_end_time.strftime('%Y%m%d%H%M%S %z')
                           stop_str = dt_start_local.strftime('%Y%m%d%H%M%S %z')
                           xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">No Game Scheduled</title></programme>'
 
-                      # Create the actual game programme
                       dt_stop_local = dt_start_local + timedelta(hours=2)
                       start_str, stop_str = dt_start_local.strftime('%Y%m%d%H%M%S %z'), dt_stop_local.strftime('%Y%m%d%H%M%S %z')
                       opponent = fixture['away_team'] if team_name == fixture['home_team'] else fixture['home_team']
@@ -114,7 +134,6 @@
                       
                       last_event_end_time = dt_stop_local
                   
-                  # Create a final "No Game" block from the last game until the future limit
                   if last_event_end_time < future_limit:
                       start_str = last_event_end_time.strftime('%Y%m%d%H%M%S %z')
                       stop_str = future_limit.strftime('%Y%m%d%H%M%S %z')
@@ -126,3 +145,12 @@
 
           if __name__ == "__main__":
               main()
+      - name: Commit and Push EPG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add epg.xml
+          if git diff --staged --quiet;
+            then echo "🟢 No changes to EPG.";
+            else git commit -m "🗓️ Automated EPG update"; git push;
+          fi
