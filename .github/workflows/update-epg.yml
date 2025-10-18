@@ -21,6 +21,8 @@ jobs:
       - name: Install Python Dependencies
         run: pip install beautifulsoup4 requests python-dateutil
       - name: Generate EPG File
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }} # Pass repo name for URL building
         shell: python
         run: |
           import os, json, requests
@@ -34,8 +36,11 @@ jobs:
               "premier-league", "championship", "league-one",
               "league-two", "fa-cup", "league-cup"
           ]
-
+          # Get the repo owner and name from the environment variable
+          repo_owner, repo_name = os.environ.get('GITHUB_REPOSITORY', '/').split('/')
+          
           def fetch_html(url):
+              # ... (this function is unchanged)
               try:
                   print(f"Fetching HTML: {url}")
                   r = requests.get(url, headers=HEADERS)
@@ -43,32 +48,12 @@ jobs:
                   return r.text
               except: return None
 
-          def parse_teams_and_logos(html_content):
-              if not html_content: return {}
-              logo_map = {}
-              soup = BeautifulSoup(html_content, 'html.parser')
-              table = soup.find('table', {'data-testid': 'football-table'})
-              if not table: return {}
-              tbody = table.find('tbody')
-              if not tbody: return {}
-              for row in tbody.find_all('tr'):
-                  cells = row.find_all(['th', 'td'])
-                  if len(cells) < 10: continue
-                  try:
-                      team_name_span = cells[0].find('span', class_='visually-hidden')
-                      team_name = team_name_span.get_text(strip=True) if team_name_span else None
-                      logo_img = cells[0].find('img', class_=lambda c: c and 'BadgeImage' in c)
-                      logo_url = logo_img['src'] if logo_img else ''
-                      if team_name and logo_url:
-                          logo_map[team_name] = logo_url
-                  except: continue
-              return logo_map
-
           def parse_fixtures(html_content, competition_name):
+              # ... (this function is unchanged)
               if not html_content: return []
-              soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
               try:
+                  soup = BeautifulSoup(html_content, 'html.parser')
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
                   data = json.loads(json.loads(json_text))
@@ -83,36 +68,67 @@ jobs:
                   print(f"⚠️ Could not parse fixtures from a page: {e}")
               return fixtures
 
-          def create_epg(all_teams, all_fixtures, logo_map):
+          def main():
+              all_fixtures, all_teams = [], set()
+              logo_map = {}
+              try:
+                  with open('logo_map.json', 'r') as f:
+                      logo_map = json.load(f)
+                  print(f"✅ Successfully loaded {len(logo_map)} logos from map file.")
+              except FileNotFoundError:
+                  print("⚠️ logo_map.json not found. Logos will be missing from EPG.")
+
+              today, next_month_date = datetime.now(), datetime.now() + relativedelta(months=1)
+
+              for slug in LEAGUE_SLUGS:
+                  # ... (The fixture scraping loop is unchanged)
+                  competition_name = slug.replace('-', ' ').title()
+                  if competition_name == "Fa Cup": competition_name = "FA Cup"
+                  if competition_name == "League Cup": competition_name = "EFL Cup"
+                  print(f"\n--- Processing Fixtures for {slug} ---")
+                  base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
+                  for url in [f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}", f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}?filter=fixtures", f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"]:
+                      all_fixtures.extend(parse_fixtures(fetch_html(url), competition_name))
+              
+              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
+              for fix in unique_fixtures:
+                  all_teams.add(fix['home_team'])
+                  all_teams.add(fix['away_team'])
+              
+              print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures.")
+
+              # --- EPG Generation Logic ---
               now_utc = datetime.now(timezone.utc)
               uk_tz = ZoneInfo("Europe/London")
               now_local = now_utc.astimezone(uk_tz)
               future_limit = now_local + timedelta(days=60)
               xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv>'
               team_fixtures = {team: [] for team in all_teams}
-              for fix in all_fixtures:
+              for fix in unique_fixtures:
                   team_fixtures.setdefault(fix['home_team'], []).append(fix)
                   team_fixtures.setdefault(fix['away_team'], []).append(fix)
 
               for team_name in sorted(all_teams):
                   team_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
-                  logo_url = logo_map.get(team_name, "")
+                  
                   xml += f'\n  <channel id="{team_slug}.uk">'
                   xml += f'\n    <display-name lang="en">{team_name}</display-name>'
-                  if logo_url:
-                      xml += f'\n    <icon src="{logo_url}" />'
+                  # Check if we have a logo path in our map
+                  if team_name in logo_map:
+                      # Construct the full public GitHub Pages URL
+                      logo_path = logo_map[team_name]
+                      full_logo_url = f"https://{repo_owner}.github.io/{repo_name}/{logo_path}"
+                      xml += f'\n    <icon src="{full_logo_url}" />'
                   xml += '\n  </channel>'
                   
+                  # ... (rest of programme generation is unchanged) ...
                   sorted_fixtures = sorted(team_fixtures.get(team_name, []), key=lambda x: x['datetime_utc'])
                   next_game_start = datetime.fromisoformat(sorted_fixtures[0]['datetime_utc'].replace('Z', '+00:00')) if sorted_fixtures else None
                   next_game_start_local = next_game_start.astimezone(uk_tz) if next_game_start else None
-                  
                   stop_time = next_game_start_local if next_game_start_local else future_limit
                   if stop_time > now_local:
-                      start_str = now_local.strftime('%Y%m%d%H%M%S %z')
-                      stop_str = stop_time.strftime('%Y%m%d%H%M%S %z')
+                      start_str, stop_str = now_local.strftime('%Y%m%d%H%M%S %z'), stop_time.strftime('%Y%m%d%H%M%S %z')
                       xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">No Game Scheduled</title></programme>'
-                  
                   for fixture in sorted_fixtures:
                       home_team, away_team = fixture['home_team'], fixture['away_team']
                       is_home_game = team_name == home_team
@@ -126,42 +142,6 @@ jobs:
               xml += '\n</tv>'
               with open('epg.xml', 'w', encoding='utf-8') as f: f.write(xml)
               print("✅ EPG file generated successfully.")
-
-          def main():
-              all_fixtures, all_teams, logo_map = [], set(), {}
-              today = datetime.now()
-              next_month_date = today + relativedelta(months=1)
-
-              for slug in LEAGUE_SLUGS:
-                  competition_name = slug.replace('-', ' ').title()
-                  if competition_name == "Fa Cup": competition_name = "FA Cup"
-                  if competition_name == "League Cup": competition_name = "EFL Cup"
-                  
-                  print(f"\n--- Processing {slug} ---")
-                  base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
-                  
-                  # Scrape logos from table pages (if they exist)
-                  table_html = fetch_html(f"{base_url}/table")
-                  if table_html:
-                      logo_map.update(parse_teams_and_logos(table_html))
-
-                  # Scrape fixtures from date-paginated pages
-                  url1 = f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}"
-                  url2 = f"{url1}?filter=fixtures"
-                  url3 = f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
-                  
-                  for url in [url1, url2, url3]:
-                      fixtures_html = fetch_html(url)
-                      all_fixtures.extend(parse_fixtures(fixtures_html, competition_name))
-              
-              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
-              for fix in unique_fixtures:
-                  all_teams.add(fix['home_team'])
-                  all_teams.add(fix['away_team'])
-              
-              print(f"\n✅ Found {len(logo_map)} logos and {len(unique_fixtures)} unique fixtures.")
-
-              create_epg(all_teams, unique_fixtures, logo_map)
 
           if __name__ == "__main__":
               main()
