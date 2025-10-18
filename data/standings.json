@@ -12,13 +12,13 @@
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 25,
+                            "points": 26,
                             "goalsDiff": 9,
                             "form": "LWDWWW",
                             "all": {
-                                "played": 10,
+                                "played": 11,
                                 "win": 8,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 1,
                                 "goals": {
                                     "for": 17,
@@ -26,7 +26,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Lincoln City (A)"
+                            "nextUp": "Bradford City (H)"
                         },
                         {
                             "rank": 2,
@@ -75,6 +75,28 @@
                         {
                             "rank": 4,
                             "team": {
+                                "name": "Lincoln City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
+                            },
+                            "points": 22,
+                            "goalsDiff": 7,
+                            "form": "DDWWWL",
+                            "all": {
+                                "played": 12,
+                                "win": 6,
+                                "draw": 4,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 10
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Leyton Orient (A)"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.4c9076c46a.svg"
                             },
@@ -95,7 +117,7 @@
                             "nextUp": "Exeter City (H)"
                         },
                         {
-                            "rank": 5,
+                            "rank": 6,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -115,28 +137,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Plymouth Argyle (A)"
-                        },
-                        {
-                            "rank": 6,
-                            "team": {
-                                "name": "Lincoln City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
-                            },
-                            "points": 21,
-                            "goalsDiff": 7,
-                            "form": "DDWWWL",
-                            "all": {
-                                "played": 11,
-                                "win": 6,
-                                "draw": 3,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 17,
-                                    "against": 10
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stevenage (H)"
                         },
                         {
                             "rank": 7,
@@ -405,6 +405,28 @@
                         {
                             "rank": 19,
                             "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                            },
+                            "points": 13,
+                            "goalsDiff": -5,
+                            "form": "LDLWDW",
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 4,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 10,
+                                    "against": 15
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "AFC Wimbledon (A)"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.916cb8de39.svg"
                             },
@@ -423,28 +445,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Blackpool (A)"
-                        },
-                        {
-                            "rank": 20,
-                            "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
-                            },
-                            "points": 12,
-                            "goalsDiff": -5,
-                            "form": "LDLWDW",
-                            "all": {
-                                "played": 11,
-                                "win": 3,
-                                "draw": 3,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 10,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Peterborough United (H)"
                         },
                         {
                             "rank": 21,
@@ -518,13 +518,13 @@
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.f9f2ea9723.svg"
                             },
-                            "points": 7,
+                            "points": 8,
                             "goalsDiff": -12,
                             "form": "LLWWLL",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 2,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 8,
                                 "goals": {
                                     "for": 8,
@@ -532,7 +532,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (A)"
+                            "nextUp": "Blackpool (H)"
                         }
                     ]
                 ]
