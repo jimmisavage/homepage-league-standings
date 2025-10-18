@@ -1,32 +1,10 @@
-name: Update EPG
-
-on:
-  schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  generate-epg:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Install Python Dependencies
-        run: pip install beautifulsoup4 requests python-dateutil
-      - name: Generate EPG File
+- name: Generate EPG File
         shell: python
         run: |
           import os, json, requests
           from bs4 import BeautifulSoup
           from datetime import datetime, timedelta, timezone
-          from dateutil.relativedelta import relativedelta
+          from dateutil.relivedelta import relativedelta
           from zoneinfo import ZoneInfo
 
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
@@ -94,9 +72,25 @@ jobs:
                   team_fixtures.setdefault(fix['home_team'], []).append(fix)
                   team_fixtures.setdefault(fix['away_team'], []).append(fix)
 
+              **# Construct the base URL for logo assets**
+              **repo = os.environ['GITHUB_REPOSITORY']**
+              **base_icon_url = f"https://raw.githubusercontent.com/{repo}/main/assets/logos"**
+
               for team_name in sorted(all_teams):
                   team_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
-                  xml += f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name></channel>'
+                  
+                  **# Start building the channel tag with display name**
+                  **channel_xml = f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name>'**
+                  
+                  **# Check for a logo file and add the icon tag if it exists**
+                  **logo_path = f"assets/logos/{team_slug}.png" # Assuming all logos are .png**
+                  **if os.path.exists(logo_path):**
+                      **icon_url = f"{base_icon_url}/{team_slug}.png"**
+                      **channel_xml += f'<icon src="{icon_url}"/>'**
+                  
+                  **# Close the channel tag and add it to the main XML string**
+                  **channel_xml += '</channel>'**
+                  **xml += channel_xml**
                   
                   sorted_fixtures = sorted(team_fixtures.get(team_name, []), key=lambda x: x['datetime_utc'])
                   last_event_end_time = now_local
@@ -132,12 +126,3 @@ jobs:
 
           if __name__ == "__main__":
               main()
-      - name: Commit and Push EPG
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add epg.xml
-          if git diff --staged --quiet;
-            then echo "🟢 No changes to EPG.";
-            else git commit -m "🗓️ Automated EPG update"; git push;
-          fi
