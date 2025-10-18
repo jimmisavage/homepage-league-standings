@@ -38,7 +38,6 @@ jobs:
           output_dir = 'assets/logos'
           os.makedirs(output_dir, exist_ok=True)
 
-          # Get a list of logos we already have
           existing_logos = {f.split('.')[0] for f in os.listdir(output_dir)}
           new_logos_found = False
 
@@ -57,18 +56,20 @@ jobs:
                       
                       team_name_span = cells[0].find('span', class_='visually-hidden')
                       team_name = team_name_span.get_text(strip=True) if team_name_span else None
-                      file_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
+                      file_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-') if team_name else None
                       
-                      # If we don't already have this logo, download it
-                      if team_name and file_slug not in existing_logos:
+                      if team_name and file_slug and file_slug not in existing_logos:
                           logo_img = cells[0].find('img', class_=lambda c: c and 'BadgeImage' in c)
                           logo_url_svg = logo_img['src'] if logo_img else None
                           if logo_url_svg:
-                              print(f"  -> New team found: {team_name}. Downloading logo.")
-                              new_logos_found = True
-                              output_path = f"{output_dir}/{file_slug}.png"
-                              svg_content = requests.get(logo_url_svg).content
-                              cairosvg.svg2png(bytestring=svg_content, write_to=output_path)
+                              try:
+                                  print(f"  -> New team found: {team_name}. Downloading logo.")
+                                  output_path = f"{output_dir}/{file_slug}.png"
+                                  svg_content = requests.get(logo_url_svg).content
+                                  cairosvg.svg2png(bytestring=svg_content, write_to=output_path)
+                                  new_logos_found = True
+                              except Exception as e:
+                                  print(f"    ⚠️ FAILED to convert SVG for {team_name}: {e}")
               except Exception as e:
                   print(f"⚠️ Could not process {slug}: {e}")
                   continue
