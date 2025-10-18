@@ -21,8 +21,6 @@ jobs:
       - name: Install Python Dependencies
         run: pip install beautifulsoup4 requests python-dateutil
       - name: Generate EPG File
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }} # Pass repo name for URL building
         shell: python
         run: |
           import os, json, requests
@@ -36,11 +34,8 @@ jobs:
               "premier-league", "championship", "league-one",
               "league-two", "fa-cup", "league-cup"
           ]
-          # Get the repo owner and name from the environment variable
-          repo_owner, repo_name = os.environ.get('GITHUB_REPOSITORY', '/').split('/')
-          
+
           def fetch_html(url):
-              # ... (this function is unchanged)
               try:
                   print(f"Fetching HTML: {url}")
                   r = requests.get(url, headers=HEADERS)
@@ -49,7 +44,6 @@ jobs:
               except: return None
 
           def parse_fixtures(html_content, competition_name):
-              # ... (this function is unchanged)
               if not html_content: return []
               fixtures = []
               try:
@@ -70,21 +64,14 @@ jobs:
 
           def main():
               all_fixtures, all_teams = [], set()
-              logo_map = {}
-              try:
-                  with open('logo_map.json', 'r') as f:
-                      logo_map = json.load(f)
-                  print(f"✅ Successfully loaded {len(logo_map)} logos from map file.")
-              except FileNotFoundError:
-                  print("⚠️ logo_map.json not found. Logos will be missing from EPG.")
-
-              today, next_month_date = datetime.now(), datetime.now() + relativedelta(months=1)
+              today = datetime.now()
+              next_month_date = today + relativedelta(months=1)
 
               for slug in LEAGUE_SLUGS:
-                  # ... (The fixture scraping loop is unchanged)
                   competition_name = slug.replace('-', ' ').title()
                   if competition_name == "Fa Cup": competition_name = "FA Cup"
                   if competition_name == "League Cup": competition_name = "EFL Cup"
+                  
                   print(f"\n--- Processing Fixtures for {slug} ---")
                   base_url = f"https://www.bbc.co.uk/sport/football/{slug}"
                   for url in [f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}", f"{base_url}/scores-fixtures/{today.strftime('%Y-%m')}?filter=fixtures", f"{base_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"]:
@@ -95,9 +82,8 @@ jobs:
                   all_teams.add(fix['home_team'])
                   all_teams.add(fix['away_team'])
               
-              print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures.")
+              print(f"\n✅ Found {len(unique_fixtures)} total unique fixtures across all competitions.")
 
-              # --- EPG Generation Logic ---
               now_utc = datetime.now(timezone.utc)
               uk_tz = ZoneInfo("Europe/London")
               now_local = now_utc.astimezone(uk_tz)
@@ -110,34 +96,35 @@ jobs:
 
               for team_name in sorted(all_teams):
                   team_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
+                  xml += f'\n  <channel id="{team_slug}.uk"><display-name lang="en">{team_name}</display-name></channel>'
                   
-                  xml += f'\n  <channel id="{team_slug}.uk">'
-                  xml += f'\n    <display-name lang="en">{team_name}</display-name>'
-                  # Check if we have a logo path in our map
-                  if team_name in logo_map:
-                      # Construct the full public GitHub Pages URL
-                      logo_path = logo_map[team_name]
-                      full_logo_url = f"https://{repo_owner}.github.io/{repo_name}/{logo_path}"
-                      xml += f'\n    <icon src="{full_logo_url}" />'
-                  xml += '\n  </channel>'
-                  
-                  # ... (rest of programme generation is unchanged) ...
                   sorted_fixtures = sorted(team_fixtures.get(team_name, []), key=lambda x: x['datetime_utc'])
-                  next_game_start = datetime.fromisoformat(sorted_fixtures[0]['datetime_utc'].replace('Z', '+00:00')) if sorted_fixtures else None
-                  next_game_start_local = next_game_start.astimezone(uk_tz) if next_game_start else None
-                  stop_time = next_game_start_local if next_game_start_local else future_limit
-                  if stop_time > now_local:
-                      start_str, stop_str = now_local.strftime('%Y%m%d%H%M%S %z'), stop_time.strftime('%Y%m%d%H%M%S %z')
-                      xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">No Game Scheduled</title></programme>'
+                  last_event_end_time = now_local
+
                   for fixture in sorted_fixtures:
-                      home_team, away_team = fixture['home_team'], fixture['away_team']
-                      is_home_game = team_name == home_team
-                      opponent, venue = (away_team, "(H)") if is_home_game else (home_team, "(A)")
                       dt_start_utc = datetime.fromisoformat(fixture['datetime_utc'].replace('Z', '+00:00'))
                       dt_start_local = dt_start_utc.astimezone(uk_tz)
+                      
+                      # Create "No Game" block in the gap before this game
+                      if dt_start_local > last_event_end_time:
+                          start_str = last_event_end_time.strftime('%Y%m%d%H%M%S %z')
+                          stop_str = dt_start_local.strftime('%Y%m%d%H%M%S %z')
+                          xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">No Game Scheduled</title></programme>'
+
+                      # Create the actual game programme
                       dt_stop_local = dt_start_local + timedelta(hours=2)
                       start_str, stop_str = dt_start_local.strftime('%Y%m%d%H%M%S %z'), dt_stop_local.strftime('%Y%m%d%H%M%S %z')
+                      opponent = fixture['away_team'] if team_name == fixture['home_team'] else fixture['home_team']
+                      venue = "(H)" if team_name == fixture['home_team'] else "(A)"
                       xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">vs. {opponent} {venue}</title><desc lang="en">{fixture.get("competition", "")}</desc><category lang="en">Sports</category></programme>'
+                      
+                      last_event_end_time = dt_stop_local
+                  
+                  # Create a final "No Game" block from the last game until the future limit
+                  if last_event_end_time < future_limit:
+                      start_str = last_event_end_time.strftime('%Y%m%d%H%M%S %z')
+                      stop_str = future_limit.strftime('%Y%m%d%H%M%S %z')
+                      xml += f'\n  <programme start="{start_str}" stop="{stop_str}" channel="{team_slug}.uk"><title lang="en">No Game Scheduled</title></programme>'
               
               xml += '\n</tv>'
               with open('epg.xml', 'w', encoding='utf-8') as f: f.write(xml)
