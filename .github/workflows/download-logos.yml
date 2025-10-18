@@ -1,0 +1,95 @@
+name: Download and Convert Logos
+
+on:
+  workflow_dispatch: # Allows you to run this manually
+
+permissions:
+  contents: write
+
+jobs:
+  build-logos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install System Dependencies
+        run: sudo apt-get update && sudo apt-get install -y libcairo2
+
+      - name: Install Python Dependencies
+        run: pip install beautifulsoup4 requests cairosvg
+
+      - name: Fetch, Convert, and Save Logos
+        shell: python
+        run: |
+          import os, json, requests
+          from bs4 import BeautifulSoup
+          import cairosvg
+
+          HEADERS = {'User-Agent': 'Mozilla/5.0'}
+          LEAGUE_SLUGS = [
+              "premier-league", "championship", "league-one", "league-two"
+          ]
+          
+          # This map will link a team's full name to its new PNG logo file
+          final_logo_map = {}
+          output_dir = 'assets/logos'
+          os.makedirs(output_dir, exist_ok=True)
+
+          for slug in LEAGUE_SLUGS:
+              print(f"--- Processing {slug} ---")
+              table_url = f"https://www.bbc.co.uk/sport/football/{slug}/table"
+              try:
+                  html_content = requests.get(table_url, headers=HEADERS).text
+                  soup = BeautifulSoup(html_content, 'html.parser')
+                  table = soup.find('table', {'data-testid': 'football-table'})
+                  tbody = table.find('tbody')
+
+                  for row in tbody.find_all('tr'):
+                      cells = row.find_all(['th', 'td'])
+                      if len(cells) < 10: continue
+                      
+                      team_name_span = cells[0].find('span', class_='visually-hidden')
+                      team_name = team_name_span.get_text(strip=True) if team_name_span else None
+                      
+                      logo_img = cells[0].find('img', class_=lambda c: c and 'BadgeImage' in c)
+                      logo_url_svg = logo_img['src'] if logo_img else None
+
+                      if team_name and logo_url_svg:
+                          print(f"Processing {team_name}...")
+                          # Create a clean filename
+                          file_slug = ''.join(c for c in team_name.lower().replace('&', 'and').replace(' ', '-') if c.isalnum() or c == '-')
+                          output_path = f"{output_dir}/{file_slug}.png"
+                          
+                          # Download SVG and convert to PNG
+                          svg_content = requests.get(logo_url_svg).content
+                          cairosvg.svg2png(bytestring=svg_content, write_to=output_path)
+                          
+                          # Store the path for our map file
+                          final_logo_map[team_name] = output_path
+              except Exception as e:
+                  print(f"⚠️ Could not process {slug}: {e}")
+                  continue
+
+          # Save the map file for the EPG script to use
+          with open('logo_map.json', 'w') as f:
+              json.dump(final_logo_map, f, indent=2)
+
+          print(f"✅ Finished! Processed {len(final_logo_map)} logos.")
+
+      - name: Commit Logos and Map File
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/logos/*.png logo_map.json
+          if git diff --staged --quiet; then
+            echo "🟢 No new logos found."
+          else
+            git commit -m "🖼️ Add converted team logos and map file"
+            git push
+          fi
