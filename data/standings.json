@@ -232,17 +232,17 @@
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
-                            "points": 18,
-                            "goalsDiff": -1,
-                            "form": "WLWDLW",
+                            "points": 17,
+                            "goalsDiff": -2,
+                            "form": "LWDLWL",
                             "all": {
                                 "played": 13,
                                 "win": 5,
-                                "draw": 3,
-                                "lose": 5,
+                                "draw": 2,
+                                "lose": 6,
                                 "goals": {
                                     "for": 10,
-                                    "against": 11
+                                    "against": 12
                                 }
                             },
                             "highlight": false,
@@ -339,6 +339,28 @@
                         {
                             "rank": 16,
                             "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.8de8268260.svg"
+                            },
+                            "points": 14,
+                            "goalsDiff": -4,
+                            "form": "WDDDLW",
+                            "all": {
+                                "played": 13,
+                                "win": 3,
+                                "draw": 5,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 14,
+                                    "against": 18
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Doncaster Rovers (H)"
+                        },
+                        {
+                            "rank": 17,
+                            "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.4172044726.svg"
                             },
@@ -359,7 +381,7 @@
                             "nextUp": "Barnsley (A)"
                         },
                         {
-                            "rank": 17,
+                            "rank": 18,
                             "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.916cb8de39.svg"
@@ -381,7 +403,7 @@
                             "nextUp": "Huddersfield Town (H)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 19,
                             "team": {
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.a6d8357fb2.svg"
@@ -403,7 +425,7 @@
                             "nextUp": "Stockport County (H)"
                         },
                         {
-                            "rank": 19,
+                            "rank": 20,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.b9cf31e0d7.svg"
@@ -425,7 +447,7 @@
                             "nextUp": "Plymouth Argyle (H)"
                         },
                         {
-                            "rank": 20,
+                            "rank": 21,
                             "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.a98cfc4134.svg"
@@ -445,28 +467,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Exeter City (A)"
-                        },
-                        {
-                            "rank": 21,
-                            "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.8de8268260.svg"
-                            },
-                            "points": 12,
-                            "goalsDiff": -5,
-                            "form": "LWDDDL",
-                            "all": {
-                                "played": 13,
-                                "win": 2,
-                                "draw": 6,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 13,
-                                    "against": 18
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Doncaster Rovers (H)"
                         },
                         {
                             "rank": 22,
