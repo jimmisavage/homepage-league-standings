@@ -232,13 +232,13 @@
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
-                            "points": 17,
+                            "points": 18,
                             "goalsDiff": -1,
                             "form": "WLWDLW",
                             "all": {
-                                "played": 12,
+                                "played": 13,
                                 "win": 5,
-                                "draw": 2,
+                                "draw": 3,
                                 "lose": 5,
                                 "goals": {
                                     "for": 10,
@@ -246,7 +246,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Reading (A)"
+                            "nextUp": "Luton Town (H)"
                         },
                         {
                             "rank": 12,
@@ -449,6 +449,28 @@
                         {
                             "rank": 21,
                             "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.8de8268260.svg"
+                            },
+                            "points": 12,
+                            "goalsDiff": -5,
+                            "form": "LWDDDL",
+                            "all": {
+                                "played": 13,
+                                "win": 2,
+                                "draw": 6,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 13,
+                                    "against": 18
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Doncaster Rovers (H)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
                             },
@@ -467,28 +489,6 @@
                             },
                             "highlight": false,
                             "nextUp": "AFC Wimbledon (A)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.8de8268260.svg"
-                            },
-                            "points": 11,
-                            "goalsDiff": -5,
-                            "form": "LWDDDL",
-                            "all": {
-                                "played": 12,
-                                "win": 2,
-                                "draw": 5,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 13,
-                                    "against": 18
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Northampton Town (H)"
                         },
                         {
                             "rank": 23,
