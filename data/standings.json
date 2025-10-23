@@ -273,28 +273,6 @@
                         {
                             "rank": 13,
                             "team": {
-                                "name": "Exeter City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.b9cf31e0d7.svg"
-                            },
-                            "points": 16,
-                            "goalsDiff": 0,
-                            "form": "LLLWDL",
-                            "all": {
-                                "played": 14,
-                                "win": 5,
-                                "draw": 1,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 14,
-                                    "against": 14
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wigan Athletic (H)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.a03f486f47.svg"
                             },
@@ -315,7 +293,7 @@
                             "nextUp": "Mansfield Town (A)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 14,
                             "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.e10f2cdaad.svg"
@@ -335,6 +313,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Northampton Town (A)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
+                                "name": "Exeter City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.b9cf31e0d7.svg"
+                            },
+                            "points": 16,
+                            "goalsDiff": -1,
+                            "form": "LLLWDL",
+                            "all": {
+                                "played": 14,
+                                "win": 5,
+                                "draw": 1,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 13,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wigan Athletic (H)"
                         },
                         {
                             "rank": 16,
@@ -453,7 +453,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.a98cfc4134.svg"
                             },
                             "points": 13,
-                            "goalsDiff": -6,
+                            "goalsDiff": -5,
                             "form": "WWLWDL",
                             "all": {
                                 "played": 13,
@@ -462,7 +462,7 @@
                                 "lose": 8,
                                 "goals": {
                                     "for": 17,
-                                    "against": 23
+                                    "against": 22
                                 }
                             },
                             "highlight": false,
