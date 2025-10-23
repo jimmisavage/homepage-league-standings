@@ -320,21 +320,21 @@
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.b9cf31e0d7.svg"
                             },
-                            "points": 14,
-                            "goalsDiff": -2,
+                            "points": 16,
+                            "goalsDiff": -1,
                             "form": "LLLWDL",
                             "all": {
                                 "played": 14,
-                                "win": 4,
-                                "draw": 2,
+                                "win": 5,
+                                "draw": 1,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 12,
+                                    "for": 13,
                                     "against": 14
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (H)"
+                            "nextUp": "Plymouth Argyle (H)"
                         },
                         {
                             "rank": 16,
@@ -361,28 +361,6 @@
                         {
                             "rank": 17,
                             "team": {
-                                "name": "Plymouth Argyle",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.a98cfc4134.svg"
-                            },
-                            "points": 14,
-                            "goalsDiff": -4,
-                            "form": "WWLWDL",
-                            "all": {
-                                "played": 13,
-                                "win": 4,
-                                "draw": 2,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 17,
-                                    "against": 21
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Mansfield Town (A)"
-                        },
-                        {
-                            "rank": 18,
-                            "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.8de8268260.svg"
                             },
@@ -403,7 +381,7 @@
                             "nextUp": "Doncaster Rovers (H)"
                         },
                         {
-                            "rank": 19,
+                            "rank": 18,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.4172044726.svg"
@@ -425,7 +403,7 @@
                             "nextUp": "Barnsley (A)"
                         },
                         {
-                            "rank": 20,
+                            "rank": 19,
                             "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.916cb8de39.svg"
@@ -447,7 +425,7 @@
                             "nextUp": "Huddersfield Town (H)"
                         },
                         {
-                            "rank": 21,
+                            "rank": 20,
                             "team": {
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.a6d8357fb2.svg"
@@ -467,6 +445,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Stockport County (H)"
+                        },
+                        {
+                            "rank": 21,
+                            "team": {
+                                "name": "Plymouth Argyle",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.a98cfc4134.svg"
+                            },
+                            "points": 13,
+                            "goalsDiff": -5,
+                            "form": "WWLWDL",
+                            "all": {
+                                "played": 13,
+                                "win": 4,
+                                "draw": 1,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 22
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Exeter City (A)"
                         },
                         {
                             "rank": 22,
