@@ -12,17 +12,17 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.6f9871e0e8.svg"
                             },
-                            "points": 27,
-                            "goalsDiff": 11,
+                            "points": 26,
+                            "goalsDiff": 10,
                             "form": "DLWLWW",
                             "all": {
                                 "played": 13,
                                 "win": 8,
-                                "draw": 3,
-                                "lose": 2,
+                                "draw": 2,
+                                "lose": 3,
                                 "goals": {
                                     "for": 21,
-                                    "against": 10
+                                    "against": 11
                                 }
                             },
                             "highlight": true,
@@ -144,16 +144,16 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.fd75ea107a.svg"
                             },
-                            "points": 21,
-                            "goalsDiff": 3,
+                            "points": 23,
+                            "goalsDiff": 4,
                             "form": "DWLWLW",
                             "all": {
                                 "played": 14,
-                                "win": 5,
-                                "draw": 6,
+                                "win": 6,
+                                "draw": 5,
                                 "lose": 3,
                                 "goals": {
-                                    "for": 18,
+                                    "for": 19,
                                     "against": 15
                                 }
                             },
