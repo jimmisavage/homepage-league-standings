@@ -189,7 +189,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.9046363950.svg"
                             },
                             "points": 19,
-                            "goalsDiff": 1,
+                            "goalsDiff": 0,
                             "form": "WLDWLL",
                             "all": {
                                 "played": 13,
@@ -198,7 +198,7 @@
                                 "lose": 6,
                                 "goals": {
                                     "for": 18,
-                                    "against": 17
+                                    "against": 18
                                 }
                             },
                             "highlight": false,
@@ -365,7 +365,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.916cb8de39.svg"
                             },
                             "points": 16,
-                            "goalsDiff": 1,
+                            "goalsDiff": 2,
                             "form": "LWLDWD",
                             "all": {
                                 "played": 14,
@@ -373,7 +373,7 @@
                                 "draw": 4,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 17,
+                                    "for": 18,
                                     "against": 16
                                 }
                             },
