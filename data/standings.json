@@ -493,46 +493,46 @@
                         {
                             "rank": 23,
                             "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.f9f2ea9723.svg"
-                            },
-                            "points": 11,
-                            "goalsDiff": -11,
-                            "form": "LWWLLW",
-                            "all": {
-                                "played": 13,
-                                "win": 3,
-                                "draw": 2,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 10,
-                                    "against": 21
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
-                        },
-                        {
-                            "rank": 24,
-                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.feea97454d.svg"
                             },
-                            "points": 10,
-                            "goalsDiff": -10,
+                            "points": 12,
+                            "goalsDiff": -9,
                             "form": "WLDLLD",
                             "all": {
                                 "played": 14,
-                                "win": 2,
-                                "draw": 4,
+                                "win": 3,
+                                "draw": 3,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 12,
+                                    "for": 13,
                                     "against": 22
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Cardiff City (H)"
+                        },
+                        {
+                            "rank": 24,
+                            "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.f9f2ea9723.svg"
+                            },
+                            "points": 10,
+                            "goalsDiff": -12,
+                            "form": "LWWLLW",
+                            "all": {
+                                "played": 13,
+                                "win": 3,
+                                "draw": 1,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 10,
+                                    "against": 22
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "AFC Wimbledon (H)"
                         }
                     ]
                 ]
