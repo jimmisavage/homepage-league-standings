@@ -9,6 +9,28 @@
                         {
                             "rank": 1,
                             "team": {
+                                "name": "Stockport County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.4c9076c46a.svg"
+                            },
+                            "points": 28,
+                            "goalsDiff": 8,
+                            "form": "DWDWWW",
+                            "all": {
+                                "played": 14,
+                                "win": 8,
+                                "draw": 4,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Port Vale (A)"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.6f9871e0e8.svg"
                             },
@@ -29,7 +51,7 @@
                             "nextUp": "Blackpool (A)"
                         },
                         {
-                            "rank": 2,
+                            "rank": 3,
                             "team": {
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
@@ -51,7 +73,7 @@
                             "nextUp": "Reading (A)"
                         },
                         {
-                            "rank": 3,
+                            "rank": 4,
                             "team": {
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.a5f7e984d5.svg"
@@ -71,28 +93,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Lincoln City (H)"
-                        },
-                        {
-                            "rank": 4,
-                            "team": {
-                                "name": "Stockport County",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.4c9076c46a.svg"
-                            },
-                            "points": 25,
-                            "goalsDiff": 5,
-                            "form": "DWDWWW",
-                            "all": {
-                                "played": 13,
-                                "win": 7,
-                                "draw": 4,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 19,
-                                    "against": 14
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 5,
@@ -453,16 +453,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.a6d8357fb2.svg"
                             },
                             "points": 13,
-                            "goalsDiff": -1,
+                            "goalsDiff": -4,
                             "form": "WWWDDL",
                             "all": {
-                                "played": 13,
+                                "played": 14,
                                 "win": 3,
                                 "draw": 4,
-                                "lose": 6,
+                                "lose": 7,
                                 "goals": {
                                     "for": 11,
-                                    "against": 12
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
