@@ -13,15 +13,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.4c9076c46a.svg"
                             },
                             "points": 28,
-                            "goalsDiff": 7,
-                            "form": "DWDWWW",
+                            "goalsDiff": 8,
+                            "form": "WDWWWW",
                             "all": {
                                 "played": 14,
                                 "win": 8,
                                 "draw": 4,
                                 "lose": 2,
                                 "goals": {
-                                    "for": 21,
+                                    "for": 22,
                                     "against": 14
                                 }
                             },
@@ -453,8 +453,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.a6d8357fb2.svg"
                             },
                             "points": 13,
-                            "goalsDiff": -3,
-                            "form": "WWWDDL",
+                            "goalsDiff": -4,
+                            "form": "WWDDLL",
                             "all": {
                                 "played": 14,
                                 "win": 3,
@@ -462,7 +462,7 @@
                                 "lose": 7,
                                 "goals": {
                                     "for": 11,
-                                    "against": 14
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
