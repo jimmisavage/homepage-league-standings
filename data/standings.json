@@ -167,7 +167,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.d70f49e821.svg"
                             },
                             "points": 22,
-                            "goalsDiff": 5,
+                            "goalsDiff": 6,
                             "form": "DLWDWD",
                             "all": {
                                 "played": 14,
@@ -175,7 +175,7 @@
                                 "draw": 4,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 20,
+                                    "for": 21,
                                     "against": 15
                                 }
                             },
@@ -475,7 +475,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.a98cfc4134.svg"
                             },
                             "points": 13,
-                            "goalsDiff": -7,
+                            "goalsDiff": -8,
                             "form": "WLWDLL",
                             "all": {
                                 "played": 14,
@@ -484,7 +484,7 @@
                                 "lose": 9,
                                 "goals": {
                                     "for": 17,
-                                    "against": 24
+                                    "against": 25
                                 }
                             },
                             "highlight": false,
