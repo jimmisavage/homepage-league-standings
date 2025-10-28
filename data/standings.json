@@ -36,7 +36,7 @@
                             },
                             "points": 27,
                             "goalsDiff": 7,
-                            "form": "WWWDDD",
+                            "form": "WWDDDD",
                             "all": {
                                 "played": 14,
                                 "win": 7,
@@ -102,7 +102,7 @@
                             },
                             "points": 25,
                             "goalsDiff": 7,
-                            "form": "WWWLWL",
+                            "form": "WWLWLD",
                             "all": {
                                 "played": 14,
                                 "win": 7,
@@ -168,7 +168,7 @@
                             },
                             "points": 22,
                             "goalsDiff": 6,
-                            "form": "DLWDWD",
+                            "form": "LWDWDW",
                             "all": {
                                 "played": 14,
                                 "win": 6,
@@ -476,7 +476,7 @@
                             },
                             "points": 13,
                             "goalsDiff": -8,
-                            "form": "WLWDLL",
+                            "form": "LWDLLL",
                             "all": {
                                 "played": 14,
                                 "win": 4,
