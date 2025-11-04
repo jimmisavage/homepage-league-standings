@@ -251,24 +251,24 @@
                         {
                             "rank": 12,
                             "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                                "name": "Rotherham United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 18,
-                            "goalsDiff": -4,
-                            "form": "LWDWLW",
+                            "goalsDiff": -3,
+                            "form": "LDWWWD",
                             "all": {
                                 "played": 14,
                                 "win": 5,
                                 "draw": 3,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 13,
-                                    "against": 17
+                                    "for": 15,
+                                    "against": 18
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (A)"
+                            "nextUp": "Lincoln City (H)"
                         },
                         {
                             "rank": 13,
@@ -361,28 +361,6 @@
                         {
                             "rank": 17,
                             "team": {
-                                "name": "Rotherham United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
-                            },
-                            "points": 17,
-                            "goalsDiff": -4,
-                            "form": "LLDWWW",
-                            "all": {
-                                "played": 14,
-                                "win": 5,
-                                "draw": 2,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 14,
-                                    "against": 18
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Lincoln City (H)"
-                        },
-                        {
-                            "rank": 18,
-                            "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
@@ -403,7 +381,7 @@
                             "nextUp": "Leyton Orient (H)"
                         },
                         {
-                            "rank": 19,
+                            "rank": 18,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
@@ -423,6 +401,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Wigan Athletic (H)"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                            },
+                            "points": 16,
+                            "goalsDiff": -5,
+                            "form": "WDWLWD",
+                            "all": {
+                                "played": 14,
+                                "win": 4,
+                                "draw": 4,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 13,
+                                    "against": 18
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bradford City (A)"
                         },
                         {
                             "rank": 20,
