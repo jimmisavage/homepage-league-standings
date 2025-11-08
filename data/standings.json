@@ -57,7 +57,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 27,
-                            "goalsDiff": 6,
+                            "goalsDiff": 5,
                             "form": "WWDDDD",
                             "all": {
                                 "played": 15,
@@ -66,7 +66,7 @@
                                 "lose": 2,
                                 "goals": {
                                     "for": 23,
-                                    "against": 17
+                                    "against": 18
                                 }
                             },
                             "highlight": false,
@@ -343,7 +343,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
                             },
                             "points": 19,
-                            "goalsDiff": -4,
+                            "goalsDiff": -3,
                             "form": "WDWLWD",
                             "all": {
                                 "played": 15,
@@ -351,7 +351,7 @@
                                 "draw": 4,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 14,
+                                    "for": 15,
                                     "against": 18
                                 }
                             },
