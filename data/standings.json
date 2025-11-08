@@ -14,7 +14,7 @@
                             },
                             "points": 28,
                             "goalsDiff": 5,
-                            "form": "WDWWWW",
+                            "form": "DWWWWL",
                             "all": {
                                 "played": 15,
                                 "win": 8,
@@ -36,7 +36,7 @@
                             },
                             "points": 27,
                             "goalsDiff": 6,
-                            "form": "WWDDDD",
+                            "form": "WDDDDL",
                             "all": {
                                 "played": 15,
                                 "win": 7,
@@ -58,7 +58,7 @@
                             },
                             "points": 26,
                             "goalsDiff": 8,
-                            "form": "WLWLWW",
+                            "form": "LWLWWW",
                             "all": {
                                 "played": 15,
                                 "win": 7,
@@ -79,15 +79,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
                             "points": 26,
-                            "goalsDiff": 7,
-                            "form": "LWLWWL",
+                            "goalsDiff": 8,
+                            "form": "WLWWLL",
                             "all": {
                                 "played": 14,
                                 "win": 8,
                                 "draw": 2,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 21,
+                                    "for": 22,
                                     "against": 14
                                 }
                             },
@@ -124,7 +124,7 @@
                             },
                             "points": 25,
                             "goalsDiff": 4,
-                            "form": "WWLWLD",
+                            "form": "WLWLDL",
                             "all": {
                                 "played": 15,
                                 "win": 7,
@@ -145,8 +145,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
                             "points": 25,
-                            "goalsDiff": 0,
-                            "form": "WWWDWL",
+                            "goalsDiff": -1,
+                            "form": "WWDWLL",
                             "all": {
                                 "played": 15,
                                 "win": 8,
@@ -154,7 +154,7 @@
                                 "lose": 6,
                                 "goals": {
                                     "for": 19,
-                                    "against": 19
+                                    "against": 20
                                 }
                             },
                             "highlight": false,
@@ -190,7 +190,7 @@
                             },
                             "points": 22,
                             "goalsDiff": 3,
-                            "form": "LWDLLW",
+                            "form": "WDLLWW",
                             "all": {
                                 "played": 14,
                                 "win": 7,
@@ -212,7 +212,7 @@
                             },
                             "points": 22,
                             "goalsDiff": 2,
-                            "form": "LDWLLL",
+                            "form": "DWLLLW",
                             "all": {
                                 "played": 14,
                                 "win": 7,
@@ -234,7 +234,7 @@
                             },
                             "points": 21,
                             "goalsDiff": 2,
-                            "form": "WLLDDL",
+                            "form": "LLDDLW",
                             "all": {
                                 "played": 13,
                                 "win": 6,
@@ -256,7 +256,7 @@
                             },
                             "points": 21,
                             "goalsDiff": 0,
-                            "form": "LDWWWD",
+                            "form": "DWWWDW",
                             "all": {
                                 "played": 15,
                                 "win": 6,
@@ -322,7 +322,7 @@
                             },
                             "points": 19,
                             "goalsDiff": -4,
-                            "form": "WDWLWD",
+                            "form": "DWLWDW",
                             "all": {
                                 "played": 15,
                                 "win": 5,
@@ -344,7 +344,7 @@
                             },
                             "points": 18,
                             "goalsDiff": -1,
-                            "form": "LLDLWD",
+                            "form": "LDLWDD",
                             "all": {
                                 "played": 15,
                                 "win": 4,
@@ -388,7 +388,7 @@
                             },
                             "points": 18,
                             "goalsDiff": -7,
-                            "form": "LLDLLD",
+                            "form": "LDLLDL",
                             "all": {
                                 "played": 15,
                                 "win": 5,
@@ -410,7 +410,7 @@
                             },
                             "points": 17,
                             "goalsDiff": 0,
-                            "form": "LLWDLW",
+                            "form": "LWDLWD",
                             "all": {
                                 "played": 15,
                                 "win": 5,
@@ -453,8 +453,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 15,
-                            "goalsDiff": -6,
-                            "form": "LDLLDW",
+                            "goalsDiff": -7,
+                            "form": "DLLDWW",
                             "all": {
                                 "played": 15,
                                 "win": 4,
@@ -462,7 +462,7 @@
                                 "lose": 8,
                                 "goals": {
                                     "for": 16,
-                                    "against": 22
+                                    "against": 23
                                 }
                             },
                             "highlight": false,
@@ -475,15 +475,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 13,
-                            "goalsDiff": -8,
-                            "form": "WWLLWL",
+                            "goalsDiff": -7,
+                            "form": "WLLWLW",
                             "all": {
                                 "played": 14,
                                 "win": 4,
                                 "draw": 1,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 14,
+                                    "for": 15,
                                     "against": 22
                                 }
                             },
@@ -498,7 +498,7 @@
                             },
                             "points": 13,
                             "goalsDiff": -8,
-                            "form": "WWDDLL",
+                            "form": "WDDLLL",
                             "all": {
                                 "played": 15,
                                 "win": 3,
@@ -520,7 +520,7 @@
                             },
                             "points": 13,
                             "goalsDiff": -10,
-                            "form": "LWDLLL",
+                            "form": "WDLLLL",
                             "all": {
                                 "played": 15,
                                 "win": 4,
