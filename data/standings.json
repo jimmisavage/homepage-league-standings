@@ -97,28 +97,6 @@
                         {
                             "rank": 5,
                             "team": {
-                                "name": "Mansfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
-                            },
-                            "points": 25,
-                            "goalsDiff": 7,
-                            "form": "LWDWDW",
-                            "all": {
-                                "played": 15,
-                                "win": 7,
-                                "draw": 4,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 22,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Huddersfield Town (H)"
-                        },
-                        {
-                            "rank": 6,
-                            "team": {
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
@@ -139,7 +117,7 @@
                             "nextUp": "Rotherham United (A)"
                         },
                         {
-                            "rank": 7,
+                            "rank": 6,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -161,7 +139,7 @@
                             "nextUp": "Peterborough United (A)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 7,
                             "team": {
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
@@ -183,21 +161,65 @@
                             "nextUp": "Port Vale (H)"
                         },
                         {
+                            "rank": 8,
+                            "team": {
+                                "name": "Mansfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
+                            },
+                            "points": 22,
+                            "goalsDiff": 5,
+                            "form": "WDWDWL",
+                            "all": {
+                                "played": 15,
+                                "win": 6,
+                                "draw": 4,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 17
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Huddersfield Town (H)"
+                        },
+                        {
                             "rank": 9,
+                            "team": {
+                                "name": "Northampton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
+                            },
+                            "points": 20,
+                            "goalsDiff": -2,
+                            "form": "DLWLLW",
+                            "all": {
+                                "played": 15,
+                                "win": 6,
+                                "draw": 2,
+                                "lose": 7,
+                                "goals": {
+                                    "for": 12,
+                                    "against": 14
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (H)"
+                        },
+                        {
+                            "rank": 10,
                             "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
                             "points": 19,
-                            "goalsDiff": 4,
-                            "form": "WLDWDW",
+                            "goalsDiff": 5,
+                            "form": "LDWDWW",
                             "all": {
                                 "played": 15,
                                 "win": 5,
                                 "draw": 4,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 21,
+                                    "for": 22,
                                     "against": 17
                                 }
                             },
@@ -205,7 +227,7 @@
                             "nextUp": "Port Vale (A)"
                         },
                         {
-                            "rank": 10,
+                            "rank": 11,
                             "team": {
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
@@ -227,7 +249,7 @@
                             "nextUp": "Plymouth Argyle (H)"
                         },
                         {
-                            "rank": 11,
+                            "rank": 12,
                             "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
@@ -249,7 +271,7 @@
                             "nextUp": "Stockport County (A)"
                         },
                         {
-                            "rank": 12,
+                            "rank": 13,
                             "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
@@ -271,7 +293,7 @@
                             "nextUp": "Doncaster Rovers (A)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
@@ -293,7 +315,7 @@
                             "nextUp": "Rotherham United (H)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
@@ -315,7 +337,7 @@
                             "nextUp": "Lincoln City (H)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 16,
                             "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
@@ -337,7 +359,7 @@
                             "nextUp": "Barnsley (H)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 17,
                             "team": {
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
@@ -359,14 +381,14 @@
                             "nextUp": "Exeter City (A)"
                         },
                         {
-                            "rank": 17,
+                            "rank": 18,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
                             },
                             "points": 17,
-                            "goalsDiff": -4,
-                            "form": "LLLWLW",
+                            "goalsDiff": -5,
+                            "form": "LLWLWL",
                             "all": {
                                 "played": 15,
                                 "win": 5,
@@ -374,33 +396,11 @@
                                 "lose": 8,
                                 "goals": {
                                     "for": 22,
-                                    "against": 26
+                                    "against": 27
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Exeter City (H)"
-                        },
-                        {
-                            "rank": 18,
-                            "team": {
-                                "name": "Northampton Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
-                            },
-                            "points": 17,
-                            "goalsDiff": -4,
-                            "form": "WDLWLL",
-                            "all": {
-                                "played": 15,
-                                "win": 5,
-                                "draw": 2,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 10,
-                                    "against": 14
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (H)"
                         },
                         {
                             "rank": 19,
