@@ -97,28 +97,6 @@
                         {
                             "rank": 5,
                             "team": {
-                                "name": "AFC Wimbledon",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
-                            },
-                            "points": 26,
-                            "goalsDiff": 4,
-                            "form": "WWWDWL",
-                            "all": {
-                                "played": 15,
-                                "win": 8,
-                                "draw": 2,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 19,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wigan Athletic (H)"
-                        },
-                        {
-                            "rank": 6,
-                            "team": {
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
@@ -137,6 +115,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Doncaster Rovers (H)"
+                        },
+                        {
+                            "rank": 6,
+                            "team": {
+                                "name": "AFC Wimbledon",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
+                            },
+                            "points": 25,
+                            "goalsDiff": 2,
+                            "form": "WWWDWL",
+                            "all": {
+                                "played": 15,
+                                "win": 8,
+                                "draw": 1,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 17
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wigan Athletic (H)"
                         },
                         {
                             "rank": 7,
@@ -518,16 +518,16 @@
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
-                            "points": 11,
-                            "goalsDiff": -12,
+                            "points": 13,
+                            "goalsDiff": -10,
                             "form": "WWLLWL",
                             "all": {
                                 "played": 14,
-                                "win": 3,
-                                "draw": 2,
+                                "win": 4,
+                                "draw": 1,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 10,
+                                    "for": 12,
                                     "against": 22
                                 }
                             },
