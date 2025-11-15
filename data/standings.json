@@ -43,8 +43,8 @@
                                 "draw": 4,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 19,
-                                    "against": 14
+                                    "for": 20,
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
@@ -251,6 +251,28 @@
                         {
                             "rank": 12,
                             "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                            },
+                            "points": 22,
+                            "goalsDiff": -3,
+                            "form": "DWLWDW",
+                            "all": {
+                                "played": 16,
+                                "win": 6,
+                                "draw": 4,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 19
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Exeter City (A)"
+                        },
+                        {
+                            "rank": 13,
+                            "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
@@ -271,7 +293,7 @@
                             "nextUp": "Luton Town (H)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
@@ -291,28 +313,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Lincoln City (H)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
-                                "name": "Exeter City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
-                            },
-                            "points": 20,
-                            "goalsDiff": 1,
-                            "form": "LWDLWD",
-                            "all": {
-                                "played": 16,
-                                "win": 6,
-                                "draw": 2,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 16,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 15,
@@ -339,24 +339,24 @@
                         {
                             "rank": 16,
                             "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                                "name": "Leyton Orient",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
                             },
                             "points": 20,
                             "goalsDiff": -4,
-                            "form": "DWLWDW",
+                            "form": "LLWLWL",
                             "all": {
                                 "played": 16,
-                                "win": 5,
-                                "draw": 5,
-                                "lose": 6,
+                                "win": 6,
+                                "draw": 2,
+                                "lose": 8,
                                 "goals": {
-                                    "for": 15,
-                                    "against": 19
+                                    "for": 24,
+                                    "against": 28
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Exeter City (A)"
+                            "nextUp": "Blackpool (H)"
                         },
                         {
                             "rank": 17,
@@ -417,8 +417,8 @@
                                 "draw": 3,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 14,
-                                    "against": 22
+                                    "for": 15,
+                                    "against": 23
                                 }
                             },
                             "highlight": false,
@@ -427,24 +427,24 @@
                         {
                             "rank": 20,
                             "team": {
-                                "name": "Leyton Orient",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
+                                "name": "Exeter City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
                             },
                             "points": 17,
-                            "goalsDiff": -6,
-                            "form": "LLWLWL",
+                            "goalsDiff": -1,
+                            "form": "LWDLWD",
                             "all": {
                                 "played": 16,
                                 "win": 5,
                                 "draw": 2,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 22,
-                                    "against": 28
+                                    "for": 16,
+                                    "against": 17
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Blackpool (H)"
+                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 21,
@@ -452,17 +452,17 @@
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
-                            "points": 16,
-                            "goalsDiff": -7,
+                            "points": 15,
+                            "goalsDiff": -8,
                             "form": "DLLDWW",
                             "all": {
                                 "played": 16,
                                 "win": 4,
-                                "draw": 4,
-                                "lose": 8,
+                                "draw": 3,
+                                "lose": 9,
                                 "goals": {
                                     "for": 16,
-                                    "against": 23
+                                    "against": 24
                                 }
                             },
                             "highlight": false,
