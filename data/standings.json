@@ -295,6 +295,28 @@
                         {
                             "rank": 14,
                             "team": {
+                                "name": "Exeter City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
+                            },
+                            "points": 20,
+                            "goalsDiff": 1,
+                            "form": "LWDLWD",
+                            "all": {
+                                "played": 16,
+                                "win": 6,
+                                "draw": 2,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 15
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Burton Albion (H)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
@@ -315,7 +337,7 @@
                             "nextUp": "Cardiff City (H)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 16,
                             "team": {
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
@@ -335,28 +357,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Exeter City (A)"
-                        },
-                        {
-                            "rank": 16,
-                            "team": {
-                                "name": "Exeter City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
-                            },
-                            "points": 18,
-                            "goalsDiff": 0,
-                            "form": "LWDLWD",
-                            "all": {
-                                "played": 16,
-                                "win": 5,
-                                "draw": 3,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 15,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 17,
@@ -405,28 +405,6 @@
                         {
                             "rank": 19,
                             "team": {
-                                "name": "Leyton Orient",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
-                            },
-                            "points": 18,
-                            "goalsDiff": -5,
-                            "form": "LLWLWL",
-                            "all": {
-                                "played": 16,
-                                "win": 5,
-                                "draw": 3,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 22,
-                                    "against": 27
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Blackpool (H)"
-                        },
-                        {
-                            "rank": 20,
-                            "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
                             },
@@ -445,6 +423,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Stevenage (A)"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
+                                "name": "Leyton Orient",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
+                            },
+                            "points": 17,
+                            "goalsDiff": -6,
+                            "form": "LLWLWL",
+                            "all": {
+                                "played": 16,
+                                "win": 5,
+                                "draw": 2,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 28
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Blackpool (H)"
                         },
                         {
                             "rank": 21,
