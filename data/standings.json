@@ -35,7 +35,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
                             "points": 28,
-                            "goalsDiff": 4,
+                            "goalsDiff": 3,
                             "form": "DWWWWL",
                             "all": {
                                 "played": 16,
@@ -44,7 +44,7 @@
                                 "lose": 4,
                                 "goals": {
                                     "for": 22,
-                                    "against": 18
+                                    "against": 19
                                 }
                             },
                             "highlight": false,
@@ -453,7 +453,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 16,
-                            "goalsDiff": -6,
+                            "goalsDiff": -5,
                             "form": "WLLWLW",
                             "all": {
                                 "played": 15,
@@ -461,7 +461,7 @@
                                 "draw": 1,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 16,
+                                    "for": 17,
                                     "against": 22
                                 }
                             },
