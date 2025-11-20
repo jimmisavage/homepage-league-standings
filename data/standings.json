@@ -9,28 +9,6 @@
                         {
                             "rank": 1,
                             "team": {
-                                "name": "Stockport County",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
-                            },
-                            "points": 28,
-                            "goalsDiff": 5,
-                            "form": "DWWWWL",
-                            "all": {
-                                "played": 15,
-                                "win": 8,
-                                "draw": 4,
-                                "lose": 3,
-                                "goals": {
-                                    "for": 22,
-                                    "against": 17
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Peterborough United (A)"
-                        },
-                        {
-                            "rank": 2,
-                            "team": {
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
@@ -49,6 +27,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Wycombe Wanderers (A)"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
+                                "name": "Stockport County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
+                            },
+                            "points": 28,
+                            "goalsDiff": 4,
+                            "form": "DWWWWL",
+                            "all": {
+                                "played": 16,
+                                "win": 8,
+                                "draw": 4,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 18
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Barnsley (H)"
                         },
                         {
                             "rank": 3,
@@ -449,6 +449,28 @@
                         {
                             "rank": 21,
                             "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 16,
+                            "goalsDiff": -6,
+                            "form": "WLLWLW",
+                            "all": {
+                                "played": 15,
+                                "win": 5,
+                                "draw": 1,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 22
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Stevenage (H)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
@@ -469,7 +491,7 @@
                             "nextUp": "Leyton Orient (A)"
                         },
                         {
-                            "rank": 22,
+                            "rank": 23,
                             "team": {
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
@@ -489,28 +511,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Plymouth Argyle (H)"
-                        },
-                        {
-                            "rank": 23,
-                            "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 13,
-                            "goalsDiff": -7,
-                            "form": "WLLWLW",
-                            "all": {
-                                "played": 14,
-                                "win": 4,
-                                "draw": 1,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 15,
-                                    "against": 22
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stockport County (H)"
                         },
                         {
                             "rank": 24,
