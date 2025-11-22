@@ -57,7 +57,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
                             "points": 28,
-                            "goalsDiff": 4,
+                            "goalsDiff": 3,
                             "form": "LWLDLW",
                             "all": {
                                 "played": 17,
@@ -66,7 +66,7 @@
                                 "lose": 5,
                                 "goals": {
                                     "for": 20,
-                                    "against": 16
+                                    "against": 17
                                 }
                             },
                             "highlight": false,
@@ -211,7 +211,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
                             "points": 24,
-                            "goalsDiff": 4,
+                            "goalsDiff": 5,
                             "form": "LLDDLW",
                             "all": {
                                 "played": 14,
@@ -219,7 +219,7 @@
                                 "draw": 3,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 22,
+                                    "for": 23,
                                     "against": 18
                                 }
                             },
@@ -233,7 +233,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
                             "points": 23,
-                            "goalsDiff": 6,
+                            "goalsDiff": 7,
                             "form": "DWDWWD",
                             "all": {
                                 "played": 17,
@@ -241,7 +241,7 @@
                                 "draw": 5,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 23,
+                                    "for": 24,
                                     "against": 17
                                 }
                             },
@@ -255,7 +255,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
                             "points": 23,
-                            "goalsDiff": 1,
+                            "goalsDiff": 0,
                             "form": "DLLWWD",
                             "all": {
                                 "played": 16,
@@ -264,7 +264,7 @@
                                 "lose": 7,
                                 "goals": {
                                     "for": 18,
-                                    "against": 17
+                                    "against": 18
                                 }
                             },
                             "highlight": false,
