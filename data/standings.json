@@ -496,13 +496,13 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 14,
+                            "points": 15,
                             "goalsDiff": -8,
                             "form": "DDLLLD",
                             "all": {
-                                "played": 16,
+                                "played": 17,
                                 "win": 3,
-                                "draw": 5,
+                                "draw": 6,
                                 "lose": 8,
                                 "goals": {
                                     "for": 11,
@@ -510,7 +510,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Plymouth Argyle (H)"
+                            "nextUp": "Lincoln City (A)"
                         },
                         {
                             "rank": 24,
@@ -518,13 +518,13 @@
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
-                            "points": 13,
+                            "points": 14,
                             "goalsDiff": -10,
                             "form": "WDLLLL",
                             "all": {
-                                "played": 15,
+                                "played": 16,
                                 "win": 4,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 10,
                                 "goals": {
                                     "for": 18,
@@ -532,7 +532,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (A)"
+                            "nextUp": "Northampton Town (H)"
                         }
                     ]
                 ]
