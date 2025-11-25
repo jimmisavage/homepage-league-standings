@@ -9,6 +9,28 @@
                         {
                             "rank": 1,
                             "team": {
+                                "name": "Stevenage",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
+                            },
+                            "points": 30,
+                            "goalsDiff": 8,
+                            "form": "WWLDLD",
+                            "all": {
+                                "played": 15,
+                                "win": 9,
+                                "draw": 3,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 11
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wigan Athletic (A)"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
@@ -29,7 +51,7 @@
                             "nextUp": "Mansfield Town (H)"
                         },
                         {
-                            "rank": 2,
+                            "rank": 3,
                             "team": {
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
@@ -51,7 +73,7 @@
                             "nextUp": "Exeter City (H)"
                         },
                         {
-                            "rank": 3,
+                            "rank": 4,
                             "team": {
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
@@ -73,7 +95,7 @@
                             "nextUp": "Port Vale (H)"
                         },
                         {
-                            "rank": 4,
+                            "rank": 5,
                             "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
@@ -95,7 +117,7 @@
                             "nextUp": "Barnsley (H)"
                         },
                         {
-                            "rank": 5,
+                            "rank": 6,
                             "team": {
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
@@ -117,51 +139,51 @@
                             "nextUp": "Luton Town (A)"
                         },
                         {
-                            "rank": 6,
+                            "rank": 7,
                             "team": {
-                                "name": "Stevenage",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
+                                "name": "Luton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 27,
-                            "goalsDiff": 7,
-                            "form": "WWLDLD",
+                            "points": 26,
+                            "goalsDiff": -1,
+                            "form": "LLWWDL",
                             "all": {
-                                "played": 14,
+                                "played": 17,
                                 "win": 8,
-                                "draw": 3,
-                                "lose": 3,
+                                "draw": 2,
+                                "lose": 7,
                                 "goals": {
-                                    "for": 18,
-                                    "against": 11
+                                    "for": 19,
+                                    "against": 20
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (A)"
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
-                            "rank": 7,
+                            "rank": 8,
                             "team": {
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
                             "points": 25,
-                            "goalsDiff": 4,
+                            "goalsDiff": 3,
                             "form": "WLLLWW",
                             "all": {
-                                "played": 15,
+                                "played": 16,
                                 "win": 8,
                                 "draw": 1,
-                                "lose": 6,
+                                "lose": 7,
                                 "goals": {
                                     "for": 24,
-                                    "against": 20
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
                             "nextUp": "AFC Wimbledon (H)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 9,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -183,7 +205,7 @@
                             "nextUp": "Huddersfield Town (A)"
                         },
                         {
-                            "rank": 9,
+                            "rank": 10,
                             "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
@@ -205,7 +227,7 @@
                             "nextUp": "Stockport County (A)"
                         },
                         {
-                            "rank": 10,
+                            "rank": 11,
                             "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
@@ -227,7 +249,7 @@
                             "nextUp": "Rotherham United (A)"
                         },
                         {
-                            "rank": 11,
+                            "rank": 12,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
@@ -247,28 +269,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Wycombe Wanderers (H)"
-                        },
-                        {
-                            "rank": 12,
-                            "team": {
-                                "name": "Luton Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
-                            },
-                            "points": 23,
-                            "goalsDiff": -2,
-                            "form": "LLWWDL",
-                            "all": {
-                                "played": 16,
-                                "win": 7,
-                                "draw": 2,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 18,
-                                    "against": 20
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 13,
@@ -453,16 +453,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 16,
-                            "goalsDiff": -4,
+                            "goalsDiff": -5,
                             "form": "LLWLWW",
                             "all": {
-                                "played": 15,
+                                "played": 16,
                                 "win": 5,
                                 "draw": 1,
-                                "lose": 9,
+                                "lose": 10,
                                 "goals": {
                                     "for": 18,
-                                    "against": 22
+                                    "against": 23
                                 }
                             },
                             "highlight": false,
