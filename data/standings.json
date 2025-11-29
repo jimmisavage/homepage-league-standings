@@ -26,7 +26,7 @@
                                 }
                             },
                             "highlight": true,
-                            "nextUp": "Mansfield Town (H)"
+                            "nextUp": "Huddersfield Town (H)"
                         },
                         {
                             "rank": 2,
@@ -48,7 +48,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (A)"
+                            "nextUp": "Cardiff City (H)"
                         },
                         {
                             "rank": 3,
@@ -70,7 +70,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Exeter City (H)"
+                            "nextUp": "Plymouth Argyle (A)"
                         },
                         {
                             "rank": 4,
@@ -92,7 +92,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (H)"
+                            "nextUp": "Barnsley (H)"
                         },
                         {
                             "rank": 5,
@@ -114,7 +114,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Luton Town (A)"
+                            "nextUp": "Mansfield Town (A)"
                         },
                         {
                             "rank": 6,
@@ -158,7 +158,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Huddersfield Town (A)"
+                            "nextUp": "Exeter City (A)"
                         },
                         {
                             "rank": 8,
@@ -180,7 +180,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Rotherham United (A)"
+                            "nextUp": "Plymouth Argyle (H)"
                         },
                         {
                             "rank": 9,
@@ -202,7 +202,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
+                            "nextUp": "Leyton Orient (A)"
                         },
                         {
                             "rank": 10,
@@ -246,7 +246,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
+                            "nextUp": "Cardiff City (A)"
                         },
                         {
                             "rank": 12,
@@ -268,7 +268,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (A)"
+                            "nextUp": "Luton Town (H)"
                         },
                         {
                             "rank": 13,
@@ -290,7 +290,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wycombe Wanderers (H)"
+                            "nextUp": "Blackpool (H)"
                         },
                         {
                             "rank": 14,
@@ -312,7 +312,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Cardiff City (A)"
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 15,
@@ -356,7 +356,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stevenage (H)"
+                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 17,
@@ -378,7 +378,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Leyton Orient (H)"
+                            "nextUp": "Wigan Athletic (A)"
                         },
                         {
                             "rank": 18,
@@ -400,7 +400,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Peterborough United (H)"
+                            "nextUp": "Stockport County (H)"
                         },
                         {
                             "rank": 19,
@@ -422,7 +422,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Plymouth Argyle (A)"
+                            "nextUp": "Huddersfield Town (H)"
                         },
                         {
                             "rank": 20,
@@ -444,7 +444,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (A)"
+                            "nextUp": "AFC Wimbledon (H)"
                         },
                         {
                             "rank": 21,
@@ -466,7 +466,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Northampton Town (H)"
+                            "nextUp": "Bradford City (H)"
                         },
                         {
                             "rank": 22,
@@ -488,7 +488,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Doncaster Rovers (A)"
+                            "nextUp": "Reading (A)"
                         },
                         {
                             "rank": 23,
@@ -532,7 +532,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Lincoln City (A)"
+                            "nextUp": "Bradford City (H)"
                         }
                     ]
                 ]
