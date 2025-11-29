@@ -53,28 +53,6 @@
                         {
                             "rank": 3,
                             "team": {
-                                "name": "Stockport County",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
-                            },
-                            "points": 29,
-                            "goalsDiff": 2,
-                            "form": "WWWLLD",
-                            "all": {
-                                "played": 17,
-                                "win": 8,
-                                "draw": 5,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 23,
-                                    "against": 21
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Doncaster Rovers (A)"
-                        },
-                        {
-                            "rank": 4,
-                            "team": {
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
@@ -95,7 +73,7 @@
                             "nextUp": "Exeter City (H)"
                         },
                         {
-                            "rank": 5,
+                            "rank": 4,
                             "team": {
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
@@ -117,7 +95,51 @@
                             "nextUp": "Port Vale (H)"
                         },
                         {
+                            "rank": 5,
+                            "team": {
+                                "name": "Stockport County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
+                            },
+                            "points": 28,
+                            "goalsDiff": 1,
+                            "form": "WWWWLL",
+                            "all": {
+                                "played": 17,
+                                "win": 8,
+                                "draw": 4,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 21
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Doncaster Rovers (A)"
+                        },
+                        {
                             "rank": 6,
+                            "team": {
+                                "name": "Barnsley",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
+                            },
+                            "points": 27,
+                            "goalsDiff": 8,
+                            "form": "LDDLWW",
+                            "all": {
+                                "played": 15,
+                                "win": 8,
+                                "draw": 3,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 26,
+                                    "against": 18
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Lincoln City (A)"
+                        },
+                        {
+                            "rank": 7,
                             "team": {
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
@@ -139,7 +161,7 @@
                             "nextUp": "Luton Town (A)"
                         },
                         {
-                            "rank": 7,
+                            "rank": 8,
                             "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
@@ -159,28 +181,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
-                                "name": "Barnsley",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
-                            },
-                            "points": 25,
-                            "goalsDiff": 7,
-                            "form": "DDLWWD",
-                            "all": {
-                                "played": 15,
-                                "win": 7,
-                                "draw": 4,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 26,
-                                    "against": 19
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Lincoln City (A)"
                         },
                         {
                             "rank": 9,
@@ -299,15 +299,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
                             "points": 22,
-                            "goalsDiff": 0,
-                            "form": "LWDWDW",
+                            "goalsDiff": -1,
+                            "form": "DLWDWD",
                             "all": {
                                 "played": 17,
                                 "win": 5,
                                 "draw": 7,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 20,
+                                    "for": 19,
                                     "against": 20
                                 }
                             },
@@ -497,8 +497,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 16,
-                            "goalsDiff": -11,
-                            "form": "DWWLDL",
+                            "goalsDiff": -10,
+                            "form": "LDWWLD",
                             "all": {
                                 "played": 18,
                                 "win": 4,
@@ -506,7 +506,7 @@
                                 "lose": 10,
                                 "goals": {
                                     "for": 17,
-                                    "against": 28
+                                    "against": 27
                                 }
                             },
                             "highlight": false,
