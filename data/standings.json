@@ -229,6 +229,28 @@
                         {
                             "rank": 11,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
+                            },
+                            "points": 25,
+                            "goalsDiff": 1,
+                            "form": "LWDDWD",
+                            "all": {
+                                "played": 18,
+                                "win": 6,
+                                "draw": 7,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 21,
+                                    "against": 20
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Huddersfield Town (A)"
+                        },
+                        {
+                            "rank": 12,
+                            "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
@@ -249,7 +271,7 @@
                             "nextUp": "Plymouth Argyle (H)"
                         },
                         {
-                            "rank": 12,
+                            "rank": 13,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -271,7 +293,7 @@
                             "nextUp": "Luton Town (H)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
@@ -291,28 +313,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Blackpool (H)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
-                            },
-                            "points": 23,
-                            "goalsDiff": 0,
-                            "form": "LWDDWD",
-                            "all": {
-                                "played": 18,
-                                "win": 5,
-                                "draw": 8,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 20,
-                                    "against": 20
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Huddersfield Town (A)"
                         },
                         {
                             "rank": 15,
@@ -339,28 +339,6 @@
                         {
                             "rank": 16,
                             "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
-                            },
-                            "points": 23,
-                            "goalsDiff": -7,
-                            "form": "LWDWWL",
-                            "all": {
-                                "played": 18,
-                                "win": 6,
-                                "draw": 5,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 16,
-                                    "against": 23
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wycombe Wanderers (H)"
-                        },
-                        {
-                            "rank": 17,
-                            "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
@@ -381,7 +359,7 @@
                             "nextUp": "Bolton Wanderers (H)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 17,
                             "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
@@ -403,7 +381,7 @@
                             "nextUp": "Peterborough United (H)"
                         },
                         {
-                            "rank": 19,
+                            "rank": 18,
                             "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
@@ -423,6 +401,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Stockport County (H)"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                            },
+                            "points": 22,
+                            "goalsDiff": -8,
+                            "form": "LWDWWL",
+                            "all": {
+                                "played": 18,
+                                "win": 6,
+                                "draw": 4,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 16,
+                                    "against": 24
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wycombe Wanderers (H)"
                         },
                         {
                             "rank": 20,
