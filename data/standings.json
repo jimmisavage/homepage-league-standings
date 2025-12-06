@@ -21,8 +21,8 @@
                                 "draw": 2,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 29,
-                                    "against": 15
+                                    "for": 30,
+                                    "against": 16
                                 }
                             },
                             "highlight": true,
@@ -34,16 +34,16 @@
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
-                            "points": 32,
-                            "goalsDiff": 7,
+                            "points": 34,
+                            "goalsDiff": 8,
                             "form": "DDDLDW",
                             "all": {
                                 "played": 18,
-                                "win": 8,
-                                "draw": 8,
+                                "win": 9,
+                                "draw": 7,
                                 "lose": 2,
                                 "goals": {
-                                    "for": 25,
+                                    "for": 26,
                                     "against": 18
                                 }
                             },
@@ -175,8 +175,8 @@
                                 "draw": 2,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 28,
-                                    "against": 26
+                                    "for": 29,
+                                    "against": 27
                                 }
                             },
                             "highlight": false,
@@ -449,28 +449,6 @@
                         {
                             "rank": 21,
                             "team": {
-                                "name": "Plymouth Argyle",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
-                            },
-                            "points": 17,
-                            "goalsDiff": -12,
-                            "form": "LLLLWL",
-                            "all": {
-                                "played": 18,
-                                "win": 5,
-                                "draw": 2,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 19,
-                                    "against": 31
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wycombe Wanderers (A)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
@@ -491,7 +469,7 @@
                             "nextUp": "Reading (A)"
                         },
                         {
-                            "rank": 23,
+                            "rank": 22,
                             "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
@@ -511,6 +489,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (A)"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
+                                "name": "Plymouth Argyle",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
+                            },
+                            "points": 16,
+                            "goalsDiff": -13,
+                            "form": "LLLLWL",
+                            "all": {
+                                "played": 18,
+                                "win": 5,
+                                "draw": 1,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 32
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wycombe Wanderers (A)"
                         },
                         {
                             "rank": 24,
