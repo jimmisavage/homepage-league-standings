@@ -124,7 +124,7 @@
                             },
                             "points": 31,
                             "goalsDiff": 9,
-                            "form": "LWWWDD",
+                            "form": "WWWDDW",
                             "all": {
                                 "played": 18,
                                 "win": 8,
@@ -339,34 +339,12 @@
                         {
                             "rank": 16,
                             "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
-                            },
-                            "points": 23,
-                            "goalsDiff": 0,
-                            "form": "LWDWDW",
-                            "all": {
-                                "played": 18,
-                                "win": 5,
-                                "draw": 8,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 21,
-                                    "against": 21
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bradford City (A)"
-                        },
-                        {
-                            "rank": 17,
-                            "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
                             "points": 22,
                             "goalsDiff": -1,
-                            "form": "WDWLLL",
+                            "form": "DWLLLL",
                             "all": {
                                 "played": 18,
                                 "win": 6,
@@ -379,6 +357,28 @@
                             },
                             "highlight": false,
                             "nextUp": "AFC Wimbledon (A)"
+                        },
+                        {
+                            "rank": 17,
+                            "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                            },
+                            "points": 22,
+                            "goalsDiff": -1,
+                            "form": "LWDWDW",
+                            "all": {
+                                "played": 18,
+                                "win": 5,
+                                "draw": 7,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 21,
+                                    "against": 22
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bradford City (A)"
                         },
                         {
                             "rank": 18,
@@ -449,6 +449,28 @@
                         {
                             "rank": 21,
                             "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 19,
+                            "goalsDiff": -5,
+                            "form": "WLWWLL",
+                            "all": {
+                                "played": 18,
+                                "win": 6,
+                                "draw": 1,
+                                "lose": 11,
+                                "goals": {
+                                    "for": 21,
+                                    "against": 26
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Northampton Town (H)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
@@ -467,28 +489,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (H)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 17,
-                            "goalsDiff": -6,
-                            "form": "WLWWLL",
-                            "all": {
-                                "played": 18,
-                                "win": 5,
-                                "draw": 2,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 20,
-                                    "against": 26
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Northampton Town (H)"
                         },
                         {
                             "rank": 23,
