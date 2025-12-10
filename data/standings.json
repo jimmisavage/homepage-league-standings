@@ -299,20 +299,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 24,
-                            "goalsDiff": 0,
+                            "goalsDiff": -1,
                             "form": "WDWDDD",
                             "all": {
-                                "played": 18,
+                                "played": 19,
                                 "win": 6,
                                 "draw": 6,
-                                "lose": 6,
+                                "lose": 7,
                                 "goals": {
                                     "for": 20,
-                                    "against": 20
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Blackpool (H)"
+                            "nextUp": "Plymouth Argyle (A)"
                         },
                         {
                             "rank": 15,
@@ -471,6 +471,28 @@
                         {
                             "rank": 22,
                             "team": {
+                                "name": "Blackpool",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
+                            },
+                            "points": 19,
+                            "goalsDiff": -10,
+                            "form": "DWWLDL",
+                            "all": {
+                                "played": 19,
+                                "win": 5,
+                                "draw": 4,
+                                "lose": 10,
+                                "goals": {
+                                    "for": 18,
+                                    "against": 28
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Lincoln City (H)"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
@@ -489,28 +511,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (H)"
-                        },
-                        {
-                            "rank": 23,
-                            "team": {
-                                "name": "Blackpool",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
-                            },
-                            "points": 16,
-                            "goalsDiff": -11,
-                            "form": "DWWLDL",
-                            "all": {
-                                "played": 18,
-                                "win": 4,
-                                "draw": 4,
-                                "lose": 10,
-                                "goals": {
-                                    "for": 17,
-                                    "against": 28
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Rotherham United (A)"
                         },
                         {
                             "rank": 24,
