@@ -321,8 +321,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 24,
-                            "goalsDiff": -2,
-                            "form": "WDWDDD",
+                            "goalsDiff": -3,
+                            "form": "DWDDDL",
                             "all": {
                                 "played": 19,
                                 "win": 6,
@@ -330,7 +330,7 @@
                                 "lose": 7,
                                 "goals": {
                                     "for": 20,
-                                    "against": 22
+                                    "against": 23
                                 }
                             },
                             "highlight": false,
@@ -475,15 +475,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 19,
-                            "goalsDiff": -9,
-                            "form": "DWWLDL",
+                            "goalsDiff": -8,
+                            "form": "WWLDLW",
                             "all": {
                                 "played": 19,
                                 "win": 5,
                                 "draw": 4,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 19,
+                                    "for": 20,
                                     "against": 28
                                 }
                             },
