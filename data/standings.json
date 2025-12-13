@@ -144,17 +144,17 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 30,
-                            "goalsDiff": 3,
+                            "points": 28,
+                            "goalsDiff": 2,
                             "form": "WWLDLD",
                             "all": {
                                 "played": 20,
-                                "win": 9,
-                                "draw": 3,
+                                "win": 8,
+                                "draw": 4,
                                 "lose": 8,
                                 "goals": {
                                     "for": 32,
-                                    "against": 29
+                                    "against": 30
                                 }
                             },
                             "highlight": false,
@@ -207,6 +207,28 @@
                         {
                             "rank": 10,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
+                            },
+                            "points": 26,
+                            "goalsDiff": 1,
+                            "form": "WDDWDW",
+                            "all": {
+                                "played": 19,
+                                "win": 6,
+                                "draw": 8,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 21
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Blackpool (H)"
+                        },
+                        {
+                            "rank": 11,
+                            "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
@@ -227,7 +249,7 @@
                             "nextUp": "Leyton Orient (H)"
                         },
                         {
-                            "rank": 11,
+                            "rank": 12,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -247,28 +269,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Barnsley (A)"
-                        },
-                        {
-                            "rank": 12,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
-                            },
-                            "points": 25,
-                            "goalsDiff": 0,
-                            "form": "WDDWDW",
-                            "all": {
-                                "played": 19,
-                                "win": 6,
-                                "draw": 7,
-                                "lose": 6,
-                                "goals": {
-                                    "for": 21,
-                                    "against": 21
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Blackpool (H)"
                         },
                         {
                             "rank": 13,
