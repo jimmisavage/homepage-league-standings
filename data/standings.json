@@ -145,20 +145,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
                             "points": 29,
-                            "goalsDiff": -1,
+                            "goalsDiff": -2,
                             "form": "DLWDDD",
                             "all": {
-                                "played": 20,
+                                "played": 21,
                                 "win": 8,
                                 "draw": 5,
-                                "lose": 7,
+                                "lose": 8,
                                 "goals": {
                                     "for": 24,
-                                    "against": 25
+                                    "against": 26
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Reading (A)"
+                            "nextUp": "Wycombe Wanderers (H)"
                         },
                         {
                             "rank": 8,
@@ -295,6 +295,28 @@
                         {
                             "rank": 14,
                             "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                            },
+                            "points": 25,
+                            "goalsDiff": -2,
+                            "form": "DWDWLL",
+                            "all": {
+                                "played": 20,
+                                "win": 6,
+                                "draw": 7,
+                                "lose": 7,
+                                "goals": {
+                                    "for": 22,
+                                    "against": 24
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Plymouth Argyle (A)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
@@ -315,7 +337,7 @@
                             "nextUp": "AFC Wimbledon (H)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 16,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
@@ -337,7 +359,7 @@
                             "nextUp": "Huddersfield Town (H)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 17,
                             "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
@@ -359,7 +381,7 @@
                             "nextUp": "Stockport County (H)"
                         },
                         {
-                            "rank": 17,
+                            "rank": 18,
                             "team": {
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
@@ -379,28 +401,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Stevenage (A)"
-                        },
-                        {
-                            "rank": 18,
-                            "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
-                            },
-                            "points": 22,
-                            "goalsDiff": -3,
-                            "form": "DWDWLL",
-                            "all": {
-                                "played": 19,
-                                "win": 5,
-                                "draw": 7,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 21,
-                                    "against": 24
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Luton Town (H)"
                         },
                         {
                             "rank": 19,
