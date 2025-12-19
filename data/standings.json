@@ -210,21 +210,21 @@
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
-                            "points": 27,
+                            "points": 28,
                             "goalsDiff": -3,
                             "form": "LLLDLD",
                             "all": {
-                                "played": 19,
+                                "played": 20,
                                 "win": 8,
-                                "draw": 3,
+                                "draw": 4,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 23,
-                                    "against": 26
+                                    "for": 24,
+                                    "against": 27
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Northampton Town (A)"
+                            "nextUp": "Stevenage (H)"
                         },
                         {
                             "rank": 11,
@@ -320,21 +320,21 @@
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
-                            "points": 24,
+                            "points": 25,
                             "goalsDiff": -2,
                             "form": "LWLWDL",
                             "all": {
-                                "played": 19,
+                                "played": 20,
                                 "win": 7,
-                                "draw": 3,
+                                "draw": 4,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 18,
-                                    "against": 20
+                                    "for": 19,
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
+                            "nextUp": "Burton Albion (A)"
                         },
                         {
                             "rank": 16,
