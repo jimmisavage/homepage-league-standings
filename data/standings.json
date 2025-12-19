@@ -219,12 +219,12 @@
                                 "draw": 4,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 23,
-                                    "against": 26
+                                    "for": 24,
+                                    "against": 27
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Northampton Town (A)"
+                            "nextUp": "Stevenage (H)"
                         },
                         {
                             "rank": 11,
@@ -329,12 +329,12 @@
                                 "draw": 4,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 18,
-                                    "against": 20
+                                    "for": 19,
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
+                            "nextUp": "Burton Albion (A)"
                         },
                         {
                             "rank": 16,
