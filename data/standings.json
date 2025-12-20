@@ -56,17 +56,17 @@
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 37,
-                            "goalsDiff": 10,
-                            "form": "LDWDLW",
+                            "points": 35,
+                            "goalsDiff": 9,
+                            "form": "DWDLWD",
                             "all": {
                                 "played": 19,
-                                "win": 11,
-                                "draw": 4,
+                                "win": 10,
+                                "draw": 5,
                                 "lose": 4,
                                 "goals": {
                                     "for": 24,
-                                    "against": 14
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
@@ -255,8 +255,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
                             },
                             "points": 26,
-                            "goalsDiff": 0,
-                            "form": "DDWDWD",
+                            "goalsDiff": -1,
+                            "form": "DWDWDL",
                             "all": {
                                 "played": 20,
                                 "win": 6,
@@ -264,7 +264,7 @@
                                 "lose": 6,
                                 "goals": {
                                     "for": 22,
-                                    "against": 22
+                                    "against": 23
                                 }
                             },
                             "highlight": false,
@@ -361,6 +361,28 @@
                         {
                             "rank": 17,
                             "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                            },
+                            "points": 24,
+                            "goalsDiff": -8,
+                            "form": "WWLLDD",
+                            "all": {
+                                "played": 20,
+                                "win": 6,
+                                "draw": 6,
+                                "lose": 8,
+                                "goals": {
+                                    "for": 18,
+                                    "against": 26
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Northampton Town (H)"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
@@ -381,48 +403,26 @@
                             "nextUp": "Stockport County (H)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 19,
                             "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 23,
-                            "goalsDiff": -7,
-                            "form": "WLDLWD",
+                            "goalsDiff": -6,
+                            "form": "LDLWDW",
                             "all": {
                                 "played": 21,
                                 "win": 6,
                                 "draw": 5,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 23,
+                                    "for": 24,
                                     "against": 30
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Doncaster Rovers (H)"
-                        },
-                        {
-                            "rank": 19,
-                            "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
-                            },
-                            "points": 23,
-                            "goalsDiff": -9,
-                            "form": "DWWLLD",
-                            "all": {
-                                "played": 20,
-                                "win": 6,
-                                "draw": 5,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 17,
-                                    "against": 26
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Northampton Town (H)"
                         },
                         {
                             "rank": 20,
