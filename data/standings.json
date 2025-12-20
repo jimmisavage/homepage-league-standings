@@ -12,16 +12,16 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 42,
-                            "goalsDiff": 16,
+                            "points": 41,
+                            "goalsDiff": 15,
                             "form": "LWWWWW",
                             "all": {
                                 "played": 20,
                                 "win": 13,
-                                "draw": 3,
-                                "lose": 4,
+                                "draw": 2,
+                                "lose": 5,
                                 "goals": {
-                                    "for": 37,
+                                    "for": 36,
                                     "against": 21
                                 }
                             },
@@ -56,17 +56,17 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 36,
-                            "goalsDiff": 7,
+                            "points": 38,
+                            "goalsDiff": 8,
                             "form": "LWLWWD",
                             "all": {
                                 "played": 21,
-                                "win": 10,
-                                "draw": 6,
+                                "win": 11,
+                                "draw": 5,
                                 "lose": 5,
                                 "goals": {
                                     "for": 29,
-                                    "against": 22
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
