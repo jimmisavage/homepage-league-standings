@@ -131,8 +131,8 @@
                                 "draw": 6,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 29,
-                                    "against": 27
+                                    "for": 30,
+                                    "against": 28
                                 }
                             },
                             "highlight": false,
@@ -167,7 +167,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
                             "points": 35,
-                            "goalsDiff": 3,
+                            "goalsDiff": 4,
                             "form": "WDDDLW",
                             "all": {
                                 "played": 23,
@@ -175,7 +175,7 @@
                                 "draw": 5,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 31,
+                                    "for": 32,
                                     "against": 28
                                 }
                             },
@@ -210,16 +210,16 @@
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
-                            "points": 29,
-                            "goalsDiff": 1,
+                            "points": 31,
+                            "goalsDiff": 2,
                             "form": "DWLLWW",
                             "all": {
                                 "played": 22,
-                                "win": 7,
-                                "draw": 8,
+                                "win": 8,
+                                "draw": 7,
                                 "lose": 7,
                                 "goals": {
-                                    "for": 28,
+                                    "for": 29,
                                     "against": 27
                                 }
                             },
@@ -229,33 +229,11 @@
                         {
                             "rank": 11,
                             "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 29,
-                            "goalsDiff": -2,
-                            "form": "LLWWWW",
-                            "all": {
-                                "played": 22,
-                                "win": 9,
-                                "draw": 2,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 25,
-                                    "against": 27
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Rotherham United (A)"
-                        },
-                        {
-                            "rank": 12,
-                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 29,
-                            "goalsDiff": -4,
+                            "goalsDiff": -3,
                             "form": "DLWDWW",
                             "all": {
                                 "played": 23,
@@ -263,7 +241,7 @@
                                 "draw": 5,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 26,
+                                    "for": 27,
                                     "against": 30
                                 }
                             },
@@ -271,7 +249,7 @@
                             "nextUp": "Port Vale (A)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 12,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -293,7 +271,7 @@
                             "nextUp": "Leyton Orient (A)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 13,
                             "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
@@ -315,13 +293,13 @@
                             "nextUp": "Wigan Athletic (A)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 14,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
                             },
                             "points": 28,
-                            "goalsDiff": -2,
+                            "goalsDiff": -3,
                             "form": "DWDLWL",
                             "all": {
                                 "played": 23,
@@ -330,11 +308,33 @@
                                 "lose": 11,
                                 "goals": {
                                     "for": 34,
-                                    "against": 36
+                                    "against": 37
                                 }
                             },
                             "highlight": false,
                             "nextUp": "AFC Wimbledon (H)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 28,
+                            "goalsDiff": -3,
+                            "form": "LLWWWW",
+                            "all": {
+                                "played": 22,
+                                "win": 9,
+                                "draw": 1,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 25,
+                                    "against": 28
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Rotherham United (A)"
                         },
                         {
                             "rank": 16,
@@ -475,7 +475,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 24,
-                            "goalsDiff": -8,
+                            "goalsDiff": -9,
                             "form": "DDLLLL",
                             "all": {
                                 "played": 23,
@@ -484,7 +484,7 @@
                                 "lose": 11,
                                 "goals": {
                                     "for": 22,
-                                    "against": 30
+                                    "against": 31
                                 }
                             },
                             "highlight": false,
@@ -505,8 +505,8 @@
                                 "draw": 5,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 21,
-                                    "against": 36
+                                    "for": 22,
+                                    "against": 37
                                 }
                             },
                             "highlight": false,
