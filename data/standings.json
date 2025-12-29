@@ -58,7 +58,7 @@
                             },
                             "points": 43,
                             "goalsDiff": 11,
-                            "form": "DWWWLW",
+                            "form": "WWWLWW",
                             "all": {
                                 "played": 22,
                                 "win": 12,
@@ -188,17 +188,17 @@
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
-                            "points": 31,
-                            "goalsDiff": 3,
-                            "form": "WDLDWL",
+                            "points": 29,
+                            "goalsDiff": 2,
+                            "form": "DLDWLD",
                             "all": {
                                 "played": 23,
-                                "win": 8,
-                                "draw": 7,
+                                "win": 7,
+                                "draw": 8,
                                 "lose": 8,
                                 "goals": {
                                     "for": 29,
-                                    "against": 26
+                                    "against": 27
                                 }
                             },
                             "highlight": false,
@@ -212,7 +212,7 @@
                             },
                             "points": 29,
                             "goalsDiff": 1,
-                            "form": "DWLLWW",
+                            "form": "WLLWWD",
                             "all": {
                                 "played": 22,
                                 "win": 7,
@@ -278,7 +278,7 @@
                             },
                             "points": 29,
                             "goalsDiff": -1,
-                            "form": "DLWDWW",
+                            "form": "LWDWWW",
                             "all": {
                                 "played": 23,
                                 "win": 8,
@@ -300,7 +300,7 @@
                             },
                             "points": 29,
                             "goalsDiff": -2,
-                            "form": "LLWWWW",
+                            "form": "LWWWWD",
                             "all": {
                                 "played": 22,
                                 "win": 9,
@@ -366,7 +366,7 @@
                             },
                             "points": 28,
                             "goalsDiff": -6,
-                            "form": "LDLDLD",
+                            "form": "DLDLDL",
                             "all": {
                                 "played": 22,
                                 "win": 8,
@@ -432,7 +432,7 @@
                             },
                             "points": 26,
                             "goalsDiff": 1,
-                            "form": "LLWLWL",
+                            "form": "LWLWLW",
                             "all": {
                                 "played": 22,
                                 "win": 8,
@@ -452,16 +452,16 @@
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
-                            "points": 25,
-                            "goalsDiff": -11,
-                            "form": "LLWWWL",
+                            "points": 26,
+                            "goalsDiff": -10,
+                            "form": "LWWWLD",
                             "all": {
                                 "played": 23,
                                 "win": 8,
-                                "draw": 1,
-                                "lose": 14,
+                                "draw": 2,
+                                "lose": 13,
                                 "goals": {
-                                    "for": 27,
+                                    "for": 28,
                                     "against": 38
                                 }
                             },
@@ -476,7 +476,7 @@
                             },
                             "points": 24,
                             "goalsDiff": -11,
-                            "form": "DDLLLL",
+                            "form": "DLLLLL",
                             "all": {
                                 "played": 23,
                                 "win": 6,
@@ -520,7 +520,7 @@
                             },
                             "points": 15,
                             "goalsDiff": -17,
-                            "form": "DLLDLL",
+                            "form": "LLDLLL",
                             "all": {
                                 "played": 22,
                                 "win": 3,
