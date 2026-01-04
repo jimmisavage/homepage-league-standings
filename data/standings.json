@@ -26,7 +26,7 @@
                                 }
                             },
                             "highlight": true,
-                            "nextUp": "Wigan Athletic (H)"
+                            "nextUp": "Leyton Orient (A)"
                         },
                         {
                             "rank": 2,
@@ -56,21 +56,21 @@
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
-                            "points": 46,
-                            "goalsDiff": 9,
+                            "points": 44,
+                            "goalsDiff": 8,
                             "form": "WWLWWL",
                             "all": {
                                 "played": 24,
-                                "win": 13,
-                                "draw": 7,
+                                "win": 12,
+                                "draw": 8,
                                 "lose": 4,
                                 "goals": {
                                     "for": 33,
-                                    "against": 24
+                                    "against": 25
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Blackpool (A)"
+                            "nextUp": "Rotherham United (H)"
                         },
                         {
                             "rank": 4,
@@ -92,7 +92,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Exeter City (H)"
+                            "nextUp": "Stockport County (A)"
                         },
                         {
                             "rank": 5,
@@ -114,7 +114,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Reading (A)"
+                            "nextUp": "Huddersfield Town (H)"
                         },
                         {
                             "rank": 6,
@@ -202,7 +202,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stockport County (H)"
+                            "nextUp": "Leyton Orient (A)"
                         },
                         {
                             "rank": 10,
@@ -224,7 +224,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
+                            "nextUp": "Northampton Town (A)"
                         },
                         {
                             "rank": 11,
@@ -290,7 +290,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wycombe Wanderers (A)"
+                            "nextUp": "Doncaster Rovers (H)"
                         },
                         {
                             "rank": 14,
@@ -312,10 +312,32 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Cardiff City (A)"
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 15,
+                            "team": {
+                                "name": "Blackpool",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
+                            },
+                            "points": 30,
+                            "goalsDiff": -5,
+                            "form": "WDWWWL",
+                            "all": {
+                                "played": 25,
+                                "win": 8,
+                                "draw": 6,
+                                "lose": 11,
+                                "goals": {
+                                    "for": 31,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Barnsley (A)"
+                        },
+                        {
+                            "rank": 16,
                             "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
@@ -334,10 +356,10 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (H)"
+                            "nextUp": "Peterborough United (A)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 17,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
@@ -356,10 +378,10 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Huddersfield Town (A)"
+                            "nextUp": "Stevenage (H)"
                         },
                         {
-                            "rank": 17,
+                            "rank": 18,
                             "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
@@ -379,28 +401,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Blackpool (H)"
-                        },
-                        {
-                            "rank": 18,
-                            "team": {
-                                "name": "Blackpool",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
-                            },
-                            "points": 29,
-                            "goalsDiff": -6,
-                            "form": "WDWWWL",
-                            "all": {
-                                "played": 25,
-                                "win": 8,
-                                "draw": 5,
-                                "lose": 12,
-                                "goals": {
-                                    "for": 30,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bradford City (H)"
                         },
                         {
                             "rank": 19,
@@ -466,7 +466,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Plymouth Argyle (A)"
+                            "nextUp": "Huddersfield Town (H)"
                         },
                         {
                             "rank": 22,
