@@ -35,15 +35,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
                             "points": 48,
-                            "goalsDiff": 13,
-                            "form": "WDWWWD",
+                            "goalsDiff": 14,
+                            "form": "DWWWDW",
                             "all": {
                                 "played": 25,
                                 "win": 14,
                                 "draw": 6,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 39,
+                                    "for": 40,
                                     "against": 26
                                 }
                             },
@@ -233,8 +233,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 32,
-                            "goalsDiff": -2,
-                            "form": "WWWWDW",
+                            "goalsDiff": -3,
+                            "form": "WWWDWL",
                             "all": {
                                 "played": 24,
                                 "win": 10,
@@ -242,7 +242,7 @@
                                 "lose": 12,
                                 "goals": {
                                     "for": 30,
-                                    "against": 32
+                                    "against": 33
                                 }
                             },
                             "highlight": false,
