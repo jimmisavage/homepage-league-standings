@@ -34,16 +34,16 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 45,
-                            "goalsDiff": 10,
+                            "points": 48,
+                            "goalsDiff": 13,
                             "form": "WDWWWD",
                             "all": {
                                 "played": 25,
-                                "win": 13,
+                                "win": 14,
                                 "draw": 6,
-                                "lose": 6,
+                                "lose": 5,
                                 "goals": {
-                                    "for": 35,
+                                    "for": 38,
                                     "against": 25
                                 }
                             },
@@ -185,28 +185,6 @@
                         {
                             "rank": 9,
                             "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 35,
-                            "goalsDiff": 1,
-                            "form": "WWWWDW",
-                            "all": {
-                                "played": 24,
-                                "win": 11,
-                                "draw": 2,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 29,
-                                    "against": 28
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 10,
-                            "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
@@ -227,7 +205,7 @@
                             "nextUp": "Port Vale (H)"
                         },
                         {
-                            "rank": 11,
+                            "rank": 10,
                             "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
@@ -247,6 +225,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Stockport County (H)"
+                        },
+                        {
+                            "rank": 11,
+                            "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 32,
+                            "goalsDiff": -2,
+                            "form": "WWWWDW",
+                            "all": {
+                                "played": 24,
+                                "win": 10,
+                                "draw": 2,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 29,
+                                    "against": 31
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 12,
