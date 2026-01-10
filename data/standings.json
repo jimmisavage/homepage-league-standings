@@ -26,7 +26,7 @@
                                 }
                             },
                             "highlight": true,
-                            "nextUp": "Leyton Orient (A)"
+                            "nextUp": "Bradford City (A)"
                         },
                         {
                             "rank": 2,
@@ -123,7 +123,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
                             "points": 39,
-                            "goalsDiff": 8,
+                            "goalsDiff": 7,
                             "form": "WLWLDD",
                             "all": {
                                 "played": 25,
@@ -132,11 +132,11 @@
                                 "lose": 6,
                                 "goals": {
                                     "for": 31,
-                                    "against": 23
+                                    "against": 24
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Peterborough United (A)"
+                            "nextUp": "Wigan Athletic (A)"
                         },
                         {
                             "rank": 7,
@@ -211,7 +211,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 35,
-                            "goalsDiff": -2,
+                            "goalsDiff": -1,
                             "form": "WWWDWL",
                             "all": {
                                 "played": 25,
@@ -219,12 +219,12 @@
                                 "draw": 2,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 31,
+                                    "for": 32,
                                     "against": 33
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
+                            "nextUp": "Plymouth Argyle (H)"
                         },
                         {
                             "rank": 11,
@@ -400,7 +400,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Cardiff City (H)"
+                            "nextUp": "Reading (H)"
                         },
                         {
                             "rank": 19,
