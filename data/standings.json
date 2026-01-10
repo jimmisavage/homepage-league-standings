@@ -131,8 +131,8 @@
                                 "draw": 9,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 31,
-                                    "against": 24
+                                    "for": 32,
+                                    "against": 25
                                 }
                             },
                             "highlight": false,
@@ -219,8 +219,8 @@
                                 "draw": 2,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 32,
-                                    "against": 33
+                                    "for": 33,
+                                    "against": 34
                                 }
                             },
                             "highlight": false,
