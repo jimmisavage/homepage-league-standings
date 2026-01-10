@@ -75,46 +75,46 @@
                         {
                             "rank": 4,
                             "team": {
-                                "name": "Huddersfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
-                            },
-                            "points": 40,
-                            "goalsDiff": 11,
-                            "form": "DWWWDD",
-                            "all": {
-                                "played": 26,
-                                "win": 11,
-                                "draw": 7,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 45,
-                                    "against": 34
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Burton Albion (A)"
-                        },
-                        {
-                            "rank": 5,
-                            "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 40,
-                            "goalsDiff": 3,
-                            "form": "LWLWDL",
+                            "points": 42,
+                            "goalsDiff": 4,
+                            "form": "WLWDLW",
                             "all": {
                                 "played": 25,
-                                "win": 11,
-                                "draw": 7,
+                                "win": 12,
+                                "draw": 6,
                                 "lose": 7,
                                 "goals": {
-                                    "for": 33,
+                                    "for": 34,
                                     "against": 30
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (H)"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
+                            },
+                            "points": 39,
+                            "goalsDiff": 10,
+                            "form": "WWWDDL",
+                            "all": {
+                                "played": 26,
+                                "win": 11,
+                                "draw": 6,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 45,
+                                    "against": 35
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Burton Albion (A)"
                         },
                         {
                             "rank": 6,
@@ -146,7 +146,7 @@
                             },
                             "points": 38,
                             "goalsDiff": 5,
-                            "form": "DDLWWL",
+                            "form": "DLWWLW",
                             "all": {
                                 "played": 25,
                                 "win": 11,
@@ -168,7 +168,7 @@
                             },
                             "points": 37,
                             "goalsDiff": 7,
-                            "form": "LWDDLD",
+                            "form": "WDDLDL",
                             "all": {
                                 "played": 23,
                                 "win": 10,
