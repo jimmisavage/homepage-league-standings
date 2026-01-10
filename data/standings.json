@@ -78,13 +78,13 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 39,
+                            "points": 40,
                             "goalsDiff": 11,
                             "form": "DWWWDD",
                             "all": {
-                                "played": 25,
+                                "played": 26,
                                 "win": 11,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 8,
                                 "goals": {
                                     "for": 45,
@@ -96,6 +96,28 @@
                         },
                         {
                             "rank": 5,
+                            "team": {
+                                "name": "Stockport County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
+                            },
+                            "points": 40,
+                            "goalsDiff": 3,
+                            "form": "LWLWDL",
+                            "all": {
+                                "played": 25,
+                                "win": 11,
+                                "draw": 7,
+                                "lose": 7,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 30
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Rotherham United (H)"
+                        },
+                        {
+                            "rank": 6,
                             "team": {
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
@@ -117,40 +139,18 @@
                             "nextUp": "Peterborough United (A)"
                         },
                         {
-                            "rank": 6,
-                            "team": {
-                                "name": "Stockport County",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
-                            },
-                            "points": 39,
-                            "goalsDiff": 3,
-                            "form": "LWLWDL",
-                            "all": {
-                                "played": 24,
-                                "win": 11,
-                                "draw": 6,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 33,
-                                    "against": 30
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Rotherham United (H)"
-                        },
-                        {
                             "rank": 7,
                             "team": {
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 37,
+                            "points": 38,
                             "goalsDiff": 8,
                             "form": "LWDDLD",
                             "all": {
-                                "played": 22,
+                                "played": 23,
                                 "win": 10,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 5,
                                 "goals": {
                                     "for": 26,
@@ -166,13 +166,13 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 35,
+                            "points": 36,
                             "goalsDiff": 4,
                             "form": "DDLWWL",
                             "all": {
-                                "played": 24,
+                                "played": 25,
                                 "win": 10,
-                                "draw": 5,
+                                "draw": 6,
                                 "lose": 9,
                                 "goals": {
                                     "for": 33,
