@@ -75,46 +75,46 @@
                         {
                             "rank": 4,
                             "team": {
-                                "name": "Huddersfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
-                            },
-                            "points": 40,
-                            "goalsDiff": 11,
-                            "form": "DWWWDD",
-                            "all": {
-                                "played": 26,
-                                "win": 11,
-                                "draw": 7,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 45,
-                                    "against": 34
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Burton Albion (A)"
-                        },
-                        {
-                            "rank": 5,
-                            "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 40,
-                            "goalsDiff": 3,
-                            "form": "LWLWDL",
+                            "points": 42,
+                            "goalsDiff": 4,
+                            "form": "WLWDLW",
                             "all": {
                                 "played": 25,
-                                "win": 11,
-                                "draw": 7,
+                                "win": 12,
+                                "draw": 6,
                                 "lose": 7,
                                 "goals": {
-                                    "for": 33,
+                                    "for": 34,
                                     "against": 30
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (H)"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
+                            },
+                            "points": 39,
+                            "goalsDiff": 10,
+                            "form": "WWWDDL",
+                            "all": {
+                                "played": 26,
+                                "win": 11,
+                                "draw": 6,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 45,
+                                    "against": 35
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Burton Albion (A)"
                         },
                         {
                             "rank": 6,
@@ -141,46 +141,46 @@
                         {
                             "rank": 7,
                             "team": {
-                                "name": "Stevenage",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
-                            },
-                            "points": 38,
-                            "goalsDiff": 8,
-                            "form": "LWDDLD",
-                            "all": {
-                                "played": 23,
-                                "win": 10,
-                                "draw": 8,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 26,
-                                    "against": 18
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Exeter City (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 36,
-                            "goalsDiff": 4,
-                            "form": "DDLWWL",
+                            "points": 38,
+                            "goalsDiff": 5,
+                            "form": "DLWWLW",
                             "all": {
                                 "played": 25,
-                                "win": 10,
-                                "draw": 6,
+                                "win": 11,
+                                "draw": 5,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 33,
-                                    "against": 29
+                                    "for": 35,
+                                    "against": 30
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Lincoln City (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
+                                "name": "Stevenage",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
+                            },
+                            "points": 37,
+                            "goalsDiff": 7,
+                            "form": "WDDLDL",
+                            "all": {
+                                "played": 23,
+                                "win": 10,
+                                "draw": 7,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 27,
+                                    "against": 20
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Exeter City (A)"
                         },
                         {
                             "rank": 9,
