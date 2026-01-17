@@ -14,7 +14,7 @@
                             },
                             "points": 55,
                             "goalsDiff": 19,
-                            "form": "LWWDWD",
+                            "form": "WWDWDW",
                             "all": {
                                 "played": 26,
                                 "win": 17,
@@ -58,7 +58,7 @@
                             },
                             "points": 46,
                             "goalsDiff": 8,
-                            "form": "WLWWLW",
+                            "form": "LWWLWL",
                             "all": {
                                 "played": 25,
                                 "win": 13,
@@ -74,6 +74,28 @@
                         },
                         {
                             "rank": 4,
+                            "team": {
+                                "name": "Bolton Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
+                            },
+                            "points": 42,
+                            "goalsDiff": 8,
+                            "form": "WLDDLW",
+                            "all": {
+                                "played": 26,
+                                "win": 11,
+                                "draw": 9,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 25
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Stevenage (A)"
+                        },
+                        {
+                            "rank": 5,
                             "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
@@ -93,28 +115,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (H)"
-                        },
-                        {
-                            "rank": 5,
-                            "team": {
-                                "name": "Bolton Wanderers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
-                            },
-                            "points": 40,
-                            "goalsDiff": 7,
-                            "form": "LWLDDL",
-                            "all": {
-                                "played": 26,
-                                "win": 10,
-                                "draw": 10,
-                                "lose": 6,
-                                "goals": {
-                                    "for": 32,
-                                    "against": 25
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stevenage (A)"
                         },
                         {
                             "rank": 6,
@@ -273,28 +273,6 @@
                         {
                             "rank": 13,
                             "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
-                            },
-                            "points": 31,
-                            "goalsDiff": -1,
-                            "form": "DLLWDL",
-                            "all": {
-                                "played": 25,
-                                "win": 7,
-                                "draw": 10,
-                                "lose": 8,
-                                "goals": {
-                                    "for": 26,
-                                    "against": 27
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Doncaster Rovers (A)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
@@ -315,7 +293,7 @@
                             "nextUp": "Doncaster Rovers (H)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 14,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
@@ -335,6 +313,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Stevenage (H)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
+                            },
+                            "points": 30,
+                            "goalsDiff": -2,
+                            "form": "LLWDLL",
+                            "all": {
+                                "played": 25,
+                                "win": 7,
+                                "draw": 9,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 26,
+                                    "against": 28
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Doncaster Rovers (A)"
                         },
                         {
                             "rank": 16,
