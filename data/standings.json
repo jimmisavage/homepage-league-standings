@@ -13,7 +13,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
                             "points": 55,
-                            "goalsDiff": 20,
+                            "goalsDiff": 19,
                             "form": "LWWDWD",
                             "all": {
                                 "played": 26,
@@ -22,7 +22,7 @@
                                 "lose": 5,
                                 "goals": {
                                     "for": 45,
-                                    "against": 25
+                                    "against": 26
                                 }
                             },
                             "highlight": true,
@@ -57,7 +57,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 46,
-                            "goalsDiff": 7,
+                            "goalsDiff": 8,
                             "form": "WLWWLW",
                             "all": {
                                 "played": 25,
@@ -65,7 +65,7 @@
                                 "draw": 7,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 34,
+                                    "for": 35,
                                     "against": 27
                                 }
                             },
