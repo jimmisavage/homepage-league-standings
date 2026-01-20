@@ -100,13 +100,13 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 42,
+                            "points": 43,
                             "goalsDiff": 8,
                             "form": "WLDDLW",
                             "all": {
-                                "played": 26,
+                                "played": 27,
                                 "win": 11,
-                                "draw": 9,
+                                "draw": 10,
                                 "lose": 6,
                                 "goals": {
                                     "for": 33,
@@ -114,7 +114,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stevenage (A)"
+                            "nextUp": "Leyton Orient (H)"
                         },
                         {
                             "rank": 6,
@@ -166,13 +166,13 @@
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 37,
+                            "points": 38,
                             "goalsDiff": 4,
                             "form": "DDLDLL",
                             "all": {
-                                "played": 24,
+                                "played": 25,
                                 "win": 10,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 7,
                                 "goals": {
                                     "for": 27,
@@ -180,7 +180,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
+                            "nextUp": "Mansfield Town (H)"
                         },
                         {
                             "rank": 9,
