@@ -34,16 +34,16 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 50,
-                            "goalsDiff": 14,
-                            "form": "WWWDWD",
+                            "points": 52,
+                            "goalsDiff": 15,
+                            "form": "WWDWDW",
                             "all": {
                                 "played": 27,
-                                "win": 14,
-                                "draw": 8,
+                                "win": 15,
+                                "draw": 7,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 43,
+                                    "for": 44,
                                     "against": 29
                                 }
                             },
@@ -383,28 +383,6 @@
                         {
                             "rank": 18,
                             "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
-                            },
-                            "points": 31,
-                            "goalsDiff": -9,
-                            "form": "DWLLLW",
-                            "all": {
-                                "played": 26,
-                                "win": 8,
-                                "draw": 7,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 27,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (A)"
-                        },
-                        {
-                            "rank": 19,
-                            "team": {
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
                             },
@@ -423,6 +401,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Doncaster Rovers (A)"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.d8bf095826.svg"
+                            },
+                            "points": 30,
+                            "goalsDiff": -10,
+                            "form": "WLLLWL",
+                            "all": {
+                                "played": 26,
+                                "win": 8,
+                                "draw": 6,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 27,
+                                    "against": 37
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (A)"
                         },
                         {
                             "rank": 20,
