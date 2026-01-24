@@ -229,6 +229,28 @@
                         {
                             "rank": 11,
                             "team": {
+                                "name": "Exeter City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
+                            },
+                            "points": 36,
+                            "goalsDiff": 6,
+                            "form": "WLWWDW",
+                            "all": {
+                                "played": 26,
+                                "win": 11,
+                                "draw": 3,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 29,
+                                    "against": 23
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Port Vale (A)"
+                        },
+                        {
+                            "rank": 12,
+                            "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
@@ -249,7 +271,7 @@
                             "nextUp": "Barnsley (H)"
                         },
                         {
-                            "rank": 12,
+                            "rank": 13,
                             "team": {
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
@@ -271,7 +293,7 @@
                             "nextUp": "Wycombe Wanderers (A)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
@@ -291,28 +313,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Mansfield Town (H)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
-                                "name": "Exeter City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
-                            },
-                            "points": 34,
-                            "goalsDiff": 5,
-                            "form": "WLWWDW",
-                            "all": {
-                                "played": 26,
-                                "win": 10,
-                                "draw": 4,
-                                "lose": 12,
-                                "goals": {
-                                    "for": 28,
-                                    "against": 23
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 15,
@@ -409,7 +409,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
                             },
                             "points": 30,
-                            "goalsDiff": -3,
+                            "goalsDiff": -4,
                             "form": "LLWDLL",
                             "all": {
                                 "played": 26,
@@ -418,7 +418,7 @@
                                 "lose": 10,
                                 "goals": {
                                     "for": 26,
-                                    "against": 29
+                                    "against": 30
                                 }
                             },
                             "highlight": false,
@@ -475,7 +475,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
                             },
                             "points": 29,
-                            "goalsDiff": -15,
+                            "goalsDiff": -14,
                             "form": "LLLLDW",
                             "all": {
                                 "played": 26,
@@ -483,7 +483,7 @@
                                 "draw": 5,
                                 "lose": 13,
                                 "goals": {
-                                    "for": 26,
+                                    "for": 27,
                                     "against": 41
                                 }
                             },
@@ -518,17 +518,17 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 19,
-                            "goalsDiff": -16,
+                            "points": 18,
+                            "goalsDiff": -17,
                             "form": "DLLLWL",
                             "all": {
                                 "played": 25,
                                 "win": 4,
-                                "draw": 7,
-                                "lose": 14,
+                                "draw": 6,
+                                "lose": 15,
                                 "goals": {
                                     "for": 18,
-                                    "against": 34
+                                    "against": 35
                                 }
                             },
                             "highlight": false,
