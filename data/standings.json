@@ -13,20 +13,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
                             "points": 55,
-                            "goalsDiff": 19,
+                            "goalsDiff": 18,
                             "form": "WWDWDW",
                             "all": {
-                                "played": 26,
+                                "played": 27,
                                 "win": 17,
                                 "draw": 4,
-                                "lose": 5,
+                                "lose": 6,
                                 "goals": {
                                     "for": 45,
-                                    "against": 26
+                                    "against": 27
                                 }
                             },
                             "highlight": true,
-                            "nextUp": "Stockport County (H)"
+                            "nextUp": "Barnsley (H)"
                         },
                         {
                             "rank": 2,
@@ -53,46 +53,46 @@
                         {
                             "rank": 3,
                             "team": {
-                                "name": "Bradford City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
-                            },
-                            "points": 46,
-                            "goalsDiff": 8,
-                            "form": "LWWLWL",
-                            "all": {
-                                "played": 25,
-                                "win": 13,
-                                "draw": 7,
-                                "lose": 5,
-                                "goals": {
-                                    "for": 35,
-                                    "against": 27
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Huddersfield Town (A)"
-                        },
-                        {
-                            "rank": 4,
-                            "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 45,
-                            "goalsDiff": 5,
+                            "points": 48,
+                            "goalsDiff": 6,
                             "form": "LWDLWW",
                             "all": {
-                                "played": 26,
-                                "win": 13,
+                                "played": 27,
+                                "win": 14,
                                 "draw": 6,
                                 "lose": 7,
                                 "goals": {
-                                    "for": 37,
+                                    "for": 38,
                                     "against": 32
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Cardiff City (A)"
+                            "nextUp": "Blackpool (A)"
+                        },
+                        {
+                            "rank": 4,
+                            "team": {
+                                "name": "Bradford City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
+                            },
+                            "points": 46,
+                            "goalsDiff": 7,
+                            "form": "LWWLWL",
+                            "all": {
+                                "played": 26,
+                                "win": 13,
+                                "draw": 7,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 35,
+                                    "against": 28
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Lincoln City (A)"
                         },
                         {
                             "rank": 5,
@@ -122,21 +122,21 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 39,
-                            "goalsDiff": 8,
+                            "points": 42,
+                            "goalsDiff": 9,
                             "form": "WWDDLL",
                             "all": {
-                                "played": 27,
-                                "win": 11,
+                                "played": 28,
+                                "win": 12,
                                 "draw": 6,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 46,
+                                    "for": 47,
                                     "against": 38
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (H)"
+                            "nextUp": "Luton Town (H)"
                         },
                         {
                             "rank": 7,
@@ -144,13 +144,13 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 39,
+                            "points": 40,
                             "goalsDiff": 5,
                             "form": "LWWLWD",
                             "all": {
-                                "played": 26,
+                                "played": 27,
                                 "win": 11,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 9,
                                 "goals": {
                                     "for": 37,
@@ -158,7 +158,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Plymouth Argyle (A)"
+                            "nextUp": "Huddersfield Town (A)"
                         },
                         {
                             "rank": 8,
@@ -273,6 +273,28 @@
                         {
                             "rank": 13,
                             "team": {
+                                "name": "Plymouth Argyle",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
+                            },
+                            "points": 34,
+                            "goalsDiff": -6,
+                            "form": "WLDDWW",
+                            "all": {
+                                "played": 27,
+                                "win": 10,
+                                "draw": 4,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 39
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Mansfield Town (H)"
+                        },
+                        {
+                            "rank": 14,
+                            "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
                             },
@@ -291,28 +313,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Port Vale (A)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
-                                "name": "Plymouth Argyle",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
-                            },
-                            "points": 33,
-                            "goalsDiff": -6,
-                            "form": "WLDDWW",
-                            "all": {
-                                "played": 26,
-                                "win": 10,
-                                "draw": 3,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 33,
-                                    "against": 39
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Luton Town (H)"
                         },
                         {
                             "rank": 15,
