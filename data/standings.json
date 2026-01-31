@@ -56,21 +56,21 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 50,
-                            "goalsDiff": 10,
+                            "points": 52,
+                            "goalsDiff": 11,
                             "form": "DLWDWW",
                             "all": {
                                 "played": 30,
-                                "win": 13,
-                                "draw": 11,
+                                "win": 14,
+                                "draw": 10,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 37,
+                                    "for": 38,
                                     "against": 27
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (A)"
+                            "nextUp": "Barnsley (H)"
                         },
                         {
                             "rank": 4,
@@ -114,7 +114,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Doncaster Rovers (H)"
+                            "nextUp": "Luton Town (A)"
                         },
                         {
                             "rank": 6,
@@ -339,28 +339,6 @@
                         {
                             "rank": 16,
                             "team": {
-                                "name": "AFC Wimbledon",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
-                            },
-                            "points": 33,
-                            "goalsDiff": -7,
-                            "form": "DLWLLD",
-                            "all": {
-                                "played": 27,
-                                "win": 9,
-                                "draw": 6,
-                                "lose": 12,
-                                "goals": {
-                                    "for": 28,
-                                    "against": 35
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 17,
-                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
@@ -381,7 +359,7 @@
                             "nextUp": "Luton Town (A)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 17,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -401,6 +379,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Port Vale (H)"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
+                                "name": "AFC Wimbledon",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
+                            },
+                            "points": 32,
+                            "goalsDiff": -8,
+                            "form": "DLWLLD",
+                            "all": {
+                                "played": 27,
+                                "win": 9,
+                                "draw": 5,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 28,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 19,
@@ -444,7 +444,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (A)"
+                            "nextUp": "Burton Albion (A)"
                         },
                         {
                             "rank": 21,
