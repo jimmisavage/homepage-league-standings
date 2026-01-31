@@ -58,7 +58,7 @@
                             },
                             "points": 52,
                             "goalsDiff": 11,
-                            "form": "DLWDWW",
+                            "form": "LWDWWW",
                             "all": {
                                 "played": 30,
                                 "win": 14,
@@ -102,7 +102,7 @@
                             },
                             "points": 49,
                             "goalsDiff": 5,
-                            "form": "WLWLLL",
+                            "form": "LWLLLW",
                             "all": {
                                 "played": 28,
                                 "win": 14,
@@ -224,7 +224,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (A)"
+                            "nextUp": "Northampton Town (A)"
                         },
                         {
                             "rank": 11,
@@ -388,7 +388,7 @@
                             },
                             "points": 32,
                             "goalsDiff": -8,
-                            "form": "DLWLLD",
+                            "form": "LWLLDL",
                             "all": {
                                 "played": 27,
                                 "win": 9,
@@ -444,7 +444,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Barnsley (A)"
+                            "nextUp": "Reading (H)"
                         },
                         {
                             "rank": 21,
@@ -476,7 +476,7 @@
                             },
                             "points": 30,
                             "goalsDiff": -14,
-                            "form": "LLDWDW",
+                            "form": "LDWDWL",
                             "all": {
                                 "played": 28,
                                 "win": 8,
