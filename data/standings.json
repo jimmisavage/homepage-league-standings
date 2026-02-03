@@ -321,16 +321,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
                             "points": 36,
-                            "goalsDiff": -1,
+                            "goalsDiff": -2,
                             "form": "LDWDLW",
                             "all": {
-                                "played": 25,
+                                "played": 26,
                                 "win": 10,
                                 "draw": 6,
-                                "lose": 9,
+                                "lose": 10,
                                 "goals": {
                                     "for": 40,
-                                    "against": 41
+                                    "against": 42
                                 }
                             },
                             "highlight": false,
@@ -361,6 +361,28 @@
                         {
                             "rank": 17,
                             "team": {
+                                "name": "Doncaster Rovers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
+                            },
+                            "points": 33,
+                            "goalsDiff": -12,
+                            "form": "LDWDWL",
+                            "all": {
+                                "played": 29,
+                                "win": 9,
+                                "draw": 6,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 45
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wycombe Wanderers (A)"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
@@ -381,7 +403,7 @@
                             "nextUp": "Huddersfield Town (A)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 19,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -403,7 +425,29 @@
                             "nextUp": "Stockport County (A)"
                         },
                         {
-                            "rank": 19,
+                            "rank": 20,
+                            "team": {
+                                "name": "Northampton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
+                            },
+                            "points": 32,
+                            "goalsDiff": -11,
+                            "form": "DDLLLL",
+                            "all": {
+                                "played": 29,
+                                "win": 9,
+                                "draw": 5,
+                                "lose": 15,
+                                "goals": {
+                                    "for": 25,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Stevenage (H)"
+                        },
+                        {
+                            "rank": 21,
                             "team": {
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
@@ -425,7 +469,7 @@
                             "nextUp": "Peterborough United (A)"
                         },
                         {
-                            "rank": 20,
+                            "rank": 22,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
@@ -447,70 +491,26 @@
                             "nextUp": "Cardiff City (H)"
                         },
                         {
-                            "rank": 21,
+                            "rank": 23,
                             "team": {
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
                             "points": 31,
-                            "goalsDiff": -11,
+                            "goalsDiff": -13,
                             "form": "LLWLLD",
                             "all": {
-                                "played": 28,
+                                "played": 29,
                                 "win": 8,
                                 "draw": 7,
-                                "lose": 13,
+                                "lose": 14,
                                 "goals": {
                                     "for": 30,
-                                    "against": 41
+                                    "against": 43
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Port Vale (A)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Doncaster Rovers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
-                            },
-                            "points": 30,
-                            "goalsDiff": -14,
-                            "form": "LDWDWL",
-                            "all": {
-                                "played": 28,
-                                "win": 8,
-                                "draw": 6,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 31,
-                                    "against": 45
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wycombe Wanderers (A)"
-                        },
-                        {
-                            "rank": 23,
-                            "team": {
-                                "name": "Northampton Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
-                            },
-                            "points": 29,
-                            "goalsDiff": -12,
-                            "form": "DDLLLL",
-                            "all": {
-                                "played": 28,
-                                "win": 8,
-                                "draw": 5,
-                                "lose": 15,
-                                "goals": {
-                                    "for": 24,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stevenage (H)"
                         },
                         {
                             "rank": 24,
