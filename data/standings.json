@@ -334,10 +334,32 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Northampton Town (H)"
+                            "nextUp": "Bolton Wanderers (A)"
                         },
                         {
                             "rank": 16,
+                            "team": {
+                                "name": "AFC Wimbledon",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
+                            },
+                            "points": 33,
+                            "goalsDiff": -8,
+                            "form": "LWLLDL",
+                            "all": {
+                                "played": 28,
+                                "win": 9,
+                                "draw": 6,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 28,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Reading (H)"
+                        },
+                        {
+                            "rank": 17,
                             "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
@@ -357,28 +379,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Huddersfield Town (A)"
-                        },
-                        {
-                            "rank": 17,
-                            "team": {
-                                "name": "AFC Wimbledon",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
-                            },
-                            "points": 32,
-                            "goalsDiff": -8,
-                            "form": "LWLLDL",
-                            "all": {
-                                "played": 27,
-                                "win": 9,
-                                "draw": 5,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 28,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 18,
@@ -466,7 +466,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Doncaster Rovers (H)"
+                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 22,
@@ -488,7 +488,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (A)"
+                            "nextUp": "Wycombe Wanderers (A)"
                         },
                         {
                             "rank": 23,
@@ -510,7 +510,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Barnsley (A)"
+                            "nextUp": "Stevenage (H)"
                         },
                         {
                             "rank": 24,
@@ -518,13 +518,13 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 21,
+                            "points": 22,
                             "goalsDiff": -17,
                             "form": "LLWLLW",
                             "all": {
-                                "played": 26,
+                                "played": 27,
                                 "win": 5,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 15,
                                 "goals": {
                                     "for": 20,
@@ -532,7 +532,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
+                            "nextUp": "Burton Albion (H)"
                         }
                     ]
                 ]
