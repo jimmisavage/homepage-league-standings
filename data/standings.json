@@ -101,16 +101,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 49,
-                            "goalsDiff": 4,
+                            "goalsDiff": 5,
                             "form": "LWLLLW",
                             "all": {
-                                "played": 29,
+                                "played": 28,
                                 "win": 14,
                                 "draw": 7,
-                                "lose": 8,
+                                "lose": 7,
                                 "goals": {
                                     "for": 36,
-                                    "against": 32
+                                    "against": 31
                                 }
                             },
                             "highlight": false,
@@ -144,16 +144,16 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 45,
-                            "goalsDiff": 5,
+                            "points": 42,
+                            "goalsDiff": 4,
                             "form": "LWDLLW",
                             "all": {
-                                "played": 30,
-                                "win": 13,
+                                "played": 29,
+                                "win": 12,
                                 "draw": 6,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 39,
+                                    "for": 38,
                                     "against": 34
                                 }
                             },
@@ -475,16 +475,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
                             "points": 31,
-                            "goalsDiff": -13,
+                            "goalsDiff": -12,
                             "form": "LWLLDL",
                             "all": {
-                                "played": 30,
+                                "played": 29,
                                 "win": 8,
                                 "draw": 7,
-                                "lose": 15,
+                                "lose": 14,
                                 "goals": {
-                                    "for": 32,
-                                    "against": 45
+                                    "for": 31,
+                                    "against": 43
                                 }
                             },
                             "highlight": false,
@@ -518,17 +518,17 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 24,
-                            "goalsDiff": -17,
+                            "points": 21,
+                            "goalsDiff": -18,
                             "form": "LWLLWL",
                             "all": {
-                                "played": 28,
-                                "win": 6,
+                                "played": 27,
+                                "win": 5,
                                 "draw": 6,
                                 "lose": 16,
                                 "goals": {
-                                    "for": 22,
-                                    "against": 39
+                                    "for": 20,
+                                    "against": 38
                                 }
                             },
                             "highlight": false,
