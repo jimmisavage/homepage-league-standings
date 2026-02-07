@@ -101,16 +101,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 49,
-                            "goalsDiff": 5,
+                            "goalsDiff": 3,
                             "form": "LWLLLW",
                             "all": {
-                                "played": 28,
+                                "played": 29,
                                 "win": 14,
                                 "draw": 7,
-                                "lose": 7,
+                                "lose": 8,
                                 "goals": {
                                     "for": 36,
-                                    "against": 31
+                                    "against": 33
                                 }
                             },
                             "highlight": false,
@@ -144,16 +144,16 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 42,
-                            "goalsDiff": 4,
+                            "points": 45,
+                            "goalsDiff": 6,
                             "form": "LWDLLW",
                             "all": {
-                                "played": 29,
-                                "win": 12,
+                                "played": 30,
+                                "win": 13,
                                 "draw": 6,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 38,
+                                    "for": 40,
                                     "against": 34
                                 }
                             },
@@ -427,6 +427,28 @@
                         {
                             "rank": 20,
                             "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
+                            },
+                            "points": 32,
+                            "goalsDiff": -12,
+                            "form": "LWLLDL",
+                            "all": {
+                                "played": 30,
+                                "win": 8,
+                                "draw": 8,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 45
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Rotherham United (H)"
+                        },
+                        {
+                            "rank": 21,
+                            "team": {
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
                             },
@@ -447,7 +469,7 @@
                             "nextUp": "Peterborough United (A)"
                         },
                         {
-                            "rank": 21,
+                            "rank": 22,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
@@ -467,28 +489,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Cardiff City (H)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
-                            },
-                            "points": 31,
-                            "goalsDiff": -12,
-                            "form": "LWLLDL",
-                            "all": {
-                                "played": 29,
-                                "win": 8,
-                                "draw": 7,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 31,
-                                    "against": 43
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Rotherham United (H)"
                         },
                         {
                             "rank": 23,
@@ -518,17 +518,17 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 21,
+                            "points": 22,
                             "goalsDiff": -18,
                             "form": "LWLLWL",
                             "all": {
-                                "played": 27,
+                                "played": 28,
                                 "win": 5,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 16,
                                 "goals": {
-                                    "for": 20,
-                                    "against": 38
+                                    "for": 22,
+                                    "against": 40
                                 }
                             },
                             "highlight": false,
