@@ -101,15 +101,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 49,
-                            "goalsDiff": 3,
-                            "form": "LWLLLW",
+                            "goalsDiff": 4,
+                            "form": "WLLLWL",
                             "all": {
                                 "played": 29,
                                 "win": 14,
                                 "draw": 7,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 36,
+                                    "for": 37,
                                     "against": 33
                                 }
                             },
@@ -145,8 +145,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
                             "points": 45,
-                            "goalsDiff": 6,
-                            "form": "LWDLLW",
+                            "goalsDiff": 5,
+                            "form": "WDLLWW",
                             "all": {
                                 "played": 30,
                                 "win": 13,
@@ -154,7 +154,7 @@
                                 "lose": 11,
                                 "goals": {
                                     "for": 40,
-                                    "against": 34
+                                    "against": 35
                                 }
                             },
                             "highlight": false,
@@ -432,7 +432,7 @@
                             },
                             "points": 32,
                             "goalsDiff": -12,
-                            "form": "LWLLDL",
+                            "form": "WLLDLD",
                             "all": {
                                 "played": 30,
                                 "win": 8,
@@ -520,7 +520,7 @@
                             },
                             "points": 22,
                             "goalsDiff": -18,
-                            "form": "LWLLWL",
+                            "form": "WLLWLD",
                             "all": {
                                 "played": 28,
                                 "win": 5,
