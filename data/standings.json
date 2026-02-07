@@ -101,20 +101,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 49,
-                            "goalsDiff": 5,
+                            "goalsDiff": 4,
                             "form": "LWLLLW",
                             "all": {
-                                "played": 28,
+                                "played": 29,
                                 "win": 14,
                                 "draw": 7,
-                                "lose": 7,
+                                "lose": 8,
                                 "goals": {
                                     "for": 36,
-                                    "against": 31
+                                    "against": 32
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Luton Town (A)"
+                            "nextUp": "Peterborough United (H)"
                         },
                         {
                             "rank": 6,
@@ -144,21 +144,21 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 42,
-                            "goalsDiff": 4,
+                            "points": 45,
+                            "goalsDiff": 5,
                             "form": "LWDLLW",
                             "all": {
-                                "played": 29,
-                                "win": 12,
+                                "played": 30,
+                                "win": 13,
                                 "draw": 6,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 38,
+                                    "for": 39,
                                     "against": 34
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (H)"
+                            "nextUp": "Cardiff City (A)"
                         },
                         {
                             "rank": 8,
@@ -475,20 +475,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
                             "points": 31,
-                            "goalsDiff": -12,
+                            "goalsDiff": -13,
                             "form": "LWLLDL",
                             "all": {
-                                "played": 29,
+                                "played": 30,
                                 "win": 8,
                                 "draw": 7,
-                                "lose": 14,
+                                "lose": 15,
                                 "goals": {
-                                    "for": 31,
-                                    "against": 43
+                                    "for": 32,
+                                    "against": 45
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (A)"
+                            "nextUp": "Rotherham United (H)"
                         },
                         {
                             "rank": 23,
@@ -518,21 +518,21 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 21,
-                            "goalsDiff": -18,
+                            "points": 24,
+                            "goalsDiff": -17,
                             "form": "LWLLWL",
                             "all": {
-                                "played": 27,
-                                "win": 5,
+                                "played": 28,
+                                "win": 6,
                                 "draw": 6,
                                 "lose": 16,
                                 "goals": {
-                                    "for": 20,
-                                    "against": 38
+                                    "for": 22,
+                                    "against": 39
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (H)"
+                            "nextUp": "Stevenage (A)"
                         }
                     ]
                 ]
