@@ -163,6 +163,28 @@
                         {
                             "rank": 8,
                             "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 44,
+                            "goalsDiff": 4,
+                            "form": "WLWLLW",
+                            "all": {
+                                "played": 31,
+                                "win": 14,
+                                "draw": 2,
+                                "lose": 15,
+                                "goals": {
+                                    "for": 45,
+                                    "against": 41
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bradford City (A)"
+                        },
+                        {
+                            "rank": 9,
+                            "team": {
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
@@ -181,28 +203,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Reading (A)"
-                        },
-                        {
-                            "rank": 9,
-                            "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 42,
-                            "goalsDiff": 3,
-                            "form": "WLWLLW",
-                            "all": {
-                                "played": 31,
-                                "win": 13,
-                                "draw": 3,
-                                "lose": 15,
-                                "goals": {
-                                    "for": 43,
-                                    "against": 40
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bradford City (A)"
                         },
                         {
                             "rank": 10,
@@ -241,8 +241,8 @@
                                 "draw": 11,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 41,
-                                    "against": 38
+                                    "for": 42,
+                                    "against": 39
                                 }
                             },
                             "highlight": false,
@@ -254,17 +254,17 @@
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
-                            "points": 40,
-                            "goalsDiff": 6,
+                            "points": 39,
+                            "goalsDiff": 5,
                             "form": "WWDDDD",
                             "all": {
                                 "played": 29,
                                 "win": 10,
-                                "draw": 10,
-                                "lose": 9,
+                                "draw": 9,
+                                "lose": 10,
                                 "goals": {
-                                    "for": 36,
-                                    "against": 30
+                                    "for": 37,
+                                    "against": 32
                                 }
                             },
                             "highlight": false,
@@ -461,8 +461,8 @@
                                 "draw": 11,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 30,
-                                    "against": 40
+                                    "for": 31,
+                                    "against": 41
                                 }
                             },
                             "highlight": false,
