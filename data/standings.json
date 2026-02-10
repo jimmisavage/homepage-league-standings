@@ -185,6 +185,28 @@
                         {
                             "rank": 9,
                             "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 42,
+                            "goalsDiff": 3,
+                            "form": "WLWLLW",
+                            "all": {
+                                "played": 31,
+                                "win": 13,
+                                "draw": 3,
+                                "lose": 15,
+                                "goals": {
+                                    "for": 43,
+                                    "against": 40
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bradford City (A)"
+                        },
+                        {
+                            "rank": 10,
+                            "team": {
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
@@ -202,29 +224,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Barnsley (H)"
-                        },
-                        {
-                            "rank": 10,
-                            "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 41,
-                            "goalsDiff": 3,
-                            "form": "WLWLLW",
-                            "all": {
-                                "played": 30,
-                                "win": 13,
-                                "draw": 2,
-                                "lose": 15,
-                                "goals": {
-                                    "for": 43,
-                                    "against": 40
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Mansfield Town (A)"
+                            "nextUp": "Huddersfield Town (H)"
                         },
                         {
                             "rank": 11,
@@ -232,13 +232,13 @@
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
-                            "points": 40,
+                            "points": 41,
                             "goalsDiff": 3,
                             "form": "WLDDWL",
                             "all": {
-                                "played": 29,
+                                "played": 30,
                                 "win": 10,
-                                "draw": 10,
+                                "draw": 11,
                                 "lose": 9,
                                 "goals": {
                                     "for": 41,
@@ -246,7 +246,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (A)"
+                            "nextUp": "Wycombe Wanderers (H)"
                         },
                         {
                             "rank": 12,
@@ -254,13 +254,13 @@
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
-                            "points": 39,
+                            "points": 40,
                             "goalsDiff": 6,
                             "form": "WWDDDD",
                             "all": {
-                                "played": 28,
+                                "played": 29,
                                 "win": 10,
-                                "draw": 9,
+                                "draw": 10,
                                 "lose": 9,
                                 "goals": {
                                     "for": 36,
@@ -268,7 +268,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Peterborough United (H)"
+                            "nextUp": "Blackpool (A)"
                         },
                         {
                             "rank": 13,
@@ -334,7 +334,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stevenage (A)"
+                            "nextUp": "AFC Wimbledon (H)"
                         },
                         {
                             "rank": 16,
@@ -449,6 +449,28 @@
                         {
                             "rank": 21,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
+                            },
+                            "points": 32,
+                            "goalsDiff": -10,
+                            "form": "LLDLLL",
+                            "all": {
+                                "played": 30,
+                                "win": 7,
+                                "draw": 11,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 30,
+                                    "against": 40
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Luton Town (H)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
@@ -467,28 +489,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Rotherham United (H)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
-                            },
-                            "points": 31,
-                            "goalsDiff": -10,
-                            "form": "LLDLLL",
-                            "all": {
-                                "played": 29,
-                                "win": 7,
-                                "draw": 10,
-                                "lose": 12,
-                                "goals": {
-                                    "for": 30,
-                                    "against": 40
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Reading (H)"
                         },
                         {
                             "rank": 23,
