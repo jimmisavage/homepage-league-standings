@@ -12,16 +12,16 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 64,
-                            "goalsDiff": 26,
+                            "points": 66,
+                            "goalsDiff": 28,
                             "form": "DWDWDW",
                             "all": {
                                 "played": 31,
-                                "win": 19,
-                                "draw": 7,
+                                "win": 20,
+                                "draw": 6,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 56,
+                                    "for": 58,
                                     "against": 30
                                 }
                             },
@@ -101,7 +101,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 52,
-                            "goalsDiff": 5,
+                            "goalsDiff": 6,
                             "form": "WLLLWL",
                             "all": {
                                 "played": 30,
@@ -109,7 +109,7 @@
                                 "draw": 7,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 38,
+                                    "for": 39,
                                     "against": 33
                                 }
                             },
@@ -166,17 +166,17 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 46,
-                            "goalsDiff": 5,
+                            "points": 45,
+                            "goalsDiff": 3,
                             "form": "WDLLWW",
                             "all": {
                                 "played": 31,
                                 "win": 13,
-                                "draw": 7,
-                                "lose": 11,
+                                "draw": 6,
+                                "lose": 12,
                                 "goals": {
                                     "for": 41,
-                                    "against": 36
+                                    "against": 38
                                 }
                             },
                             "highlight": false,
@@ -211,7 +211,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 44,
-                            "goalsDiff": 3,
+                            "goalsDiff": 2,
                             "form": "LWLLWW",
                             "all": {
                                 "played": 32,
@@ -220,7 +220,7 @@
                                 "lose": 16,
                                 "goals": {
                                     "for": 45,
-                                    "against": 42
+                                    "against": 43
                                 }
                             },
                             "highlight": false,
@@ -251,11 +251,33 @@
                         {
                             "rank": 12,
                             "team": {
+                                "name": "AFC Wimbledon",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
+                            },
+                            "points": 41,
+                            "goalsDiff": -5,
+                            "form": "LLDLWW",
+                            "all": {
+                                "played": 30,
+                                "win": 12,
+                                "draw": 5,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 35,
+                                    "against": 40
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (A)"
+                        },
+                        {
+                            "rank": 13,
+                            "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
                             "points": 40,
-                            "goalsDiff": -8,
+                            "goalsDiff": -5,
                             "form": "WWWDLL",
                             "all": {
                                 "played": 31,
@@ -263,7 +285,7 @@
                                 "draw": 4,
                                 "lose": 15,
                                 "goals": {
-                                    "for": 38,
+                                    "for": 41,
                                     "against": 46
                                 }
                             },
@@ -271,7 +293,7 @@
                             "nextUp": "Leyton Orient (A)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
@@ -293,7 +315,7 @@
                             "nextUp": "Blackpool (A)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
@@ -315,44 +337,22 @@
                             "nextUp": "Wycombe Wanderers (H)"
                         },
                         {
-                            "rank": 15,
-                            "team": {
-                                "name": "AFC Wimbledon",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
-                            },
-                            "points": 39,
-                            "goalsDiff": -6,
-                            "form": "LLDLWW",
-                            "all": {
-                                "played": 30,
-                                "win": 11,
-                                "draw": 6,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 34,
-                                    "against": 40
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (A)"
-                        },
-                        {
                             "rank": 16,
                             "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
-                            "points": 38,
-                            "goalsDiff": -2,
+                            "points": 37,
+                            "goalsDiff": -3,
                             "form": "WDLWDL",
                             "all": {
                                 "played": 28,
                                 "win": 10,
-                                "draw": 8,
-                                "lose": 10,
+                                "draw": 7,
+                                "lose": 11,
                                 "goals": {
                                     "for": 46,
-                                    "against": 48
+                                    "against": 49
                                 }
                             },
                             "highlight": false,
@@ -383,28 +383,6 @@
                         {
                             "rank": 18,
                             "team": {
-                                "name": "Blackpool",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
-                            },
-                            "points": 33,
-                            "goalsDiff": -8,
-                            "form": "LLWLLD",
-                            "all": {
-                                "played": 31,
-                                "win": 9,
-                                "draw": 6,
-                                "lose": 16,
-                                "goals": {
-                                    "for": 37,
-                                    "against": 45
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Mansfield Town (H)"
-                        },
-                        {
-                            "rank": 19,
-                            "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
                             },
@@ -423,6 +401,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Plymouth Argyle (H)"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "name": "Blackpool",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
+                            },
+                            "points": 33,
+                            "goalsDiff": -11,
+                            "form": "LLWLLD",
+                            "all": {
+                                "played": 31,
+                                "win": 9,
+                                "draw": 6,
+                                "lose": 16,
+                                "goals": {
+                                    "for": 37,
+                                    "against": 48
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Mansfield Town (H)"
                         },
                         {
                             "rank": 20,
