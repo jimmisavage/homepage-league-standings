@@ -14,7 +14,7 @@
                             },
                             "points": 66,
                             "goalsDiff": 28,
-                            "form": "DWDWDW",
+                            "form": "WDWDWW",
                             "all": {
                                 "played": 31,
                                 "win": 20,
@@ -34,17 +34,17 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 64,
-                            "goalsDiff": 23,
-                            "form": "WDWWWW",
+                            "points": 62,
+                            "goalsDiff": 22,
+                            "form": "DWWWWD",
                             "all": {
                                 "played": 31,
-                                "win": 19,
-                                "draw": 7,
+                                "win": 18,
+                                "draw": 8,
                                 "lose": 5,
                                 "goals": {
                                     "for": 53,
-                                    "against": 30
+                                    "against": 31
                                 }
                             },
                             "highlight": false,
@@ -56,16 +56,16 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 55,
-                            "goalsDiff": 11,
-                            "form": "WDWWWW",
+                            "points": 56,
+                            "goalsDiff": 12,
+                            "form": "DWWWWD",
                             "all": {
                                 "played": 32,
                                 "win": 15,
-                                "draw": 10,
-                                "lose": 7,
+                                "draw": 11,
+                                "lose": 6,
                                 "goals": {
-                                    "for": 41,
+                                    "for": 42,
                                     "against": 30
                                 }
                             },
@@ -102,7 +102,7 @@
                             },
                             "points": 52,
                             "goalsDiff": 6,
-                            "form": "WLLLWL",
+                            "form": "LLLWLW",
                             "all": {
                                 "played": 30,
                                 "win": 15,
@@ -168,7 +168,7 @@
                             },
                             "points": 45,
                             "goalsDiff": 3,
-                            "form": "WDLLWW",
+                            "form": "DLLWWL",
                             "all": {
                                 "played": 31,
                                 "win": 13,
@@ -212,7 +212,7 @@
                             },
                             "points": 44,
                             "goalsDiff": 2,
-                            "form": "LWLLWW",
+                            "form": "WLLWWL",
                             "all": {
                                 "played": 32,
                                 "win": 14,
@@ -251,34 +251,12 @@
                         {
                             "rank": 12,
                             "team": {
-                                "name": "AFC Wimbledon",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
-                            },
-                            "points": 41,
-                            "goalsDiff": -5,
-                            "form": "LLDLWW",
-                            "all": {
-                                "played": 30,
-                                "win": 12,
-                                "draw": 5,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 35,
-                                    "against": 40
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (A)"
-                        },
-                        {
-                            "rank": 13,
-                            "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
                             "points": 40,
                             "goalsDiff": -5,
-                            "form": "WWWDLL",
+                            "form": "WWDLLW",
                             "all": {
                                 "played": 31,
                                 "win": 12,
@@ -293,7 +271,7 @@
                             "nextUp": "Leyton Orient (A)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 13,
                             "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
@@ -315,14 +293,14 @@
                             "nextUp": "Blackpool (A)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 14,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
                             },
                             "points": 39,
                             "goalsDiff": 3,
-                            "form": "DWWDLD",
+                            "form": "WWDLDD",
                             "all": {
                                 "played": 30,
                                 "win": 11,
@@ -337,21 +315,43 @@
                             "nextUp": "Wycombe Wanderers (H)"
                         },
                         {
+                            "rank": 15,
+                            "team": {
+                                "name": "AFC Wimbledon",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
+                            },
+                            "points": 39,
+                            "goalsDiff": -6,
+                            "form": "LDLWWD",
+                            "all": {
+                                "played": 30,
+                                "win": 11,
+                                "draw": 6,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 35,
+                                    "against": 41
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (A)"
+                        },
+                        {
                             "rank": 16,
                             "team": {
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
-                            "points": 37,
-                            "goalsDiff": -3,
-                            "form": "WDLWDL",
+                            "points": 38,
+                            "goalsDiff": -2,
+                            "form": "DLWDLD",
                             "all": {
                                 "played": 28,
                                 "win": 10,
-                                "draw": 7,
-                                "lose": 11,
+                                "draw": 8,
+                                "lose": 10,
                                 "goals": {
-                                    "for": 46,
+                                    "for": 47,
                                     "against": 49
                                 }
                             },
@@ -366,7 +366,7 @@
                             },
                             "points": 34,
                             "goalsDiff": -10,
-                            "form": "LLLLDW",
+                            "form": "LLLDWD",
                             "all": {
                                 "played": 31,
                                 "win": 9,
@@ -410,7 +410,7 @@
                             },
                             "points": 33,
                             "goalsDiff": -11,
-                            "form": "LLWLLD",
+                            "form": "LWLLDL",
                             "all": {
                                 "played": 31,
                                 "win": 9,
