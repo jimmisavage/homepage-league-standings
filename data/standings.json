@@ -100,13 +100,13 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 49,
+                            "points": 50,
                             "goalsDiff": 11,
                             "form": "LLWWWD",
                             "all": {
-                                "played": 31,
+                                "played": 32,
                                 "win": 14,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 10,
                                 "goals": {
                                     "for": 53,
@@ -114,7 +114,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stevenage (A)"
+                            "nextUp": "Doncaster Rovers (A)"
                         },
                         {
                             "rank": 6,
@@ -163,6 +163,28 @@
                         {
                             "rank": 8,
                             "team": {
+                                "name": "Wycombe Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
+                            },
+                            "points": 44,
+                            "goalsDiff": 9,
+                            "form": "WWLWDW",
+                            "all": {
+                                "played": 31,
+                                "win": 11,
+                                "draw": 11,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 40,
+                                    "against": 31
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Exeter City (A)"
+                        },
+                        {
+                            "rank": 9,
+                            "team": {
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
@@ -183,40 +205,18 @@
                             "nextUp": "Bradford City (A)"
                         },
                         {
-                            "rank": 9,
-                            "team": {
-                                "name": "Wycombe Wanderers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
-                            },
-                            "points": 43,
-                            "goalsDiff": 9,
-                            "form": "WWLWDW",
-                            "all": {
-                                "played": 30,
-                                "win": 11,
-                                "draw": 10,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 40,
-                                    "against": 31
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Reading (A)"
-                        },
-                        {
                             "rank": 10,
                             "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
-                            "points": 43,
+                            "points": 44,
                             "goalsDiff": 4,
                             "form": "LDDWLW",
                             "all": {
-                                "played": 30,
+                                "played": 31,
                                 "win": 11,
-                                "draw": 10,
+                                "draw": 11,
                                 "lose": 9,
                                 "goals": {
                                     "for": 43,
@@ -224,7 +224,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wycombe Wanderers (H)"
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 11,
@@ -232,13 +232,13 @@
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 42,
+                            "points": 43,
                             "goalsDiff": 1,
                             "form": "LDDWLL",
                             "all": {
-                                "played": 29,
+                                "played": 30,
                                 "win": 11,
-                                "draw": 9,
+                                "draw": 10,
                                 "lose": 9,
                                 "goals": {
                                     "for": 31,
@@ -246,7 +246,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Huddersfield Town (H)"
+                            "nextUp": "Port Vale (H)"
                         },
                         {
                             "rank": 12,
