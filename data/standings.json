@@ -145,7 +145,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
                             "points": 46,
-                            "goalsDiff": 6,
+                            "goalsDiff": 5,
                             "form": "LDDWLW",
                             "all": {
                                 "played": 31,
@@ -154,7 +154,7 @@
                                 "lose": 9,
                                 "goals": {
                                     "for": 45,
-                                    "against": 39
+                                    "against": 40
                                 }
                             },
                             "highlight": false,
@@ -211,7 +211,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
                             "points": 43,
-                            "goalsDiff": 7,
+                            "goalsDiff": 8,
                             "form": "WWLWDW",
                             "all": {
                                 "played": 31,
@@ -219,7 +219,7 @@
                                 "draw": 10,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 40,
+                                    "for": 41,
                                     "against": 33
                                 }
                             },
