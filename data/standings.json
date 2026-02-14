@@ -141,6 +141,28 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                            },
+                            "points": 46,
+                            "goalsDiff": 6,
+                            "form": "LDDWLW",
+                            "all": {
+                                "played": 31,
+                                "win": 12,
+                                "draw": 10,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 45,
+                                    "against": 39
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
@@ -159,28 +181,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Cardiff City (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
-                                "name": "Wycombe Wanderers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
-                            },
-                            "points": 44,
-                            "goalsDiff": 9,
-                            "form": "WWLWDW",
-                            "all": {
-                                "played": 31,
-                                "win": 11,
-                                "draw": 11,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 40,
-                                    "against": 31
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Exeter City (A)"
                         },
                         {
                             "rank": 9,
@@ -207,24 +207,24 @@
                         {
                             "rank": 10,
                             "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                                "name": "Wycombe Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
-                            "points": 44,
-                            "goalsDiff": 4,
-                            "form": "LDDWLW",
+                            "points": 43,
+                            "goalsDiff": 7,
+                            "form": "WWLWDW",
                             "all": {
                                 "played": 31,
                                 "win": 11,
-                                "draw": 11,
-                                "lose": 9,
+                                "draw": 10,
+                                "lose": 10,
                                 "goals": {
-                                    "for": 43,
-                                    "against": 39
+                                    "for": 40,
+                                    "against": 33
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
+                            "nextUp": "Exeter City (A)"
                         },
                         {
                             "rank": 11,
