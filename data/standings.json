@@ -100,17 +100,17 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 50,
-                            "goalsDiff": 11,
-                            "form": "LLWWWD",
+                            "points": 49,
+                            "goalsDiff": 10,
+                            "form": "LWWWDL",
                             "all": {
                                 "played": 32,
                                 "win": 14,
-                                "draw": 8,
-                                "lose": 10,
+                                "draw": 7,
+                                "lose": 11,
                                 "goals": {
                                     "for": 53,
-                                    "against": 42
+                                    "against": 43
                                 }
                             },
                             "highlight": false,
@@ -141,6 +141,28 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                            },
+                            "points": 46,
+                            "goalsDiff": 5,
+                            "form": "DDWLWW",
+                            "all": {
+                                "played": 31,
+                                "win": 12,
+                                "draw": 10,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 46,
+                                    "against": 41
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
@@ -161,29 +183,29 @@
                             "nextUp": "Cardiff City (A)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 9,
                             "team": {
-                                "name": "Wycombe Wanderers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
+                                "name": "Stevenage",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 44,
-                            "goalsDiff": 9,
-                            "form": "WWLWDW",
+                            "points": 45,
+                            "goalsDiff": 2,
+                            "form": "DDWLLW",
                             "all": {
-                                "played": 31,
-                                "win": 11,
-                                "draw": 11,
+                                "played": 30,
+                                "win": 12,
+                                "draw": 9,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 40,
-                                    "against": 31
+                                    "for": 32,
+                                    "against": 30
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Exeter City (A)"
+                            "nextUp": "Port Vale (H)"
                         },
                         {
-                            "rank": 9,
+                            "rank": 10,
                             "team": {
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
@@ -205,48 +227,26 @@
                             "nextUp": "Bradford City (A)"
                         },
                         {
-                            "rank": 10,
+                            "rank": 11,
                             "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                                "name": "Wycombe Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
-                            "points": 44,
-                            "goalsDiff": 4,
-                            "form": "LDDWLW",
+                            "points": 43,
+                            "goalsDiff": 8,
+                            "form": "WLWDWL",
                             "all": {
                                 "played": 31,
                                 "win": 11,
-                                "draw": 11,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 43,
-                                    "against": 39
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 11,
-                            "team": {
-                                "name": "Stevenage",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
-                            },
-                            "points": 43,
-                            "goalsDiff": 1,
-                            "form": "LDDWLL",
-                            "all": {
-                                "played": 30,
-                                "win": 11,
                                 "draw": 10,
-                                "lose": 9,
+                                "lose": 10,
                                 "goals": {
-                                    "for": 31,
-                                    "against": 30
+                                    "for": 42,
+                                    "against": 34
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (H)"
+                            "nextUp": "Exeter City (A)"
                         },
                         {
                             "rank": 12,
