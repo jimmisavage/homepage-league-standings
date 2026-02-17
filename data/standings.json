@@ -56,16 +56,16 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 56,
-                            "goalsDiff": 11,
-                            "form": "DWWWWD",
+                            "points": 57,
+                            "goalsDiff": 12,
+                            "form": "WWWWDD",
                             "all": {
                                 "played": 33,
                                 "win": 15,
-                                "draw": 11,
-                                "lose": 7,
+                                "draw": 12,
+                                "lose": 6,
                                 "goals": {
-                                    "for": 42,
+                                    "for": 43,
                                     "against": 31
                                 }
                             },
@@ -141,28 +141,6 @@
                         {
                             "rank": 7,
                             "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
-                            },
-                            "points": 49,
-                            "goalsDiff": 6,
-                            "form": "DDWLWW",
-                            "all": {
-                                "played": 32,
-                                "win": 13,
-                                "draw": 10,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 47,
-                                    "against": 41
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Port Vale (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
@@ -181,6 +159,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Wycombe Wanderers (A)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                            },
+                            "points": 47,
+                            "goalsDiff": 5,
+                            "form": "DWLWWD",
+                            "all": {
+                                "played": 32,
+                                "win": 12,
+                                "draw": 11,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 47,
+                                    "against": 42
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 9,
@@ -322,7 +322,7 @@
                             },
                             "points": 39,
                             "goalsDiff": 4,
-                            "form": "WDDDDL",
+                            "form": "DDDDLL",
                             "all": {
                                 "played": 30,
                                 "win": 10,
@@ -366,7 +366,7 @@
                             },
                             "points": 36,
                             "goalsDiff": -10,
-                            "form": "LWLLDL",
+                            "form": "WLLDLW",
                             "all": {
                                 "played": 32,
                                 "win": 10,
