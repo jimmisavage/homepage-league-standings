@@ -188,17 +188,17 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 46,
-                            "goalsDiff": 3,
-                            "form": "DLLWWL",
+                            "points": 45,
+                            "goalsDiff": 2,
+                            "form": "LLWWLL",
                             "all": {
                                 "played": 32,
                                 "win": 13,
-                                "draw": 7,
-                                "lose": 12,
+                                "draw": 6,
+                                "lose": 13,
                                 "goals": {
                                     "for": 41,
-                                    "against": 38
+                                    "against": 39
                                 }
                             },
                             "highlight": false,
@@ -427,6 +427,28 @@
                         {
                             "rank": 20,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
+                            },
+                            "points": 34,
+                            "goalsDiff": -10,
+                            "form": "DLLLLW",
+                            "all": {
+                                "played": 31,
+                                "win": 8,
+                                "draw": 10,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 32,
+                                    "against": 42
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Stockport County (A)"
+                        },
+                        {
+                            "rank": 21,
+                            "team": {
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
@@ -447,7 +469,7 @@
                             "nextUp": "Leyton Orient (H)"
                         },
                         {
-                            "rank": 21,
+                            "rank": 22,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -467,28 +489,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Northampton Town (A)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
-                            },
-                            "points": 32,
-                            "goalsDiff": -11,
-                            "form": "LDLLLL",
-                            "all": {
-                                "played": 31,
-                                "win": 7,
-                                "draw": 11,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 31,
-                                    "against": 42
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stockport County (A)"
                         },
                         {
                             "rank": 23,
