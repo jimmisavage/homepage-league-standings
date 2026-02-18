@@ -188,13 +188,13 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 45,
+                            "points": 46,
                             "goalsDiff": 3,
                             "form": "DLLWWL",
                             "all": {
-                                "played": 31,
+                                "played": 32,
                                 "win": 13,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 12,
                                 "goals": {
                                     "for": 41,
@@ -202,7 +202,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (A)"
+                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 10,
@@ -474,13 +474,13 @@
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
                             },
-                            "points": 31,
+                            "points": 32,
                             "goalsDiff": -11,
                             "form": "LDLLLL",
                             "all": {
-                                "played": 30,
+                                "played": 31,
                                 "win": 7,
-                                "draw": 10,
+                                "draw": 11,
                                 "lose": 13,
                                 "goals": {
                                     "for": 31,
@@ -488,7 +488,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Luton Town (H)"
+                            "nextUp": "Stockport County (A)"
                         },
                         {
                             "rank": 23,
