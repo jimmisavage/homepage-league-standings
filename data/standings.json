@@ -34,16 +34,16 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 66,
-                            "goalsDiff": 26,
+                            "points": 68,
+                            "goalsDiff": 27,
                             "form": "WWWWDW",
                             "all": {
                                 "played": 33,
-                                "win": 19,
-                                "draw": 9,
+                                "win": 20,
+                                "draw": 8,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 57,
+                                    "for": 58,
                                     "against": 31
                                 }
                             },
@@ -92,7 +92,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "AFC Wimbledon (A)"
+                            "nextUp": "Rotherham United (H)"
                         },
                         {
                             "rank": 5,
@@ -312,32 +312,10 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (H)"
+                            "nextUp": "Mansfield Town (A)"
                         },
                         {
                             "rank": 15,
-                            "team": {
-                                "name": "Mansfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
-                            },
-                            "points": 40,
-                            "goalsDiff": 4,
-                            "form": "DDDDLL",
-                            "all": {
-                                "played": 31,
-                                "win": 10,
-                                "draw": 10,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 37,
-                                    "against": 33
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "AFC Wimbledon (H)"
-                        },
-                        {
-                            "rank": 16,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
@@ -357,6 +335,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Bolton Wanderers (H)"
+                        },
+                        {
+                            "rank": 16,
+                            "team": {
+                                "name": "Mansfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
+                            },
+                            "points": 39,
+                            "goalsDiff": 3,
+                            "form": "DDDDLL",
+                            "all": {
+                                "played": 31,
+                                "win": 10,
+                                "draw": 9,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 37,
+                                    "against": 34
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "AFC Wimbledon (H)"
                         },
                         {
                             "rank": 17,
