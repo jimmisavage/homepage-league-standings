@@ -65,8 +65,8 @@
                                 "draw": 13,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 44,
-                                    "against": 32
+                                    "for": 45,
+                                    "against": 33
                                 }
                             },
                             "highlight": false,
@@ -254,16 +254,16 @@
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
-                            "points": 44,
-                            "goalsDiff": 0,
+                            "points": 45,
+                            "goalsDiff": 1,
                             "form": "LLWWLL",
                             "all": {
                                 "played": 34,
                                 "win": 14,
-                                "draw": 2,
-                                "lose": 18,
+                                "draw": 3,
+                                "lose": 17,
                                 "goals": {
-                                    "for": 48,
+                                    "for": 49,
                                     "against": 48
                                 }
                             },
@@ -272,28 +272,6 @@
                         },
                         {
                             "rank": 13,
-                            "team": {
-                                "name": "Exeter City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
-                            },
-                            "points": 43,
-                            "goalsDiff": 4,
-                            "form": "WDLDDD",
-                            "all": {
-                                "played": 32,
-                                "win": 12,
-                                "draw": 7,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 37,
-                                    "against": 33
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 14,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -313,6 +291,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Mansfield Town (A)"
+                        },
+                        {
+                            "rank": 14,
+                            "team": {
+                                "name": "Exeter City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
+                            },
+                            "points": 41,
+                            "goalsDiff": 3,
+                            "form": "WDLDDD",
+                            "all": {
+                                "played": 32,
+                                "win": 11,
+                                "draw": 8,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 37,
+                                    "against": 34
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 15,
@@ -395,8 +395,8 @@
                                 "draw": 7,
                                 "lose": 16,
                                 "goals": {
-                                    "for": 39,
-                                    "against": 49
+                                    "for": 40,
+                                    "against": 50
                                 }
                             },
                             "highlight": false,
