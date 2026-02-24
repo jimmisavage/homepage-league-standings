@@ -80,7 +80,7 @@
                             },
                             "points": 58,
                             "goalsDiff": 6,
-                            "form": "LWLWWL",
+                            "form": "WLWWLW",
                             "all": {
                                 "played": 33,
                                 "win": 17,
@@ -92,7 +92,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Rotherham United (H)"
+                            "nextUp": "Reading (A)"
                         },
                         {
                             "rank": 5,
@@ -100,21 +100,21 @@
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 57,
-                            "goalsDiff": 8,
-                            "form": "DWWDLW",
+                            "points": 56,
+                            "goalsDiff": 5,
+                            "form": "WWDLWL",
                             "all": {
                                 "played": 33,
                                 "win": 16,
-                                "draw": 9,
-                                "lose": 8,
+                                "draw": 8,
+                                "lose": 9,
                                 "goals": {
                                     "for": 46,
-                                    "against": 38
+                                    "against": 41
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (A)"
+                            "nextUp": "Stevenage (A)"
                         },
                         {
                             "rank": 6,
@@ -361,6 +361,28 @@
                         {
                             "rank": 17,
                             "team": {
+                                "name": "Burton Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
+                            },
+                            "points": 39,
+                            "goalsDiff": -8,
+                            "form": "DLDWDW",
+                            "all": {
+                                "played": 33,
+                                "win": 10,
+                                "draw": 9,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 38,
+                                    "against": 46
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wycombe Wanderers (A)"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
                             },
@@ -381,7 +403,7 @@
                             "nextUp": "Cardiff City (H)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 19,
                             "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
@@ -401,28 +423,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Lincoln City (A)"
-                        },
-                        {
-                            "rank": 19,
-                            "team": {
-                                "name": "Burton Albion",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
-                            },
-                            "points": 37,
-                            "goalsDiff": -11,
-                            "form": "LDLDWD",
-                            "all": {
-                                "played": 33,
-                                "win": 9,
-                                "draw": 10,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 35,
-                                    "against": 46
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stockport County (H)"
                         },
                         {
                             "rank": 20,
@@ -488,7 +488,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (H)"
+                            "nextUp": "Peterborough United (H)"
                         },
                         {
                             "rank": 23,
@@ -498,7 +498,7 @@
                             },
                             "points": 31,
                             "goalsDiff": -15,
-                            "form": "DWWLLL",
+                            "form": "WWLLLL",
                             "all": {
                                 "played": 32,
                                 "win": 8,
@@ -510,7 +510,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (A)"
+                            "nextUp": "Plymouth Argyle (H)"
                         },
                         {
                             "rank": 24,
@@ -532,7 +532,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Northampton Town (A)"
+                            "nextUp": "Luton Town (H)"
                         }
                     ]
                 ]
