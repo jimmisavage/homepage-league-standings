@@ -75,6 +75,28 @@
                         {
                             "rank": 4,
                             "team": {
+                                "name": "Bradford City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
+                            },
+                            "points": 58,
+                            "goalsDiff": 6,
+                            "form": "LWLWWL",
+                            "all": {
+                                "played": 33,
+                                "win": 17,
+                                "draw": 7,
+                                "lose": 9,
+                                "goals": {
+                                    "for": 42,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Reading (A)"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
@@ -93,28 +115,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Stevenage (A)"
-                        },
-                        {
-                            "rank": 5,
-                            "team": {
-                                "name": "Bradford City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
-                            },
-                            "points": 56,
-                            "goalsDiff": 5,
-                            "form": "LWLWWL",
-                            "all": {
-                                "played": 33,
-                                "win": 16,
-                                "draw": 8,
-                                "lose": 9,
-                                "goals": {
-                                    "for": 41,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Reading (A)"
                         },
                         {
                             "rank": 6,
@@ -496,17 +496,17 @@
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
-                            "points": 32,
-                            "goalsDiff": -14,
+                            "points": 31,
+                            "goalsDiff": -15,
                             "form": "DWWLLL",
                             "all": {
                                 "played": 32,
                                 "win": 8,
-                                "draw": 8,
-                                "lose": 16,
+                                "draw": 7,
+                                "lose": 17,
                                 "goals": {
                                     "for": 32,
-                                    "against": 46
+                                    "against": 47
                                 }
                             },
                             "highlight": false,
