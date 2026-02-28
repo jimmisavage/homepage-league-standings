@@ -229,6 +229,28 @@
                         {
                             "rank": 11,
                             "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 46,
+                            "goalsDiff": 1,
+                            "form": "LWWLLD",
+                            "all": {
+                                "played": 35,
+                                "win": 14,
+                                "draw": 4,
+                                "lose": 17,
+                                "goals": {
+                                    "for": 49,
+                                    "against": 48
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Port Vale (H)"
+                        },
+                        {
+                            "rank": 12,
+                            "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
@@ -249,29 +271,29 @@
                             "nextUp": "Rotherham United (A)"
                         },
                         {
-                            "rank": 12,
+                            "rank": 13,
                             "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                                "name": "Barnsley",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
-                            "points": 45,
-                            "goalsDiff": 1,
-                            "form": "LWWLLD",
+                            "points": 42,
+                            "goalsDiff": -2,
+                            "form": "WDLDWL",
                             "all": {
-                                "played": 34,
-                                "win": 14,
-                                "draw": 3,
-                                "lose": 17,
+                                "played": 31,
+                                "win": 11,
+                                "draw": 9,
+                                "lose": 11,
                                 "goals": {
-                                    "for": 49,
-                                    "against": 48
+                                    "for": 50,
+                                    "against": 52
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Northampton Town (A)"
+                            "nextUp": "Wycombe Wanderers (H)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -293,7 +315,7 @@
                             "nextUp": "Mansfield Town (A)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
@@ -313,28 +335,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 15,
-                            "team": {
-                                "name": "Barnsley",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
-                            },
-                            "points": 41,
-                            "goalsDiff": -2,
-                            "form": "WDLDWL",
-                            "all": {
-                                "played": 30,
-                                "win": 11,
-                                "draw": 8,
-                                "lose": 11,
-                                "goals": {
-                                    "for": 50,
-                                    "against": 52
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Leyton Orient (A)"
                         },
                         {
                             "rank": 16,
@@ -405,6 +405,28 @@
                         {
                             "rank": 19,
                             "team": {
+                                "name": "Leyton Orient",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
+                            },
+                            "points": 37,
+                            "goalsDiff": -10,
+                            "form": "LLLDLW",
+                            "all": {
+                                "played": 33,
+                                "win": 10,
+                                "draw": 7,
+                                "lose": 16,
+                                "goals": {
+                                    "for": 43,
+                                    "against": 53
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bradford City (A)"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
@@ -425,29 +447,29 @@
                             "nextUp": "Lincoln City (A)"
                         },
                         {
-                            "rank": 20,
+                            "rank": 21,
                             "team": {
-                                "name": "Leyton Orient",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
+                                "name": "Northampton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
-                            "points": 36,
-                            "goalsDiff": -10,
-                            "form": "LLLDLW",
+                            "points": 35,
+                            "goalsDiff": -16,
+                            "form": "DWDLLL",
                             "all": {
-                                "played": 32,
-                                "win": 10,
-                                "draw": 6,
-                                "lose": 16,
+                                "played": 35,
+                                "win": 9,
+                                "draw": 8,
+                                "lose": 18,
                                 "goals": {
-                                    "for": 43,
-                                    "against": 53
+                                    "for": 30,
+                                    "against": 46
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Barnsley (H)"
+                            "nextUp": "AFC Wimbledon (A)"
                         },
                         {
-                            "rank": 21,
+                            "rank": 22,
                             "team": {
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
@@ -467,28 +489,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Huddersfield Town (H)"
-                        },
-                        {
-                            "rank": 22,
-                            "team": {
-                                "name": "Northampton Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
-                            },
-                            "points": 34,
-                            "goalsDiff": -16,
-                            "form": "DWDLLL",
-                            "all": {
-                                "played": 34,
-                                "win": 9,
-                                "draw": 7,
-                                "lose": 18,
-                                "goals": {
-                                    "for": 30,
-                                    "against": 46
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Peterborough United (H)"
                         },
                         {
                             "rank": 23,
