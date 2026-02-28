@@ -285,8 +285,8 @@
                                 "draw": 9,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 50,
-                                    "against": 52
+                                    "for": 51,
+                                    "against": 53
                                 }
                             },
                             "highlight": false,
@@ -417,8 +417,8 @@
                                 "draw": 7,
                                 "lose": 16,
                                 "goals": {
-                                    "for": 43,
-                                    "against": 53
+                                    "for": 44,
+                                    "against": 54
                                 }
                             },
                             "highlight": false,
