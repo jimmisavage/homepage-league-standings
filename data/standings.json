@@ -12,16 +12,16 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 69,
-                            "goalsDiff": 28,
+                            "points": 72,
+                            "goalsDiff": 29,
                             "form": "WDWWWL",
                             "all": {
-                                "played": 33,
-                                "win": 21,
+                                "played": 34,
+                                "win": 22,
                                 "draw": 6,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 64,
+                                    "for": 65,
                                     "against": 36
                                 }
                             },
@@ -34,16 +34,16 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 68,
-                            "goalsDiff": 28,
+                            "points": 71,
+                            "goalsDiff": 29,
                             "form": "WWWDWW",
                             "all": {
-                                "played": 33,
-                                "win": 20,
+                                "played": 34,
+                                "win": 21,
                                 "draw": 8,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 59,
+                                    "for": 60,
                                     "against": 31
                                 }
                             },
@@ -56,16 +56,16 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 58,
-                            "goalsDiff": 12,
+                            "points": 61,
+                            "goalsDiff": 13,
                             "form": "WWWDDD",
                             "all": {
-                                "played": 34,
-                                "win": 15,
+                                "played": 35,
+                                "win": 16,
                                 "draw": 13,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 45,
+                                    "for": 46,
                                     "against": 33
                                 }
                             },
@@ -78,13 +78,13 @@
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
-                            "points": 58,
+                            "points": 59,
                             "goalsDiff": 6,
                             "form": "WLWWLW",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 17,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 9,
                                 "goals": {
                                     "for": 42,
@@ -100,17 +100,17 @@
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 56,
+                            "points": 57,
                             "goalsDiff": 5,
                             "form": "WWDLWL",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 16,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 46,
-                                    "against": 41
+                                    "for": 47,
+                                    "against": 42
                                 }
                             },
                             "highlight": false,
@@ -122,13 +122,13 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 52,
+                            "points": 53,
                             "goalsDiff": 10,
                             "form": "WWDLLW",
                             "all": {
-                                "played": 34,
+                                "played": 35,
                                 "win": 15,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 12,
                                 "goals": {
                                     "for": 55,
@@ -141,16 +141,38 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Wycombe Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
+                            },
+                            "points": 50,
+                            "goalsDiff": 11,
+                            "form": "WDWLDW",
+                            "all": {
+                                "played": 34,
+                                "win": 13,
+                                "draw": 11,
+                                "lose": 10,
+                                "goals": {
+                                    "for": 47,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Barnsley (A)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
-                            "points": 48,
+                            "points": 49,
                             "goalsDiff": 5,
                             "form": "WLWWDD",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 12,
-                                "draw": 12,
+                                "draw": 13,
                                 "lose": 9,
                                 "goals": {
                                     "for": 48,
@@ -161,48 +183,26 @@
                             "nextUp": "Luton Town (A)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 9,
                             "team": {
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 48,
+                            "points": 49,
                             "goalsDiff": 1,
                             "form": "WLLWWL",
                             "all": {
-                                "played": 32,
+                                "played": 33,
                                 "win": 13,
-                                "draw": 9,
+                                "draw": 10,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 35,
-                                    "against": 34
+                                    "for": 36,
+                                    "against": 35
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Burton Albion (A)"
-                        },
-                        {
-                            "rank": 9,
-                            "team": {
-                                "name": "Wycombe Wanderers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
-                            },
-                            "points": 47,
-                            "goalsDiff": 10,
-                            "form": "WDWLDW",
-                            "all": {
-                                "played": 33,
-                                "win": 12,
-                                "draw": 11,
-                                "lose": 10,
-                                "goals": {
-                                    "for": 46,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Barnsley (A)"
                         },
                         {
                             "rank": 10,
@@ -210,17 +210,17 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 46,
+                            "points": 47,
                             "goalsDiff": 2,
                             "form": "LWWLLD",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 13,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 13,
                                 "goals": {
-                                    "for": 42,
-                                    "against": 40
+                                    "for": 43,
+                                    "against": 41
                                 }
                             },
                             "highlight": false,
@@ -255,16 +255,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
                             "points": 46,
-                            "goalsDiff": 0,
+                            "goalsDiff": -1,
                             "form": "DLLWWW",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 14,
                                 "draw": 4,
-                                "lose": 15,
+                                "lose": 16,
                                 "goals": {
                                     "for": 49,
-                                    "against": 49
+                                    "against": 50
                                 }
                             },
                             "highlight": false,
@@ -295,68 +295,68 @@
                         {
                             "rank": 14,
                             "team": {
+                                "name": "Mansfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
+                            },
+                            "points": 42,
+                            "goalsDiff": 3,
+                            "form": "DDDLLL",
+                            "all": {
+                                "played": 32,
+                                "win": 11,
+                                "draw": 9,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 39,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Rotherham United (A)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
                             "points": 42,
-                            "goalsDiff": -7,
+                            "goalsDiff": -8,
                             "form": "LWWDLW",
                             "all": {
-                                "played": 32,
+                                "played": 33,
                                 "win": 12,
                                 "draw": 6,
-                                "lose": 14,
+                                "lose": 15,
                                 "goals": {
-                                    "for": 39,
-                                    "against": 46
+                                    "for": 40,
+                                    "against": 48
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Northampton Town (H)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 16,
                             "team": {
                                 "name": "Exeter City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
                             },
                             "points": 41,
-                            "goalsDiff": 3,
+                            "goalsDiff": 2,
                             "form": "DLDDDD",
                             "all": {
-                                "played": 32,
+                                "played": 33,
                                 "win": 11,
                                 "draw": 8,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 37,
-                                    "against": 34
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Burton Albion (H)"
-                        },
-                        {
-                            "rank": 16,
-                            "team": {
-                                "name": "Mansfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
-                            },
-                            "points": 39,
-                            "goalsDiff": 2,
-                            "form": "DDDLLL",
-                            "all": {
-                                "played": 31,
-                                "win": 10,
-                                "draw": 9,
-                                "lose": 12,
+                                "lose": 14,
                                 "goals": {
                                     "for": 37,
                                     "against": 35
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Rotherham United (A)"
+                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 17,
@@ -365,16 +365,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
                             "points": 39,
-                            "goalsDiff": -8,
+                            "goalsDiff": -9,
                             "form": "DLDWDW",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 10,
                                 "draw": 9,
-                                "lose": 14,
+                                "lose": 15,
                                 "goals": {
                                     "for": 38,
-                                    "against": 46
+                                    "against": 47
                                 }
                             },
                             "highlight": false,
@@ -387,16 +387,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
                             },
                             "points": 39,
-                            "goalsDiff": -15,
+                            "goalsDiff": -16,
                             "form": "WLWLWW",
                             "all": {
-                                "played": 32,
+                                "played": 33,
                                 "win": 11,
                                 "draw": 6,
-                                "lose": 15,
+                                "lose": 16,
                                 "goals": {
                                     "for": 36,
-                                    "against": 51
+                                    "against": 52
                                 }
                             },
                             "highlight": false,
@@ -409,16 +409,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 37,
-                            "goalsDiff": -10,
+                            "goalsDiff": -11,
                             "form": "LLDLWD",
                             "all": {
-                                "played": 33,
+                                "played": 34,
                                 "win": 10,
                                 "draw": 7,
-                                "lose": 16,
+                                "lose": 17,
                                 "goals": {
                                     "for": 40,
-                                    "against": 50
+                                    "against": 51
                                 }
                             },
                             "highlight": false,
@@ -449,6 +449,28 @@
                         {
                             "rank": 21,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
+                            },
+                            "points": 35,
+                            "goalsDiff": -12,
+                            "form": "LLLLWL",
+                            "all": {
+                                "played": 33,
+                                "win": 8,
+                                "draw": 11,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 34,
+                                    "against": 46
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Blackpool (A)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
@@ -469,43 +491,21 @@
                             "nextUp": "AFC Wimbledon (A)"
                         },
                         {
-                            "rank": 22,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan.6fb936445b.svg"
-                            },
-                            "points": 34,
-                            "goalsDiff": -12,
-                            "form": "LLLLWL",
-                            "all": {
-                                "played": 32,
-                                "win": 8,
-                                "draw": 10,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 34,
-                                    "against": 46
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Blackpool (A)"
-                        },
-                        {
                             "rank": 23,
                             "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
-                            "points": 31,
-                            "goalsDiff": -15,
+                            "points": 34,
+                            "goalsDiff": -14,
                             "form": "WWLLLL",
                             "all": {
-                                "played": 32,
-                                "win": 8,
+                                "played": 33,
+                                "win": 9,
                                 "draw": 7,
                                 "lose": 17,
                                 "goals": {
-                                    "for": 32,
+                                    "for": 33,
                                     "against": 47
                                 }
                             },
@@ -518,17 +518,17 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 26,
+                            "points": 27,
                             "goalsDiff": -18,
                             "form": "WLDLDW",
                             "all": {
-                                "played": 31,
+                                "played": 32,
                                 "win": 6,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 17,
                                 "goals": {
-                                    "for": 25,
-                                    "against": 43
+                                    "for": 26,
+                                    "against": 44
                                 }
                             },
                             "highlight": false,
