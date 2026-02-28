@@ -241,8 +241,8 @@
                                 "draw": 4,
                                 "lose": 17,
                                 "goals": {
-                                    "for": 49,
-                                    "against": 48
+                                    "for": 50,
+                                    "against": 49
                                 }
                             },
                             "highlight": false,
@@ -276,16 +276,16 @@
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
-                            "points": 42,
-                            "goalsDiff": -2,
+                            "points": 44,
+                            "goalsDiff": -1,
                             "form": "WDLDWL",
                             "all": {
                                 "played": 31,
-                                "win": 11,
-                                "draw": 9,
+                                "win": 12,
+                                "draw": 8,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 51,
+                                    "for": 52,
                                     "against": 53
                                 }
                             },
@@ -405,28 +405,6 @@
                         {
                             "rank": 19,
                             "team": {
-                                "name": "Leyton Orient",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
-                            },
-                            "points": 37,
-                            "goalsDiff": -10,
-                            "form": "LLLDLW",
-                            "all": {
-                                "played": 33,
-                                "win": 10,
-                                "draw": 7,
-                                "lose": 16,
-                                "goals": {
-                                    "for": 44,
-                                    "against": 54
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bradford City (A)"
-                        },
-                        {
-                            "rank": 20,
-                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
@@ -447,6 +425,28 @@
                             "nextUp": "Lincoln City (A)"
                         },
                         {
+                            "rank": 20,
+                            "team": {
+                                "name": "Leyton Orient",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
+                            },
+                            "points": 36,
+                            "goalsDiff": -11,
+                            "form": "LLLDLW",
+                            "all": {
+                                "played": 33,
+                                "win": 10,
+                                "draw": 6,
+                                "lose": 17,
+                                "goals": {
+                                    "for": 44,
+                                    "against": 55
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bradford City (A)"
+                        },
+                        {
                             "rank": 21,
                             "team": {
                                 "name": "Northampton Town",
@@ -461,8 +461,8 @@
                                 "draw": 8,
                                 "lose": 18,
                                 "goals": {
-                                    "for": 30,
-                                    "against": 46
+                                    "for": 31,
+                                    "against": 47
                                 }
                             },
                             "highlight": false,
