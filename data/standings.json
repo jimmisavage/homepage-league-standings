@@ -277,7 +277,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
                             "points": 44,
-                            "goalsDiff": -1,
+                            "goalsDiff": 0,
                             "form": "WDLDWL",
                             "all": {
                                 "played": 31,
@@ -285,7 +285,7 @@
                                 "draw": 8,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 52,
+                                    "for": 53,
                                     "against": 53
                                 }
                             },
@@ -431,7 +431,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
                             },
                             "points": 36,
-                            "goalsDiff": -11,
+                            "goalsDiff": -12,
                             "form": "LLLDLW",
                             "all": {
                                 "played": 33,
@@ -440,7 +440,7 @@
                                 "lose": 17,
                                 "goals": {
                                     "for": 44,
-                                    "against": 55
+                                    "against": 56
                                 }
                             },
                             "highlight": false,
