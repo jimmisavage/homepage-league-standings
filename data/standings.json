@@ -9,46 +9,46 @@
                         {
                             "rank": 1,
                             "team": {
-                                "name": "Lincoln City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
+                                "name": "Cardiff City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 74,
-                            "goalsDiff": 33,
-                            "form": "WWDWWW",
+                            "points": 73,
+                            "goalsDiff": 32,
+                            "form": "DWWWLW",
                             "all": {
                                 "played": 35,
                                 "win": 22,
-                                "draw": 8,
+                                "draw": 7,
+                                "lose": 6,
+                                "goals": {
+                                    "for": 68,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": true,
+                            "nextUp": "Barnsley (A)"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
+                                "name": "Lincoln City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
+                            },
+                            "points": 72,
+                            "goalsDiff": 32,
+                            "form": "WWDWWW",
+                            "all": {
+                                "played": 35,
+                                "win": 21,
+                                "draw": 9,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 64,
+                                    "for": 63,
                                     "against": 31
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Exeter City (A)"
-                        },
-                        {
-                            "rank": 2,
-                            "team": {
-                                "name": "Cardiff City",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
-                            },
-                            "points": 72,
-                            "goalsDiff": 31,
-                            "form": "DWWWLW",
-                            "all": {
-                                "played": 35,
-                                "win": 22,
-                                "draw": 6,
-                                "lose": 7,
-                                "goals": {
-                                    "for": 68,
-                                    "against": 37
-                                }
-                            },
-                            "highlight": true,
-                            "nextUp": "Barnsley (A)"
                         },
                         {
                             "rank": 3,
