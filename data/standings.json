@@ -12,13 +12,13 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 72,
+                            "points": 73,
                             "goalsDiff": 32,
                             "form": "DWWWLW",
                             "all": {
-                                "played": 34,
+                                "played": 35,
                                 "win": 22,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 6,
                                 "goals": {
                                     "for": 68,
@@ -34,13 +34,13 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 71,
+                            "points": 72,
                             "goalsDiff": 32,
                             "form": "WWDWWW",
                             "all": {
-                                "played": 34,
+                                "played": 35,
                                 "win": 21,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 5,
                                 "goals": {
                                     "for": 63,
@@ -144,13 +144,13 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 52,
+                            "points": 53,
                             "goalsDiff": 9,
                             "form": "WDLLWL",
                             "all": {
-                                "played": 35,
+                                "played": 36,
                                 "win": 15,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 13,
                                 "goals": {
                                     "for": 55,
@@ -474,13 +474,13 @@
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
-                            "points": 35,
+                            "points": 36,
                             "goalsDiff": -14,
                             "form": "LLLLWD",
                             "all": {
-                                "played": 34,
+                                "played": 35,
                                 "win": 9,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 17,
                                 "goals": {
                                     "for": 33,
