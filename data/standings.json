@@ -56,17 +56,17 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 62,
-                            "goalsDiff": 16,
+                            "points": 61,
+                            "goalsDiff": 14,
                             "form": "WWDDDW",
                             "all": {
                                 "played": 36,
                                 "win": 16,
-                                "draw": 14,
-                                "lose": 6,
+                                "draw": 13,
+                                "lose": 7,
                                 "goals": {
                                     "for": 50,
-                                    "against": 34
+                                    "against": 36
                                 }
                             },
                             "highlight": false,
@@ -87,8 +87,8 @@
                                 "draw": 8,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 43,
-                                    "against": 38
+                                    "for": 44,
+                                    "against": 39
                                 }
                             },
                             "highlight": false,
@@ -96,6 +96,28 @@
                         },
                         {
                             "rank": 5,
+                            "team": {
+                                "name": "Wycombe Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
+                            },
+                            "points": 56,
+                            "goalsDiff": 16,
+                            "form": "WLDWWW",
+                            "all": {
+                                "played": 36,
+                                "win": 15,
+                                "draw": 11,
+                                "lose": 10,
+                                "goals": {
+                                    "for": 52,
+                                    "against": 36
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Luton Town (H)"
+                        },
+                        {
+                            "rank": 6,
                             "team": {
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
@@ -117,7 +139,7 @@
                             "nextUp": "Lincoln City (A)"
                         },
                         {
-                            "rank": 6,
+                            "rank": 7,
                             "team": {
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
@@ -137,28 +159,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Port Vale (A)"
-                        },
-                        {
-                            "rank": 7,
-                            "team": {
-                                "name": "Wycombe Wanderers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
-                            },
-                            "points": 54,
-                            "goalsDiff": 14,
-                            "form": "WLDWWW",
-                            "all": {
-                                "played": 36,
-                                "win": 14,
-                                "draw": 12,
-                                "lose": 10,
-                                "goals": {
-                                    "for": 50,
-                                    "against": 36
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Luton Town (H)"
                         },
                         {
                             "rank": 8,
@@ -188,16 +188,16 @@
                                 "name": "Stevenage",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 52,
-                            "goalsDiff": 2,
+                            "points": 54,
+                            "goalsDiff": 3,
                             "form": "LLWWLW",
                             "all": {
                                 "played": 34,
-                                "win": 14,
-                                "draw": 10,
+                                "win": 15,
+                                "draw": 9,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 37,
+                                    "for": 38,
                                     "against": 35
                                 }
                             },
@@ -386,17 +386,17 @@
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
-                            "points": 41,
-                            "goalsDiff": -11,
+                            "points": 40,
+                            "goalsDiff": -12,
                             "form": "DWDWLD",
                             "all": {
                                 "played": 36,
                                 "win": 10,
-                                "draw": 11,
-                                "lose": 15,
+                                "draw": 10,
+                                "lose": 16,
                                 "goals": {
                                     "for": 39,
-                                    "against": 50
+                                    "against": 51
                                 }
                             },
                             "highlight": false,
@@ -405,27 +405,49 @@
                         {
                             "rank": 19,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
+                            },
+                            "points": 38,
+                            "goalsDiff": -11,
+                            "form": "LLLWLW",
+                            "all": {
+                                "played": 34,
+                                "win": 9,
+                                "draw": 11,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 36,
+                                    "against": 47
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Plymouth Argyle (H)"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
-                            "points": 40,
-                            "goalsDiff": -13,
+                            "points": 38,
+                            "goalsDiff": -14,
                             "form": "LDLWDL",
                             "all": {
                                 "played": 35,
-                                "win": 11,
-                                "draw": 7,
+                                "win": 10,
+                                "draw": 8,
                                 "lose": 17,
                                 "goals": {
                                     "for": 41,
-                                    "against": 54
+                                    "against": 55
                                 }
                             },
                             "highlight": false,
                             "nextUp": "AFC Wimbledon (A)"
                         },
                         {
-                            "rank": 20,
+                            "rank": 21,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -439,34 +461,12 @@
                                 "draw": 7,
                                 "lose": 17,
                                 "goals": {
-                                    "for": 44,
-                                    "against": 56
+                                    "for": 45,
+                                    "against": 57
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Stevenage (A)"
-                        },
-                        {
-                            "rank": 21,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
-                            },
-                            "points": 37,
-                            "goalsDiff": -12,
-                            "form": "LLLWLW",
-                            "all": {
-                                "played": 34,
-                                "win": 9,
-                                "draw": 10,
-                                "lose": 15,
-                                "goals": {
-                                    "for": 35,
-                                    "against": 47
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Plymouth Argyle (H)"
                         },
                         {
                             "rank": 22,
