@@ -188,17 +188,17 @@
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
-                            "points": 52,
-                            "goalsDiff": 6,
+                            "points": 51,
+                            "goalsDiff": 5,
                             "form": "LWWDDW",
                             "all": {
                                 "played": 35,
                                 "win": 13,
-                                "draw": 13,
-                                "lose": 9,
+                                "draw": 12,
+                                "lose": 10,
                                 "goals": {
                                     "for": 51,
-                                    "against": 45
+                                    "against": 46
                                 }
                             },
                             "highlight": false,
@@ -210,16 +210,16 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 48,
-                            "goalsDiff": 2,
+                            "points": 50,
+                            "goalsDiff": 3,
                             "form": "WWLLDD",
                             "all": {
                                 "played": 35,
-                                "win": 13,
-                                "draw": 9,
+                                "win": 14,
+                                "draw": 8,
                                 "lose": 13,
                                 "goals": {
-                                    "for": 44,
+                                    "for": 45,
                                     "against": 42
                                 }
                             },
