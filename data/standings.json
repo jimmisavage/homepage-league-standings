@@ -80,7 +80,7 @@
                             },
                             "points": 64,
                             "goalsDiff": 8,
-                            "form": "WWLWLW",
+                            "form": "WLWLWW",
                             "all": {
                                 "played": 36,
                                 "win": 19,
@@ -233,15 +233,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
                             "points": 49,
-                            "goalsDiff": -4,
-                            "form": "WDLWDW",
+                            "goalsDiff": -3,
+                            "form": "DLWDWW",
                             "all": {
                                 "played": 35,
                                 "win": 14,
                                 "draw": 7,
                                 "lose": 14,
                                 "goals": {
-                                    "for": 45,
+                                    "for": 46,
                                     "against": 49
                                 }
                             },
@@ -453,8 +453,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 38,
-                            "goalsDiff": -16,
-                            "form": "DLWDLD",
+                            "goalsDiff": -17,
+                            "form": "LWDLDL",
                             "all": {
                                 "played": 36,
                                 "win": 10,
@@ -462,7 +462,7 @@
                                 "lose": 18,
                                 "goals": {
                                     "for": 42,
-                                    "against": 58
+                                    "against": 59
                                 }
                             },
                             "highlight": false,
@@ -520,7 +520,7 @@
                             },
                             "points": 27,
                             "goalsDiff": -20,
-                            "form": "LDLDWD",
+                            "form": "DLDWDL",
                             "all": {
                                 "played": 33,
                                 "win": 6,
