@@ -78,16 +78,16 @@
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
-                            "points": 62,
-                            "goalsDiff": 6,
+                            "points": 64,
+                            "goalsDiff": 7,
                             "form": "WWLWLW",
                             "all": {
                                 "played": 36,
-                                "win": 18,
-                                "draw": 8,
+                                "win": 19,
+                                "draw": 7,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 45,
+                                    "for": 46,
                                     "against": 39
                                 }
                             },
@@ -518,17 +518,17 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 28,
-                            "goalsDiff": -18,
+                            "points": 27,
+                            "goalsDiff": -19,
                             "form": "LDLDWD",
                             "all": {
                                 "played": 33,
                                 "win": 6,
-                                "draw": 10,
-                                "lose": 17,
+                                "draw": 9,
+                                "lose": 18,
                                 "goals": {
                                     "for": 26,
-                                    "against": 44
+                                    "against": 45
                                 }
                             },
                             "highlight": false,
