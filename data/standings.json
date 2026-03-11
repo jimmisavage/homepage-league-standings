@@ -79,7 +79,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 64,
-                            "goalsDiff": 7,
+                            "goalsDiff": 8,
                             "form": "WWLWLW",
                             "all": {
                                 "played": 36,
@@ -87,7 +87,7 @@
                                 "draw": 7,
                                 "lose": 10,
                                 "goals": {
-                                    "for": 46,
+                                    "for": 47,
                                     "against": 39
                                 }
                             },
@@ -233,7 +233,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
                             "points": 49,
-                            "goalsDiff": -5,
+                            "goalsDiff": -4,
                             "form": "WDLWDW",
                             "all": {
                                 "played": 35,
@@ -241,8 +241,8 @@
                                 "draw": 7,
                                 "lose": 14,
                                 "goals": {
-                                    "for": 43,
-                                    "against": 48
+                                    "for": 45,
+                                    "against": 49
                                 }
                             },
                             "highlight": false,
@@ -453,7 +453,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 38,
-                            "goalsDiff": -15,
+                            "goalsDiff": -16,
                             "form": "DLWDLD",
                             "all": {
                                 "played": 36,
@@ -461,8 +461,8 @@
                                 "draw": 8,
                                 "lose": 18,
                                 "goals": {
-                                    "for": 41,
-                                    "against": 56
+                                    "for": 42,
+                                    "against": 58
                                 }
                             },
                             "highlight": false,
@@ -519,7 +519,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
                             "points": 27,
-                            "goalsDiff": -19,
+                            "goalsDiff": -20,
                             "form": "LDLDWD",
                             "all": {
                                 "played": 33,
@@ -528,7 +528,7 @@
                                 "lose": 18,
                                 "goals": {
                                     "for": 26,
-                                    "against": 45
+                                    "against": 46
                                 }
                             },
                             "highlight": false,
