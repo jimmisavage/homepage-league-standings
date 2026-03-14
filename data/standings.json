@@ -12,16 +12,16 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 78,
-                            "goalsDiff": 35,
+                            "points": 80,
+                            "goalsDiff": 36,
                             "form": "DWWWWW",
                             "all": {
                                 "played": 37,
-                                "win": 23,
-                                "draw": 9,
+                                "win": 24,
+                                "draw": 8,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 66,
+                                    "for": 67,
                                     "against": 31
                                 }
                             },
@@ -100,17 +100,17 @@
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 57,
-                            "goalsDiff": 4,
+                            "points": 56,
+                            "goalsDiff": 3,
                             "form": "WDLWLL",
                             "all": {
                                 "played": 35,
                                 "win": 16,
-                                "draw": 9,
-                                "lose": 10,
+                                "draw": 8,
+                                "lose": 11,
                                 "goals": {
                                     "for": 47,
-                                    "against": 43
+                                    "against": 44
                                 }
                             },
                             "highlight": false,
