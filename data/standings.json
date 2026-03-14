@@ -36,7 +36,7 @@
                             },
                             "points": 76,
                             "goalsDiff": 34,
-                            "form": "WWLWLD",
+                            "form": "WLWLDW",
                             "all": {
                                 "played": 37,
                                 "win": 23,
@@ -80,7 +80,7 @@
                             },
                             "points": 64,
                             "goalsDiff": 6,
-                            "form": "WLWLWW",
+                            "form": "LWLWWL",
                             "all": {
                                 "played": 37,
                                 "win": 19,
@@ -102,7 +102,7 @@
                             },
                             "points": 57,
                             "goalsDiff": 3,
-                            "form": "WWLWWL",
+                            "form": "WLWWLW",
                             "all": {
                                 "played": 36,
                                 "win": 16,
@@ -124,7 +124,7 @@
                             },
                             "points": 56,
                             "goalsDiff": 10,
-                            "form": "DLLWLW",
+                            "form": "LLWLWD",
                             "all": {
                                 "played": 37,
                                 "win": 16,
@@ -168,7 +168,7 @@
                             },
                             "points": 55,
                             "goalsDiff": 6,
-                            "form": "WDDWWL",
+                            "form": "DDWWLD",
                             "all": {
                                 "played": 37,
                                 "win": 14,
@@ -189,15 +189,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
                             "points": 53,
-                            "goalsDiff": 11,
-                            "form": "LDWWWL",
+                            "goalsDiff": 12,
+                            "form": "DWWWLL",
                             "all": {
                                 "played": 37,
                                 "win": 14,
                                 "draw": 11,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 52,
+                                    "for": 53,
                                     "against": 41
                                 }
                             },
@@ -212,7 +212,7 @@
                             },
                             "points": 53,
                             "goalsDiff": 3,
-                            "form": "WWWLWW",
+                            "form": "WWLWWD",
                             "all": {
                                 "played": 37,
                                 "win": 16,
@@ -233,8 +233,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
                             "points": 51,
-                            "goalsDiff": 3,
-                            "form": "LLDDLD",
+                            "goalsDiff": 2,
+                            "form": "LDDLDW",
                             "all": {
                                 "played": 37,
                                 "win": 14,
@@ -242,7 +242,7 @@
                                 "lose": 14,
                                 "goals": {
                                     "for": 48,
-                                    "against": 45
+                                    "against": 46
                                 }
                             },
                             "highlight": false,
@@ -256,7 +256,7 @@
                             },
                             "points": 49,
                             "goalsDiff": 0,
-                            "form": "WLWLWD",
+                            "form": "LWLWDD",
                             "all": {
                                 "played": 35,
                                 "win": 13,
@@ -278,7 +278,7 @@
                             },
                             "points": 49,
                             "goalsDiff": -4,
-                            "form": "DLWDWW",
+                            "form": "LWDWWL",
                             "all": {
                                 "played": 36,
                                 "win": 14,
@@ -300,7 +300,7 @@
                             },
                             "points": 46,
                             "goalsDiff": 0,
-                            "form": "WWLLDD",
+                            "form": "WLLDDL",
                             "all": {
                                 "played": 36,
                                 "win": 14,
@@ -322,7 +322,7 @@
                             },
                             "points": 45,
                             "goalsDiff": 3,
-                            "form": "LLLDDW",
+                            "form": "LLDDWD",
                             "all": {
                                 "played": 35,
                                 "win": 11,
@@ -344,7 +344,7 @@
                             },
                             "points": 43,
                             "goalsDiff": -10,
-                            "form": "WDWLDL",
+                            "form": "DWLDLW",
                             "all": {
                                 "played": 37,
                                 "win": 11,
@@ -366,7 +366,7 @@
                             },
                             "points": 43,
                             "goalsDiff": -19,
-                            "form": "LWWLLD",
+                            "form": "WWLLDW",
                             "all": {
                                 "played": 36,
                                 "win": 12,
@@ -388,7 +388,7 @@
                             },
                             "points": 42,
                             "goalsDiff": -7,
-                            "form": "DDLDLL",
+                            "form": "DLDLLL",
                             "all": {
                                 "played": 37,
                                 "win": 11,
@@ -410,7 +410,7 @@
                             },
                             "points": 42,
                             "goalsDiff": -11,
-                            "form": "DLWLLW",
+                            "form": "LWLLWW",
                             "all": {
                                 "played": 36,
                                 "win": 12,
@@ -432,7 +432,7 @@
                             },
                             "points": 41,
                             "goalsDiff": -12,
-                            "form": "LWLWDL",
+                            "form": "WLWDLW",
                             "all": {
                                 "played": 36,
                                 "win": 10,
@@ -454,7 +454,7 @@
                             },
                             "points": 38,
                             "goalsDiff": -18,
-                            "form": "LWDLDL",
+                            "form": "WDLDLL",
                             "all": {
                                 "played": 37,
                                 "win": 10,
@@ -498,7 +498,7 @@
                             },
                             "points": 35,
                             "goalsDiff": -19,
-                            "form": "DLLLDL",
+                            "form": "LLLDLL",
                             "all": {
                                 "played": 37,
                                 "win": 9,
@@ -520,7 +520,7 @@
                             },
                             "points": 28,
                             "goalsDiff": -20,
-                            "form": "DLDWDL",
+                            "form": "LDWDLD",
                             "all": {
                                 "played": 34,
                                 "win": 6,
