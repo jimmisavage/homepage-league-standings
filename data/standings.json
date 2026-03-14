@@ -12,13 +12,13 @@
                                 "name": "Lincoln City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
                             },
-                            "points": 77,
+                            "points": 78,
                             "goalsDiff": 35,
                             "form": "DWWWWW",
                             "all": {
-                                "played": 36,
+                                "played": 37,
                                 "win": 23,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 5,
                                 "goals": {
                                     "for": 66,
@@ -26,7 +26,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stockport County (H)"
+                            "nextUp": "Huddersfield Town (A)"
                         },
                         {
                             "rank": 2,
@@ -56,13 +56,13 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 64,
+                            "points": 65,
                             "goalsDiff": 17,
                             "form": "WDDDWW",
                             "all": {
-                                "played": 36,
+                                "played": 37,
                                 "win": 17,
-                                "draw": 13,
+                                "draw": 14,
                                 "lose": 6,
                                 "goals": {
                                     "for": 53,
@@ -70,7 +70,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Rotherham United (A)"
+                            "nextUp": "Doncaster Rovers (H)"
                         },
                         {
                             "rank": 4,
@@ -100,13 +100,13 @@
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 56,
+                            "points": 57,
                             "goalsDiff": 4,
                             "form": "WDLWLL",
                             "all": {
-                                "played": 34,
+                                "played": 35,
                                 "win": 16,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 10,
                                 "goals": {
                                     "for": 47,
@@ -114,7 +114,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Lincoln City (A)"
+                            "nextUp": "Northampton Town (H)"
                         },
                         {
                             "rank": 6,
@@ -474,13 +474,13 @@
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
-                            "points": 35,
+                            "points": 36,
                             "goalsDiff": -15,
                             "form": "LLLWDL",
                             "all": {
-                                "played": 35,
+                                "played": 36,
                                 "win": 9,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 18,
                                 "goals": {
                                     "for": 33,
@@ -488,7 +488,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
+                            "nextUp": "Peterborough United (A)"
                         },
                         {
                             "rank": 23,
