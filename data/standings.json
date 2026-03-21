@@ -14,7 +14,7 @@
                             },
                             "points": 84,
                             "goalsDiff": 40,
-                            "form": "WWWWWD",
+                            "form": "WWWWDW",
                             "all": {
                                 "played": 39,
                                 "win": 25,
@@ -79,15 +79,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 65,
-                            "goalsDiff": 4,
-                            "form": "WLWWLD",
+                            "goalsDiff": 5,
+                            "form": "LWWLDL",
                             "all": {
                                 "played": 39,
                                 "win": 19,
                                 "draw": 8,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 48,
+                                    "for": 49,
                                     "against": 44
                                 }
                             },
@@ -119,24 +119,24 @@
                         {
                             "rank": 6,
                             "team": {
-                                "name": "Reading",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
+                                "name": "Stevenage",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
-                            "points": 59,
-                            "goalsDiff": 7,
-                            "form": "DWWLDW",
+                            "points": 60,
+                            "goalsDiff": 3,
+                            "form": "WWLWLW",
                             "all": {
-                                "played": 39,
-                                "win": 15,
-                                "draw": 14,
-                                "lose": 10,
+                                "played": 38,
+                                "win": 17,
+                                "draw": 9,
+                                "lose": 12,
                                 "goals": {
-                                    "for": 57,
-                                    "against": 50
+                                    "for": 41,
+                                    "against": 38
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (H)"
+                            "nextUp": "Rotherham United (A)"
                         },
                         {
                             "rank": 7,
@@ -163,24 +163,24 @@
                         {
                             "rank": 8,
                             "team": {
-                                "name": "Stevenage",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
+                                "name": "Reading",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
                             },
                             "points": 58,
-                            "goalsDiff": 2,
-                            "form": "LWWLWL",
+                            "goalsDiff": 6,
+                            "form": "WWLDWL",
                             "all": {
-                                "played": 38,
-                                "win": 16,
-                                "draw": 10,
-                                "lose": 12,
+                                "played": 39,
+                                "win": 15,
+                                "draw": 13,
+                                "lose": 11,
                                 "goals": {
-                                    "for": 40,
-                                    "against": 38
+                                    "for": 57,
+                                    "against": 51
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Rotherham United (A)"
+                            "nextUp": "Wigan Athletic (H)"
                         },
                         {
                             "rank": 9,
@@ -211,8 +211,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
                             "points": 56,
-                            "goalsDiff": 13,
-                            "form": "WWWLLW",
+                            "goalsDiff": 12,
+                            "form": "WWLLWL",
                             "all": {
                                 "played": 39,
                                 "win": 15,
@@ -220,7 +220,7 @@
                                 "lose": 13,
                                 "goals": {
                                     "for": 55,
-                                    "against": 42
+                                    "against": 43
                                 }
                             },
                             "highlight": false,
@@ -278,7 +278,7 @@
                             },
                             "points": 50,
                             "goalsDiff": -1,
-                            "form": "WLWDDD",
+                            "form": "LWDDDL",
                             "all": {
                                 "played": 37,
                                 "win": 13,
@@ -321,15 +321,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
                             "points": 49,
-                            "goalsDiff": 5,
-                            "form": "LDDWDD",
+                            "goalsDiff": 6,
+                            "form": "DDWDDW",
                             "all": {
                                 "played": 37,
                                 "win": 12,
                                 "draw": 13,
                                 "lose": 12,
                                 "goals": {
-                                    "for": 46,
+                                    "for": 47,
                                     "against": 41
                                 }
                             },
@@ -343,15 +343,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
                             },
                             "points": 48,
-                            "goalsDiff": -8,
-                            "form": "WLLWWW",
+                            "goalsDiff": -7,
+                            "form": "LLWWWW",
                             "all": {
                                 "played": 38,
                                 "win": 14,
                                 "draw": 6,
                                 "lose": 18,
                                 "goals": {
-                                    "for": 54,
+                                    "for": 55,
                                     "against": 62
                                 }
                             },
@@ -366,7 +366,7 @@
                             },
                             "points": 47,
                             "goalsDiff": -18,
-                            "form": "WLLDWD",
+                            "form": "LLDWDW",
                             "all": {
                                 "played": 38,
                                 "win": 13,
@@ -387,8 +387,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
                             "points": 46,
-                            "goalsDiff": -9,
-                            "form": "WLDLWL",
+                            "goalsDiff": -10,
+                            "form": "LDLWLW",
                             "all": {
                                 "played": 39,
                                 "win": 12,
@@ -396,7 +396,7 @@
                                 "lose": 17,
                                 "goals": {
                                     "for": 44,
-                                    "against": 53
+                                    "against": 54
                                 }
                             },
                             "highlight": false,
@@ -409,15 +409,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
                             },
                             "points": 45,
-                            "goalsDiff": -11,
-                            "form": "LWDLWD",
+                            "goalsDiff": -10,
+                            "form": "WDLWDW",
                             "all": {
                                 "played": 38,
                                 "win": 11,
                                 "draw": 12,
                                 "lose": 15,
                                 "goals": {
-                                    "for": 40,
+                                    "for": 41,
                                     "against": 51
                                 }
                             },
@@ -431,8 +431,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/exeter-city.a1d3fce8b4.svg"
                             },
                             "points": 42,
-                            "goalsDiff": -9,
-                            "form": "LDLLLL",
+                            "goalsDiff": -10,
+                            "form": "DLLLLL",
                             "all": {
                                 "played": 39,
                                 "win": 11,
@@ -440,7 +440,7 @@
                                 "lose": 19,
                                 "goals": {
                                     "for": 42,
-                                    "against": 51
+                                    "against": 52
                                 }
                             },
                             "highlight": false,
@@ -476,7 +476,7 @@
                             },
                             "points": 36,
                             "goalsDiff": -23,
-                            "form": "LWDLDL",
+                            "form": "WDLDLL",
                             "all": {
                                 "played": 38,
                                 "win": 9,
@@ -497,8 +497,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
                             "points": 35,
-                            "goalsDiff": -22,
-                            "form": "LLDLLL",
+                            "goalsDiff": -23,
+                            "form": "LDLLLL",
                             "all": {
                                 "played": 39,
                                 "win": 9,
@@ -506,7 +506,7 @@
                                 "lose": 22,
                                 "goals": {
                                     "for": 33,
-                                    "against": 55
+                                    "against": 56
                                 }
                             },
                             "highlight": false,
