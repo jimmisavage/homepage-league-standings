@@ -34,13 +34,13 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 76,
+                            "points": 77,
                             "goalsDiff": 32,
-                            "form": "LWLDWL",
+                            "form": "WLDWLD",
                             "all": {
-                                "played": 38,
+                                "played": 39,
                                 "win": 23,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 8,
                                 "goals": {
                                     "for": 73,
@@ -100,17 +100,17 @@
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.ec7e498226.svg"
                             },
-                            "points": 59,
+                            "points": 60,
                             "goalsDiff": 3,
-                            "form": "LWLLLW",
+                            "form": "WLLLWD",
                             "all": {
-                                "played": 36,
+                                "played": 37,
                                 "win": 17,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 50,
-                                    "against": 47
+                                    "for": 51,
+                                    "against": 48
                                 }
                             },
                             "highlight": false,
@@ -232,17 +232,17 @@
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.3ae51bca59.svg"
                             },
-                            "points": 54,
+                            "points": 55,
                             "goalsDiff": 3,
-                            "form": "DDLDWW",
+                            "form": "DLDWWD",
                             "all": {
-                                "played": 38,
+                                "played": 39,
                                 "win": 15,
-                                "draw": 9,
+                                "draw": 10,
                                 "lose": 14,
                                 "goals": {
-                                    "for": 51,
-                                    "against": 48
+                                    "for": 52,
+                                    "against": 49
                                 }
                             },
                             "highlight": false,
@@ -452,13 +452,13 @@
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
-                            "points": 41,
+                            "points": 42,
                             "goalsDiff": -17,
-                            "form": "DLDLLW",
+                            "form": "LDLLWD",
                             "all": {
-                                "played": 38,
+                                "played": 39,
                                 "win": 11,
-                                "draw": 8,
+                                "draw": 9,
                                 "lose": 19,
                                 "goals": {
                                     "for": 46,
