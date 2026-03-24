@@ -317,6 +317,28 @@
                         {
                             "rank": 15,
                             "team": {
+                                "name": "Doncaster Rovers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
+                            },
+                            "points": 50,
+                            "goalsDiff": -17,
+                            "form": "LLDWDW",
+                            "all": {
+                                "played": 39,
+                                "win": 14,
+                                "draw": 8,
+                                "lose": 17,
+                                "goals": {
+                                    "for": 42,
+                                    "against": 59
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Mansfield Town (H)"
+                        },
+                        {
+                            "rank": 16,
+                            "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
@@ -337,7 +359,7 @@
                             "nextUp": "Doncaster Rovers (A)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 17,
                             "team": {
                                 "name": "Leyton Orient",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
@@ -357,28 +379,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Exeter City (A)"
-                        },
-                        {
-                            "rank": 17,
-                            "team": {
-                                "name": "Doncaster Rovers",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
-                            },
-                            "points": 47,
-                            "goalsDiff": -18,
-                            "form": "LLDWDW",
-                            "all": {
-                                "played": 38,
-                                "win": 13,
-                                "draw": 8,
-                                "lose": 17,
-                                "goals": {
-                                    "for": 41,
-                                    "against": 59
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Mansfield Town (H)"
                         },
                         {
                             "rank": 18,
@@ -519,16 +519,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
                             "points": 31,
-                            "goalsDiff": -20,
+                            "goalsDiff": -21,
                             "form": "WDLDLW",
                             "all": {
-                                "played": 36,
+                                "played": 37,
                                 "win": 7,
                                 "draw": 10,
-                                "lose": 19,
+                                "lose": 20,
                                 "goals": {
                                     "for": 29,
-                                    "against": 49
+                                    "against": 50
                                 }
                             },
                             "highlight": false,
