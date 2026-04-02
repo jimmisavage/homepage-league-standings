@@ -295,6 +295,28 @@
                         {
                             "rank": 14,
                             "team": {
+                                "name": "Leyton Orient",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
+                            },
+                            "points": 50,
+                            "goalsDiff": -7,
+                            "form": "LWWWWD",
+                            "all": {
+                                "played": 40,
+                                "win": 14,
+                                "draw": 8,
+                                "lose": 18,
+                                "goals": {
+                                    "for": 55,
+                                    "against": 62
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Huddersfield Town (H)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
@@ -315,7 +337,7 @@
                             "nextUp": "Lincoln City (A)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 16,
                             "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
@@ -337,7 +359,7 @@
                             "nextUp": "Mansfield Town (H)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 17,
                             "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
@@ -357,28 +379,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Doncaster Rovers (A)"
-                        },
-                        {
-                            "rank": 17,
-                            "team": {
-                                "name": "Leyton Orient",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/leyton-orient.53596fbeb6.svg"
-                            },
-                            "points": 49,
-                            "goalsDiff": -7,
-                            "form": "LWWWWD",
-                            "all": {
-                                "played": 39,
-                                "win": 14,
-                                "draw": 7,
-                                "lose": 18,
-                                "goals": {
-                                    "for": 55,
-                                    "against": 62
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wigan Athletic (A)"
                         },
                         {
                             "rank": 18,
@@ -408,13 +408,13 @@
                                 "name": "Wigan Athletic",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
                             },
-                            "points": 45,
+                            "points": 46,
                             "goalsDiff": -13,
                             "form": "DLWDWL",
                             "all": {
-                                "played": 39,
+                                "played": 40,
                                 "win": 11,
-                                "draw": 12,
+                                "draw": 13,
                                 "lose": 16,
                                 "goals": {
                                     "for": 41,
@@ -422,7 +422,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Leyton Orient (H)"
+                            "nextUp": "Northampton Town (A)"
                         },
                         {
                             "rank": 20,
