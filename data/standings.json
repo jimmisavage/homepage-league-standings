@@ -475,20 +475,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 37,
-                            "goalsDiff": -23,
+                            "goalsDiff": -24,
                             "form": "DLDLLD",
                             "all": {
-                                "played": 39,
+                                "played": 40,
                                 "win": 9,
                                 "draw": 10,
-                                "lose": 20,
+                                "lose": 21,
                                 "goals": {
                                     "for": 35,
-                                    "against": 58
+                                    "against": 59
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (A)"
+                            "nextUp": "Barnsley (H)"
                         },
                         {
                             "rank": 23,
@@ -518,21 +518,21 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 31,
-                            "goalsDiff": -25,
+                            "points": 34,
+                            "goalsDiff": -24,
                             "form": "LDLWLL",
                             "all": {
-                                "played": 38,
-                                "win": 7,
+                                "played": 39,
+                                "win": 8,
                                 "draw": 10,
                                 "lose": 21,
                                 "goals": {
-                                    "for": 29,
+                                    "for": 30,
                                     "against": 54
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Rotherham United (H)"
+                            "nextUp": "Barnsley (H)"
                         }
                     ]
                 ]
