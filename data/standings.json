@@ -141,6 +141,28 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
+                            },
+                            "points": 64,
+                            "goalsDiff": 10,
+                            "form": "WDDLDW",
+                            "all": {
+                                "played": 42,
+                                "win": 18,
+                                "draw": 10,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 64,
+                                    "against": 54
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
                             },
@@ -159,28 +181,6 @@
                             },
                             "highlight": false,
                             "nextUp": "AFC Wimbledon (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
-                                "name": "Huddersfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
-                            },
-                            "points": 62,
-                            "goalsDiff": 9,
-                            "form": "WDDLDW",
-                            "all": {
-                                "played": 42,
-                                "win": 17,
-                                "draw": 11,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 63,
-                                    "against": 54
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (H)"
                         },
                         {
                             "rank": 9,
@@ -232,17 +232,17 @@
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
-                            "points": 60,
-                            "goalsDiff": 12,
+                            "points": 59,
+                            "goalsDiff": 11,
                             "form": "LWLWLL",
                             "all": {
                                 "played": 43,
                                 "win": 16,
-                                "draw": 12,
-                                "lose": 15,
+                                "draw": 11,
+                                "lose": 16,
                                 "goals": {
                                     "for": 61,
-                                    "against": 49
+                                    "against": 50
                                 }
                             },
                             "highlight": false,
@@ -343,7 +343,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 51,
-                            "goalsDiff": 3,
+                            "goalsDiff": 2,
                             "form": "DLWDLD",
                             "all": {
                                 "played": 41,
@@ -352,7 +352,7 @@
                                 "lose": 20,
                                 "goals": {
                                     "for": 60,
-                                    "against": 57
+                                    "against": 58
                                 }
                             },
                             "highlight": false,
@@ -387,7 +387,7 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
                             "points": 51,
-                            "goalsDiff": -15,
+                            "goalsDiff": -14,
                             "form": "LWDWWL",
                             "all": {
                                 "played": 43,
@@ -395,7 +395,7 @@
                                 "draw": 9,
                                 "lose": 20,
                                 "goals": {
-                                    "for": 50,
+                                    "for": 51,
                                     "against": 65
                                 }
                             },
