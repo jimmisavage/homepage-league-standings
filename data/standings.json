@@ -58,7 +58,7 @@
                             },
                             "points": 71,
                             "goalsDiff": 6,
-                            "form": "WLDLWW",
+                            "form": "LDLWWL",
                             "all": {
                                 "played": 42,
                                 "win": 21,
@@ -124,7 +124,7 @@
                             },
                             "points": 67,
                             "goalsDiff": 5,
-                            "form": "LWLWDW",
+                            "form": "WLWDWW",
                             "all": {
                                 "played": 41,
                                 "win": 19,
@@ -140,28 +140,6 @@
                         },
                         {
                             "rank": 7,
-                            "team": {
-                                "name": "Huddersfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
-                            },
-                            "points": 64,
-                            "goalsDiff": 10,
-                            "form": "WDDLDW",
-                            "all": {
-                                "played": 42,
-                                "win": 18,
-                                "draw": 10,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 64,
-                                    "against": 54
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (H)"
-                        },
-                        {
-                            "rank": 8,
                             "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.0137419ae3.svg"
@@ -183,6 +161,28 @@
                             "nextUp": "AFC Wimbledon (A)"
                         },
                         {
+                            "rank": 8,
+                            "team": {
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
+                            },
+                            "points": 62,
+                            "goalsDiff": 9,
+                            "form": "DDLDWD",
+                            "all": {
+                                "played": 42,
+                                "win": 17,
+                                "draw": 11,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 65,
+                                    "against": 56
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (H)"
+                        },
+                        {
                             "rank": 9,
                             "team": {
                                 "name": "Reading",
@@ -190,7 +190,7 @@
                             },
                             "points": 62,
                             "goalsDiff": 7,
-                            "form": "DWLWDL",
+                            "form": "WLWDLL",
                             "all": {
                                 "played": 43,
                                 "win": 16,
@@ -232,17 +232,17 @@
                                 "name": "Wycombe Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wycombe-wanderers.9a16090b43.svg"
                             },
-                            "points": 59,
-                            "goalsDiff": 11,
-                            "form": "LWLWLL",
+                            "points": 60,
+                            "goalsDiff": 12,
+                            "form": "WLWLLD",
                             "all": {
                                 "played": 43,
                                 "win": 16,
-                                "draw": 11,
-                                "lose": 16,
+                                "draw": 12,
+                                "lose": 15,
                                 "goals": {
-                                    "for": 61,
-                                    "against": 50
+                                    "for": 63,
+                                    "against": 51
                                 }
                             },
                             "highlight": false,
@@ -255,8 +255,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
                             "points": 54,
-                            "goalsDiff": -1,
-                            "form": "DDDLDL",
+                            "goalsDiff": -2,
+                            "form": "DDLDLW",
                             "all": {
                                 "played": 40,
                                 "win": 14,
@@ -264,7 +264,7 @@
                                 "lose": 14,
                                 "goals": {
                                     "for": 63,
-                                    "against": 64
+                                    "against": 65
                                 }
                             },
                             "highlight": false,
@@ -278,7 +278,7 @@
                             },
                             "points": 53,
                             "goalsDiff": 7,
-                            "form": "WDDWWD",
+                            "form": "DDWWDL",
                             "all": {
                                 "played": 40,
                                 "win": 13,
@@ -300,7 +300,7 @@
                             },
                             "points": 53,
                             "goalsDiff": -21,
-                            "form": "WDWWLL",
+                            "form": "DWWLLW",
                             "all": {
                                 "played": 42,
                                 "win": 15,
@@ -322,7 +322,7 @@
                             },
                             "points": 52,
                             "goalsDiff": -10,
-                            "form": "WDWLDW",
+                            "form": "DWLDWW",
                             "all": {
                                 "played": 42,
                                 "win": 13,
@@ -366,7 +366,7 @@
                             },
                             "points": 51,
                             "goalsDiff": -10,
-                            "form": "WLWLDD",
+                            "form": "LWLDDW",
                             "all": {
                                 "played": 43,
                                 "win": 13,
@@ -432,7 +432,7 @@
                             },
                             "points": 50,
                             "goalsDiff": -14,
-                            "form": "LLDLLL",
+                            "form": "LDLLLL",
                             "all": {
                                 "played": 42,
                                 "win": 14,
@@ -475,15 +475,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 37,
-                            "goalsDiff": -27,
-                            "form": "LDLLDL",
+                            "goalsDiff": -26,
+                            "form": "DLLDLL",
                             "all": {
                                 "played": 41,
                                 "win": 9,
                                 "draw": 10,
                                 "lose": 22,
                                 "goals": {
-                                    "for": 35,
+                                    "for": 36,
                                     "against": 62
                                 }
                             },
