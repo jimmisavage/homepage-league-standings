@@ -34,16 +34,16 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 81,
-                            "goalsDiff": 33,
-                            "form": "DWLDDW",
+                            "points": 82,
+                            "goalsDiff": 34,
+                            "form": "WLDDWD",
                             "all": {
                                 "played": 42,
                                 "win": 24,
-                                "draw": 9,
-                                "lose": 9,
+                                "draw": 10,
+                                "lose": 8,
                                 "goals": {
-                                    "for": 76,
+                                    "for": 77,
                                     "against": 43
                                 }
                             },
@@ -57,16 +57,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
                             "points": 73,
-                            "goalsDiff": 17,
-                            "form": "DDLWDL",
+                            "goalsDiff": 19,
+                            "form": "DLWDLW",
                             "all": {
                                 "played": 43,
                                 "win": 19,
                                 "draw": 16,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 61,
-                                    "against": 44
+                                    "for": 64,
+                                    "against": 45
                                 }
                             },
                             "highlight": false,
@@ -123,16 +123,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
                             },
                             "points": 67,
-                            "goalsDiff": 3,
-                            "form": "WLWDWW",
+                            "goalsDiff": 1,
+                            "form": "LWDWWL",
                             "all": {
                                 "played": 42,
                                 "win": 19,
                                 "draw": 10,
                                 "lose": 13,
                                 "goals": {
-                                    "for": 43,
-                                    "against": 40
+                                    "for": 44,
+                                    "against": 43
                                 }
                             },
                             "highlight": false,
@@ -144,17 +144,17 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 65,
-                            "goalsDiff": 10,
-                            "form": "DDLDWD",
+                            "points": 63,
+                            "goalsDiff": 9,
+                            "form": "DLDWDD",
                             "all": {
                                 "played": 43,
-                                "win": 18,
-                                "draw": 11,
+                                "win": 17,
+                                "draw": 12,
                                 "lose": 14,
                                 "goals": {
                                     "for": 66,
-                                    "against": 56
+                                    "against": 57
                                 }
                             },
                             "highlight": false,
@@ -256,7 +256,7 @@
                             },
                             "points": 55,
                             "goalsDiff": -2,
-                            "form": "DDLDLW",
+                            "form": "DLDLWD",
                             "all": {
                                 "played": 41,
                                 "win": 14,
@@ -277,15 +277,15 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
                             },
                             "points": 55,
-                            "goalsDiff": -9,
-                            "form": "DWLDWW",
+                            "goalsDiff": -7,
+                            "form": "WLDWWW",
                             "all": {
                                 "played": 43,
                                 "win": 14,
                                 "draw": 13,
                                 "lose": 16,
                                 "goals": {
-                                    "for": 47,
+                                    "for": 49,
                                     "against": 56
                                 }
                             },
@@ -300,7 +300,7 @@
                             },
                             "points": 54,
                             "goalsDiff": 7,
-                            "form": "DDWWDL",
+                            "form": "DWWDLD",
                             "all": {
                                 "played": 41,
                                 "win": 13,
@@ -366,7 +366,7 @@
                             },
                             "points": 51,
                             "goalsDiff": -9,
-                            "form": "WWDDLL",
+                            "form": "WDDLLD",
                             "all": {
                                 "played": 43,
                                 "win": 14,
@@ -475,8 +475,8 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
                             "points": 37,
-                            "goalsDiff": -27,
-                            "form": "DLLDLL",
+                            "goalsDiff": -29,
+                            "form": "LLDLLL",
                             "all": {
                                 "played": 42,
                                 "win": 9,
@@ -484,7 +484,7 @@
                                 "lose": 23,
                                 "goals": {
                                     "for": 36,
-                                    "against": 63
+                                    "against": 65
                                 }
                             },
                             "highlight": false,
@@ -498,7 +498,7 @@
                             },
                             "points": 35,
                             "goalsDiff": -24,
-                            "form": "DLWLLW",
+                            "form": "LWLLWD",
                             "all": {
                                 "played": 40,
                                 "win": 8,
