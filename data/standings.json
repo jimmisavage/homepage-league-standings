@@ -100,16 +100,16 @@
                                 "name": "Stockport County",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.1a71571551.svg"
                             },
-                            "points": 67,
-                            "goalsDiff": 9,
-                            "form": "LWDWWD",
+                            "points": 70,
+                            "goalsDiff": 11,
+                            "form": "WDWWDW",
                             "all": {
-                                "played": 40,
-                                "win": 19,
+                                "played": 41,
+                                "win": 20,
                                 "draw": 10,
                                 "lose": 11,
                                 "goals": {
-                                    "for": 59,
+                                    "for": 61,
                                     "against": 50
                                 }
                             },
@@ -141,6 +141,28 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Luton Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.1db2fa617a.svg"
+                            },
+                            "points": 64,
+                            "goalsDiff": 8,
+                            "form": "WWDWWW",
+                            "all": {
+                                "played": 42,
+                                "win": 18,
+                                "draw": 10,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 59,
+                                    "against": 51
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Mansfield Town (A)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
@@ -161,7 +183,7 @@
                             "nextUp": "Bolton Wanderers (A)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 9,
                             "team": {
                                 "name": "Plymouth Argyle",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/plymouth-argyle.863f4435a3.svg"
@@ -183,7 +205,7 @@
                             "nextUp": "AFC Wimbledon (A)"
                         },
                         {
-                            "rank": 9,
+                            "rank": 10,
                             "team": {
                                 "name": "Reading",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/reading.9effd7d183.svg"
@@ -203,28 +225,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Cardiff City (H)"
-                        },
-                        {
-                            "rank": 10,
-                            "team": {
-                                "name": "Luton Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.1db2fa617a.svg"
-                            },
-                            "points": 61,
-                            "goalsDiff": 7,
-                            "form": "DWWDWW",
-                            "all": {
-                                "played": 41,
-                                "win": 17,
-                                "draw": 10,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 57,
-                                    "against": 50
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Mansfield Town (A)"
                         },
                         {
                             "rank": 11,
@@ -431,16 +431,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
                             },
                             "points": 50,
-                            "goalsDiff": -14,
-                            "form": "LDLLLL",
+                            "goalsDiff": -16,
+                            "form": "DLLLLL",
                             "all": {
-                                "played": 42,
+                                "played": 43,
                                 "win": 14,
                                 "draw": 8,
-                                "lose": 20,
+                                "lose": 21,
                                 "goals": {
                                     "for": 49,
-                                    "against": 63
+                                    "against": 65
                                 }
                             },
                             "highlight": false,
@@ -519,16 +519,16 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
                             "points": 35,
-                            "goalsDiff": -26,
+                            "goalsDiff": -27,
                             "form": "LLLLLL",
                             "all": {
-                                "played": 41,
+                                "played": 42,
                                 "win": 9,
                                 "draw": 8,
-                                "lose": 24,
+                                "lose": 25,
                                 "goals": {
-                                    "for": 34,
-                                    "against": 60
+                                    "for": 35,
+                                    "against": 62
                                 }
                             },
                             "highlight": false,
