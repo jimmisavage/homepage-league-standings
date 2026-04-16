@@ -343,20 +343,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 51,
-                            "goalsDiff": 2,
+                            "goalsDiff": 0,
                             "form": "LWDLDL",
                             "all": {
-                                "played": 41,
+                                "played": 42,
                                 "win": 15,
                                 "draw": 6,
-                                "lose": 20,
+                                "lose": 21,
                                 "goals": {
-                                    "for": 60,
-                                    "against": 58
+                                    "for": 61,
+                                    "against": 61
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (H)"
+                            "nextUp": "Burton Albion (H)"
                         },
                         {
                             "rank": 17,
@@ -471,6 +471,28 @@
                         {
                             "rank": 22,
                             "team": {
+                                "name": "Port Vale",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
+                            },
+                            "points": 38,
+                            "goalsDiff": -22,
+                            "form": "LWLLWD",
+                            "all": {
+                                "played": 41,
+                                "win": 9,
+                                "draw": 11,
+                                "lose": 21,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 55
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wigan Athletic (H)"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
@@ -489,28 +511,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Leyton Orient (A)"
-                        },
-                        {
-                            "rank": 23,
-                            "team": {
-                                "name": "Port Vale",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
-                            },
-                            "points": 35,
-                            "goalsDiff": -24,
-                            "form": "LWLLWD",
-                            "all": {
-                                "played": 40,
-                                "win": 8,
-                                "draw": 11,
-                                "lose": 21,
-                                "goals": {
-                                    "for": 30,
-                                    "against": 54
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Peterborough United (A)"
                         },
                         {
                             "rank": 24,
