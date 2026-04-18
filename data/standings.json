@@ -56,17 +56,17 @@
                                 "name": "Bolton Wanderers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
-                            "points": 73,
-                            "goalsDiff": 18,
-                            "form": "DLWDLW",
+                            "points": 74,
+                            "goalsDiff": 19,
+                            "form": "LWDLWD",
                             "all": {
                                 "played": 44,
                                 "win": 19,
-                                "draw": 16,
-                                "lose": 9,
+                                "draw": 17,
+                                "lose": 8,
                                 "goals": {
-                                    "for": 65,
-                                    "against": 47
+                                    "for": 67,
+                                    "against": 48
                                 }
                             },
                             "highlight": false,
@@ -78,17 +78,17 @@
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
-                            "points": 71,
-                            "goalsDiff": 5,
-                            "form": "LDLWWL",
+                            "points": 72,
+                            "goalsDiff": 6,
+                            "form": "DLWWLD",
                             "all": {
                                 "played": 43,
                                 "win": 21,
-                                "draw": 8,
-                                "lose": 14,
+                                "draw": 9,
+                                "lose": 13,
                                 "goals": {
-                                    "for": 52,
-                                    "against": 47
+                                    "for": 54,
+                                    "against": 48
                                 }
                             },
                             "highlight": false,
@@ -144,17 +144,17 @@
                                 "name": "Huddersfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
                             },
-                            "points": 66,
-                            "goalsDiff": 10,
-                            "form": "DLDWDD",
+                            "points": 64,
+                            "goalsDiff": 9,
+                            "form": "LDWDDD",
                             "all": {
                                 "played": 44,
-                                "win": 18,
-                                "draw": 12,
+                                "win": 17,
+                                "draw": 13,
                                 "lose": 14,
                                 "goals": {
-                                    "for": 68,
-                                    "against": 58
+                                    "for": 69,
+                                    "against": 60
                                 }
                             },
                             "highlight": false,
@@ -254,17 +254,17 @@
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
-                            "points": 58,
-                            "goalsDiff": -1,
-                            "form": "DLDLWD",
+                            "points": 56,
+                            "goalsDiff": -2,
+                            "form": "LDLWDD",
                             "all": {
                                 "played": 42,
-                                "win": 15,
-                                "draw": 13,
+                                "win": 14,
+                                "draw": 14,
                                 "lose": 14,
                                 "goals": {
-                                    "for": 64,
-                                    "against": 65
+                                    "for": 65,
+                                    "against": 67
                                 }
                             },
                             "highlight": false,
