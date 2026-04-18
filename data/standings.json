@@ -57,20 +57,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
                             },
                             "points": 73,
-                            "goalsDiff": 19,
+                            "goalsDiff": 18,
                             "form": "DLWDLW",
                             "all": {
-                                "played": 43,
+                                "played": 44,
                                 "win": 19,
                                 "draw": 16,
-                                "lose": 8,
+                                "lose": 9,
                                 "goals": {
-                                    "for": 64,
-                                    "against": 45
+                                    "for": 65,
+                                    "against": 47
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Huddersfield Town (H)"
+                            "nextUp": "Bradford City (A)"
                         },
                         {
                             "rank": 4,
@@ -79,20 +79,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
                             "points": 71,
-                            "goalsDiff": 6,
+                            "goalsDiff": 5,
                             "form": "LDLWWL",
                             "all": {
-                                "played": 42,
+                                "played": 43,
                                 "win": 21,
                                 "draw": 8,
-                                "lose": 13,
+                                "lose": 14,
                                 "goals": {
                                     "for": 52,
-                                    "against": 46
+                                    "against": 47
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Barnsley (A)"
+                            "nextUp": "Plymouth Argyle (H)"
                         },
                         {
                             "rank": 5,
@@ -141,6 +141,28 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Huddersfield Town",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
+                            },
+                            "points": 66,
+                            "goalsDiff": 10,
+                            "form": "DLDWDD",
+                            "all": {
+                                "played": 44,
+                                "win": 18,
+                                "draw": 12,
+                                "lose": 14,
+                                "goals": {
+                                    "for": 68,
+                                    "against": 58
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Mansfield Town (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Luton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/luton-town.1db2fa617a.svg"
                             },
@@ -159,28 +181,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Mansfield Town (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
-                                "name": "Huddersfield Town",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/huddersfield-town.f3320d5da4.svg"
-                            },
-                            "points": 63,
-                            "goalsDiff": 9,
-                            "form": "DLDWDD",
-                            "all": {
-                                "played": 43,
-                                "win": 17,
-                                "draw": 12,
-                                "lose": 14,
-                                "goals": {
-                                    "for": 66,
-                                    "against": 57
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (A)"
                         },
                         {
                             "rank": 9,
@@ -254,21 +254,21 @@
                                 "name": "Barnsley",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
                             },
-                            "points": 55,
-                            "goalsDiff": -2,
+                            "points": 58,
+                            "goalsDiff": -1,
                             "form": "DLDLWD",
                             "all": {
-                                "played": 41,
-                                "win": 14,
+                                "played": 42,
+                                "win": 15,
                                 "draw": 13,
                                 "lose": 14,
                                 "goals": {
-                                    "for": 63,
+                                    "for": 64,
                                     "against": 65
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Bradford City (H)"
+                            "nextUp": "Stevenage (A)"
                         },
                         {
                             "rank": 13,
