@@ -273,6 +273,28 @@
                         {
                             "rank": 13,
                             "team": {
+                                "name": "Wigan Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
+                            },
+                            "points": 56,
+                            "goalsDiff": -7,
+                            "form": "WLDWWW",
+                            "all": {
+                                "played": 44,
+                                "win": 14,
+                                "draw": 14,
+                                "lose": 16,
+                                "goals": {
+                                    "for": 49,
+                                    "against": 56
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "AFC Wimbledon (H)"
+                        },
+                        {
+                            "rank": 14,
+                            "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
                             },
@@ -293,7 +315,7 @@
                             "nextUp": "Lincoln City (H)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
@@ -313,28 +335,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Stockport County (A)"
-                        },
-                        {
-                            "rank": 15,
-                            "team": {
-                                "name": "Wigan Athletic",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wigan-athletic.6fb936445b.svg"
-                            },
-                            "points": 55,
-                            "goalsDiff": -7,
-                            "form": "WLDWWW",
-                            "all": {
-                                "played": 43,
-                                "win": 14,
-                                "draw": 13,
-                                "lose": 16,
-                                "goals": {
-                                    "for": 49,
-                                    "against": 56
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Port Vale (A)"
                         },
                         {
                             "rank": 16,
@@ -366,7 +366,7 @@
                             },
                             "points": 52,
                             "goalsDiff": 0,
-                            "form": "WDLDLL",
+                            "form": "DLDLLD",
                             "all": {
                                 "played": 43,
                                 "win": 15,
@@ -388,7 +388,7 @@
                             },
                             "points": 52,
                             "goalsDiff": -10,
-                            "form": "LWLDDW",
+                            "form": "WLDDWD",
                             "all": {
                                 "played": 44,
                                 "win": 13,
@@ -496,13 +496,13 @@
                                 "name": "Port Vale",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
                             },
-                            "points": 38,
+                            "points": 39,
                             "goalsDiff": -22,
                             "form": "WLLWDW",
                             "all": {
-                                "played": 41,
+                                "played": 42,
                                 "win": 9,
-                                "draw": 11,
+                                "draw": 12,
                                 "lose": 21,
                                 "goals": {
                                     "for": 33,
@@ -510,7 +510,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Wigan Athletic (H)"
+                            "nextUp": "Cardiff City (A)"
                         },
                         {
                             "rank": 24,
