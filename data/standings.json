@@ -364,13 +364,13 @@
                                 "name": "Peterborough United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
-                            "points": 51,
+                            "points": 52,
                             "goalsDiff": 0,
                             "form": "WDLDLL",
                             "all": {
-                                "played": 42,
+                                "played": 43,
                                 "win": 15,
-                                "draw": 6,
+                                "draw": 7,
                                 "lose": 21,
                                 "goals": {
                                     "for": 61,
@@ -378,7 +378,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Burton Albion (H)"
+                            "nextUp": "Stockport County (A)"
                         },
                         {
                             "rank": 18,
@@ -386,13 +386,13 @@
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
-                            "points": 51,
+                            "points": 52,
                             "goalsDiff": -10,
                             "form": "LWLDDW",
                             "all": {
-                                "played": 43,
+                                "played": 44,
                                 "win": 13,
-                                "draw": 12,
+                                "draw": 13,
                                 "lose": 18,
                                 "goals": {
                                     "for": 46,
@@ -400,7 +400,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Peterborough United (A)"
+                            "nextUp": "Exeter City (H)"
                         },
                         {
                             "rank": 19,
