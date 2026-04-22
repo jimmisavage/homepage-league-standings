@@ -34,16 +34,16 @@
                                 "name": "Cardiff City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.a7cb953710.svg"
                             },
-                            "points": 86,
-                            "goalsDiff": 36,
-                            "form": "LDDWDW",
+                            "points": 88,
+                            "goalsDiff": 37,
+                            "form": "DDWDWW",
                             "all": {
                                 "played": 44,
-                                "win": 25,
-                                "draw": 11,
+                                "win": 26,
+                                "draw": 10,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 80,
+                                    "for": 81,
                                     "against": 44
                                 }
                             },
@@ -471,28 +471,6 @@
                         {
                             "rank": 22,
                             "team": {
-                                "name": "Port Vale",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
-                            },
-                            "points": 40,
-                            "goalsDiff": -22,
-                            "form": "LLWDWD",
-                            "all": {
-                                "played": 43,
-                                "win": 9,
-                                "draw": 13,
-                                "lose": 21,
-                                "goals": {
-                                    "for": 33,
-                                    "against": 55
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Plymouth Argyle (A)"
-                        },
-                        {
-                            "rank": 23,
-                            "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
@@ -511,6 +489,28 @@
                             },
                             "highlight": false,
                             "nextUp": "Reading (H)"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
+                                "name": "Port Vale",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
+                            },
+                            "points": 39,
+                            "goalsDiff": -23,
+                            "form": "LWDWDL",
+                            "all": {
+                                "played": 43,
+                                "win": 9,
+                                "draw": 12,
+                                "lose": 22,
+                                "goals": {
+                                    "for": 33,
+                                    "against": 56
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Plymouth Argyle (A)"
                         },
                         {
                             "rank": 24,
