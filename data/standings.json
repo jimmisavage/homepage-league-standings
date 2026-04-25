@@ -75,6 +75,50 @@
                         {
                             "rank": 4,
                             "team": {
+                                "name": "Stockport County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.1a71571551.svg"
+                            },
+                            "points": 74,
+                            "goalsDiff": 11,
+                            "form": "WWDWDL",
+                            "all": {
+                                "played": 44,
+                                "win": 21,
+                                "draw": 11,
+                                "lose": 12,
+                                "goals": {
+                                    "for": 66,
+                                    "against": 55
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Port Vale (H)"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
+                                "name": "Stevenage",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
+                            },
+                            "points": 74,
+                            "goalsDiff": 3,
+                            "form": "DWWLDW",
+                            "all": {
+                                "played": 45,
+                                "win": 21,
+                                "draw": 11,
+                                "lose": 13,
+                                "goals": {
+                                    "for": 48,
+                                    "against": 45
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wigan Athletic (H)"
+                        },
+                        {
+                            "rank": 6,
+                            "team": {
                                 "name": "Bradford City",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bradford-city.aab75b64f0.svg"
                             },
@@ -93,50 +137,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 5,
-                            "team": {
-                                "name": "Stockport County",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.1a71571551.svg"
-                            },
-                            "points": 71,
-                            "goalsDiff": 10,
-                            "form": "WWDWDL",
-                            "all": {
-                                "played": 43,
-                                "win": 20,
-                                "draw": 11,
-                                "lose": 12,
-                                "goals": {
-                                    "for": 64,
-                                    "against": 54
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Peterborough United (H)"
-                        },
-                        {
-                            "rank": 6,
-                            "team": {
-                                "name": "Stevenage",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stevenage.6d72e6ce96.svg"
-                            },
-                            "points": 71,
-                            "goalsDiff": 2,
-                            "form": "DWWLDW",
-                            "all": {
-                                "played": 44,
-                                "win": 20,
-                                "draw": 11,
-                                "lose": 13,
-                                "goals": {
-                                    "for": 47,
-                                    "against": 45
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Doncaster Rovers (A)"
                         },
                         {
                             "rank": 7,
@@ -321,20 +321,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
                             },
                             "points": 56,
-                            "goalsDiff": -21,
+                            "goalsDiff": -22,
                             "form": "WLLWWL",
                             "all": {
-                                "played": 44,
+                                "played": 45,
                                 "win": 16,
                                 "draw": 8,
-                                "lose": 20,
+                                "lose": 21,
                                 "goals": {
                                     "for": 46,
-                                    "against": 67
+                                    "against": 68
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stevenage (H)"
+                            "nextUp": "Peterborough United (A)"
                         },
                         {
                             "rank": 16,
@@ -365,20 +365,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
                             },
                             "points": 52,
-                            "goalsDiff": 0,
+                            "goalsDiff": -1,
                             "form": "DLDLLD",
                             "all": {
-                                "played": 43,
+                                "played": 44,
                                 "win": 15,
                                 "draw": 7,
-                                "lose": 21,
+                                "lose": 22,
                                 "goals": {
-                                    "for": 62,
-                                    "against": 62
+                                    "for": 63,
+                                    "against": 64
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Stockport County (A)"
+                            "nextUp": "Mansfield Town (H)"
                         },
                         {
                             "rank": 18,
