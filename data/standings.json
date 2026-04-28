@@ -79,20 +79,20 @@
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stockport-county.1a71571551.svg"
                             },
                             "points": 74,
-                            "goalsDiff": 12,
+                            "goalsDiff": 10,
                             "form": "WDWDLW",
                             "all": {
-                                "played": 44,
+                                "played": 45,
                                 "win": 21,
                                 "draw": 11,
-                                "lose": 12,
+                                "lose": 13,
                                 "goals": {
                                     "for": 67,
-                                    "against": 55
+                                    "against": 57
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Port Vale (H)"
+                            "nextUp": "Barnsley (A)"
                         },
                         {
                             "rank": 5,
@@ -232,13 +232,13 @@
                                 "name": "Mansfield Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/mansfield-town.755b84bf24.svg"
                             },
-                            "points": 61,
+                            "points": 62,
                             "goalsDiff": 11,
                             "form": "DLDDWW",
                             "all": {
-                                "played": 44,
+                                "played": 45,
                                 "win": 15,
-                                "draw": 16,
+                                "draw": 17,
                                 "lose": 13,
                                 "goals": {
                                     "for": 57,
@@ -246,7 +246,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Peterborough United (A)"
+                            "nextUp": "Cardiff City (H)"
                         },
                         {
                             "rank": 12,
@@ -273,6 +273,28 @@
                         {
                             "rank": 13,
                             "team": {
+                                "name": "Barnsley",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
+                            },
+                            "points": 59,
+                            "goalsDiff": -3,
+                            "form": "LWDDLL",
+                            "all": {
+                                "played": 45,
+                                "win": 15,
+                                "draw": 14,
+                                "lose": 16,
+                                "goals": {
+                                    "for": 67,
+                                    "against": 70
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Stockport County (H)"
+                        },
+                        {
+                            "rank": 14,
+                            "team": {
                                 "name": "Blackpool",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackpool.8035fb816a.svg"
                             },
@@ -293,7 +315,7 @@
                             "nextUp": "Reading (A)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Doncaster Rovers",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/doncaster-rovers.b1faab1a10.svg"
@@ -313,28 +335,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Peterborough United (A)"
-                        },
-                        {
-                            "rank": 15,
-                            "team": {
-                                "name": "Barnsley",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/barnsley.96da86ec19.svg"
-                            },
-                            "points": 56,
-                            "goalsDiff": -4,
-                            "form": "LWDDLL",
-                            "all": {
-                                "played": 44,
-                                "win": 14,
-                                "draw": 14,
-                                "lose": 16,
-                                "goals": {
-                                    "for": 66,
-                                    "against": 70
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Northampton Town (A)"
                         },
                         {
                             "rank": 16,
@@ -361,6 +361,28 @@
                         {
                             "rank": 17,
                             "team": {
+                                "name": "Peterborough United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
+                            },
+                            "points": 53,
+                            "goalsDiff": -2,
+                            "form": "LDLLDL",
+                            "all": {
+                                "played": 45,
+                                "win": 15,
+                                "draw": 8,
+                                "lose": 22,
+                                "goals": {
+                                    "for": 63,
+                                    "against": 65
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Doncaster Rovers (H)"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
                                 "name": "Burton Albion",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burton-albion.835c6534a4.svg"
                             },
@@ -381,7 +403,7 @@
                             "nextUp": "Leyton Orient (A)"
                         },
                         {
-                            "rank": 18,
+                            "rank": 19,
                             "team": {
                                 "name": "AFC Wimbledon",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/afc-wimbledon.0f2de40137.svg"
@@ -401,28 +423,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Huddersfield Town (H)"
-                        },
-                        {
-                            "rank": 19,
-                            "team": {
-                                "name": "Peterborough United",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/peterborough-united.b13026d87b.svg"
-                            },
-                            "points": 52,
-                            "goalsDiff": -2,
-                            "form": "LDLLDL",
-                            "all": {
-                                "played": 44,
-                                "win": 15,
-                                "draw": 7,
-                                "lose": 22,
-                                "goals": {
-                                    "for": 63,
-                                    "against": 65
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Mansfield Town (H)"
                         },
                         {
                             "rank": 20,
@@ -471,6 +471,28 @@
                         {
                             "rank": 22,
                             "team": {
+                                "name": "Port Vale",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
+                            },
+                            "points": 42,
+                            "goalsDiff": -22,
+                            "form": "WDWDLL",
+                            "all": {
+                                "played": 45,
+                                "win": 10,
+                                "draw": 12,
+                                "lose": 23,
+                                "goals": {
+                                    "for": 36,
+                                    "against": 58
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Lincoln City (H)"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
                                 "name": "Rotherham United",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/rotherham-united.e97963c24b.svg"
                             },
@@ -491,48 +513,26 @@
                             "nextUp": "Wycombe Wanderers (A)"
                         },
                         {
-                            "rank": 23,
-                            "team": {
-                                "name": "Port Vale",
-                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/port-vale.f8a656a753.svg"
-                            },
-                            "points": 39,
-                            "goalsDiff": -24,
-                            "form": "WDWDLL",
-                            "all": {
-                                "played": 44,
-                                "win": 9,
-                                "draw": 12,
-                                "lose": 23,
-                                "goals": {
-                                    "for": 34,
-                                    "against": 58
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Stockport County (A)"
-                        },
-                        {
                             "rank": 24,
                             "team": {
                                 "name": "Northampton Town",
                                 "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/northampton-town.b8683d9cf5.svg"
                             },
                             "points": 35,
-                            "goalsDiff": -33,
+                            "goalsDiff": -34,
                             "form": "LLLLLL",
                             "all": {
-                                "played": 44,
+                                "played": 45,
                                 "win": 9,
                                 "draw": 8,
-                                "lose": 27,
+                                "lose": 28,
                                 "goals": {
                                     "for": 37,
-                                    "against": 70
+                                    "against": 71
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Barnsley (H)"
+                            "nextUp": "Plymouth Argyle (H)"
                         }
                     ]
                 ]
