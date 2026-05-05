@@ -1,13 +1,8 @@
 [
     {
-        "home_team": "Bolton Wanderers",
-        "away_team": "Bradford City",
-        "datetime_utc": "2026-05-09T19:00:00Z"
-    },
-    {
-        "home_team": "Stevenage",
-        "away_team": "Stockport County",
-        "datetime_utc": "2026-05-09T14:00:00Z"
+        "home_team": "Bradford City",
+        "away_team": "Bolton Wanderers",
+        "datetime_utc": "2026-05-14T19:00:00Z"
     },
     {
         "home_team": "Stockport County",
@@ -15,8 +10,13 @@
         "datetime_utc": "2026-05-13T19:00:00Z"
     },
     {
-        "home_team": "Bradford City",
-        "away_team": "Bolton Wanderers",
-        "datetime_utc": "2026-05-14T19:00:00Z"
+        "home_team": "Stevenage",
+        "away_team": "Stockport County",
+        "datetime_utc": "2026-05-09T14:00:00Z"
+    },
+    {
+        "home_team": "Bolton Wanderers",
+        "away_team": "Bradford City",
+        "datetime_utc": "2026-05-09T19:00:00Z"
     }
 ]
