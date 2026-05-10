@@ -5,13 +5,13 @@
         "datetime_utc": "2026-05-13T19:00:00Z"
     },
     {
-        "home_team": "TBC",
-        "away_team": "TBC",
-        "datetime_utc": "2026-05-24T12:00:00Z"
-    },
-    {
         "home_team": "Bradford City",
         "away_team": "Bolton Wanderers",
         "datetime_utc": "2026-05-14T19:00:00Z"
+    },
+    {
+        "home_team": "TBC",
+        "away_team": "TBC",
+        "datetime_utc": "2026-05-24T12:00:00Z"
     }
 ]
