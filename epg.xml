@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv>
-  <channel id="notts-county.uk"><display-name lang="en">Notts County</display-name><icon src="https://raw.githubusercontent.com/jimmisavage/homepage-league-standings/main/assets/logos/notts-county.png"/></channel>
-  <programme start="20260525081718 +0100" stop="20260525150000 +0100" channel="notts-county.uk"><title lang="en">No Game Scheduled</title></programme>
-  <programme start="20260525150000 +0100" stop="20260525170000 +0100" channel="notts-county.uk"><title lang="en">vs. Salford City (H)</title><desc lang="en">League Two</desc><category lang="en">Sports</category></programme>
-  <programme start="20260525170000 +0100" stop="20260724081718 +0100" channel="notts-county.uk"><title lang="en">No Game Scheduled</title></programme>
-  <channel id="salford-city.uk"><display-name lang="en">Salford City</display-name><icon src="https://raw.githubusercontent.com/jimmisavage/homepage-league-standings/main/assets/logos/salford-city.png"/></channel>
-  <programme start="20260525081718 +0100" stop="20260525150000 +0100" channel="salford-city.uk"><title lang="en">No Game Scheduled</title></programme>
-  <programme start="20260525150000 +0100" stop="20260525170000 +0100" channel="salford-city.uk"><title lang="en">vs. Notts County (A)</title><desc lang="en">League Two</desc><category lang="en">Sports</category></programme>
-  <programme start="20260525170000 +0100" stop="20260724081718 +0100" channel="salford-city.uk"><title lang="en">No Game Scheduled</title></programme>
 </tv>
