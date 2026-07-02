@@ -1,47 +1,47 @@
 [
     {
-        "home_team": "AFC Wimbledon",
-        "away_team": "Reading",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Reading",
-        "away_team": "Luton Town",
-        "datetime_utc": "2026-08-15T11:30:00Z"
-    },
-    {
-        "home_team": "Huddersfield Town",
-        "away_team": "AFC Wimbledon",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
-        "home_team": "Cambridge United",
-        "away_team": "Wigan Athletic",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
         "home_team": "Leicester City",
         "away_team": "Burton Albion",
         "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Oxford United",
-        "away_team": "Reading",
+        "home_team": "MK Dons",
+        "away_team": "Leicester City",
         "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "Sheffield Wednesday",
+        "away_team": "Bromley",
+        "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "AFC Wimbledon",
+        "away_team": "Reading",
+        "datetime_utc": "2026-08-22T14:00:00Z"
+    },
+    {
+        "home_team": "Doncaster Rovers",
+        "away_team": "Barnsley",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
         "home_team": "Leyton Orient",
-        "away_team": "Sheffield Wednesday",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
-        "home_team": "Blackpool",
-        "away_team": "Peterborough United",
+        "away_team": "Barnsley",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
-        "home_team": "Stevenage",
-        "away_team": "Doncaster Rovers",
+        "home_team": "Wigan Athletic",
+        "away_team": "Leyton Orient",
+        "datetime_utc": "2026-08-22T14:00:00Z"
+    },
+    {
+        "home_team": "Blackpool",
+        "away_team": "Wycombe Wanderers",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "AFC Wimbledon",
+        "away_team": "Wigan Athletic",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
@@ -55,28 +55,28 @@
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
-        "home_team": "Stockport County",
-        "away_team": "Blackpool",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Burton Albion",
-        "away_team": "Stevenage",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
-        "home_team": "Wigan Athletic",
-        "away_team": "Leyton Orient",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Leyton Orient",
-        "away_team": "Barnsley",
+        "home_team": "Blackpool",
+        "away_team": "Peterborough United",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
-        "home_team": "Luton Town",
-        "away_team": "Notts County",
+        "home_team": "Barnsley",
+        "away_team": "Bromley",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Huddersfield Town",
+        "away_team": "AFC Wimbledon",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Bradford City",
+        "away_team": "Peterborough United",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Sheffield Wednesday",
+        "away_team": "Bradford City",
         "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
@@ -85,33 +85,23 @@
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
-        "home_team": "Blackpool",
-        "away_team": "Wycombe Wanderers",
+        "home_team": "Burton Albion",
+        "away_team": "Stevenage",
         "datetime_utc": "2026-08-15T14:00:00Z"
     },
     {
-        "home_team": "MK Dons",
-        "away_team": "Huddersfield Town",
+        "home_team": "Mansfield Town",
+        "away_team": "Luton Town",
+        "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "Luton Town",
+        "away_team": "Notts County",
         "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Doncaster Rovers",
-        "away_team": "Barnsley",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Sheffield Wednesday",
-        "away_team": "Bradford City",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Stevenage",
-        "away_team": "Oxford United",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Notts County",
-        "away_team": "Leicester City",
+        "home_team": "Reading",
+        "away_team": "Luton Town",
         "datetime_utc": "2026-08-15T11:30:00Z"
     },
     {
@@ -120,23 +110,8 @@
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
-        "home_team": "Oxford United",
-        "away_team": "MK Dons",
-        "datetime_utc": "2026-08-15T11:30:00Z"
-    },
-    {
-        "home_team": "Wycombe Wanderers",
-        "away_team": "Plymouth Argyle",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "MK Dons",
-        "away_team": "Leicester City",
-        "datetime_utc": "2026-08-29T14:00:00Z"
-    },
-    {
-        "home_team": "Plymouth Argyle",
-        "away_team": "Bradford City",
+        "home_team": "Stevenage",
+        "away_team": "Doncaster Rovers",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
@@ -145,13 +120,28 @@
         "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Bradford City",
-        "away_team": "Peterborough United",
+        "home_team": "Cambridge United",
+        "away_team": "Wigan Athletic",
         "datetime_utc": "2026-08-15T14:00:00Z"
     },
     {
-        "home_team": "AFC Wimbledon",
-        "away_team": "Wigan Athletic",
+        "home_team": "MK Dons",
+        "away_team": "Huddersfield Town",
+        "datetime_utc": "2026-08-22T14:00:00Z"
+    },
+    {
+        "home_team": "Plymouth Argyle",
+        "away_team": "Stockport County",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Oxford United",
+        "away_team": "Reading",
+        "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "Plymouth Argyle",
+        "away_team": "Bradford City",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
@@ -160,23 +150,33 @@
         "datetime_utc": "2026-08-15T14:00:00Z"
     },
     {
-        "home_team": "Barnsley",
-        "away_team": "Bromley",
+        "home_team": "Oxford United",
+        "away_team": "MK Dons",
+        "datetime_utc": "2026-08-15T11:30:00Z"
+    },
+    {
+        "home_team": "Leyton Orient",
+        "away_team": "Sheffield Wednesday",
         "datetime_utc": "2026-08-15T14:00:00Z"
     },
     {
-        "home_team": "Plymouth Argyle",
-        "away_team": "Stockport County",
-        "datetime_utc": "2026-08-15T14:00:00Z"
+        "home_team": "Wycombe Wanderers",
+        "away_team": "Plymouth Argyle",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Sheffield Wednesday",
-        "away_team": "Bromley",
-        "datetime_utc": "2026-08-29T14:00:00Z"
+        "home_team": "Notts County",
+        "away_team": "Leicester City",
+        "datetime_utc": "2026-08-15T11:30:00Z"
     },
     {
-        "home_team": "Mansfield Town",
-        "away_team": "Luton Town",
-        "datetime_utc": "2026-08-29T14:00:00Z"
+        "home_team": "Stockport County",
+        "away_team": "Blackpool",
+        "datetime_utc": "2026-08-22T14:00:00Z"
+    },
+    {
+        "home_team": "Stevenage",
+        "away_team": "Oxford United",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     }
 ]
