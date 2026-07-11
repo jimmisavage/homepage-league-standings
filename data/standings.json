@@ -2,10 +2,539 @@
     "response": [
         {
             "league": {
-                "name": "Championship",
+                "name": "championship",
                 "season": "2026/2027",
                 "standings": [
-                    []
+                    [
+                        {
+                            "rank": 1,
+                            "team": {
+                                "name": "Birmingham City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/birmingham-city.124bb4ce56.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Sheffield United (A)"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
+                                "name": "Blackburn Rovers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/blackburn-rovers.ea8654807d.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wolverhampton Wanderers (A)"
+                        },
+                        {
+                            "rank": 3,
+                            "team": {
+                                "name": "Bolton Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bolton-wanderers.38bebc9125.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Preston North End (H)"
+                        },
+                        {
+                            "rank": 4,
+                            "team": {
+                                "name": "Bristol City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/bristol-city.5a501a6adb.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Millwall (H)"
+                        },
+                        {
+                            "rank": 5,
+                            "team": {
+                                "name": "Burnley",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/burnley.74a6ee9929.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "West Ham United (H)"
+                        },
+                        {
+                            "rank": 6,
+                            "team": {
+                                "name": "Cardiff City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/cardiff-city.ca414e12de.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": true,
+                            "nextUp": "Wrexham (H)"
+                        },
+                        {
+                            "rank": 7,
+                            "team": {
+                                "name": "Charlton Athletic",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/charlton-athletic.3f67213aaa.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Derby County (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
+                                "name": "Derby County",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/derby.e9d853f311.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Charlton Athletic (A)"
+                        },
+                        {
+                            "rank": 9,
+                            "team": {
+                                "name": "Lincoln City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/lincoln-city.1832b80eab.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Middlesbrough (A)"
+                        },
+                        {
+                            "rank": 10,
+                            "team": {
+                                "name": "Middlesbrough",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/middlesbrough.557273cd31.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Lincoln City (H)"
+                        },
+                        {
+                            "rank": 11,
+                            "team": {
+                                "name": "Millwall",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/millwall.cbc315938d.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bristol City (A)"
+                        },
+                        {
+                            "rank": 12,
+                            "team": {
+                                "name": "Norwich City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/norwich-city.6b69653fd4.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "West Bromwich Albion (H)"
+                        },
+                        {
+                            "rank": 13,
+                            "team": {
+                                "name": "Portsmouth",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/portsmouth.a4629dd516.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Queens Park Rangers (H)"
+                        },
+                        {
+                            "rank": 14,
+                            "team": {
+                                "name": "Preston North End",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/preston-north-end.0c0aa10224.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (A)"
+                        },
+                        {
+                            "rank": 15,
+                            "team": {
+                                "name": "Queens Park Rangers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/queens-park-rangers.0f35caae13.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Portsmouth (A)"
+                        },
+                        {
+                            "rank": 16,
+                            "team": {
+                                "name": "Sheffield United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/sheffield-united.3e49eb6a1d.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Birmingham City (H)"
+                        },
+                        {
+                            "rank": 17,
+                            "team": {
+                                "name": "Stoke City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/stoke-city.b9326b213f.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Swansea City (H)"
+                        },
+                        {
+                            "rank": 18,
+                            "team": {
+                                "name": "Swansea City",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/swansea-city.6aeb4726cf.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Stoke City (A)"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "name": "Watford",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/watford.5da001a8e5.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Southampton (H)"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
+                                "name": "West Bromwich Albion",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-bromwich-albion.3b169ce6a6.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Norwich City (A)"
+                        },
+                        {
+                            "rank": 21,
+                            "team": {
+                                "name": "West Ham United",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/west-ham-united.e3ad534012.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Burnley (A)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
+                                "name": "Wolverhampton Wanderers",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wolverhampton-wanderers.0139aed1b8.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Blackburn Rovers (H)"
+                        },
+                        {
+                            "rank": 23,
+                            "team": {
+                                "name": "Wrexham",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/wrexham.b02a4ae432.svg"
+                            },
+                            "points": 0,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (A)"
+                        },
+                        {
+                            "rank": 24,
+                            "team": {
+                                "name": "Southampton",
+                                "logo": "https://static.files.bbci.co.uk/core/website/assets/static/sport/football/southampton.8994019ac1.svg"
+                            },
+                            "points": -4,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 0,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Watford (A)"
+                        }
+                    ]
                 ]
             }
         }
