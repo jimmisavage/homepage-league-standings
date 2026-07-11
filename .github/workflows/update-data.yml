@@ -25,7 +25,6 @@ jobs:
           python-version: '3.10'
 
       - name: Install Python Dependencies
-        # Playwright is gone! Back to basics.
         run: pip install beautifulsoup4 requests python-dateutil
 
       - name: Load Configuration Variables
@@ -41,8 +40,7 @@ jobs:
             echo "❌ ERROR: config.env file not found."
             exit 1
           fi
-
-      - name: Run CCFC Scraper
+      - name: Run Python Scraper
         id: python_scraper
         env:
           LEAGUE_SLUG: ${{ env.LEAGUE_SLUG }}
@@ -52,157 +50,110 @@ jobs:
         shell: python
         run: |
           import os
-          import sys
           import json
-          import re
           import requests
           from bs4 import BeautifulSoup
-
-          # Force unbuffered output for GitHub Actions logs
-          sys.stdout.reconfigure(line_buffering=True)
-
-          TEAM_NAME = "Cardiff City"
-          LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME', 'Championship')
-          SEASON = os.environ.get('SEASON', '2026/2027')
+          from datetime import datetime, timedelta
+          from dateutil.relativedelta import relativedelta
+          TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
+          LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG')
+          LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
+          SEASON = os.environ.get('SEASON')
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
-
           def fetch_html(url):
+              if not url: return None
               try:
                   print(f"Fetching {url}...")
-                  response = requests.get(url, headers=HEADERS, timeout=15)
+                  response = requests.get(url, headers=HEADERS)
                   response.raise_for_status()
                   return response.text
               except Exception as e:
                   print(f"❌ Error fetching {url}: {e}")
-                  sys.exit(1)
-
-          def parse_ccfc_table(html):
-              soup = BeautifulSoup(html, 'html.parser')
-              table = soup.find('table')
-              if not table:
-                  print("❌ Could not find a table element on the page.")
-                  sys.exit(1)
-                  
-              standings = []
-              for row in table.find_all('tr'):
+                  return None
+          def parse_standings(html_content):
+              if not html_content: return []
+              soup = BeautifulSoup(html_content, 'html.parser')
+              table = soup.find('table', {'data-testid': 'football-table'})
+              if not table: return []
+              standings_data = []
+              tbody = table.find('tbody')
+              if not tbody: return []
+              for row in tbody.find_all('tr'):
                   cells = row.find_all(['th', 'td'])
-                  # Extract all raw text from the row
-                  texts = [c.get_text(strip=True) for c in cells if c.get_text(strip=True)]
-                  if not texts: continue
-                  
+                  if len(cells) < 10: continue
                   try:
-                      # Heuristic filtering: grab digits and non-digits
-                      nums = [t for t in texts if t.lstrip('+-').isdigit()]
-                      if len(nums) < 7: continue 
-                      
-                      non_nums = [t for t in texts if not t.lstrip('+-').isdigit()]
-                      if not non_nums: continue
-                      
-                      # Map the extracted data assuming standard EFL table layouts
-                      team = non_nums[0]
-                      rank = int(nums[0])
-                      played = int(nums[1])
-                      win = int(nums[2])
-                      draw = int(nums[3])
-                      lose = int(nums[4])
-                      gd = int(nums[-2])
-                      points = int(nums[-1])
-                      
-                      standings.append({
-                          'rank': rank,
-                          'team': {'name': team, 'logo': ''},
-                          'points': points,
-                          'goalsDiff': gd,
-                          'form': '',
+                      team_name_span = cells[0].find('span', class_='visually-hidden')
+                      team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
+                      standings_data.append({
+                          'rank': int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True)),
+                          'team': {'name': team_name, 'logo': cells[0].find('img')['src'] if cells[0].find('img') else ''},
+                          'points': int(cells[8].get_text(strip=True)),
+                          'goalsDiff': int(cells[7].get_text(strip=True)),
+                          'form': "".join([div.get_text(strip=True) for div in cells[9].find_all('div', {'data-testid': 'letter-content'})]),
                           'all': {
-                              'played': played, 'win': win, 'draw': draw, 'lose': lose,
-                              'goals': {'for': 0, 'against': 0}
+                              'played': int(cells[1].get_text(strip=True)), 'win': int(cells[2].get_text(strip=True)),
+                              'draw': int(cells[3].get_text(strip=True)), 'lose': int(cells[4].get_text(strip=True)),
+                              'goals': {'for': int(cells[5].get_text(strip=True)), 'against': int(cells[6].get_text(strip=True))}
                           },
-                          'highlight': True if 'cardiff' in team.lower() else False,
-                          'nextUp': 'TBD'
+                          'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False, 'nextUp': 'TBD'
                       })
-                  except Exception as e:
-                      continue
-                      
-              print(f"✅ Parsed {len(standings)} teams from the table.")
-              return standings
-
-          def parse_ccfc_matches(html, status):
-              soup = BeautifulSoup(html, 'html.parser')
-              matches = []
-              
-              # Find common match wrappers using regex on class names
-              blocks = soup.find_all(['article', 'div'], class_=re.compile(r'(fixture|match|result)-list-item|event', re.I))
-              
-              # Fallback: scan lists if specific classes aren't found
-              if not blocks:
-                  blocks = soup.find_all('li')
-                  
-              for block in blocks:
-                  text_raw = block.get_text(separator='|', strip=True)
-                  if 'Cardiff' not in text_raw: continue
-                  
-                  # Exclude massive blocks (like a full page body accidentally caught in a div)
-                  if len(text_raw) > 500: continue
-                  
-                  parts = [p.strip() for p in text_raw.split('|') if p.strip()]
-                  
-                  # Heuristic: Find teams (strings > 3 chars, not numbers, not standard football terms)
-                  possible_teams = [p for p in parts if len(p) > 3 and not re.search(r'\d', p) and p.lower() not in ['home', 'away', 'vs', 'v', 'ft', 'ht', 'full time']]
-                  
-                  if len(possible_teams) >= 2:
-                      home = possible_teams[0]
-                      away = possible_teams[1]
-                      
-                      home_score = ""
-                      away_score = ""
-                      
-                      # If it's a past result, try to extract the final score numbers
-                      if status == "Finished":
-                          nums = [p for p in parts if p.isdigit()]
-                          if len(nums) >= 2:
-                              home_score = nums[0]
-                              away_score = nums[1]
-                              
-                      matches.append({
-                          'home_team': home,
-                          'away_team': away,
-                          'date_text': parts[0], # Usually the date is the first element
-                          'status': status,
-                          'home_score': home_score,
-                          'away_score': away_score
-                      })
-                      
-              print(f"✅ Parsed {len(matches)} {status.lower()} matches.")
-              return matches
-
+                  except: continue
+              print(f"✅ Parsed {len(standings_data)} teams from BBC table.")
+              return standings_data
+          def parse_fixtures(html_content):
+              if not html_content: return []
+              soup = BeautifulSoup(html_content, 'html.parser')
+              fixtures = []
+              try:
+                  script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
+                  json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
+                  inner_json_string = json.loads(json_text)
+                  data = json.loads(inner_json_string)
+                  fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
+                  if fixtures_key:
+                      event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
+                      for group in event_groups:
+                          for secondary_group in group.get('secondaryGroups', []):
+                              for event in secondary_group.get('events', []):
+                                  if event.get('status') == 'PreEvent':
+                                      fixtures.append({
+                                          'home_team': event['home']['fullName'],
+                                          'away_team': event['away']['fullName'],
+                                          'datetime_utc': event['startDateTime']
+                                      })
+              except Exception as e:
+                  print(f"⚠️ Error parsing fixtures JSON: {e}")
+              print(f"✅ Parsed {len(fixtures)} fixture details from embedded JSON.")
+              return fixtures
           def main():
-              # Direct endpoints for the data
-              table_url = "https://www.cardiffcityfc.co.uk/table/594"
-              fixtures_url = "https://www.cardiffcityfc.co.uk/fixture/list/594"
-              results_url = "https://www.cardiffcityfc.co.uk/fixture/result/594"
+              base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
+              standings_url = f"{base_bbc_url}/table"
+              today = datetime.now()
+              next_month_date = today + relativedelta(months=1)
+              url_this_month = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
+              url_this_month_future = f"{url_this_month}?filter=fixtures"
+              url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
               
-              table_html = fetch_html(table_url)
-              fixtures_html = fetch_html(fixtures_url)
-              results_html = fetch_html(results_url)
+              standings_html = fetch_html(standings_url)
+              html1 = fetch_html(url_this_month)
+              html2 = fetch_html(url_this_month_future)
+              html3 = fetch_html(url_next_month)
               
-              standings = parse_ccfc_table(table_html)
+              standings = parse_standings(standings_html)
               
-              all_matches = []
-              # Order matters: results first, then future fixtures
-              all_matches.extend(parse_ccfc_matches(results_html, "Finished"))
-              all_matches.extend(parse_ccfc_matches(fixtures_html, "PreEvent"))
+              all_fixtures = []
+              all_fixtures.extend(parse_fixtures(html1))
+              all_fixtures.extend(parse_fixtures(html2))
+              all_fixtures.extend(parse_fixtures(html3))
               
+              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
+              print(f"✅ Combined fixtures from three pages, total unique: {len(unique_fixtures)}.")
               next_up_map = {}
-              for match in all_matches:
-                  if match['status'] == 'PreEvent':
-                      home = match['home_team']
-                      away = match['away_team']
-                      if home not in next_up_map:
-                          next_up_map[home] = f"{away} (H)"
-                      if away not in next_up_map:
-                          next_up_map[away] = f"{home} (A)"
-
+              for fix in sorted(unique_fixtures, key=lambda x: x['datetime_utc']):
+                  if fix['home_team'] not in next_up_map:
+                      next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
+                  if fix['away_team'] not in next_up_map:
+                      next_up_map[fix['away_team']] = f"{fix['home_team']} (A)"
               for team in standings:
                   if team['team']['name'] in next_up_map:
                       team['nextUp'] = next_up_map[team['team']['name']]
@@ -211,20 +162,18 @@ jobs:
               with open('data/standings.json', 'w') as f:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
               with open('data/fixtures.json', 'w') as f:
-                  json.dump(all_matches, f, indent=4)
-                  
+                  json.dump(unique_fixtures, f, indent=4)
               print("🚀 Scrape complete.")
-
           if __name__ == "__main__": main()
-
+      
       - name: Commit and Push Data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/standings.json data/fixtures.json epg.xml || true
+          git add data/standings.json data/fixtures.json epg.xml
           if git diff --staged --quiet; then
             echo "🟢 No data changes to commit."
           else
-            git commit -m "📊 Automated standings, fixtures, and results update"
+            git commit -m "📊 Automated standings and EPG update"
             git push
           fi
