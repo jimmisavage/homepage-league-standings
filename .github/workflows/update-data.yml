@@ -130,11 +130,27 @@ jobs:
                   print(f"⚠️ Error parsing fixtures JSON: {e}")
               return fixtures
 
+          def generate_ics(fixtures, output_path='public/cal/fixtures.ics'):
+              os.makedirs(os.path.dirname(output_path), exist_ok=True)
+              ics_lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//GitHub Actions//Football Fixtures//EN"]
+              for fix in fixtures:
+                  dt_start = fix['datetime_utc'].replace('-', '').replace(':', '').split('.')[0] + 'Z'
+                  ics_lines.extend([
+                      "BEGIN:VEVENT",
+                      f"UID:{hash(fix['datetime_utc'] + fix['home_team'])}@football.local",
+                      f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M%SZ')}",
+                      f"DTSTART:{dt_start}",
+                      f"SUMMARY:{fix['home_team']} v {fix['away_team']}",
+                      "END:VEVENT"
+                  ])
+              ics_lines.append("END:VCALENDAR")
+              with open(output_path, 'w') as f: f.write("\n".join(ics_lines))
+              print(f"✅ Generated {output_path}")
+
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
               standings_html = fetch_html(f"{base_bbc_url}/table")
               standings = parse_standings(standings_html)
-              
               today = datetime.now()
               all_fixtures = []
               for i in range(3):
@@ -142,26 +158,20 @@ jobs:
                   url = f"{base_bbc_url}/scores-fixtures/{month_str}?filter=fixtures"
                   fixtures = parse_fixtures(fetch_html(url))
                   if fixtures:
-                      print(f"✅ Found {len(fixtures)} fixtures in {month_str}.")
                       all_fixtures.extend(fixtures)
                       break
-                  print(f"ℹ️ No fixtures found in {month_str}, checking next month...")
-
               unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
               next_up_map = {}
               for fix in sorted(unique_fixtures, key=lambda x: x['datetime_utc']):
                   if fix['home_team'] not in next_up_map: next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
                   if fix['away_team'] not in next_up_map: next_up_map[fix['away_team']] = f"{fix['home_team']} (A)"
-              
               for team in standings:
-                  if team['team']['name'] in next_up_map:
-                      team['nextUp'] = next_up_map[team['team']['name']]
-              
+                  if team['team']['name'] in next_up_map: team['nextUp'] = next_up_map[team['team']['name']]
               os.makedirs('data', exist_ok=True)
               with open('data/standings.json', 'w') as f:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
-              with open('data/fixtures.json', 'w') as f:
-                  json.dump(unique_fixtures, f, indent=4)
+              with open('data/fixtures.json', 'w') as f: json.dump(unique_fixtures, f, indent=4)
+              generate_ics(unique_fixtures)
               print("🚀 Scrape complete.")
 
           if __name__ == "__main__": main()
@@ -170,7 +180,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/standings.json data/fixtures.json epg.xml
+          git add data/standings.json data/fixtures.json public/cal/fixtures.ics epg.xml
           if git diff --staged --quiet; then
             echo "🟢 No data changes to commit."
           else
