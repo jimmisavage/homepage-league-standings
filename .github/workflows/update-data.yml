@@ -68,11 +68,14 @@ jobs:
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
 
-          def fetch_html_with_browser(url, page):
+          def fetch_html_with_browser(url, page, target_selector):
               try:
                   print(f"Fetching {url} with Playwright...")
-                  # Wait until network activity settles to ensure JS is done loading
-                  page.goto(url, wait_until="networkidle")
+                  # Wait for basic HTML, 60s timeout
+                  page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                  print(f"  -> Waiting for '{target_selector}' to appear on the page...")
+                  # Explicitly wait for our data to load, ignoring the ad network chaos
+                  page.wait_for_selector(target_selector, timeout=30000)
                   return page.content()
               except Exception as e:
                   print(f"❌ Error fetching {url}: {e}")
@@ -174,13 +177,13 @@ jobs:
 
               with sync_playwright() as p:
                   browser = p.chromium.launch(headless=True)
-                  # Spoof a normal user agent so Sky doesn't block the headless browser
                   context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
                   page = context.new_page()
 
-                  standings_html = fetch_html_with_browser(table_url, page)
-                  fixtures_html = fetch_html_with_browser(fixtures_url, page)
-                  results_html = fetch_html_with_browser(results_url, page)
+                  # Pass the specific CSS selectors we want to wait for
+                  standings_html = fetch_html_with_browser(table_url, page, "table.standing-table__table")
+                  fixtures_html = fetch_html_with_browser(fixtures_url, page, "div.fixres__item")
+                  results_html = fetch_html_with_browser(results_url, page, "div.fixres__item")
                   
                   browser.close()
               
