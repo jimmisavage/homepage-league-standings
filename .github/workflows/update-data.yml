@@ -41,7 +41,7 @@ jobs:
             exit 1
           fi
 
-      - name: Run Python Scraper
+      - name: Run Sky Sports Scraper
         id: python_scraper
         env:
           LEAGUE_SLUG: ${{ env.LEAGUE_SLUG }}
@@ -54,22 +54,20 @@ jobs:
           import sys
           import json
           import requests
+          import re
           from bs4 import BeautifulSoup
-          from datetime import datetime
-          from dateutil.relativedelta import relativedelta
 
-          # Force unbuffered output so print statements actually show up in GitHub Actions
+          # Force unbuffered output for GitHub Actions logs
           sys.stdout.reconfigure(line_buffering=True)
 
           TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
-          # Forcing to lowercase to prevent 404 redirects
-          LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG', '').lower()
+          # Sky uses lowercase slugs with hyphens
+          LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG', '').replace(' ', '-').lower()
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
           HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
 
           def fetch_html(url):
-              if not url: return None
               try:
                   print(f"Fetching {url}...")
                   response = requests.get(url, headers=HEADERS, timeout=10)
@@ -77,137 +75,143 @@ jobs:
                   return response.text
               except Exception as e:
                   print(f"❌ Error fetching {url}: {e}")
-                  sys.exit(1) # Fail loudly so the action turns red!
-
-          def parse_standings(html_content):
-              if not html_content:
-                  print("❌ No HTML content to parse for standings.")
                   sys.exit(1)
-                  
+
+          def parse_sky_standings(html_content):
               soup = BeautifulSoup(html_content, 'html.parser')
-              table = soup.find('table', {'data-testid': 'football-table'})
-              
+              table = soup.find('table', class_='standing-table__table')
               if not table:
-                  print("❌ Could not find the standings table. BBC has probably changed their HTML layout (data-testid='football-table' is missing).")
+                  print("❌ Could not find the Sky Sports standings table.")
                   sys.exit(1)
                   
               standings_data = []
               tbody = table.find('tbody')
               
-              if not tbody:
-                  print("❌ Could not find tbody in the table.")
-                  sys.exit(1)
-                  
-              for row in tbody.find_all('tr'):
-                  cells = row.find_all(['th', 'td'])
+              for row in tbody.find_all('tr', class_='standing-table__row'):
+                  cells = row.find_all('td')
                   if len(cells) < 10: continue
                   try:
-                      team_name_span = cells[0].find('span', class_='visually-hidden')
-                      team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
+                      # Sky Sports table columns:
+                      # 0: Rank, 1: Team, 2: Pl, 3: W, 4: D, 5: L, 6: F, 7: A, 8: GD, 9: Pts
+                      rank = int(cells[0].get_text(strip=True))
+                      team_name_tag = cells[1].find('a')
+                      team_name = team_name_tag.get_text(strip=True) if team_name_tag else cells[1].get_text(strip=True)
+                      
+                      played = int(cells[2].get_text(strip=True))
+                      win = int(cells[3].get_text(strip=True))
+                      draw = int(cells[4].get_text(strip=True))
+                      lose = int(cells[5].get_text(strip=True))
+                      goals_for = int(cells[6].get_text(strip=True))
+                      goals_against = int(cells[7].get_text(strip=True))
+                      gd = int(cells[8].get_text(strip=True))
+                      points = int(cells[9].get_text(strip=True))
+
                       standings_data.append({
-                          'rank': int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True)),
-                          'team': {'name': team_name, 'logo': cells[0].find('img')['src'] if cells[0].find('img') else ''},
-                          'points': int(cells[8].get_text(strip=True)),
-                          'goalsDiff': int(cells[7].get_text(strip=True)),
-                          'form': "".join([div.get_text(strip=True) for div in cells[9].find_all('div', {'data-testid': 'letter-content'})]),
+                          'rank': rank,
+                          'team': {'name': team_name, 'logo': ''}, # Logos are handled by your separate action
+                          'points': points,
+                          'goalsDiff': gd,
+                          'form': '', # Sky doesn't show form directly in this table
                           'all': {
-                              'played': int(cells[1].get_text(strip=True)), 'win': int(cells[2].get_text(strip=True)),
-                              'draw': int(cells[3].get_text(strip=True)), 'lose': int(cells[4].get_text(strip=True)),
-                              'goals': {'for': int(cells[5].get_text(strip=True)), 'against': int(cells[6].get_text(strip=True))}
+                              'played': played, 'win': win, 'draw': draw, 'lose': lose,
+                              'goals': {'for': goals_for, 'against': goals_against}
                           },
-                          'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False, 'nextUp': 'TBD'
+                          'highlight': True if TEAM_NAME and TEAM_NAME.lower() in team_name.lower() else False,
+                          'nextUp': 'TBD'
                       })
                   except Exception as e:
-                      print(f"⚠️ Error parsing row for a team: {e}")
+                      print(f"⚠️ Error parsing row: {e}")
                       continue
                       
-              if not standings_data:
-                  print("❌ Parsed 0 teams! Something is wrong with the table structure.")
-                  sys.exit(1)
-                  
-              print(f"✅ Parsed {len(standings_data)} teams from BBC table.")
+              print(f"✅ Parsed {len(standings_data)} teams from Sky Sports table.")
               return standings_data
 
-          def parse_fixtures(html_content):
-              if not html_content: return []
+          def parse_sky_matches(html_content, status):
               soup = BeautifulSoup(html_content, 'html.parser')
-              fixtures = []
-              try:
-                  script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
-                  if not script_tag:
-                      print("❌ Could not find window.__INITIAL_DATA__. BBC has likely updated their React structure.")
-                      sys.exit(1)
-                      
-                  json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
-                  inner_json_string = json.loads(json_text)
-                  data = json.loads(inner_json_string)
-                  fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
-                  
-                  if fixtures_key:
-                      event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
-                      for group in event_groups:
-                          for secondary_group in group.get('secondaryGroups', []):
-                              for event in secondary_group.get('events', []):
-                                  if event.get('status') == 'PreEvent':
-                                      fixtures.append({
-                                          'home_team': event['home']['fullName'],
-                                          'away_team': event['away']['fullName'],
-                                          'datetime_utc': event['startDateTime']
-                                      })
-                  else:
-                      print("⚠️ Couldn't find 'sport-data-scores-fixtures' in the JSON data.")
-                      sys.exit(1)
-              except Exception as e:
-                  print(f"❌ Error parsing fixtures JSON: {e}")
-                  sys.exit(1)
-                  
-              print(f"✅ Parsed {len(fixtures)} fixture details from embedded JSON.")
-              return fixtures
+              matches = []
+              current_date = "Unknown Date"
+              
+              # Sky groups matches by date headers (h3 or h4), followed by div.fixres__item
+              for element in soup.find_all(['h3', 'h4', 'div'], class_=['fixres__header1', 'fixres__header2', 'fixres__item']):
+                  if 'fixres__header' in ' '.join(element.get('class', [])):
+                      current_date = element.get_text(strip=True)
+                  elif 'fixres__item' in element.get('class', []):
+                      try:
+                          home_span = element.find('span', class_='matches__participant--side1')
+                          away_span = element.find('span', class_='matches__participant--side2')
+                          
+                          # Extract team names
+                          home_team = home_span.find('span', class_='swap-text__target').get_text(strip=True) if home_span.find('span', class_='swap-text__target') else home_span.get_text(strip=True)
+                          away_team = away_span.find('span', class_='swap-text__target').get_text(strip=True) if away_span.find('span', class_='swap-text__target') else away_span.get_text(strip=True)
+                          
+                          # Clean up any weird invisible spacing
+                          home_team = re.sub(r'\s+', ' ', home_team).strip()
+                          away_team = re.sub(r'\s+', ' ', away_team).strip()
+
+                          match_info = {
+                              'home_team': home_team,
+                              'away_team': away_team,
+                              'date_text': current_date,
+                              'status': status
+                          }
+
+                          # If it's a finished result, grab the final scores
+                          if status == "Finished":
+                              score_span = element.find('span', class_='matches__teamscores')
+                              if score_span:
+                                  scores = score_span.find_all('span', class_='matches__teamscores-side')
+                                  if len(scores) >= 2:
+                                      match_info['home_score'] = scores[0].get_text(strip=True)
+                                      match_info['away_score'] = scores[1].get_text(strip=True)
+                          
+                          matches.append(match_info)
+                      except Exception as e:
+                          pass
+                          
+              print(f"✅ Parsed {len(matches)} {status.lower()} matches.")
+              return matches
 
           def main():
-              base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
-              standings_url = f"{base_bbc_url}/table"
-              today = datetime.now()
-              next_month_date = today + relativedelta(months=1)
-              url_this_month = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
-              url_this_month_future = f"{url_this_month}?filter=fixtures"
-              url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
+              base_sky_url = "https://www.skysports.com"
               
-              standings_html = fetch_html(standings_url)
-              html1 = fetch_html(url_this_month)
-              html2 = fetch_html(url_this_month_future)
-              html3 = fetch_html(url_next_month)
+              table_url = f"{base_sky_url}/{LEAGUE_SLUG}-table"
+              fixtures_url = f"{base_sky_url}/{LEAGUE_SLUG}-fixtures"
+              results_url = f"{base_sky_url}/{LEAGUE_SLUG}-results"
               
-              standings = parse_standings(standings_html)
+              standings_html = fetch_html(table_url)
+              fixtures_html = fetch_html(fixtures_url)
+              results_html = fetch_html(results_url)
               
-              all_fixtures = []
-              all_fixtures.extend(parse_fixtures(html1))
-              all_fixtures.extend(parse_fixtures(html2))
-              all_fixtures.extend(parse_fixtures(html3))
+              standings = parse_sky_standings(standings_html)
               
-              unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
-              print(f"✅ Combined fixtures from three pages, total unique: {len(unique_fixtures)}.")
+              all_matches = []
+              # Order matters here: we parse past results first, then future fixtures
+              all_matches.extend(parse_sky_matches(results_html, "Finished"))
+              all_matches.extend(parse_sky_matches(fixtures_html, "PreEvent"))
               
-              if not unique_fixtures:
-                  print("❌ No fixtures were parsed across all three pages!")
-                  sys.exit(1)
-
+              # Calculate the "nextUp" column for the standings
+              # We just look for the first 'PreEvent' match involving that team
               next_up_map = {}
-              for fix in sorted(unique_fixtures, key=lambda x: x['datetime_utc']):
-                  if fix['home_team'] not in next_up_map:
-                      next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
-                  if fix['away_team'] not in next_up_map:
-                      next_up_map[fix['away_team']] = f"{fix['home_team']} (A)"
+              for match in all_matches:
+                  if match['status'] == 'PreEvent':
+                      home = match['home_team']
+                      away = match['away_team']
+                      if home not in next_up_map:
+                          next_up_map[home] = f"{away} (H)"
+                      if away not in next_up_map:
+                          next_up_map[away] = f"{home} (A)"
 
               for team in standings:
                   if team['team']['name'] in next_up_map:
                       team['nextUp'] = next_up_map[team['team']['name']]
               
+              # Save it all out!
               os.makedirs('data', exist_ok=True)
               with open('data/standings.json', 'w') as f:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
               with open('data/fixtures.json', 'w') as f:
-                  json.dump(unique_fixtures, f, indent=4)
+                  json.dump(all_matches, f, indent=4)
+                  
               print("🚀 Scrape complete.")
 
           if __name__ == "__main__": main()
@@ -216,10 +220,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/standings.json data/fixtures.json epg.xml
+          git add data/standings.json data/fixtures.json epg.xml || true
           if git diff --staged --quiet; then
             echo "🟢 No data changes to commit."
           else
-            git commit -m "📊 Automated standings and EPG update"
+            git commit -m "📊 Automated standings, fixtures, and results update"
             git push
           fi
