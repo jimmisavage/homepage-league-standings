@@ -40,6 +40,7 @@ jobs:
             echo "❌ ERROR: config.env file not found."
             exit 1
           fi
+
       - name: Run Python Scraper
         id: python_scraper
         env:
@@ -53,23 +54,26 @@ jobs:
           import json
           import requests
           from bs4 import BeautifulSoup
-          from datetime import datetime, timedelta
+          from datetime import datetime
           from dateutil.relativedelta import relativedelta
+
           TEAM_NAME = os.environ.get('TEAM_NAME', '').replace('-', ' ')
           LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG')
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
           HEADERS = {'User-Agent': 'Mozilla/5.0'}
+
           def fetch_html(url):
               if not url: return None
               try:
-                  print(f"Fetching {url}...")
-                  response = requests.get(url, headers=HEADERS)
+                  print(f"🌐 Fetching {url}")
+                  response = requests.get(url, headers=HEADERS, timeout=30)
                   response.raise_for_status()
                   return response.text
               except Exception as e:
                   print(f"❌ Error fetching {url}: {e}")
                   return None
+
           def parse_standings(html_content):
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
@@ -100,15 +104,16 @@ jobs:
                   except: continue
               print(f"✅ Parsed {len(standings_data)} teams from BBC table.")
               return standings_data
+
           def parse_fixtures(html_content):
               if not html_content: return []
               soup = BeautifulSoup(html_content, 'html.parser')
               fixtures = []
               try:
                   script_tag = soup.find('script', string=lambda t: t and 'window.__INITIAL_DATA__' in t)
+                  if not script_tag: return []
                   json_text = script_tag.string.split('window.__INITIAL_DATA__=')[1].split(';')[0]
-                  inner_json_string = json.loads(json_text)
-                  data = json.loads(inner_json_string)
+                  data = json.loads(json.loads(json_text))
                   fixtures_key = next((k for k in data.get('data', {}) if 'sport-data-scores-fixtures' in k), None)
                   if fixtures_key:
                       event_groups = data['data'][fixtures_key].get('data', {}).get('eventGroups', [])
@@ -123,37 +128,31 @@ jobs:
                                       })
               except Exception as e:
                   print(f"⚠️ Error parsing fixtures JSON: {e}")
-              print(f"✅ Parsed {len(fixtures)} fixture details from embedded JSON.")
               return fixtures
+
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
-              standings_url = f"{base_bbc_url}/table"
-              today = datetime.now()
-              next_month_date = today + relativedelta(months=1)
-              url_this_month = f"{base_bbc_url}/scores-fixtures/{today.strftime('%Y-%m')}"
-              url_this_month_future = f"{url_this_month}?filter=fixtures"
-              url_next_month = f"{base_bbc_url}/scores-fixtures/{next_month_date.strftime('%Y-%m')}"
-              
-              standings_html = fetch_html(standings_url)
-              html1 = fetch_html(url_this_month)
-              html2 = fetch_html(url_this_month_future)
-              html3 = fetch_html(url_next_month)
-              
+              standings_html = fetch_html(f"{base_bbc_url}/table")
               standings = parse_standings(standings_html)
               
+              today = datetime.now()
               all_fixtures = []
-              all_fixtures.extend(parse_fixtures(html1))
-              all_fixtures.extend(parse_fixtures(html2))
-              all_fixtures.extend(parse_fixtures(html3))
-              
+              for i in range(3):
+                  month_str = (today + relativedelta(months=i)).strftime("%Y-%m")
+                  url = f"{base_bbc_url}/scores-fixtures/{month_str}?filter=fixtures"
+                  fixtures = parse_fixtures(fetch_html(url))
+                  if fixtures:
+                      print(f"✅ Found {len(fixtures)} fixtures in {month_str}.")
+                      all_fixtures.extend(fixtures)
+                      break
+                  print(f"ℹ️ No fixtures found in {month_str}, checking next month...")
+
               unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
-              print(f"✅ Combined fixtures from three pages, total unique: {len(unique_fixtures)}.")
               next_up_map = {}
               for fix in sorted(unique_fixtures, key=lambda x: x['datetime_utc']):
-                  if fix['home_team'] not in next_up_map:
-                      next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
-                  if fix['away_team'] not in next_up_map:
-                      next_up_map[fix['away_team']] = f"{fix['home_team']} (A)"
+                  if fix['home_team'] not in next_up_map: next_up_map[fix['home_team']] = f"{fix['away_team']} (H)"
+                  if fix['away_team'] not in next_up_map: next_up_map[fix['away_team']] = f"{fix['home_team']} (A)"
+              
               for team in standings:
                   if team['team']['name'] in next_up_map:
                       team['nextUp'] = next_up_map[team['team']['name']]
@@ -164,8 +163,9 @@ jobs:
               with open('data/fixtures.json', 'w') as f:
                   json.dump(unique_fixtures, f, indent=4)
               print("🚀 Scrape complete.")
+
           if __name__ == "__main__": main()
-      
+
       - name: Commit and Push Data
         run: |
           git config user.name "github-actions[bot]"
