@@ -1,8 +1,8 @@
 [
     {
-        "home_team": "Millwall",
-        "away_team": "Norwich City",
-        "datetime_utc": "2026-08-22T11:30:00Z"
+        "home_team": "Norwich City",
+        "away_team": "Burnley",
+        "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
         "home_team": "Swansea City",
@@ -10,8 +10,13 @@
         "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Southampton",
-        "away_team": "Millwall",
+        "home_team": "Derby County",
+        "away_team": "Cardiff City",
+        "datetime_utc": "2026-08-22T14:00:00Z"
+    },
+    {
+        "home_team": "Cardiff City",
+        "away_team": "Sheffield United",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
@@ -20,59 +25,14 @@
         "datetime_utc": "2026-08-14T19:00:00Z"
     },
     {
-        "home_team": "Derby County",
-        "away_team": "Swansea City",
-        "datetime_utc": "2026-08-29T11:30:00Z"
-    },
-    {
-        "home_team": "Blackburn Rovers",
-        "away_team": "Queens Park Rangers",
-        "datetime_utc": "2026-08-29T14:00:00Z"
-    },
-    {
-        "home_team": "Birmingham City",
-        "away_team": "Bristol City",
-        "datetime_utc": "2026-08-22T11:30:00Z"
-    },
-    {
-        "home_team": "West Ham United",
-        "away_team": "Charlton Athletic",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Preston North End",
-        "away_team": "Wolverhampton Wanderers",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Southampton",
-        "away_team": "Stoke City",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Charlton Athletic",
-        "away_team": "Preston North End",
-        "datetime_utc": "2026-08-29T14:00:00Z"
-    },
-    {
-        "home_team": "Derby County",
-        "away_team": "Cardiff City",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Bristol City",
-        "away_team": "Millwall",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
-        "home_team": "Queens Park Rangers",
-        "away_team": "Bolton Wanderers",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
         "home_team": "West Bromwich Albion",
         "away_team": "Burnley",
         "datetime_utc": "2026-08-23T11:00:00Z"
+    },
+    {
+        "home_team": "Millwall",
+        "away_team": "Norwich City",
+        "datetime_utc": "2026-08-22T11:30:00Z"
     },
     {
         "home_team": "Portsmouth",
@@ -80,34 +40,14 @@
         "datetime_utc": "2026-08-15T14:00:00Z"
     },
     {
-        "home_team": "Wrexham",
-        "away_team": "Birmingham City",
-        "datetime_utc": "2026-08-28T19:00:00Z"
+        "home_team": "Wolverhampton Wanderers",
+        "away_team": "Stoke City",
+        "datetime_utc": "2026-08-29T11:30:00Z"
     },
     {
-        "home_team": "Norwich City",
-        "away_team": "West Bromwich Albion",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
-        "home_team": "Sheffield United",
-        "away_team": "Birmingham City",
-        "datetime_utc": "2026-08-15T16:30:00Z"
-    },
-    {
-        "home_team": "Blackburn Rovers",
-        "away_team": "Middlesbrough",
-        "datetime_utc": "2026-08-22T14:00:00Z"
-    },
-    {
-        "home_team": "Charlton Athletic",
-        "away_team": "Derby County",
-        "datetime_utc": "2026-08-15T14:00:00Z"
-    },
-    {
-        "home_team": "Cardiff City",
-        "away_team": "Sheffield United",
-        "datetime_utc": "2026-08-29T14:00:00Z"
+        "home_team": "Derby County",
+        "away_team": "Swansea City",
+        "datetime_utc": "2026-08-29T11:30:00Z"
     },
     {
         "home_team": "Cardiff City",
@@ -115,23 +55,48 @@
         "datetime_utc": "2026-08-17T19:00:00Z"
     },
     {
-        "home_team": "Burnley",
-        "away_team": "West Ham United",
-        "datetime_utc": "2026-08-16T15:00:00Z"
+        "home_team": "Queens Park Rangers",
+        "away_team": "Bolton Wanderers",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Wolverhampton Wanderers",
-        "away_team": "Stoke City",
-        "datetime_utc": "2026-08-29T11:30:00Z"
-    },
-    {
-        "home_team": "Norwich City",
-        "away_team": "Burnley",
+        "home_team": "Southampton",
+        "away_team": "Millwall",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
-        "home_team": "Watford",
-        "away_team": "West Ham United",
+        "home_team": "Bolton Wanderers",
+        "away_team": "Preston North End",
+        "datetime_utc": "2026-08-15T11:30:00Z"
+    },
+    {
+        "home_team": "Birmingham City",
+        "away_team": "Bristol City",
+        "datetime_utc": "2026-08-22T11:30:00Z"
+    },
+    {
+        "home_team": "Middlesbrough",
+        "away_team": "Lincoln City",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Bristol City",
+        "away_team": "Millwall",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Blackburn Rovers",
+        "away_team": "Queens Park Rangers",
+        "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "Sheffield United",
+        "away_team": "Birmingham City",
+        "datetime_utc": "2026-08-15T16:30:00Z"
+    },
+    {
+        "home_team": "Bolton Wanderers",
+        "away_team": "Lincoln City",
         "datetime_utc": "2026-08-29T14:00:00Z"
     },
     {
@@ -140,14 +105,24 @@
         "datetime_utc": "2026-08-15T14:00:00Z"
     },
     {
-        "home_team": "Wrexham",
-        "away_team": "Watford",
+        "home_team": "Blackburn Rovers",
+        "away_team": "Middlesbrough",
         "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
-        "home_team": "Bolton Wanderers",
-        "away_team": "Lincoln City",
+        "home_team": "Norwich City",
+        "away_team": "West Bromwich Albion",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Charlton Athletic",
+        "away_team": "Preston North End",
         "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "Preston North End",
+        "away_team": "Wolverhampton Wanderers",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
         "home_team": "Middlesbrough",
@@ -155,19 +130,39 @@
         "datetime_utc": "2026-08-29T11:30:00Z"
     },
     {
-        "home_team": "Bolton Wanderers",
-        "away_team": "Preston North End",
-        "datetime_utc": "2026-08-15T11:30:00Z"
+        "home_team": "Burnley",
+        "away_team": "West Ham United",
+        "datetime_utc": "2026-08-16T15:00:00Z"
     },
     {
-        "home_team": "Middlesbrough",
-        "away_team": "Lincoln City",
-        "datetime_utc": "2026-08-15T14:00:00Z"
+        "home_team": "Watford",
+        "away_team": "West Ham United",
+        "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "Wrexham",
+        "away_team": "Birmingham City",
+        "datetime_utc": "2026-08-28T19:00:00Z"
     },
     {
         "home_team": "Watford",
         "away_team": "Southampton",
         "datetime_utc": "2026-08-16T12:30:00Z"
+    },
+    {
+        "home_team": "Wrexham",
+        "away_team": "Watford",
+        "datetime_utc": "2026-08-22T14:00:00Z"
+    },
+    {
+        "home_team": "Charlton Athletic",
+        "away_team": "Derby County",
+        "datetime_utc": "2026-08-15T14:00:00Z"
+    },
+    {
+        "home_team": "Southampton",
+        "away_team": "Stoke City",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     },
     {
         "home_team": "Lincoln City",
@@ -178,5 +173,10 @@
         "home_team": "Bristol City",
         "away_team": "Portsmouth",
         "datetime_utc": "2026-08-29T14:00:00Z"
+    },
+    {
+        "home_team": "West Ham United",
+        "away_team": "Charlton Athletic",
+        "datetime_utc": "2026-08-22T14:00:00Z"
     }
 ]
