@@ -27,8 +27,7 @@ jobs:
       - name: Install Python Dependencies & Playwright
         run: |
           pip install beautifulsoup4 python-dateutil playwright
-          playwright install chromium
-          sudo playwright install-deps
+          python -m playwright install chromium --with-deps
 
       - name: Load Configuration Variables
         id: load_config
