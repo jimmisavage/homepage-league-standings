@@ -24,8 +24,11 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Python Dependencies
-        run: pip install beautifulsoup4 requests python-dateutil
+      - name: Install Python Dependencies & Playwright
+        run: |
+          pip install beautifulsoup4 python-dateutil playwright
+          playwright install chromium
+          sudo playwright install-deps
 
       - name: Load Configuration Variables
         id: load_config
@@ -41,7 +44,7 @@ jobs:
             exit 1
           fi
 
-      - name: Run Sky Sports Scraper
+      - name: Run Playwright Scraper
         id: python_scraper
         env:
           LEAGUE_SLUG: ${{ env.LEAGUE_SLUG }}
@@ -53,9 +56,9 @@ jobs:
           import os
           import sys
           import json
-          import requests
           import re
           from bs4 import BeautifulSoup
+          from playwright.sync_api import sync_playwright
 
           # Force unbuffered output for GitHub Actions logs
           sys.stdout.reconfigure(line_buffering=True)
@@ -65,14 +68,13 @@ jobs:
           LEAGUE_SLUG = os.environ.get('LEAGUE_SLUG', '').replace(' ', '-').lower()
           LEAGUE_ID_NAME = os.environ.get('LEAGUE_ID_NAME')
           SEASON = os.environ.get('SEASON')
-          HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
 
-          def fetch_html(url):
+          def fetch_html_with_browser(url, page):
               try:
-                  print(f"Fetching {url}...")
-                  response = requests.get(url, headers=HEADERS, timeout=10)
-                  response.raise_for_status()
-                  return response.text
+                  print(f"Fetching {url} with Playwright...")
+                  # Wait until network activity settles to ensure JS is done loading
+                  page.goto(url, wait_until="networkidle")
+                  return page.content()
               except Exception as e:
                   print(f"❌ Error fetching {url}: {e}")
                   sys.exit(1)
@@ -91,8 +93,6 @@ jobs:
                   cells = row.find_all('td')
                   if len(cells) < 10: continue
                   try:
-                      # Sky Sports table columns:
-                      # 0: Rank, 1: Team, 2: Pl, 3: W, 4: D, 5: L, 6: F, 7: A, 8: GD, 9: Pts
                       rank = int(cells[0].get_text(strip=True))
                       team_name_tag = cells[1].find('a')
                       team_name = team_name_tag.get_text(strip=True) if team_name_tag else cells[1].get_text(strip=True)
@@ -108,10 +108,10 @@ jobs:
 
                       standings_data.append({
                           'rank': rank,
-                          'team': {'name': team_name, 'logo': ''}, # Logos are handled by your separate action
+                          'team': {'name': team_name, 'logo': ''},
                           'points': points,
                           'goalsDiff': gd,
-                          'form': '', # Sky doesn't show form directly in this table
+                          'form': '', 
                           'all': {
                               'played': played, 'win': win, 'draw': draw, 'lose': lose,
                               'goals': {'for': goals_for, 'against': goals_against}
@@ -131,7 +131,6 @@ jobs:
               matches = []
               current_date = "Unknown Date"
               
-              # Sky groups matches by date headers (h3 or h4), followed by div.fixres__item
               for element in soup.find_all(['h3', 'h4', 'div'], class_=['fixres__header1', 'fixres__header2', 'fixres__item']):
                   if 'fixres__header' in ' '.join(element.get('class', [])):
                       current_date = element.get_text(strip=True)
@@ -140,11 +139,9 @@ jobs:
                           home_span = element.find('span', class_='matches__participant--side1')
                           away_span = element.find('span', class_='matches__participant--side2')
                           
-                          # Extract team names
                           home_team = home_span.find('span', class_='swap-text__target').get_text(strip=True) if home_span.find('span', class_='swap-text__target') else home_span.get_text(strip=True)
                           away_team = away_span.find('span', class_='swap-text__target').get_text(strip=True) if away_span.find('span', class_='swap-text__target') else away_span.get_text(strip=True)
                           
-                          # Clean up any weird invisible spacing
                           home_team = re.sub(r'\s+', ' ', home_team).strip()
                           away_team = re.sub(r'\s+', ' ', away_team).strip()
 
@@ -155,7 +152,6 @@ jobs:
                               'status': status
                           }
 
-                          # If it's a finished result, grab the final scores
                           if status == "Finished":
                               score_span = element.find('span', class_='matches__teamscores')
                               if score_span:
@@ -173,24 +169,28 @@ jobs:
 
           def main():
               base_sky_url = "https://www.skysports.com"
-              
               table_url = f"{base_sky_url}/{LEAGUE_SLUG}-table"
               fixtures_url = f"{base_sky_url}/{LEAGUE_SLUG}-fixtures"
               results_url = f"{base_sky_url}/{LEAGUE_SLUG}-results"
-              
-              standings_html = fetch_html(table_url)
-              fixtures_html = fetch_html(fixtures_url)
-              results_html = fetch_html(results_url)
+
+              with sync_playwright() as p:
+                  browser = p.chromium.launch(headless=True)
+                  # Spoof a normal user agent so Sky doesn't block the headless browser
+                  context = browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+                  page = context.new_page()
+
+                  standings_html = fetch_html_with_browser(table_url, page)
+                  fixtures_html = fetch_html_with_browser(fixtures_url, page)
+                  results_html = fetch_html_with_browser(results_url, page)
+                  
+                  browser.close()
               
               standings = parse_sky_standings(standings_html)
               
               all_matches = []
-              # Order matters here: we parse past results first, then future fixtures
               all_matches.extend(parse_sky_matches(results_html, "Finished"))
               all_matches.extend(parse_sky_matches(fixtures_html, "PreEvent"))
               
-              # Calculate the "nextUp" column for the standings
-              # We just look for the first 'PreEvent' match involving that team
               next_up_map = {}
               for match in all_matches:
                   if match['status'] == 'PreEvent':
@@ -205,7 +205,6 @@ jobs:
                   if team['team']['name'] in next_up_map:
                       team['nextUp'] = next_up_map[team['team']['name']]
               
-              # Save it all out!
               os.makedirs('data', exist_ok=True)
               with open('data/standings.json', 'w') as f:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
