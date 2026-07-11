@@ -134,18 +134,20 @@ jobs:
               os.makedirs(os.path.dirname(output_path), exist_ok=True)
               ics_lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//GitHub Actions//Football Fixtures//EN"]
               for fix in fixtures:
-                  dt_start = fix['datetime_utc'].replace('-', '').replace(':', '').split('.')[0] + 'Z'
-                  ics_lines.extend([
-                      "BEGIN:VEVENT",
-                      f"UID:{hash(fix['datetime_utc'] + fix['home_team'])}@football.local",
-                      f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M%SZ')}",
-                      f"DTSTART:{dt_start}",
-                      f"SUMMARY:{fix['home_team']} v {fix['away_team']}",
-                      "END:VEVENT"
-                  ])
+                  # Filter for your team name
+                  if TEAM_NAME.lower() in fix['home_team'].lower() or TEAM_NAME.lower() in fix['away_team'].lower():
+                      dt_start = fix['datetime_utc'].replace('-', '').replace(':', '').split('.')[0] + 'Z'
+                      ics_lines.extend([
+                          "BEGIN:VEVENT",
+                          f"UID:{hash(fix['datetime_utc'] + fix['home_team'])}@football.local",
+                          f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M%SZ')}",
+                          f"DTSTART:{dt_start}",
+                          f"SUMMARY:{fix['home_team']} v {fix['away_team']}",
+                          "END:VEVENT"
+                      ])
               ics_lines.append("END:VCALENDAR")
               with open(output_path, 'w') as f: f.write("\n".join(ics_lines))
-              print(f"✅ Generated {output_path}")
+              print(f"✅ Generated {output_path} (filtered for {TEAM_NAME})")
 
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
@@ -184,6 +186,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "🟢 No data changes to commit."
           else
-            git commit -m "📊 Automated standings and EPG update"
+            git commit -m "📊 Automated standings, fixtures, and calendar update"
             git push
           fi
