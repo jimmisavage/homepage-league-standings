@@ -66,7 +66,6 @@ jobs:
           def fetch_html(url):
               if not url: return None
               try:
-                  print(f"🌐 Fetching {url}")
                   response = requests.get(url, headers=HEADERS, timeout=30)
                   response.raise_for_status()
                   return response.text
@@ -90,7 +89,7 @@ jobs:
                       team_name = team_name_span.get_text(strip=True) if team_name_span else "Unknown"
                       standings_data.append({
                           'rank': int(cells[0].find('span', class_=lambda c: c and 'Rank' in c).get_text(strip=True)),
-                          'team': {'name': team_name, 'logo': cells[0].find('img')['src'] if cells[0].find('img') else ''},
+                          'team': {'name': team_name},
                           'points': int(cells[8].get_text(strip=True)),
                           'goalsDiff': int(cells[7].get_text(strip=True)),
                           'form': "".join([div.get_text(strip=True) for div in cells[9].find_all('div', {'data-testid': 'letter-content'})]),
@@ -102,7 +101,6 @@ jobs:
                           'highlight': True if TEAM_NAME and TEAM_NAME in team_name.lower() else False, 'nextUp': 'TBD'
                       })
                   except: continue
-              print(f"✅ Parsed {len(standings_data)} teams from BBC table.")
               return standings_data
 
           def parse_fixtures(html_content):
@@ -120,14 +118,13 @@ jobs:
                       for group in event_groups:
                           for secondary_group in group.get('secondaryGroups', []):
                               for event in secondary_group.get('events', []):
-                                  if event.get('status') == 'PreEvent':
-                                      fixtures.append({
-                                          'home_team': event['home']['fullName'],
-                                          'away_team': event['away']['fullName'],
-                                          'datetime_utc': event['startDateTime']
-                                      })
+                                  fixtures.append({
+                                      'home_team': event['home']['fullName'],
+                                      'away_team': event['away']['fullName'],
+                                      'datetime_utc': event['startDateTime']
+                                  })
               except Exception as e:
-                  print(f"⚠️ Error parsing fixtures JSON: {e}")
+                  print(f"⚠️ Error parsing fixtures: {e}")
               return fixtures
 
           def generate_ics(fixtures, output_path='public/cal/fixtures.ics'):
@@ -135,39 +132,22 @@ jobs:
               ics_lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//GitHub Actions//Football Fixtures//EN"]
               for fix in fixtures:
                   if TEAM_NAME.lower() in fix['home_team'].lower() or TEAM_NAME.lower() in fix['away_team'].lower():
-                      dt_start = fix['datetime_utc'].replace('-', '').replace(':', '').split('.')[0] + 'Z'
-                      ics_lines.extend([
-                          "BEGIN:VEVENT",
-                          f"UID:{hash(fix['datetime_utc'] + fix['home_team'])}@football.local",
-                          f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M%SZ')}",
-                          f"DTSTART:{dt_start}",
-                          f"SUMMARY:{fix['home_team']} v {fix['away_team']}",
-                          "END:VEVENT"
-                      ])
+                      dt = fix['datetime_utc'].replace('-', '').replace(':', '').split('.')[0] + 'Z'
+                      ics_lines.extend(["BEGIN:VEVENT", f"UID:{hash(fix['datetime_utc'] + fix['home_team'])}@football.local", 
+                                        f"DTSTAMP:{datetime.now().strftime('%Y%m%dT%H%M%SZ')}", f"DTSTART:{dt}", 
+                                        f"SUMMARY:{fix['home_team']} v {fix['away_team']}", "END:VEVENT"])
               ics_lines.append("END:VCALENDAR")
               with open(output_path, 'w') as f: f.write("\n".join(ics_lines))
-              print(f"✅ Generated {output_path} (filtered for {TEAM_NAME})")
 
           def main():
               base_bbc_url = f"https://www.bbc.co.uk/sport/football/{LEAGUE_SLUG}"
-              standings_html = fetch_html(f"{base_bbc_url}/table")
-              standings = parse_standings(standings_html)
-              
+              standings = parse_standings(fetch_html(f"{base_bbc_url}/table"))
               today = datetime.now()
               all_fixtures = []
-              
-              # Determine season start year
-              season_start_year = today.year if today.month >= 8 else today.year - 1
-              
-              # Define months for the full season (Aug to May)
-              months_to_check = [f"{season_start_year}-{m:02d}" for m in range(8, 13)] + \
-                                [f"{season_start_year + 1}-{m:02d}" for m in range(1, 6)]
-
-              for month_str in months_to_check:
-                  url = f"{base_bbc_url}/scores-fixtures/{month_str}?filter=fixtures"
-                  fixtures = parse_fixtures(fetch_html(url))
-                  if fixtures:
-                      all_fixtures.extend(fixtures)
+              # Check 1 month back and 3 months forward
+              for i in range(-1, 4):
+                  month_str = (today + relativedelta(months=i)).strftime("%Y-%m")
+                  all_fixtures.extend(parse_fixtures(fetch_html(f"{base_bbc_url}/scores-fixtures/{month_str}?filter=fixtures")))
               
               unique_fixtures = [dict(t) for t in {tuple(d.items()) for d in all_fixtures}]
               next_up_map = {}
@@ -181,9 +161,7 @@ jobs:
               with open('data/standings.json', 'w') as f:
                   json.dump({'response': [{'league': {'name': LEAGUE_ID_NAME, 'season': SEASON, 'standings': [standings]}}]}, f, indent=4)
               with open('data/fixtures.json', 'w') as f: json.dump(unique_fixtures, f, indent=4)
-              
               generate_ics(unique_fixtures)
-              print("🚀 Full season scrape complete.")
 
           if __name__ == "__main__": main()
 
@@ -195,6 +173,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "🟢 No data changes to commit."
           else
-            git commit -m "📊 Automated standings, fixtures, and full-season calendar update"
+            git commit -m "📊 Automated standings, fixtures, and calendar update"
             git push
           fi
