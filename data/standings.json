@@ -13,15 +13,15 @@
                             },
                             "points": 1,
                             "goalsDiff": 0,
-                            "form": "",
+                            "form": "D",
                             "all": {
                                 "played": 1,
                                 "win": 0,
                                 "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 1
+                                    "for": 2,
+                                    "against": 2
                                 }
                             },
                             "highlight": false,
@@ -34,15 +34,15 @@
                             },
                             "points": 1,
                             "goalsDiff": 0,
-                            "form": "",
+                            "form": "D",
                             "all": {
                                 "played": 1,
                                 "win": 0,
                                 "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 1
+                                    "for": 2,
+                                    "against": 2
                                 }
                             },
                             "highlight": false,
