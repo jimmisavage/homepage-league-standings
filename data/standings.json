@@ -12,8 +12,8 @@
                                 "name": "Bolton Wanderers"
                             },
                             "points": 3,
-                            "goalsDiff": 2,
-                            "form": "",
+                            "goalsDiff": 1,
+                            "form": "W",
                             "all": {
                                 "played": 1,
                                 "win": 1,
@@ -21,7 +21,7 @@
                                 "lose": 0,
                                 "goals": {
                                     "for": 2,
-                                    "against": 0
+                                    "against": 1
                                 }
                             },
                             "highlight": false,
@@ -474,15 +474,15 @@
                                 "name": "Preston North End"
                             },
                             "points": 0,
-                            "goalsDiff": -2,
-                            "form": "",
+                            "goalsDiff": -1,
+                            "form": "L",
                             "all": {
                                 "played": 1,
                                 "win": 0,
                                 "draw": 0,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 0,
+                                    "for": 1,
                                     "against": 2
                                 }
                             },
