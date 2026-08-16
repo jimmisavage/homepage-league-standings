@@ -240,6 +240,27 @@
                         {
                             "rank": 12,
                             "team": {
+                                "name": "Watford"
+                            },
+                            "points": 1,
+                            "goalsDiff": 0,
+                            "form": "",
+                            "all": {
+                                "played": 1,
+                                "win": 0,
+                                "draw": 1,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 0
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wrexham (A)"
+                        },
+                        {
+                            "rank": 13,
+                            "team": {
                                 "name": "Burnley"
                             },
                             "points": 0,
@@ -259,7 +280,7 @@
                             "nextUp": "West Bromwich Albion (A)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Cardiff City"
                             },
@@ -278,27 +299,6 @@
                             },
                             "highlight": true,
                             "nextUp": "Wrexham (H)"
-                        },
-                        {
-                            "rank": 14,
-                            "team": {
-                                "name": "Watford"
-                            },
-                            "points": 0,
-                            "goalsDiff": 0,
-                            "form": "",
-                            "all": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 0,
-                                "goals": {
-                                    "for": 0,
-                                    "against": 0
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wrexham (A)"
                         },
                         {
                             "rank": 15,
@@ -494,13 +494,13 @@
                             "team": {
                                 "name": "Southampton"
                             },
-                            "points": -4,
+                            "points": -3,
                             "goalsDiff": 0,
                             "form": "",
                             "all": {
-                                "played": 0,
+                                "played": 1,
                                 "win": 0,
-                                "draw": 0,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
                                     "for": 0,
