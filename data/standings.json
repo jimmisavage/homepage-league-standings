@@ -160,7 +160,7 @@
                             },
                             "points": 3,
                             "goalsDiff": 1,
-                            "form": "",
+                            "form": "W",
                             "all": {
                                 "played": 1,
                                 "win": 1,
@@ -496,7 +496,7 @@
                             },
                             "points": -4,
                             "goalsDiff": -1,
-                            "form": "",
+                            "form": "L",
                             "all": {
                                 "played": 1,
                                 "win": 0,
