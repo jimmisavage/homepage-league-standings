@@ -93,6 +93,27 @@
                         {
                             "rank": 5,
                             "team": {
+                                "name": "Cardiff City"
+                            },
+                            "points": 4,
+                            "goalsDiff": 1,
+                            "form": "D",
+                            "all": {
+                                "played": 2,
+                                "win": 1,
+                                "draw": 1,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 3,
+                                    "against": 2
+                                }
+                            },
+                            "highlight": true,
+                            "nextUp": "Sheffield United (H)"
+                        },
+                        {
+                            "rank": 6,
+                            "team": {
                                 "name": "Watford"
                             },
                             "points": 4,
@@ -112,7 +133,7 @@
                             "nextUp": "West Ham United (H)"
                         },
                         {
-                            "rank": 6,
+                            "rank": 7,
                             "team": {
                                 "name": "Wolverhampton Wanderers"
                             },
@@ -133,7 +154,7 @@
                             "nextUp": "Stoke City (H)"
                         },
                         {
-                            "rank": 7,
+                            "rank": 8,
                             "team": {
                                 "name": "Swansea City"
                             },
@@ -154,7 +175,7 @@
                             "nextUp": "Derby County (A)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 9,
                             "team": {
                                 "name": "Bolton Wanderers"
                             },
@@ -175,7 +196,7 @@
                             "nextUp": "Lincoln City (H)"
                         },
                         {
-                            "rank": 9,
+                            "rank": 10,
                             "team": {
                                 "name": "West Bromwich Albion"
                             },
@@ -196,7 +217,7 @@
                             "nextUp": "Burnley (H)"
                         },
                         {
-                            "rank": 10,
+                            "rank": 11,
                             "team": {
                                 "name": "Portsmouth"
                             },
@@ -215,27 +236,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Bristol City (A)"
-                        },
-                        {
-                            "rank": 11,
-                            "team": {
-                                "name": "Cardiff City"
-                            },
-                            "points": 2,
-                            "goalsDiff": 0,
-                            "form": "D",
-                            "all": {
-                                "played": 2,
-                                "win": 0,
-                                "draw": 2,
-                                "lose": 0,
-                                "goals": {
-                                    "for": 2,
-                                    "against": 2
-                                }
-                            },
-                            "highlight": true,
-                            "nextUp": "Sheffield United (H)"
                         },
                         {
                             "rank": 12,
@@ -366,7 +366,7 @@
                         {
                             "rank": 18,
                             "team": {
-                                "name": "Derby County"
+                                "name": "Stoke City"
                             },
                             "points": 1,
                             "goalsDiff": -1,
@@ -382,7 +382,7 @@
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Swansea City (H)"
+                            "nextUp": "Wolverhampton Wanderers (A)"
                         },
                         {
                             "rank": 19,
@@ -408,6 +408,27 @@
                         {
                             "rank": 20,
                             "team": {
+                                "name": "Derby County"
+                            },
+                            "points": 0,
+                            "goalsDiff": -2,
+                            "form": "L",
+                            "all": {
+                                "played": 2,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 2,
+                                    "against": 4
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Swansea City (H)"
+                        },
+                        {
+                            "rank": 21,
+                            "team": {
                                 "name": "Preston North End"
                             },
                             "points": 0,
@@ -425,27 +446,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Charlton Athletic (A)"
-                        },
-                        {
-                            "rank": 21,
-                            "team": {
-                                "name": "Stoke City"
-                            },
-                            "points": 0,
-                            "goalsDiff": -2,
-                            "form": "L",
-                            "all": {
-                                "played": 2,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 1,
-                                    "against": 3
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wolverhampton Wanderers (A)"
                         },
                         {
                             "rank": 22,
@@ -494,17 +494,17 @@
                             "team": {
                                 "name": "Southampton"
                             },
-                            "points": -1,
-                            "goalsDiff": 0,
+                            "points": -3,
+                            "goalsDiff": -1,
                             "form": "L",
                             "all": {
                                 "played": 2,
-                                "win": 1,
-                                "draw": 0,
+                                "win": 0,
+                                "draw": 1,
                                 "lose": 1,
                                 "goals": {
                                     "for": 2,
-                                    "against": 2
+                                    "against": 3
                                 }
                             },
                             "highlight": false,
