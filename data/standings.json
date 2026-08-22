@@ -34,7 +34,7 @@
                             },
                             "points": 6,
                             "goalsDiff": 2,
-                            "form": "W",
+                            "form": "WW",
                             "all": {
                                 "played": 2,
                                 "win": 2,
@@ -54,8 +54,8 @@
                                 "name": "Wolverhampton Wanderers"
                             },
                             "points": 4,
-                            "goalsDiff": 3,
-                            "form": "D",
+                            "goalsDiff": 2,
+                            "form": "DW",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -63,7 +63,7 @@
                                 "lose": 0,
                                 "goals": {
                                     "for": 5,
-                                    "against": 2
+                                    "against": 3
                                 }
                             },
                             "highlight": false,
@@ -76,7 +76,7 @@
                             },
                             "points": 4,
                             "goalsDiff": 2,
-                            "form": "W",
+                            "form": "WD",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -97,7 +97,7 @@
                             },
                             "points": 4,
                             "goalsDiff": 1,
-                            "form": "D",
+                            "form": "DW",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -118,7 +118,7 @@
                             },
                             "points": 4,
                             "goalsDiff": 1,
-                            "form": "W",
+                            "form": "WD",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -139,7 +139,7 @@
                             },
                             "points": 4,
                             "goalsDiff": 1,
-                            "form": "W",
+                            "form": "WD",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -160,7 +160,7 @@
                             },
                             "points": 4,
                             "goalsDiff": 1,
-                            "form": "W",
+                            "form": "WD",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -223,7 +223,7 @@
                             },
                             "points": 3,
                             "goalsDiff": 0,
-                            "form": "W",
+                            "form": "WL",
                             "all": {
                                 "played": 2,
                                 "win": 1,
@@ -244,7 +244,7 @@
                             },
                             "points": 2,
                             "goalsDiff": 0,
-                            "form": "D",
+                            "form": "DD",
                             "all": {
                                 "played": 2,
                                 "win": 0,
@@ -265,7 +265,7 @@
                             },
                             "points": 2,
                             "goalsDiff": 0,
-                            "form": "D",
+                            "form": "DD",
                             "all": {
                                 "played": 2,
                                 "win": 0,
@@ -307,7 +307,7 @@
                             },
                             "points": 2,
                             "goalsDiff": 0,
-                            "form": "D",
+                            "form": "DD",
                             "all": {
                                 "played": 2,
                                 "win": 0,
@@ -349,7 +349,7 @@
                             },
                             "points": 1,
                             "goalsDiff": -1,
-                            "form": "D",
+                            "form": "DL",
                             "all": {
                                 "played": 2,
                                 "win": 0,
@@ -370,7 +370,7 @@
                             },
                             "points": 1,
                             "goalsDiff": -1,
-                            "form": "L",
+                            "form": "LD",
                             "all": {
                                 "played": 2,
                                 "win": 0,
@@ -408,27 +408,6 @@
                         {
                             "rank": 20,
                             "team": {
-                                "name": "Stoke City"
-                            },
-                            "points": 0,
-                            "goalsDiff": -2,
-                            "form": "L",
-                            "all": {
-                                "played": 2,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 2,
-                                    "against": 4
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wolverhampton Wanderers (A)"
-                        },
-                        {
-                            "rank": 21,
-                            "team": {
                                 "name": "Lincoln City"
                             },
                             "points": 0,
@@ -448,25 +427,46 @@
                             "nextUp": "Bolton Wanderers (A)"
                         },
                         {
-                            "rank": 22,
+                            "rank": 21,
                             "team": {
                                 "name": "Preston North End"
                             },
                             "points": 0,
-                            "goalsDiff": -4,
-                            "form": "L",
+                            "goalsDiff": -3,
+                            "form": "LL",
                             "all": {
                                 "played": 2,
                                 "win": 0,
                                 "draw": 0,
                                 "lose": 2,
                                 "goals": {
-                                    "for": 1,
+                                    "for": 2,
                                     "against": 5
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Charlton Athletic (A)"
+                        },
+                        {
+                            "rank": 22,
+                            "team": {
+                                "name": "Stoke City"
+                            },
+                            "points": 0,
+                            "goalsDiff": -3,
+                            "form": "LL",
+                            "all": {
+                                "played": 2,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 2,
+                                    "against": 5
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wolverhampton Wanderers (A)"
                         },
                         {
                             "rank": 23,
@@ -495,15 +495,15 @@
                                 "name": "Southampton"
                             },
                             "points": -1,
-                            "goalsDiff": 0,
-                            "form": "L",
+                            "goalsDiff": 1,
+                            "form": "LW",
                             "all": {
                                 "played": 2,
                                 "win": 1,
                                 "draw": 0,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 3,
+                                    "for": 4,
                                     "against": 3
                                 }
                             },
