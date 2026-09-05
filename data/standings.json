@@ -11,13 +11,13 @@
                             "team": {
                                 "name": "Swansea City"
                             },
-                            "points": 10,
+                            "points": 11,
                             "goalsDiff": 6,
                             "form": "WDWW",
                             "all": {
-                                "played": 4,
+                                "played": 5,
                                 "win": 3,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 0,
                                 "goals": {
                                     "for": 7,
@@ -198,6 +198,27 @@
                         {
                             "rank": 10,
                             "team": {
+                                "name": "Wrexham"
+                            },
+                            "points": 6,
+                            "goalsDiff": 2,
+                            "form": "DDLW",
+                            "all": {
+                                "played": 5,
+                                "win": 1,
+                                "draw": 3,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 6,
+                                    "against": 4
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (A)"
+                        },
+                        {
+                            "rank": 11,
+                            "team": {
                                 "name": "Birmingham City"
                             },
                             "points": 6,
@@ -217,7 +238,7 @@
                             "nextUp": "Sheffield United (A)"
                         },
                         {
-                            "rank": 11,
+                            "rank": 12,
                             "team": {
                                 "name": "Norwich City"
                             },
@@ -238,7 +259,7 @@
                             "nextUp": "West Bromwich Albion (H)"
                         },
                         {
-                            "rank": 12,
+                            "rank": 13,
                             "team": {
                                 "name": "Stoke City"
                             },
@@ -259,7 +280,7 @@
                             "nextUp": "Swansea City (H)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Portsmouth"
                             },
@@ -280,7 +301,7 @@
                             "nextUp": "Queens Park Rangers (H)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Sheffield United"
                             },
@@ -299,27 +320,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Birmingham City (H)"
-                        },
-                        {
-                            "rank": 15,
-                            "team": {
-                                "name": "Wrexham"
-                            },
-                            "points": 5,
-                            "goalsDiff": 2,
-                            "form": "DDLW",
-                            "all": {
-                                "played": 4,
-                                "win": 1,
-                                "draw": 2,
-                                "lose": 1,
-                                "goals": {
-                                    "for": 6,
-                                    "against": 4
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (A)"
                         },
                         {
                             "rank": 16,
