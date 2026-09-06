@@ -179,17 +179,17 @@
                             "team": {
                                 "name": "Wolverhampton Wanderers"
                             },
-                            "points": 7,
+                            "points": 8,
                             "goalsDiff": 3,
-                            "form": "DWWL",
+                            "form": "DWWLD",
                             "all": {
-                                "played": 4,
+                                "played": 5,
                                 "win": 2,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 11,
-                                    "against": 8
+                                    "for": 13,
+                                    "against": 10
                                 }
                             },
                             "highlight": false,
@@ -197,6 +197,27 @@
                         },
                         {
                             "rank": 10,
+                            "team": {
+                                "name": "Birmingham City"
+                            },
+                            "points": 7,
+                            "goalsDiff": 1,
+                            "form": "DDWDD",
+                            "all": {
+                                "played": 5,
+                                "win": 1,
+                                "draw": 4,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 7,
+                                    "against": 6
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Sheffield United (A)"
+                        },
+                        {
+                            "rank": 11,
                             "team": {
                                 "name": "Wrexham"
                             },
@@ -215,27 +236,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Cardiff City (A)"
-                        },
-                        {
-                            "rank": 11,
-                            "team": {
-                                "name": "Birmingham City"
-                            },
-                            "points": 6,
-                            "goalsDiff": 1,
-                            "form": "DDWD",
-                            "all": {
-                                "played": 4,
-                                "win": 1,
-                                "draw": 3,
-                                "lose": 0,
-                                "goals": {
-                                    "for": 5,
-                                    "against": 4
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Sheffield United (A)"
                         },
                         {
                             "rank": 12,
