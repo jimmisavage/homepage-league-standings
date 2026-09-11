@@ -9,6 +9,27 @@
                         {
                             "rank": 1,
                             "team": {
+                                "name": "West Ham United"
+                            },
+                            "points": 14,
+                            "goalsDiff": 11,
+                            "form": "LDWWWW",
+                            "all": {
+                                "played": 7,
+                                "win": 4,
+                                "draw": 2,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 20,
+                                    "against": 9
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Burnley (A)"
+                        },
+                        {
+                            "rank": 2,
+                            "team": {
                                 "name": "West Bromwich Albion"
                             },
                             "points": 13,
@@ -26,27 +47,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Norwich City (A)"
-                        },
-                        {
-                            "rank": 2,
-                            "team": {
-                                "name": "West Ham United"
-                            },
-                            "points": 11,
-                            "goalsDiff": 5,
-                            "form": "DLDWWW",
-                            "all": {
-                                "played": 6,
-                                "win": 3,
-                                "draw": 2,
-                                "lose": 1,
-                                "goals": {
-                                    "for": 14,
-                                    "against": 9
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Burnley (A)"
                         },
                         {
                             "rank": 3,
@@ -282,27 +282,6 @@
                         {
                             "rank": 14,
                             "team": {
-                                "name": "Wrexham"
-                            },
-                            "points": 7,
-                            "goalsDiff": 2,
-                            "form": "DDLWDD",
-                            "all": {
-                                "played": 6,
-                                "win": 1,
-                                "draw": 4,
-                                "lose": 1,
-                                "goals": {
-                                    "for": 7,
-                                    "against": 5
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (A)"
-                        },
-                        {
-                            "rank": 15,
-                            "team": {
                                 "name": "Birmingham City"
                             },
                             "points": 7,
@@ -322,7 +301,7 @@
                             "nextUp": "Sheffield United (A)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 15,
                             "team": {
                                 "name": "Stoke City"
                             },
@@ -341,6 +320,27 @@
                             },
                             "highlight": false,
                             "nextUp": "Swansea City (H)"
+                        },
+                        {
+                            "rank": 16,
+                            "team": {
+                                "name": "Wrexham"
+                            },
+                            "points": 7,
+                            "goalsDiff": -4,
+                            "form": "DLWDDL",
+                            "all": {
+                                "played": 7,
+                                "win": 1,
+                                "draw": 4,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 7,
+                                    "against": 11
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (A)"
                         },
                         {
                             "rank": 17,
