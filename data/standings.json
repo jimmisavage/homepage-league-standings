@@ -307,7 +307,7 @@
                             },
                             "points": 10,
                             "goalsDiff": -4,
-                            "form": "DLLLLW",
+                            "form": "LLLLWW",
                             "all": {
                                 "played": 8,
                                 "win": 3,
@@ -349,7 +349,7 @@
                             },
                             "points": 9,
                             "goalsDiff": -1,
-                            "form": "LWLWWL",
+                            "form": "WLWWLL",
                             "all": {
                                 "played": 8,
                                 "win": 3,
