@@ -32,17 +32,17 @@
                             "team": {
                                 "name": "West Ham United"
                             },
-                            "points": 15,
+                            "points": 16,
                             "goalsDiff": 11,
-                            "form": "DWWWWD",
+                            "form": "WWWWDD",
                             "all": {
-                                "played": 8,
+                                "played": 9,
                                 "win": 4,
-                                "draw": 3,
+                                "draw": 4,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 22,
-                                    "against": 11
+                                    "for": 23,
+                                    "against": 12
                                 }
                             },
                             "highlight": false,
@@ -93,6 +93,27 @@
                         {
                             "rank": 5,
                             "team": {
+                                "name": "Queens Park Rangers"
+                            },
+                            "points": 14,
+                            "goalsDiff": 3,
+                            "form": "WLDDDD",
+                            "all": {
+                                "played": 9,
+                                "win": 3,
+                                "draw": 5,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 11,
+                                    "against": 8
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (H)"
+                        },
+                        {
+                            "rank": 6,
+                            "team": {
                                 "name": "West Bromwich Albion"
                             },
                             "points": 14,
@@ -110,27 +131,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Charlton Athletic (H)"
-                        },
-                        {
-                            "rank": 6,
-                            "team": {
-                                "name": "Queens Park Rangers"
-                            },
-                            "points": 13,
-                            "goalsDiff": 3,
-                            "form": "WWLDDD",
-                            "all": {
-                                "played": 8,
-                                "win": 3,
-                                "draw": 4,
-                                "lose": 1,
-                                "goals": {
-                                    "for": 10,
-                                    "against": 7
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (H)"
                         },
                         {
                             "rank": 7,
