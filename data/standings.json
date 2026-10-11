@@ -219,6 +219,27 @@
                         {
                             "rank": 11,
                             "team": {
+                                "name": "Southampton"
+                            },
+                            "points": 13,
+                            "goalsDiff": 10,
+                            "form": "DDWWLW",
+                            "all": {
+                                "played": 9,
+                                "win": 5,
+                                "draw": 2,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 20,
+                                    "against": 10
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Birmingham City (A)"
+                        },
+                        {
+                            "rank": 12,
+                            "team": {
                                 "name": "Charlton Athletic"
                             },
                             "points": 13,
@@ -238,7 +259,7 @@
                             "nextUp": "West Bromwich Albion (A)"
                         },
                         {
-                            "rank": 12,
+                            "rank": 13,
                             "team": {
                                 "name": "Blackburn Rovers"
                             },
@@ -259,7 +280,7 @@
                             "nextUp": "Lincoln City (A)"
                         },
                         {
-                            "rank": 13,
+                            "rank": 14,
                             "team": {
                                 "name": "Sheffield United"
                             },
@@ -280,7 +301,7 @@
                             "nextUp": "Bolton Wanderers (H)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 15,
                             "team": {
                                 "name": "Wrexham"
                             },
@@ -301,7 +322,7 @@
                             "nextUp": "Millwall (A)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 16,
                             "team": {
                                 "name": "Lincoln City"
                             },
@@ -320,27 +341,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Blackburn Rovers (H)"
-                        },
-                        {
-                            "rank": 16,
-                            "team": {
-                                "name": "Southampton"
-                            },
-                            "points": 10,
-                            "goalsDiff": 9,
-                            "form": "WDDWWL",
-                            "all": {
-                                "played": 8,
-                                "win": 4,
-                                "draw": 2,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 19,
-                                    "against": 10
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Birmingham City (A)"
                         },
                         {
                             "rank": 17,
@@ -390,16 +390,16 @@
                                 "name": "Portsmouth"
                             },
                             "points": 8,
-                            "goalsDiff": -1,
-                            "form": "WLLWDD",
+                            "goalsDiff": -2,
+                            "form": "LLWDDL",
                             "all": {
-                                "played": 7,
+                                "played": 8,
                                 "win": 2,
                                 "draw": 2,
-                                "lose": 3,
+                                "lose": 4,
                                 "goals": {
                                     "for": 9,
-                                    "against": 10
+                                    "against": 11
                                 }
                             },
                             "highlight": false,
