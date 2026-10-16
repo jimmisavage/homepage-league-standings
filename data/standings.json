@@ -114,6 +114,27 @@
                         {
                             "rank": 6,
                             "team": {
+                                "name": "Wolverhampton Wanderers"
+                            },
+                            "points": 17,
+                            "goalsDiff": 3,
+                            "form": "DWWLLW",
+                            "all": {
+                                "played": 10,
+                                "win": 5,
+                                "draw": 2,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 18,
+                                    "against": 15
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "West Ham United (A)"
+                        },
+                        {
+                            "rank": 7,
+                            "team": {
                                 "name": "West Bromwich Albion"
                             },
                             "points": 17,
@@ -133,7 +154,7 @@
                             "nextUp": "Charlton Athletic (H)"
                         },
                         {
-                            "rank": 7,
+                            "rank": 8,
                             "team": {
                                 "name": "Southampton"
                             },
@@ -154,7 +175,7 @@
                             "nextUp": "Birmingham City (A)"
                         },
                         {
-                            "rank": 8,
+                            "rank": 9,
                             "team": {
                                 "name": "Stoke City"
                             },
@@ -175,7 +196,7 @@
                             "nextUp": "Norwich City (H)"
                         },
                         {
-                            "rank": 9,
+                            "rank": 10,
                             "team": {
                                 "name": "Blackburn Rovers"
                             },
@@ -194,27 +215,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Lincoln City (A)"
-                        },
-                        {
-                            "rank": 10,
-                            "team": {
-                                "name": "Wolverhampton Wanderers"
-                            },
-                            "points": 14,
-                            "goalsDiff": 2,
-                            "form": "LDWWLL",
-                            "all": {
-                                "played": 9,
-                                "win": 4,
-                                "draw": 2,
-                                "lose": 3,
-                                "goals": {
-                                    "for": 16,
-                                    "against": 14
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "West Ham United (A)"
                         },
                         {
                             "rank": 11,
@@ -432,16 +432,16 @@
                                 "name": "Burnley"
                             },
                             "points": 8,
-                            "goalsDiff": -4,
-                            "form": "LDLDWD",
+                            "goalsDiff": -5,
+                            "form": "DLDWDL",
                             "all": {
-                                "played": 10,
+                                "played": 11,
                                 "win": 1,
                                 "draw": 5,
-                                "lose": 4,
+                                "lose": 5,
                                 "goals": {
-                                    "for": 15,
-                                    "against": 19
+                                    "for": 16,
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
