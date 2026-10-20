@@ -135,6 +135,27 @@
                         {
                             "rank": 7,
                             "team": {
+                                "name": "Wolverhampton Wanderers"
+                            },
+                            "points": 18,
+                            "goalsDiff": 3,
+                            "form": "WWLLWD",
+                            "all": {
+                                "played": 11,
+                                "win": 5,
+                                "draw": 3,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 16
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "West Ham United (A)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
                                 "name": "Southampton"
                             },
                             "points": 17,
@@ -152,27 +173,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Birmingham City (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
-                                "name": "Wolverhampton Wanderers"
-                            },
-                            "points": 17,
-                            "goalsDiff": 3,
-                            "form": "DWWLLW",
-                            "all": {
-                                "played": 10,
-                                "win": 5,
-                                "draw": 2,
-                                "lose": 3,
-                                "goals": {
-                                    "for": 18,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "West Ham United (A)"
                         },
                         {
                             "rank": 9,
@@ -263,17 +263,17 @@
                             "team": {
                                 "name": "Portsmouth"
                             },
-                            "points": 14,
+                            "points": 15,
                             "goalsDiff": 0,
-                            "form": "WDDLWW",
+                            "form": "DDLWWD",
                             "all": {
-                                "played": 10,
+                                "played": 11,
                                 "win": 4,
-                                "draw": 2,
+                                "draw": 3,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 13,
-                                    "against": 13
+                                    "for": 14,
+                                    "against": 14
                                 }
                             },
                             "highlight": false,
