@@ -33,16 +33,16 @@
                                 "name": "Swansea City"
                             },
                             "points": 23,
-                            "goalsDiff": 8,
+                            "goalsDiff": 4,
                             "form": "LWWWWL",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 7,
                                 "draw": 2,
-                                "lose": 2,
+                                "lose": 3,
                                 "goals": {
                                     "for": 16,
-                                    "against": 8
+                                    "against": 12
                                 }
                             },
                             "highlight": false,
@@ -54,16 +54,16 @@
                                 "name": "West Ham United"
                             },
                             "points": 22,
-                            "goalsDiff": 18,
+                            "goalsDiff": 16,
                             "form": "WWDDWW",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 6,
                                 "draw": 4,
-                                "lose": 1,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 30,
-                                    "against": 12
+                                    "for": 31,
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
@@ -72,36 +72,36 @@
                         {
                             "rank": 4,
                             "team": {
-                                "name": "Birmingham City"
+                                "name": "Wolverhampton Wanderers"
                             },
-                            "points": 20,
-                            "goalsDiff": 9,
-                            "form": "LWDWWW",
+                            "points": 21,
+                            "goalsDiff": 4,
+                            "form": "WWLLWD",
                             "all": {
-                                "played": 11,
-                                "win": 5,
-                                "draw": 5,
-                                "lose": 1,
+                                "played": 12,
+                                "win": 6,
+                                "draw": 3,
+                                "lose": 3,
                                 "goals": {
                                     "for": 20,
-                                    "against": 11
+                                    "against": 16
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Southampton (H)"
+                            "nextUp": "West Ham United (A)"
                         },
                         {
                             "rank": 5,
                             "team": {
                                 "name": "West Bromwich Albion"
                             },
-                            "points": 20,
+                            "points": 21,
                             "goalsDiff": 3,
                             "form": "WDLLWW",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 6,
-                                "draw": 2,
+                                "draw": 3,
                                 "lose": 3,
                                 "goals": {
                                     "for": 15,
@@ -114,15 +114,78 @@
                         {
                             "rank": 6,
                             "team": {
+                                "name": "Southampton"
+                            },
+                            "points": 20,
+                            "goalsDiff": 13,
+                            "form": "WWLWWD",
+                            "all": {
+                                "played": 12,
+                                "win": 7,
+                                "draw": 3,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 24,
+                                    "against": 11
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Birmingham City (A)"
+                        },
+                        {
+                            "rank": 7,
+                            "team": {
+                                "name": "Birmingham City"
+                            },
+                            "points": 20,
+                            "goalsDiff": 8,
+                            "form": "LWDWWW",
+                            "all": {
+                                "played": 12,
+                                "win": 5,
+                                "draw": 5,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 20,
+                                    "against": 12
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Southampton (H)"
+                        },
+                        {
+                            "rank": 8,
+                            "team": {
+                                "name": "Queens Park Rangers"
+                            },
+                            "points": 20,
+                            "goalsDiff": 7,
+                            "form": "DDDDWL",
+                            "all": {
+                                "played": 12,
+                                "win": 5,
+                                "draw": 5,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 12
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Cardiff City (H)"
+                        },
+                        {
+                            "rank": 9,
+                            "team": {
                                 "name": "Stoke City"
                             },
-                            "points": 19,
+                            "points": 20,
                             "goalsDiff": 2,
                             "form": "DWWWLW",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 6,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 4,
                                 "goals": {
                                     "for": 18,
@@ -133,83 +196,20 @@
                             "nextUp": "Norwich City (H)"
                         },
                         {
-                            "rank": 7,
-                            "team": {
-                                "name": "Wolverhampton Wanderers"
-                            },
-                            "points": 18,
-                            "goalsDiff": 3,
-                            "form": "WWLLWD",
-                            "all": {
-                                "played": 11,
-                                "win": 5,
-                                "draw": 3,
-                                "lose": 3,
-                                "goals": {
-                                    "for": 19,
-                                    "against": 16
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "West Ham United (A)"
-                        },
-                        {
-                            "rank": 8,
-                            "team": {
-                                "name": "Southampton"
-                            },
-                            "points": 17,
-                            "goalsDiff": 11,
-                            "form": "WWLWWD",
-                            "all": {
-                                "played": 11,
-                                "win": 6,
-                                "draw": 3,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 21,
-                                    "against": 10
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Birmingham City (A)"
-                        },
-                        {
-                            "rank": 9,
-                            "team": {
-                                "name": "Queens Park Rangers"
-                            },
-                            "points": 17,
-                            "goalsDiff": 3,
-                            "form": "DDDDWL",
-                            "all": {
-                                "played": 11,
-                                "win": 4,
-                                "draw": 5,
-                                "lose": 2,
-                                "goals": {
-                                    "for": 15,
-                                    "against": 12
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Cardiff City (H)"
-                        },
-                        {
                             "rank": 10,
                             "team": {
                                 "name": "Blackburn Rovers"
                             },
-                            "points": 15,
-                            "goalsDiff": 1,
+                            "points": 18,
+                            "goalsDiff": 2,
                             "form": "LWDWWL",
                             "all": {
-                                "played": 11,
-                                "win": 4,
+                                "played": 12,
+                                "win": 5,
                                 "draw": 3,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 17,
+                                    "for": 18,
                                     "against": 16
                                 }
                             },
@@ -219,99 +219,78 @@
                         {
                             "rank": 11,
                             "team": {
-                                "name": "Sheffield United"
-                            },
-                            "points": 15,
-                            "goalsDiff": 1,
-                            "form": "WLLWLW",
-                            "all": {
-                                "played": 11,
-                                "win": 4,
-                                "draw": 3,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 15,
-                                    "against": 14
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
-                        },
-                        {
-                            "rank": 12,
-                            "team": {
-                                "name": "Millwall"
-                            },
-                            "points": 15,
-                            "goalsDiff": 0,
-                            "form": "LDDWLD",
-                            "all": {
-                                "played": 11,
-                                "win": 4,
-                                "draw": 3,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 18,
-                                    "against": 18
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Wrexham (H)"
-                        },
-                        {
-                            "rank": 13,
-                            "team": {
                                 "name": "Portsmouth"
                             },
-                            "points": 15,
-                            "goalsDiff": 0,
-                            "form": "DDLWWD",
+                            "points": 18,
+                            "goalsDiff": 1,
+                            "form": "DLWWDW",
                             "all": {
-                                "played": 11,
-                                "win": 4,
+                                "played": 12,
+                                "win": 5,
                                 "draw": 3,
                                 "lose": 4,
                                 "goals": {
-                                    "for": 14,
-                                    "against": 14
+                                    "for": 16,
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Derby County (H)"
                         },
                         {
-                            "rank": 14,
+                            "rank": 12,
                             "team": {
-                                "name": "Wrexham"
+                                "name": "Sheffield United"
                             },
-                            "points": 14,
-                            "goalsDiff": -1,
-                            "form": "DLWDLW",
+                            "points": 16,
+                            "goalsDiff": 1,
+                            "form": "LLWLWD",
                             "all": {
-                                "played": 11,
-                                "win": 3,
-                                "draw": 5,
-                                "lose": 3,
+                                "played": 12,
+                                "win": 4,
+                                "draw": 4,
+                                "lose": 4,
                                 "goals": {
-                                    "for": 15,
-                                    "against": 16
+                                    "for": 16,
+                                    "against": 15
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "Millwall (A)"
+                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
-                            "rank": 15,
+                            "rank": 13,
+                            "team": {
+                                "name": "Millwall"
+                            },
+                            "points": 15,
+                            "goalsDiff": -1,
+                            "form": "DDWLDL",
+                            "all": {
+                                "played": 12,
+                                "win": 4,
+                                "draw": 3,
+                                "lose": 5,
+                                "goals": {
+                                    "for": 19,
+                                    "against": 20
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Wrexham (H)"
+                        },
+                        {
+                            "rank": 14,
                             "team": {
                                 "name": "Bristol City"
                             },
-                            "points": 14,
+                            "points": 15,
                             "goalsDiff": -3,
                             "form": "LLWDLL",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 4,
-                                "draw": 2,
+                                "draw": 3,
                                 "lose": 5,
                                 "goals": {
                                     "for": 12,
@@ -322,25 +301,46 @@
                             "nextUp": "Preston North End (A)"
                         },
                         {
-                            "rank": 16,
+                            "rank": 15,
                             "team": {
-                                "name": "Charlton Athletic"
+                                "name": "Cardiff City"
                             },
                             "points": 14,
-                            "goalsDiff": -5,
-                            "form": "DDLDDL",
+                            "goalsDiff": 2,
+                            "form": "DLWLWD",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 3,
                                 "draw": 5,
-                                "lose": 3,
+                                "lose": 4,
                                 "goals": {
-                                    "for": 10,
-                                    "against": 15
+                                    "for": 19,
+                                    "against": 17
+                                }
+                            },
+                            "highlight": true,
+                            "nextUp": "Queens Park Rangers (A)"
+                        },
+                        {
+                            "rank": 16,
+                            "team": {
+                                "name": "Wrexham"
+                            },
+                            "points": 14,
+                            "goalsDiff": -2,
+                            "form": "DLWDLW",
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 5,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 15,
+                                    "against": 17
                                 }
                             },
                             "highlight": false,
-                            "nextUp": "West Bromwich Albion (A)"
+                            "nextUp": "Millwall (A)"
                         },
                         {
                             "rank": 17,
@@ -366,103 +366,103 @@
                         {
                             "rank": 18,
                             "team": {
+                                "name": "Charlton Athletic"
+                            },
+                            "points": 14,
+                            "goalsDiff": -7,
+                            "form": "DLDDLL",
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 5,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 11,
+                                    "against": 18
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "West Bromwich Albion (A)"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
                                 "name": "Lincoln City"
                             },
-                            "points": 12,
+                            "points": 13,
                             "goalsDiff": -10,
                             "form": "WWLLLD",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 3,
-                                "draw": 3,
+                                "draw": 4,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 9,
-                                    "against": 19
+                                    "for": 10,
+                                    "against": 20
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Blackburn Rovers (H)"
                         },
                         {
-                            "rank": 19,
-                            "team": {
-                                "name": "Cardiff City"
-                            },
-                            "points": 11,
-                            "goalsDiff": 1,
-                            "form": "DLWLWD",
-                            "all": {
-                                "played": 11,
-                                "win": 2,
-                                "draw": 5,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 18,
-                                    "against": 17
-                                }
-                            },
-                            "highlight": true,
-                            "nextUp": "Queens Park Rangers (A)"
-                        },
-                        {
                             "rank": 20,
-                            "team": {
-                                "name": "Watford"
-                            },
-                            "points": 11,
-                            "goalsDiff": -9,
-                            "form": "WLLLLW",
-                            "all": {
-                                "played": 11,
-                                "win": 3,
-                                "draw": 2,
-                                "lose": 6,
-                                "goals": {
-                                    "for": 10,
-                                    "against": 19
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Swansea City (A)"
-                        },
-                        {
-                            "rank": 21,
                             "team": {
                                 "name": "Norwich City"
                             },
-                            "points": 9,
-                            "goalsDiff": -4,
-                            "form": "WLLLLL",
+                            "points": 12,
+                            "goalsDiff": -2,
+                            "form": "LLLLLW",
                             "all": {
-                                "played": 11,
-                                "win": 3,
+                                "played": 12,
+                                "win": 4,
                                 "draw": 0,
                                 "lose": 8,
                                 "goals": {
-                                    "for": 17,
-                                    "against": 21
+                                    "for": 20,
+                                    "against": 22
                                 }
                             },
                             "highlight": false,
                             "nextUp": "Stoke City (A)"
                         },
                         {
+                            "rank": 21,
+                            "team": {
+                                "name": "Watford"
+                            },
+                            "points": 11,
+                            "goalsDiff": -10,
+                            "form": "WLLLLW",
+                            "all": {
+                                "played": 12,
+                                "win": 3,
+                                "draw": 2,
+                                "lose": 7,
+                                "goals": {
+                                    "for": 10,
+                                    "against": 20
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Swansea City (A)"
+                        },
+                        {
                             "rank": 22,
                             "team": {
                                 "name": "Burnley"
                             },
-                            "points": 8,
+                            "points": 9,
                             "goalsDiff": -5,
                             "form": "DLDWDL",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 1,
-                                "draw": 5,
+                                "draw": 6,
                                 "lose": 5,
                                 "goals": {
-                                    "for": 16,
-                                    "against": 21
+                                    "for": 17,
+                                    "against": 22
                                 }
                             },
                             "highlight": false,
@@ -473,17 +473,17 @@
                             "team": {
                                 "name": "Derby County"
                             },
-                            "points": 6,
+                            "points": 7,
                             "goalsDiff": -11,
-                            "form": "LLDDLL",
+                            "form": "LDDLLD",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 1,
-                                "draw": 3,
+                                "draw": 4,
                                 "lose": 7,
                                 "goals": {
-                                    "for": 9,
-                                    "against": 20
+                                    "for": 10,
+                                    "against": 21
                                 }
                             },
                             "highlight": false,
@@ -494,13 +494,13 @@
                             "team": {
                                 "name": "Preston North End"
                             },
-                            "points": 4,
+                            "points": 5,
                             "goalsDiff": -15,
                             "form": "LLDLLL",
                             "all": {
-                                "played": 11,
+                                "played": 12,
                                 "win": 1,
-                                "draw": 1,
+                                "draw": 2,
                                 "lose": 9,
                                 "goals": {
                                     "for": 9,
