@@ -198,6 +198,27 @@
                         {
                             "rank": 10,
                             "team": {
+                                "name": "Sheffield United"
+                            },
+                            "points": 19,
+                            "goalsDiff": 2,
+                            "form": "LWLWDW",
+                            "all": {
+                                "played": 13,
+                                "win": 5,
+                                "draw": 4,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 17,
+                                    "against": 15
+                                }
+                            },
+                            "highlight": false,
+                            "nextUp": "Bolton Wanderers (H)"
+                        },
+                        {
+                            "rank": 11,
+                            "team": {
                                 "name": "Blackburn Rovers"
                             },
                             "points": 18,
@@ -217,7 +238,7 @@
                             "nextUp": "Lincoln City (A)"
                         },
                         {
-                            "rank": 11,
+                            "rank": 12,
                             "team": {
                                 "name": "Portsmouth"
                             },
@@ -236,27 +257,6 @@
                             },
                             "highlight": false,
                             "nextUp": "Derby County (H)"
-                        },
-                        {
-                            "rank": 12,
-                            "team": {
-                                "name": "Sheffield United"
-                            },
-                            "points": 16,
-                            "goalsDiff": 1,
-                            "form": "LLWLWD",
-                            "all": {
-                                "played": 12,
-                                "win": 4,
-                                "draw": 4,
-                                "lose": 4,
-                                "goals": {
-                                    "for": 16,
-                                    "against": 15
-                                }
-                            },
-                            "highlight": false,
-                            "nextUp": "Bolton Wanderers (H)"
                         },
                         {
                             "rank": 13,
@@ -348,16 +348,16 @@
                                 "name": "Wrexham"
                             },
                             "points": 14,
-                            "goalsDiff": -3,
-                            "form": "LWDLWL",
+                            "goalsDiff": -4,
+                            "form": "WDLWLL",
                             "all": {
-                                "played": 12,
+                                "played": 13,
                                 "win": 3,
                                 "draw": 5,
-                                "lose": 4,
+                                "lose": 5,
                                 "goals": {
                                     "for": 15,
-                                    "against": 18
+                                    "against": 19
                                 }
                             },
                             "highlight": false,
