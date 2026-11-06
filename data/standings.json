@@ -348,16 +348,16 @@
                                 "name": "Bolton Wanderers"
                             },
                             "points": 17,
-                            "goalsDiff": -7,
-                            "form": "LWDLLW",
+                            "goalsDiff": -9,
+                            "form": "WDLLWL",
                             "all": {
-                                "played": 14,
+                                "played": 15,
                                 "win": 5,
                                 "draw": 2,
-                                "lose": 7,
+                                "lose": 8,
                                 "goals": {
-                                    "for": 19,
-                                    "against": 26
+                                    "for": 20,
+                                    "against": 29
                                 }
                             },
                             "highlight": false,
@@ -473,17 +473,17 @@
                             "team": {
                                 "name": "Derby County"
                             },
-                            "points": 7,
-                            "goalsDiff": -18,
-                            "form": "DLLDLL",
+                            "points": 10,
+                            "goalsDiff": -16,
+                            "form": "LLDLLW",
                             "all": {
-                                "played": 14,
-                                "win": 1,
+                                "played": 15,
+                                "win": 2,
                                 "draw": 4,
                                 "lose": 9,
                                 "goals": {
-                                    "for": 11,
-                                    "against": 29
+                                    "for": 14,
+                                    "against": 30
                                 }
                             },
                             "highlight": false,
