@@ -263,17 +263,17 @@
                             "team": {
                                 "name": "Blackburn Rovers"
                             },
-                            "points": 21,
+                            "points": 22,
                             "goalsDiff": -1,
-                            "form": "WLWLLW",
+                            "form": "LWLLWD",
                             "all": {
-                                "played": 15,
+                                "played": 16,
                                 "win": 6,
-                                "draw": 3,
+                                "draw": 4,
                                 "lose": 6,
                                 "goals": {
-                                    "for": 22,
-                                    "against": 23
+                                    "for": 24,
+                                    "against": 25
                                 }
                             },
                             "highlight": false,
@@ -452,17 +452,17 @@
                             "team": {
                                 "name": "Burnley"
                             },
-                            "points": 10,
+                            "points": 11,
                             "goalsDiff": -9,
-                            "form": "DLLDDL",
+                            "form": "LLDDLD",
                             "all": {
-                                "played": 15,
+                                "played": 16,
                                 "win": 1,
-                                "draw": 7,
+                                "draw": 8,
                                 "lose": 7,
                                 "goals": {
-                                    "for": 22,
-                                    "against": 31
+                                    "for": 24,
+                                    "against": 33
                                 }
                             },
                             "highlight": false,
