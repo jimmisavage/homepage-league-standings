@@ -12,16 +12,16 @@
                                 "name": "Middlesbrough"
                             },
                             "points": 35,
-                            "goalsDiff": 14,
-                            "form": "WWLDWW",
+                            "goalsDiff": 12,
+                            "form": "WLDWWL",
                             "all": {
-                                "played": 17,
+                                "played": 18,
                                 "win": 10,
                                 "draw": 5,
-                                "lose": 2,
+                                "lose": 3,
                                 "goals": {
                                     "for": 34,
-                                    "against": 20
+                                    "against": 22
                                 }
                             },
                             "highlight": false,
@@ -116,16 +116,16 @@
                             "team": {
                                 "name": "Southampton"
                             },
-                            "points": 28,
-                            "goalsDiff": 16,
-                            "form": "WWDLWD",
+                            "points": 31,
+                            "goalsDiff": 18,
+                            "form": "WDLWDW",
                             "all": {
-                                "played": 17,
-                                "win": 9,
+                                "played": 18,
+                                "win": 10,
                                 "draw": 5,
                                 "lose": 3,
                                 "goals": {
-                                    "for": 32,
+                                    "for": 34,
                                     "against": 16
                                 }
                             },
